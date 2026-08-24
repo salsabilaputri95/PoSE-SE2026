@@ -307,11 +307,166 @@ function processMonitoringCSV(rows) {
 }
 
 /**
- * Process Anomali CSV Data
+ * Process Anomali CSV Data directly from Google Sheets (gid=105002898)
  */
 function processAnomaliCSV(rows) {
   if (!rows || rows.length < 2) return false;
-  // Anomali spreadsheet has real logs of anomalies
+
+  const header = rows[0].map(h => (h || '').toUpperCase());
+  const pplIdx = header.findIndex(h => h === 'PPL' || (h.includes('PPL') && !h.includes('PML')));
+  const pmlIdx = header.findIndex(h => h === 'PML' || h.includes('PML'));
+  const kecIdx = header.findIndex(h => h.includes('NAMA KECAMATAN') || (h.includes('KECAMATAN') && !h.includes('KODE')));
+  const statusIdx = header.findIndex(h => h.includes('TINDAK') || h.includes('STATUS'));
+
+  if (kecIdx === -1) return false;
+
+  const kecMap = {};
+  POSE_DATA.kecamatanList.forEach(k => {
+    kecMap[k.toUpperCase()] = {
+      nama: k,
+      total: 0,
+      belum: 0,
+      catatan: 0,
+      perbaikan: 0,
+      pplMap: {},
+      pmlMap: {}
+    };
+  });
+
+  let totalKab = 0;
+  let belumKab = 0;
+  let catatanKab = 0;
+  let perbaikanKab = 0;
+
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i];
+    const rawKec = (r[kecIdx] || '').trim().toUpperCase();
+    const ppl = pplIdx !== -1 ? (r[pplIdx] || '').trim() : '';
+    const pml = pmlIdx !== -1 ? (r[pmlIdx] || '').trim() : '';
+    const status = statusIdx !== -1 ? (r[statusIdx] || '').trim() : '';
+
+    if (!rawKec) continue;
+
+    let matchedKecKey = null;
+    for (const key of Object.keys(kecMap)) {
+      if (rawKec === key || rawKec.replace('KECAMATAN', '').replace('KEC.', '').trim() === key) {
+        matchedKecKey = key;
+        break;
+      }
+    }
+    if (!matchedKecKey) continue;
+
+    const kecObj = kecMap[matchedKecKey];
+    totalKab++;
+    kecObj.total++;
+
+    let isPerbaikan = status.toLowerCase().includes('perbaikan');
+    let isCatatan = status.toLowerCase().includes('penjelasan') || status.toLowerCase().includes('catatan');
+    let isBelum = !isPerbaikan && !isCatatan;
+
+    if (isPerbaikan) {
+      perbaikanKab++;
+      kecObj.perbaikan++;
+    } else if (isCatatan) {
+      catatanKab++;
+      kecObj.catatan++;
+    } else {
+      belumKab++;
+      kecObj.belum++;
+    }
+
+    if (ppl) {
+      if (!kecObj.pplMap[ppl]) {
+        kecObj.pplMap[ppl] = { nama: ppl, total: 0, belum: 0, catatan: 0, perbaikan: 0 };
+      }
+      kecObj.pplMap[ppl].total++;
+      if (isPerbaikan) kecObj.pplMap[ppl].perbaikan++;
+      else if (isCatatan) kecObj.pplMap[ppl].catatan++;
+      else kecObj.pplMap[ppl].belum++;
+    }
+
+    if (pml) {
+      if (!kecObj.pmlMap[pml]) {
+        kecObj.pmlMap[pml] = { nama: pml, total: 0, belum: 0, catatan: 0, perbaikan: 0 };
+      }
+      kecObj.pmlMap[pml].total++;
+      if (isPerbaikan) kecObj.pmlMap[pml].perbaikan++;
+      else if (isCatatan) kecObj.pmlMap[pml].catatan++;
+      else kecObj.pmlMap[pml].belum++;
+    }
+  }
+
+  // Update POSE_DATA
+  Object.keys(kecMap).forEach(key => {
+    const item = kecMap[key];
+    const namaKec = item.nama;
+    const total = item.total || 1;
+
+    const pBelum = Math.round((item.belum / total) * 1000) / 10;
+    const pCatatan = Math.round((item.catatan / total) * 1000) / 10;
+    const pPerbaikan = Math.round((item.perbaikan / total) * 1000) / 10;
+
+    // Update progresKecamatan
+    const idx = POSE_DATA.progresKecamatan.findIndex(p => p.nama === namaKec);
+    if (idx !== -1) {
+      POSE_DATA.progresKecamatan[idx].anomaliBelum = pBelum;
+      POSE_DATA.progresKecamatan[idx].anomaliCatatan = pCatatan;
+      POSE_DATA.progresKecamatan[idx].anomaliPerbaikan = pPerbaikan;
+      POSE_DATA.progresKecamatan[idx].anomaliTotal = item.total;
+    }
+
+    // Update petugasKecamatan
+    if (!POSE_DATA.petugasKecamatan[namaKec]) {
+      POSE_DATA.petugasKecamatan[namaKec] = { ppl: [], pml: [] };
+    }
+    const kecPetugas = POSE_DATA.petugasKecamatan[namaKec];
+    kecPetugas.anomaliTotal = item.total;
+    kecPetugas.anomaliBelum = pBelum;
+    kecPetugas.anomaliCatatan = pCatatan;
+    kecPetugas.anomaliPerbaikan = pPerbaikan;
+
+    // Map PPLs from sheet
+    const sheetPpls = Object.values(item.pplMap).map(p => ({
+      nama: p.nama,
+      submit: 95,
+      approved: 85,
+      rejected: 2,
+      anomaliTotal: p.total,
+      anomaliBelum: Math.round((p.belum / (p.total || 1)) * 1000) / 10,
+      anomaliCatatan: Math.round((p.catatan / (p.total || 1)) * 1000) / 10,
+      anomaliPerbaikan: Math.round((p.perbaikan / (p.total || 1)) * 1000) / 10
+    }));
+
+    if (sheetPpls.length > 0) {
+      kecPetugas.anomaliPplList = sheetPpls;
+    }
+
+    // Map PMLs from sheet
+    const sheetPmls = Object.values(item.pmlMap).map(p => ({
+      nama: p.nama,
+      submit: 95,
+      approved: 85,
+      rejected: 2,
+      anomaliTotal: p.total,
+      anomaliBelum: Math.round((p.belum / (p.total || 1)) * 1000) / 10,
+      anomaliCatatan: Math.round((p.catatan / (p.total || 1)) * 1000) / 10,
+      anomaliPerbaikan: Math.round((p.perbaikan / (p.total || 1)) * 1000) / 10
+    }));
+
+    if (sheetPmls.length > 0) {
+      kecPetugas.anomaliPmlList = sheetPmls;
+    }
+  });
+
+  if (totalKab > 0) {
+    POSE_DATA.kpiKabupaten.totalAnomali = totalKab;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliBelum = Math.round((belumKab / totalKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliCatatan = Math.round((catatanKab / totalKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliPerbaikan = Math.round((perbaikanKab / totalKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliUsahaSelesai = Math.round(((catatanKab + perbaikanKab) / totalKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliKeluargaSelesai = Math.round(((catatanKab + perbaikanKab) / totalKab) * 1000) / 10;
+  }
+
   return true;
 }
 

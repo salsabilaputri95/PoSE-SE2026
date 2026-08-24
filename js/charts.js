@@ -388,26 +388,28 @@ function renderAnomaliCharts(selectedOption) {
     
     // Untuk pemeriksaan se-Kabupaten
     allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik2.belum = POSE_DATA.progresKecamatan.map(k => Math.max(0, k.anomaliBelum - 2));
+    allDataGrafik2.belum = POSE_DATA.progresKecamatan.map(k => k.anomaliBelum);
     allDataGrafik2.catatan = POSE_DATA.progresKecamatan.map(k => k.anomaliCatatan);
-    allDataGrafik2.perbaikan = POSE_DATA.progresKecamatan.map(k => Math.min(100, k.anomaliPerbaikan + 2));
+    allDataGrafik2.perbaikan = POSE_DATA.progresKecamatan.map(k => k.anomaliPerbaikan);
 
     titleGrafik1 = "Progres Penyelesaian Anomali SE2026 Kabupaten Jeneponto (per Kecamatan)";
-    titleGrafik2 = "Progres Pemeriksaan Penyelesaian Anomali SE2026 Kab. Jeneponto";
+    titleGrafik2 = "Progres Pemeriksaan Penyelesaian Anomali SE2026 Kab. Jeneponto (per Kecamatan)";
   } else {
     const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"];
     
     // Grafik 1: PPL
-    allLabels1 = dataKec.ppl.map(p => p.nama);
-    allDataGrafik1.belum = dataKec.ppl.map(p => p.anomaliBelum);
-    allDataGrafik1.catatan = dataKec.ppl.map(p => p.anomaliCatatan);
-    allDataGrafik1.perbaikan = dataKec.ppl.map(p => p.anomaliPerbaikan);
+    const pplList = dataKec.anomaliPplList || dataKec.ppl || [];
+    allLabels1 = pplList.map(p => p.nama);
+    allDataGrafik1.belum = pplList.map(p => p.anomaliBelum);
+    allDataGrafik1.catatan = pplList.map(p => p.anomaliCatatan);
+    allDataGrafik1.perbaikan = pplList.map(p => p.anomaliPerbaikan);
 
     // Grafik 2: PML
-    allLabels2 = dataKec.pml.map(p => p.nama);
-    allDataGrafik2.belum = dataKec.pml.map(p => p.anomaliBelum);
-    allDataGrafik2.catatan = dataKec.pml.map(p => p.anomaliCatatan);
-    allDataGrafik2.perbaikan = dataKec.pml.map(p => p.anomaliPerbaikan);
+    const pmlList = dataKec.anomaliPmlList || dataKec.pml || [];
+    allLabels2 = pmlList.map(p => p.nama);
+    allDataGrafik2.belum = pmlList.map(p => p.anomaliBelum);
+    allDataGrafik2.catatan = pmlList.map(p => p.anomaliCatatan);
+    allDataGrafik2.perbaikan = pmlList.map(p => p.anomaliPerbaikan);
 
     titleGrafik1 = `Progres Penyelesaian Anomali SE2026 Kec. ${selectedOption} (per PPL)`;
     titleGrafik2 = `Progres Pemeriksaan Anomali SE2026 Kec. ${selectedOption} (per PML)`;

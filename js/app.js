@@ -409,33 +409,38 @@ function updateAnomaliKPI(selectedOption) {
 
   if (selectedOption === "Kabupaten Jeneponto") {
     const kpi = POSE_DATA.kpiKabupaten;
-    if (elUsaha) elUsaha.textContent = kpi.persentaseAnomaliUsahaSelesai;
-    if (elKeluarga) elKeluarga.textContent = kpi.persentaseAnomaliKeluargaSelesai;
-    if (barUsaha) barUsaha.style.width = `${kpi.persentaseAnomaliUsahaSelesai}%`;
-    if (barKeluarga) barKeluarga.style.width = `${kpi.persentaseAnomaliKeluargaSelesai}%`;
-    if (descUsaha) descUsaha.textContent = "Persentase anomali usaha telah ditindaklanjuti";
-    if (descKeluarga) descKeluarga.textContent = "Persentase rekonsiliasi anomali keluarga tuntas";
+    const selesaiVal = kpi.persentaseAnomaliUsahaSelesai !== undefined ? kpi.persentaseAnomaliUsahaSelesai : 65.8;
+    const belumVal = kpi.persentaseAnomaliBelum !== undefined ? kpi.persentaseAnomaliBelum : 34.2;
+
+    if (elUsaha) elUsaha.textContent = selesaiVal;
+    if (elKeluarga) elKeluarga.textContent = belumVal;
+    if (barUsaha) barUsaha.style.width = `${selesaiVal}%`;
+    if (barKeluarga) barKeluarga.style.width = `${belumVal}%`;
+    if (descUsaha) descUsaha.textContent = `${kpi.totalAnomali ? kpi.totalAnomali + ' Total Kasus Anomali' : 'Persentase anomali telah ditindaklanjuti'}`;
+    if (descKeluarga) descKeluarga.textContent = "Persentase kasus anomali berstatus Belum Ditindaklanjuti";
 
     if (elWilTitle) elWilTitle.textContent = "Wilayah Cakupan";
     if (elWilVal) elWilVal.textContent = "11";
     if (elWilUnit) elWilUnit.textContent = "Kecamatan";
-    if (elWilDesc) elWilDesc.textContent = "Monitoring mitigasi anomali se-Kabupaten";
+    if (elWilDesc) elWilDesc.textContent = `${kpi.totalAnomali || 1731} Total Kasus Anomali se-Kabupaten`;
   } else {
     const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"];
-    const usahaVal = Math.min(100, Math.round(dataKec.approved * 1.08 * 10) / 10);
-    const keluargaVal = Math.min(100, Math.round(dataKec.submit * 0.94 * 10) / 10);
+    const selesaiVal = Math.round(((dataKec.anomaliCatatan || 0) + (dataKec.anomaliPerbaikan || 0)) * 10) / 10;
+    const belumVal = dataKec.anomaliBelum || 0;
 
-    if (elUsaha) elUsaha.textContent = usahaVal;
-    if (elKeluarga) elKeluarga.textContent = keluargaVal;
-    if (barUsaha) barUsaha.style.width = `${usahaVal}%`;
-    if (barKeluarga) barKeluarga.style.width = `${keluargaVal}%`;
-    if (descUsaha) descUsaha.textContent = `Tindak lanjut anomali usaha Kec. ${selectedOption}`;
-    if (descKeluarga) descKeluarga.textContent = `Rekonsiliasi anomali keluarga Kec. ${selectedOption}`;
+    if (elUsaha) elUsaha.textContent = selesaiVal;
+    if (elKeluarga) elKeluarga.textContent = belumVal;
+    if (barUsaha) barUsaha.style.width = `${selesaiVal}%`;
+    if (barKeluarga) barKeluarga.style.width = `${belumVal}%`;
+    if (descUsaha) descUsaha.textContent = `${dataKec.anomaliTotal || 0} Kasus Anomali Kec. ${selectedOption}`;
+    if (descKeluarga) descKeluarga.textContent = `% Belum Ditindaklanjuti di Kec. ${selectedOption}`;
 
     if (elWilTitle) elWilTitle.textContent = `Kec. ${selectedOption}`;
-    if (elWilVal) elWilVal.textContent = dataKec.totalPPL;
+    const pplCount = dataKec.anomaliPplList ? dataKec.anomaliPplList.length : dataKec.totalPPL;
+    const pmlCount = dataKec.anomaliPmlList ? dataKec.anomaliPmlList.length : dataKec.totalPML;
+    if (elWilVal) elWilVal.textContent = pplCount;
     if (elWilUnit) elWilUnit.textContent = "PPL";
-    if (elWilDesc) elWilDesc.textContent = `${dataKec.totalPML} Pengawas PML`;
+    if (elWilDesc) elWilDesc.textContent = `${pmlCount} PML | ${dataKec.anomaliTotal || 0} Kasus Anomali`;
   }
 }
 
