@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoSE - Portal Sensus Ekonomi 2026 BPS Kabupaten Jeneponto</title>
+  <meta name="description"
+    content="PoSE (Portal Sensus Ekonomi 2026 BPS Kabupaten Jeneponto) - Center Monitoring Progres PPL/PML, Pengendalian Kualitas Data, Deteksi Anomali, dan Referensi Lapangan.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=4.9">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="brand-wrapper">
+        <a href="#pengenalan" class="brand-logo-link" aria-label="Portal PoSE 2026 BPS Kabupaten Jeneponto">
+          <img src="logo.png" alt="Logo PoSE 2026 BPS Jeneponto" class="brand-logo-img">
+        </a>
+      </div>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#pengenalan" class="nav-link active"><i class="fa-solid fa-house"></i> Beranda</a>
+        <a href="#monitoring" class="nav-link"><i class="fa-solid fa-chart-column"></i> Monitoring</a>
+        <a href="#anomali" class="nav-link"><i class="fa-solid fa-triangle-exclamation"></i> Anomali</a>
+        <a href="#pelatihan" class="nav-link"><i class="fa-solid fa-book-open"></i> Pelatihan</a>
+        <a href="#kbli" class="nav-link"><i class="fa-solid fa-tags"></i> KBLI 2025</a>
+        <a href="#pusat" class="nav-link"><i class="fa-solid fa-building-flag"></i> Data Pusat</a>
+        <a href="#keluarga" class="nav-link"><i class="fa-solid fa-users"></i> Keluarga Khusus</a>
+        <a href="#briefing" class="nav-link"><i class="fa-solid fa-bullhorn"></i> Briefing</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO / PENGENALAN SENSUS EKONOMI 2026 ==================== -->
+  <section id="pengenalan" class="hero-section">
+    <div class="hero-overlay-shapes"></div>
+    <div class="container hero-content-grid">
+      <div class="hero-text-col">
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <div class="hero-badge-tag">
+            <i class="fa-solid fa-layer-group"></i> Portal Terpadu Petugas Lapangan
+          </div>
+          <!-- <div class="live-sync-indicator-pill" id="live-sync-pill">
+            <span class="sync-dot pulse-green" id="sync-status-dot"></span>
+            <span id="sync-status-text">Live Sync Google Sheets</span>
+            <button id="btn-manual-sync" class="btn-icon-sync"
+              title="Sinkronkan data terbaru dari spreadsheet sekarang">
+              <i class="fa-solid fa-rotate" id="sync-spin-icon"></i>
+            </button>
+            <span id="sync-time-text" class="sync-time-label">Memeriksa data...</span>
+          </div> -->
+        </div>
+        <h2 class="hero-title">
+          Portal Sensus Ekonomi 2026 <br>
+          <span>BPS Kabupaten Jeneponto</span>
+        </h2>
+        <p class="hero-desc">
+          Pusat kendali monitoring capaian harian PPL & PML, mitigasi anomali data, instrumen klasifikasi KBLI 2025,
+          materi pelatihan, serta tata kelola administrasi operasional lapangan Sensus Ekonomi 2026 di Butta Turatea.
+        </p>
+        <div class="hero-cta-buttons">
+          <a href="#monitoring" class="btn btn-white">
+            <i class="fa-solid fa-chart-line"></i> Pantau Progres Petugas
+          </a>
+          <a href="#anomali" class="btn btn-glass">
+            <i class="fa-solid fa-shield-halved"></i> Deteksi & SOP Anomali
+          </a>
+          <a id="btn-link-monitoring" href="#" class="btn btn-glass">
+            <i class="fa-solid fa-table"></i> Buka Spreadsheet Monitoring
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stat-card-container">
+        <div class="hero-stat-box">
+          <div class="stat-icon-wrapper">
+            <i class="fa-solid fa-shop"></i>
+          </div>
+          <div class="stat-info-text">
+            <h3>48.250+</h3>
+            <p>Target Unit Usaha</p>
+          </div>
+        </div>
+
+        <div class="hero-stat-box">
+          <div class="stat-icon-wrapper">
+            <i class="fa-solid fa-people-roof"></i>
+          </div>
+          <div class="stat-info-text">
+            <h3>112.400+</h3>
+            <p>Target Keluarga</p>
+          </div>
+        </div>
+
+        <div class="hero-stat-box">
+          <div class="stat-icon-wrapper">
+            <i class="fa-solid fa-user-pen"></i>
+          </div>
+          <div class="stat-info-text">
+            <h3>327</h3>
+            <p>Petugas PPL</p>
+          </div>
+        </div>
+
+        <div class="hero-stat-box">
+          <div class="stat-icon-wrapper">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <div class="stat-info-text">
+            <h3>47</h3>
+            <p>Pemeriksa PML</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <main class="container">
+
+    <!-- ==================== FITUR 2: MONITORING PENDATAAN PETUGAS (PPL & PML) ==================== -->
+    <section id="monitoring" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-chart-pie"></i> Modul Monitoring</span>
+          <h2 class="section-title">Dashboard Monitoring Pendataan Petugas (PPL & PML)</h2>
+          <p class="section-subtitle">Pantau progres pengumpulan data oleh PPL dan pemeriksaan data oleh PML secara
+            real-time.</p>
+        </div>
+        <div class="section-actions">
+          <div class="filter-dropdown-box">
+            <label for="select-kecamatan-monitoring"><i class="fa-solid fa-filter"></i> Wilayah:</label>
+            <select id="select-kecamatan-monitoring" class="custom-select">
+              <!-- Dynamically Populated by app.js -->
+            </select>
+          </div>
+          <a id="btn-link-monitoring-2"
+            href="https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?usp=sharing"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Monitoring
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards (Compact & Dinamis) -->
+      <div class="kpi-row-grid compact-kpi">
+        <div class="kpi-card variant-coral">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Persentase Submit (PPL)</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-submit-val">96.9</span>
+            <span class="kpi-unit">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-submit-desc">Capaian submit petugas se-Kabupaten</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" id="kpi-submit-bar" style="width: 96.9%;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-green">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Persentase Approved (PML)</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-approved-val">76.3</span>
+            <span class="kpi-unit">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-approved-desc">Data telah disetujui pemeriksa se-Kabupaten</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" id="kpi-approved-bar" style="width: 76.3%; background: #10B981;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-amber">
+          <div class="kpi-card-header">
+            <span class="kpi-title" id="kpi-wilayah-title">Wilayah Cakupan</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-map-location-dot"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-wilayah-val">11</span>
+            <span class="kpi-unit" id="kpi-wilayah-unit">Kecamatan</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-wilayah-desc">Total 327 PPL & 48 PML se-Kabupaten</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" style="width: 100%; background: #F59E0B;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Grid: Grafik 1 & Grafik 2 -->
+      <div class="charts-grid">
+        <!-- Grafik 1: Progres Pendataan -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-box">
+              <h3 id="title-chart-monitoring-1">Progres Pendataan SE2026 Kabupaten Jeneponto</h3>
+              <p id="sub-chart-monitoring-1">Sumbu X: % Rejected by Pengawas, % Menunggu Approval, % Approved | Sumbu Y: Wilayah / Petugas PPL</p>
+            </div>
+            <span class="chart-badge-indicator"><i class="fa-solid fa-bars-progress"></i> Pendataan</span>
+          </div>
+          <div class="chart-canvas-container" id="container-chart-monitoring-1">
+            <canvas id="chart-monitoring-1"></canvas>
+          </div>
+        </div>
+
+        <!-- Grafik 2: Progres Pemeriksaan -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-box">
+              <h3 id="title-chart-monitoring-2">Progres Pemeriksaan SE2026 Kabupaten Jeneponto</h3>
+              <p id="sub-chart-monitoring-2">Sumbu X: % Rejected, % Belum Diperiksa, % Approved | Sumbu Y: Wilayah / Petugas PML
+              </p>
+            </div>
+            <span class="chart-badge-indicator" style="background: rgba(16, 185, 129, 0.1); color: #065F46;">
+              <i class="fa-solid fa-list-check"></i> Pemeriksaan
+            </span>
+          </div>
+          <div class="chart-canvas-container" id="container-chart-monitoring-2">
+            <canvas id="chart-monitoring-2"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Selengkapnya / Tampilkan 5 Teratas -->
+      <div class="chart-toggle-actions"
+        style="display: flex; justify-content: center; margin-top: 14px; margin-bottom: 24px;">
+        <button id="btn-toggle-monitoring-view" class="btn btn-outline-orange"
+          style="padding: 9px 20px; font-size: 13px; cursor: pointer;">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-monitoring"></i>
+          <span id="text-toggle-monitoring">Lihat Selengkapnya (Semua Data)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 3: ANOMALI USAHA DAN KELUARGA ==================== -->
+    <section id="anomali" class="main-section">
+      <!-- Section Title & Subtitle -->
+      <div class="section-title-wrap" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(224, 83, 60, 0.12); color: var(--deep-orange);">
+          <i class="fa-solid fa-triangle-exclamation"></i> Quality Control
+        </span>
+        <h2 class="section-title">Anomali Usaha dan Keluarga</h2>
+        <p class="section-subtitle">Pengendalian mutu data melalui deteksi dini inkonsistensi input sebelum pengolahan
+          data akhir.</p>
+      </div>
+
+      <!-- Banner Penegasan & Alur Langkah Penyelesaian Anomali FASIH -->
+      <div class="anomali-fasih-workflow-card">
+        <div class="anomali-alert-banner">
+          <div class="alert-icon-wrap">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div class="alert-content-wrap">
+            <h3 class="alert-highlight-title">!!!ANOMALI BELUM TENTU SALAH, BISA JADI MEMANG SESUAI KONDISI LAPANGAN!!!
+            </h3>
+            <p class="alert-sub-desc">
+              Penyelesaian anomali akan terekam sebagai sudah ditindaklanjuti jika PPL telah melakukan perbaikan/memberi
+              tanda sesuai kondisi di lapangan dan assignment tersebut telah Approved by PML kembali.
+            </p>
+          </div>
+        </div>
+
+        <div class="workflow-steps-container">
+          <h4 class="workflow-steps-title"><i class="fa-solid fa-route" style="color: var(--deep-orange);"></i>
+            Langkah-langkah penyelesaian:</h4>
+          <div class="workflow-steps-grid">
+            <!-- Langkah 1 -->
+            <div class="step-card step-theme-admin">
+              <div class="step-card-header">
+                <div class="step-badge badge-admin">1</div>
+                <span class="role-tag role-admin"><i class="fa-solid fa-user-gear"></i> Admin FASIH</span>
+              </div>
+              <div class="step-content">
+                <p>Admin FASIH Kab/Kota membuka assigment yang terkena anomali, klik Edit Assignment.</p>
+              </div>
+            </div>
+
+            <!-- Langkah 2 -->
+            <div class="step-card step-theme-admin">
+              <div class="step-card-header">
+                <div class="step-badge badge-admin">2</div>
+                <span class="role-tag role-admin"><i class="fa-solid fa-user-gear"></i> Admin FASIH</span>
+              </div>
+              <div class="step-content">
+                <p>Admin FASIH Kab/Kota membuka blok catatan dan mengaktifkan opsi "Tampilkan Anomali Usaha dan
+                  Keluarga, lalu klik Kirim. Setelah itu, lakukan Reject assignment</p>
+              </div>
+            </div>
+
+            <!-- Langkah 3 -->
+            <div class="step-card step-theme-pml">
+              <div class="step-card-header">
+                <div class="step-badge badge-pml">3</div>
+                <span class="role-tag role-pml"><i class="fa-solid fa-clipboard-check"></i> PML</span>
+              </div>
+              <div class="step-content">
+                <p>PML Reject assignment yang telah di reject oleh Admin FASIH Kab/Kota</p>
+              </div>
+            </div>
+
+            <!-- Langkah 4 -->
+            <div class="step-card step-theme-ppl">
+              <div class="step-card-header">
+                <div class="step-badge badge-ppl">4</div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-pen-to-square"></i> PPL</span>
+              </div>
+              <div class="step-content">
+                <p>PPL menyelesaikan anomali dengan cara perbaiki isian atau memberikan tanda "Ya, sesuai kondisi
+                  lapangan" dan Submit assignment kembali.</p>
+              </div>
+            </div>
+
+            <!-- Langkah 5 -->
+            <div class="step-card step-theme-pml">
+              <div class="step-card-header">
+                <div class="step-badge badge-pml">5</div>
+                <span class="role-tag role-pml"><i class="fa-solid fa-stamp"></i> PML</span>
+              </div>
+              <div class="step-content">
+                <p>PML memeriksa isian dan melakukan Approved assignment yang disubmit PPL jika sudah sesuai</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Petunjuk Teknis & SOP Penyelesaian Anomali: Tabbed Content Component -->
+      <div class="anomali-tabs-container" style="margin-bottom: 26px;">
+        <!-- Penjelasan / Header Daftar Anomali -->
+        <div class="anomali-tabs-top-intro">
+          <div class="top-intro-icon-wrap">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
+          <div class="top-intro-content-wrap">
+            <h3 class="top-intro-title">Daftar Anomali</h3>
+            <p class="top-intro-desc">Berikut merupakan daftar anomali beserta deskripsi, indikasi, dan panduan
+              pemeriksaan serta penyelesaiannya sesuai kondisi di lapangan.</p>
+          </div>
+        </div>
+
+        <div class="anomali-tabs-header">
+          <div class="tabs-nav-group">
+            <button class="anomali-tab-btn active" data-tab="tab-usaha" id="btn-tab-usaha"
+              onclick="switchAnomaliTab('tab-usaha')">
+              <i class="fa-solid fa-store"></i>
+              <span>Anomali Usaha</span>
+              <span class="tab-badge-pill">8 Kategori</span>
+            </button>
+            <button class="anomali-tab-btn" data-tab="tab-keluarga" id="btn-tab-keluarga"
+              onclick="switchAnomaliTab('tab-keluarga')">
+              <i class="fa-solid fa-people-roof"></i>
+              <span>Anomali Keluarga</span>
+              <span class="tab-badge-pill">7 Kategori</span>
+            </button>
+          </div>
+          <div class="tabs-header-hint">
+            <i class="fa-solid fa-book-bookmark"></i> SOP & Logika Pemeriksaan Kuesioner
+          </div>
+        </div>
+
+        <!-- Panel 1: Anomali Usaha (8 Kategori Modern Cards) -->
+        <div class="anomali-tab-panel active" id="tab-usaha">
+          <div class="sop-cards-list">
+            <!-- Anomali Usaha 1 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">1</div>
+                  <h5 class="sop-item-title">Anomali 1: Biaya Produksi Dominan</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-boxes-stacked"></i> Produksi & Biaya</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Kegiatan usaha tidak memproduksi barang sendiri, tetapi komposisi pengeluaran pada biaya produksi
+                    dominan (lebih dari 50%)</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian <code>R9a</code> dan <code>R13b1</code> apakah jawaban sudah sesuai dengan
+                    kondisi usaha yang sebenarnya; periksa juga isian <code>R26b</code> dan <code>R26f</code>, apakah
+                    sudah benar rasio (R26b/R26f) lebih dari 50%. Logika umum jika R9a&lt;6 dan R13b1=2 (tidak
+                    memproduksi di lokasi) maka struktur pengeluaran tidak wajar jika biaya produksi di atas 50%,
+                    kecuali beberapa jenis usaha jasa tertentu.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 2 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">2</div>
+                  <h5 class="sop-item-title">Anomali 2: Keuntungan Usaha</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-scale-balanced"></i> Pendapatan &
+                  Pengeluaran</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Selisih pendapatan dan pengeluaran negatif.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian-isian <code>R27</code> dan <code>R26</code>. Pada umumnya, selisih total
+                    produksi/penjualan/pendapatan dan total pengeluaran (R27c dikurangi R26f) positif karena cakupan
+                    produksi/penjualan/pendapatan termasuk yang dikonsumsi sendiri dan yang diberikan kepada pihak lain.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 3 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">3</div>
+                  <h5 class="sop-item-title">Anomali 3: Penyertaan Modal Korporasi</h5>
+                </div>
+                <span class="role-tag role-admin"><i class="fa-solid fa-landmark"></i> Badan Usaha & Modal</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Status Badan Usaha "Bukan Badan Usaha" namun ada penyertaan permodalan.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian <code>R.11a</code>, jika isiannya kode 13 namun pada rincian kepemilikan modal
+                    (R.29 atau R33), persentase kepemilikan modal korporasi publik (huruf c) atau korporasi non publik
+                    (huruf d) bernilai &gt;0 menunjukkan kondisi tidak wajar. Umumnya jika status badan usaha bukan
+                    badan usaha maka tidak ada penyertaan permodalan korporasi.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 4 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">4</div>
+                  <h5 class="sop-item-title">Anomali 4: Data Keuangan MBG</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-utensils"></i> Program MBG / SPPG</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Terjadi anomali "Makan Bergizi Gratis (MBG)" pada SPPG dengan rasio nilai pendapatan dibagi
+                    pengeluaran.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian <code>R.22</code>, jika diisi kode 1 (SPPG), tetapi rasio total pendapatan
+                    (R.27c atau 31c) dengan total pengeluaran (R.28f atau R.33f) lebih dari atau sama dengan 1,25 atau
+                    kurang dari 1, tidak wajar karena laporan keuangan akuntan SPPG tidak menunjukkan laba/rugi yang
+                    ekstrim.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 5 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">5</div>
+                  <h5 class="sop-item-title">Anomali 5: Hubungan aset, pekerja, dan produksi usaha</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-users-gear"></i> Aset & Pekerja</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Terjadi anomali dari hubungan data aset, total nilai produksi/penjualan/pendapatan, dan total
+                    pekerja.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang kewajaran hubungan isian, terjadi anomali bila nilai total aset lebih dari 10M
+                    (<code>R.28c</code> atau <code>R.28c1</code> atau <code>R.32c</code> atau <code>R.32c1</code>),
+                    tetapi total pekerja=1 (<code>R.24c1</code> atau <code>R.24c2</code>) dan total nilai
+                    produksi/penjualan/pendapatan kecil, <code>R.27c</code> atau <code>R.31c</code>, yaitu kurang dari
+                    80 juta rupiah setahun.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 6 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">6</div>
+                  <h5 class="sop-item-title">Anomali 6: Penggunaan internet pada usaha menengah dan besar</h5>
+                </div>
+                <span class="role-tag role-admin"><i class="fa-solid fa-wifi"></i> Skala UMB & Internet</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Pendapatan usaha menunjukkan skala unit usaha berkategori menengah dan besar, tetapi tidak
+                    menggunakan internet</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian <code>R16a</code>, <code>R25</code>, <code>R27c</code>, dan <code>R31c</code>.
+                    Teridentifikasi anomali jika perusahaan/usaha tidak menggunakan internet (R16a=2) dan tahun
+                    beroperasi sebelum 2026 (R25&lt;2026), tetapi total produksi/penjualan/pendapatan termasuk dalam
+                    skala usaha menengah dan besar ( R27c atau R31c*12 &gt;= 15 Miliar).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 7 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">7</div>
+                  <h5 class="sop-item-title">Anomali 7: Laporan keuangan di usaha menengah dan besar</h5>
+                </div>
+                <span class="role-tag role-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Laporan Keuangan
+                  UMB</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Pendapatan usaha menunjukkan skala unit usaha berkategori menengah dan besar, tetapi tidak memiliki
+                    laporan/catatan keuangan.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian <code>R11d</code>, <code>R25</code>, <code>R27c</code>, dan <code>R31c</code>.
+                    Teridentifikasi anomali jika perusahaan/usaha tidak memiliki laporan/catatan keuangan (R11d=2) dan
+                    tahun beroperasi sebelum 2026 (R25&lt;2026), tetapi total produksi/penjualan/pendapatan termasuk
+                    dalam skala usaha menengah dan besar ( R27c atau R31c*12 &gt;= 15 Miliar).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Usaha 8 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">8</div>
+                  <h5 class="sop-item-title">Anomali 8: Perbedaan KBLI 2 digit Pendataan dan SBR</h5>
+                </div>
+                <span class="role-tag role-pml"><i class="fa-solid fa-tags"></i> KBLI & SBR</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Perbedaan jumlah usaha menurut KBLI 2 digit hasil pendataan dan SBR.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa KBLI 2 digit usaha kemudian cermati dengan KBLI 2 digit dari SBR yang disandingkan. Jika
+                    KBLI usaha sudah sesuai maka diklik "sesuai kondisi lapangan", jika belum sesuai silahkan diperbaiki
+                    di KBLI 5 digit usaha.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Anomali Usaha -->
+          <div class="sop-toggle-wrap">
+            <button id="btn-toggle-sop-usaha" class="btn-toggle-sop" onclick="toggleSopList('usaha')">
+              <i class="fa-solid fa-chevron-down" id="icon-toggle-sop-usaha"></i>
+              <span id="text-toggle-sop-usaha">Tampilkan Semua (8 Anomali Usaha)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Panel 2: Anomali Keluarga (7 Kategori Modern Cards) -->
+        <div class="anomali-tab-panel" id="tab-keluarga">
+          <div class="sop-cards-list">
+            <!-- Anomali Keluarga 1 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">1</div>
+                  <h5 class="sop-item-title">Anomali 1: Status Cerai / Belum Kawin</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-heart-crack"></i> Status Perkawinan</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Kepala Keluarga dan pasangannya berstatus cerai atau belum kawin.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian kepala keluarga (<code>Blok I R8 = 1</code>) dan pasangannya
+                    (<code>Blok I R8 = 2</code>) apakah benar memiliki isian status perkawinan belum kawin/cerai
+                    hidup/cerai mati (<code>Blok I R11 = 1/3/4</code>). Jika kepala keluarga tinggal dengan pasangannya
+                    (suami/istri) maka status perkawinan keduanya seharusnya kawin/nikah (<code>Blok I R11 = 2</code>).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 2 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">2</div>
+                  <h5 class="sop-item-title">Anomali 2: Kepala Keluarga &lt; 10 Th di Rumah Sendiri</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-child"></i> Umur & Kepemilikan</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Umur Kepala Keluarga &lt; 10 tahun dan tinggal di rumah milik sendiri.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian anggota keluarga dengan status sebagai kepala keluarga
+                    (<code>Blok I R8 = 1</code>) dan berumur &lt; 10 tahun (<code>Blok I R13b &lt; 10</code>) sedangkan
+                    isian kepemilikan bangunan yang ditempati milik sendiri (<code>Blok IV R3a = 1</code>). Jika memang
+                    kepala keluarga tersebut berusia &lt; 10 tahun, pastikan apakah benar tinggal di rumah milik sendiri
+                    atau tinggal bersama di rumah orang lain dengan status menumpang atau sejenisnya.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 3 -->
+            <div class="sop-item-card">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">3</div>
+                  <h5 class="sop-item-title">Anomali 3: Semua Anggota Keluarga Disabilitas</h5>
+                </div>
+                <span class="role-tag role-pml"><i class="fa-solid fa-wheelchair"></i> Ragam Disabilitas</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Semua anggota keluarga menyandang disabilitas (kecuali keluarga tunggal).</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian kepemilikan keterbatasan dalam jangka waktu lama sehingga mengalami kesulitan
+                    dalam menjalankan aktivitas sehari-hari (penyandang disabilitas) di <code>Blok III R20.A-F</code>
+                    untuk keluarga dengan jumlah anggota keluarga lebih dari 1 (<code>Blok I R2b &gt; 1</code>). Jika
+                    minimal salah satu Blok III R20.A-F (disabilitas) terisi kode 1 (Ya) pada semua anggota keluarga,
+                    maka terhitung sebagai anomali.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 4 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">4</div>
+                  <h5 class="sop-item-title">Anomali 4: Luas Lantai Ekstrem</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-ruler-combined"></i> Luas Bangunan</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Luas lantai per kapita &lt; 3 m2 atau &gt; 200 m2.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang kewajaran luas lantai bangunan tempat tinggal (<code>Blok IV R5</code>) dibandingkan
+                    dengan jumlah anggota keluarga yang tinggal di bangunan tempat tinggal (<code>Blok I R9 = 1</code>
+                    ditambah <code>R9 = 5</code>). Tidak wajar jika luas lantai perkapita terlalu sempit (&lt; 3 m2)
+                    atau terlalu luas (&gt; 200 m2).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 5 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">5</div>
+                  <h5 class="sop-item-title">Anomali 5: Selisih Pendapatan Negatif</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-wallet"></i> Pendapatan & Pengeluaran</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Selisih pendapatan dan pengeluaran negatif</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian jumlah pendapatan seluruh anggota keluarga sebulan
+                    (<code>Blok III R18a + R18b + R18c</code>) untuk keluarga dengan minimal ada dua anggota keluarga
+                    yang bekerja dengan status selain pekerja keluarga/tidak dibayar
+                    (<code>Blok III (r17&gt;=1 &amp; r17&lt;=5)</code>), kemudian bandingkan dengan total pengeluaran
+                    keluarga sebulan yang diperoleh dari rata-rata pengeluaran makanan keluarga seminggu dibagi 7 dikali
+                    30 (<code>Blok IV R16.a/7*30</code>) ditambah rata-rata pengeluaran bukan makanan rutin keluarga
+                    bulanan (<code>R16.b</code>) ditambah rata-rata pengeluaran bukan makanan rutin keluarga tahunan
+                    dibagi 12 (<code>R16.c/12</code>). Terjadi anomali jika total pendapatan lebih kecil dibandingkan
+                    dengan total pengeluaran.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 6 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">6</div>
+                  <h5 class="sop-item-title">Anomali 6: Listrik Rendah &amp; Ada Barang Mewah</h5>
+                </div>
+                <span class="role-tag role-ppl"><i class="fa-solid fa-bolt"></i> Daya Listrik & Aset</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Pengeluaran listrik sebulan &lt; Rp100.000 atau daya listrik &lt; 900 watt tetapi memiliki lemari
+                    es/kulkas, AC, komputer/laptop/tablet.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang kewajaran isian <code>Blok IV R13, R14a, R14b, R15a, R17c, R17d, dan R17f</code>.
+                    Teridentifikasi anomali jika pengeluaran listrik sebulan (<code>Blok IV R15a</code>) di antara
+                    rentang Rp 1.000 s.d. Rp100.000 atau keluarga menggunakan listrik PLN dengan meteran dan jumlah
+                    meteran hanya satu sedangkan daya listrik terpasang &lt; 900 watt
+                    (<code>Blok IV R13=1 &amp; R14a = 1 &amp; R14b = 1</code>), tetapi memiliki lemari es/kulkas, AC,
+                    dan komputer/laptop/tablet (<code>Blok IV R17c&gt;0 &amp; R17d&gt;0 &amp; R17f&gt;0</code>).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anomali Keluarga 7 -->
+            <div class="sop-item-card sop-hidden-item">
+              <div class="sop-item-header">
+                <div class="sop-title-wrap">
+                  <div class="sop-num-pill">7</div>
+                  <h5 class="sop-item-title">Anomali 7: Jumlah Anggota Keluarga Ekstrem</h5>
+                </div>
+                <span class="role-tag role-pml"><i class="fa-solid fa-people-group"></i> Jumlah Anggota</span>
+              </div>
+              <div class="sop-item-body">
+                <div class="sop-box-desc">
+                  <div class="sop-box-label label-desc"><i class="fa-solid fa-triangle-exclamation"></i> Deskripsi /
+                    Indikasi:</div>
+                  <p>Jumlah Anggota Keluarga &gt; 10 orang.</p>
+                </div>
+                <div class="sop-box-solusi">
+                  <div class="sop-box-label label-solusi"><i class="fa-solid fa-screwdriver-wrench"></i> Panduan
+                    Penyelesaian:</div>
+                  <p>Periksa ulang isian jumlah record individu (anggota keluarga) dengan status "Tinggal di
+                    rumah/tempat tinggal ini" ditambah "Anggota keluarga baru" (<code>Blok I r9a = 1</code> ditambah
+                    <code>r9a = 5</code>). Teridentifikasi anomali jika jumlah anggota keluarga lebih dari 10 orang.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Anomali Keluarga -->
+          <div class="sop-toggle-wrap">
+            <button id="btn-toggle-sop-keluarga" class="btn-toggle-sop" onclick="toggleSopList('keluarga')">
+              <i class="fa-solid fa-chevron-down" id="icon-toggle-sop-keluarga"></i>
+              <span id="text-toggle-sop-keluarga">Tampilkan Semua (7 Anomali Keluarga)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-heading Progres Anomali & Section Actions: Filter Wilayah & Tombol Spreadsheet -->
+      <div class="section-head-card" style="margin-top: 10px; margin-bottom: 20px; align-items: center;">
+        <div class="section-title-wrap">
+          <h3 style="font-size: 19px; font-weight: 800; color: var(--dark-slate); display: flex; align-items: center; gap: 8px; margin: 0;">
+            <i class="fa-solid fa-chart-pie" style="color: var(--deep-orange); font-size: 18px;"></i>
+            Progres Penyelesaian Anomali SE2026
+          </h3>
+        </div>
+        <div class="section-actions" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+          <div class="filter-dropdown-box">
+            <label for="select-kecamatan-anomali"><i class="fa-solid fa-filter"></i> Wilayah:</label>
+            <select id="select-kecamatan-anomali" class="custom-select">
+              <!-- Dynamically Populated by app.js -->
+            </select>
+          </div>
+          <a id="btn-link-anomali"
+            href="https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/edit?gid=105002898#gid=105002898"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: var(--gradient-badge);">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Daftar Anomali
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Anomali (Compact & Dinamis) -->
+      <div class="kpi-row-grid compact-kpi">
+        <div class="kpi-card variant-coral">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Penyelesaian Anomali Usaha</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-briefcase"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-anomali-usaha-val">84.5</span>
+            <span class="kpi-unit">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-anomali-usaha-desc">Persentase anomali usaha telah ditindaklanjuti</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" id="kpi-anomali-usaha-bar" style="width: 84.5%;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-green">
+          <div class="kpi-card-header">
+            <span class="kpi-title">Penyelesaian Anomali Keluarga</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-house-user"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-anomali-keluarga-val">88.2</span>
+            <span class="kpi-unit">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-anomali-keluarga-desc">Persentase rekonsiliasi anomali keluarga tuntas</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" id="kpi-anomali-keluarga-bar" style="width: 88.2%; background: #10B981;">
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-amber">
+          <div class="kpi-card-header">
+            <span class="kpi-title" id="kpi-anomali-wilayah-title">Wilayah Cakupan</span>
+            <div class="kpi-icon-pill"><i class="fa-solid fa-map-location-dot"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-anomali-wilayah-val">11</span>
+            <span class="kpi-unit" id="kpi-anomali-wilayah-unit">Kecamatan</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-anomali-wilayah-desc">Monitoring mitigasi anomali se-Kabupaten</p>
+          <div class="kpi-progress-track">
+            <div class="kpi-progress-fill" style="width: 100%; background: #F59E0B;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Grid Anomali (3 Kategori Status) -->
+      <div class="charts-grid">
+        <!-- Grafik 1: Progres Penyelesaian Anomali -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-box">
+              <h3 id="title-chart-anomali-1">Progres Penyelesaian Anomali SE2026 Kabupaten Jeneponto</h3>
+              <p id="sub-chart-anomali-1">Sumbu X: % Belum, % Catatan, % Perbaikan | Sumbu Y: Kecamatan / PPL</p>
+            </div>
+            <span class="chart-badge-indicator"><i class="fa-solid fa-screwdriver-wrench"></i> Tindak Lanjut PPL</span>
+          </div>
+          <div class="chart-canvas-container" id="container-chart-anomali-1">
+            <canvas id="chart-anomali-1"></canvas>
+          </div>
+        </div>
+
+        <!-- Grafik 2: Progres Pemeriksaan Anomali -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title-box">
+              <h3 id="title-chart-anomali-2">Progres Pemeriksaan Penyelesaian Anomali SE2026 Kab. Jeneponto</h3>
+              <p id="sub-chart-anomali-2">Sumbu X: % Belum, % Catatan, % Perbaikan | Sumbu Y: Kecamatan / PML</p>
+            </div>
+            <span class="chart-badge-indicator" style="background: rgba(16, 185, 129, 0.1); color: #065F46;">
+              <i class="fa-solid fa-stamp"></i> Validasi PML
+            </span>
+          </div>
+          <div class="chart-canvas-container" id="container-chart-anomali-2">
+            <canvas id="chart-anomali-2"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tombol Selengkapnya / Tampilkan 5 Teratas untuk Anomali -->
+      <div class="chart-toggle-actions"
+        style="display: flex; justify-content: center; margin-top: 14px; margin-bottom: 24px;">
+        <button id="btn-toggle-anomali-view" class="btn btn-outline-orange"
+          style="padding: 9px 20px; font-size: 13px; cursor: pointer;">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-anomali"></i>
+          <span id="text-toggle-anomali">Lihat Selengkapnya (Semua Data)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 4: MATERI PELATIHAN PETUGAS ==================== -->
+    <section id="pelatihan" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-person-chalkboard"></i> Bahan Tayang</span>
+          <h2 class="section-title">Materi Pelatihan Petugas SE2026</h2>
+          <p class="section-subtitle">Akses cepat instrumen pedoman teknis, kuesioner, dan bahan tayang untuk menunjang
+            petugas di lapangan.</p>
+        </div>
+        <!-- <div class="section-actions">
+          <a id="btn-link-materi-all"
+            href="https://drive.google.com/drive/folders/1ok4nqFSHIuSts33LooUbogjy5SVtOH9G?usp=sharing" target="_blank"
+            rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-google-drive"></i> Buka Folder Bahan Tayang
+          </a>
+        </div> -->
+      </div>
+
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div>
+            <div class="resource-icon-circle">
+              <i class="fa-solid fa-file-invoice"></i>
+            </div>
+            <h4>Kuesioner SE2026</h4>
+            <p>Formulir pendataan unit usaha, listing keluarga, instrumen SLS, serta suplemen blok pencacahan lapangan.
+            </p>
+          </div>
+          <a id="btn-link-materi-1" href="#" class="btn btn-outline-orange">
+            <i class="fa-solid fa-folder-open"></i> Akses Dokumen
+          </a>
+        </div>
+
+        <div class="resource-card">
+          <div>
+            <div class="resource-icon-circle" style="background: linear-gradient(135deg, #FA8C16, #FFC069);">
+              <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <h4>Buku Pedoman Lapangan</h4>
+            <p>Buku petunjuk operasional teknis pencacahan untuk PPL, pedoman pemeriksaan untuk PML, dan tata cara
+              verifikasi.</p>
+          </div>
+          <a id="btn-link-materi-2" href="#" class="btn btn-outline-orange">
+            <i class="fa-solid fa-folder-open"></i> Akses Pedoman
+          </a>
+        </div>
+
+        <div class="resource-card">
+          <div>
+            <div class="resource-icon-circle" style="background: linear-gradient(135deg, #D4380D, #FA541C);">
+              <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+            <h4>Bahan Tayang & Modul</h4>
+            <p>Slide presentasi pelatihan, ringkasan konsep definisi usaha mikro, kecil, menengah, dan studi kasus error
+              lapangan.</p>
+          </div>
+          <a id="btn-link-materi-3" href="#" class="btn btn-outline-orange">
+            <i class="fa-solid fa-folder-open"></i> Akses Bahan Tayang
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 5: KBLI 2025 ==================== -->
+    <section id="kbli" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-tags"></i> Klasifikasi Standar</span>
+          <h2 class="section-title">Referensi KBLI 2025 Kabupaten Jeneponto</h2>
+          <p class="section-subtitle">Daftar pencarian cepat kode KBLI 5 digit yang paling sering dijumpai pada unit
+            usaha di Kabupaten Jeneponto.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-kbli"
+            href="https://docs.google.com/spreadsheets/d/1wkPyEe-WChD0Hzx-zyxxXcb1siIE1Qaf/edit?usp=sharing&ouid=110799947656728942458&rtpof=true&sd=true"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet KBLI Lengkap
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Search & Dual Dropdown Filters (Kategori Sheet & Frekuensi) -->
+      <div class="kbli-search-box-wrap">
+        <div class="search-input-group">
+          <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+          <input type="text" id="kbli-search-input"
+            placeholder="Cari KBLI berdasarkan kode (misal: 01111) atau kata kunci (misal: Jagung, Garam, Kuda, Bengkel, Coto, Pegadaian)...">
+        </div>
+        
+        <div class="kbli-filter-toolbar" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <!-- Dropdown 1: Kategori Sheet A-V -->
+            <div class="filter-dropdown-box" style="min-width: 280px;">
+              <label for="select-kbli-kategori"><i class="fa-solid fa-layer-group"></i> Kategori:</label>
+              <select id="select-kbli-kategori" class="custom-select" style="font-weight: 600;">
+                <option value="Semua">Semua Kategori</option>
+                <!-- Populated dynamically via initKBLIDropdown() -->
+              </select>
+            </div>
+
+            <!-- Dropdown 2: Frekuensi Kemunculan -->
+            <div class="filter-dropdown-box" style="min-width: 220px;">
+              <label for="select-kbli-frekuensi"><i class="fa-solid fa-chart-simple"></i> Frekuensi:</label>
+              <select id="select-kbli-frekuensi" class="custom-select" style="font-weight: 600;">
+                <option value="Semua">Semua Frekuensi</option>
+                <option value="Sering Dijumpai">🟢 Sering Dijumpai di Jeneponto</option>
+                <option value="Jarang Dijumpai">🔴 Jarang Dijumpai di Jeneponto</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Counter Badge -->
+          <div id="kbli-counter-badge" class="badge-live-status" style="background: #FFF7ED; color: var(--deep-orange); border: 1px solid var(--border-orange); font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: var(--radius-full);">
+            <i class="fa-solid fa-list-check"></i> <span id="kbli-count-text">Menampilkan 5 dari 416 KBLI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KBLI Responsive Table -->
+      <div class="table-responsive-box">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th style="width: 105px;">Kode KBLI</th>
+              <th style="width: 260px;">Judul Lapangan Usaha</th>
+              <th style="width: 180px;">Kategori</th>
+              <th style="width: 155px;">Frekuensi</th>
+              <th>Deskripsi / Ruang Lingkup & Contoh di Jeneponto</th>
+            </tr>
+          </thead>
+          <tbody id="kbli-table-body">
+            <!-- Dynamically Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk KBLI -->
+      <div class="sop-toggle-wrap" id="kbli-toggle-wrap" style="margin-top: 14px;">
+        <button id="btn-toggle-kbli" class="btn-toggle-sop" onclick="toggleKbliList()">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-kbli"></i>
+          <span id="text-toggle-kbli">Tampilkan Semua (416 KBLI)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 6: DAFTAR USAHA DARI PUSAT (KODE 7) ==================== -->
+    <section id="pusat" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag" style="background: rgba(255, 107, 0, 0.15); color: var(--deep-orange);">
+            <i class="fa-solid fa-building-circle-check"></i> Kebijakan Data Pusat
+          </span>
+          <h2 class="section-title">Daftar Usaha yang Datanya Bersumber dari Pusat</h2>
+          <p class="section-subtitle">Panduan identifikasi dan pencatatan unit usaha terpusat di wilayah Kabupaten
+            Jeneponto.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-pusat"
+            href="https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/edit?usp=sharing"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Usaha Pusat
+          </a>
+        </div>
+      </div>
+
+      <!-- Kode 7 Highlighting Banner -->
+      <!-- <div class="kode-7-banner">
+        <div class="kode-7-digit-box">7</div>
+        <div class="kode-7-text">
+          <h3>Instruksi Khusus: Kode 7 (Data Berasal dari Kantor Pusat)</h3>
+          <p>
+            Untuk unit usaha yang datanya diperoleh langsung dari kantor pusat (seperti kantor cabang perbankan,
+            BUMN/BUMD, PLN, Telkom, dan minimarket waralaba nasional), petugas lapangan <strong>wajib memberi Kode
+              7</strong> pada kuesioner agar tidak terjadi duplikasi pencatatan pendapatan secara ganda.
+          </p>
+        </div>
+        <div>
+          <a href="https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/edit?usp=sharing"
+            target="_blank" rel="noopener noreferrer" class="btn btn-white" style="white-space: nowrap;">
+            <i class="fa-solid fa-list"></i> Lihat Daftar Lengkap
+          </a>
+        </div>
+      </div> -->
+
+      <!-- Usaha Pusat Responsive Table -->
+      <div class="table-responsive-box">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th style="width: 45px; text-align: center;">No.</th>
+              <th style="width: 320px;">Nama Perusahaan</th>
+              <th style="width: 220px;">Nama Komersil</th>
+              <th>Alamat Kantor Pusat</th>
+            </tr>
+          </thead>
+          <tbody id="usaha-pusat-table-body">
+            <!-- Dynamically Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Usaha Pusat -->
+      <div class="sop-toggle-wrap" id="usaha-pusat-toggle-wrap" style="margin-top: 14px;">
+        <button id="btn-toggle-usaha-pusat" class="btn-toggle-sop" onclick="toggleUsahaPusatList()">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-usaha-pusat"></i>
+          <span id="text-toggle-usaha-pusat">Tampilkan Semua (34 Usaha Pusat)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 7: DAFTAR KELUARGA KHUSUS ==================== -->
+    <section id="keluarga" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-users-viewfinder"></i> Wilayah Khusus</span>
+          <h2 class="section-title">Daftar Keluarga Khusus</h2>
+          <p class="section-subtitle">Pencocokan dan penyusunan daftar keluarga pada tempat tinggal khusus di Kabupaten
+            Jeneponto.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-keluarga" href="#" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Keluarga Khusus
+          </a>
+        </div>
+      </div>
+
+      <div class="special-family-card" style="margin-bottom: 24px; display: block;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div>
+            <h4 style="font-size: 19px; font-weight: 800; color: var(--dark-slate); margin-bottom: 8px;">
+              Cakupan Keluarga Khusus Sensus Ekonomi 2026
+            </h4>
+            <p style="font-size: 13.5px; color: #475569; line-height: 1.6; margin-bottom: 6px;">
+              Keluarga khusus dibedakan berdasarkan pola tempat tinggalnya, yaitu <strong>menetap</strong> dan <strong>berpindah-pindah (nomaden)</strong>. Adapun cakupan Keluarga Khusus meliputi:
+            </p>
+          </div>
+
+          <!-- Kategori 1: Keluarga Khusus Menetap -->
+          <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 16px 18px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span class="role-tag role-pml" style="font-size: 12px; font-weight: 800;"><i class="fa-solid fa-building-user"></i> 1. Keluarga Khusus Menetap</span>
+            </div>
+            <p style="font-size: 13px; color: #334155; line-height: 1.55; margin-bottom: 10px;">
+              Keluarga khusus menetap adalah kelompok individu yang tinggal secara permanen di suatu institusi atau fasilitas kolektif dan tidak dapat digolongkan sebagai keluarga biasa. Cakupannya antara lain:
+            </p>
+            <div class="family-criteria-list" style="margin-top: 0; gap: 8px;">
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>a. Anggota atau Prajurit di Barak Militer</strong></span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>b. Murid/Santri Tinggal di Asrama atau Pesantren</strong> — mencakup murid atau santri yang tinggal di pesantren, <em>boarding school</em>, seminari, biara, dan sejenisnya, yang tidak didata di keluarganya.</span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>c. Penghuni Panti Asuhan atau Sejenisnya</strong></span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>d. Narapidana di Lapas</strong> — dengan masa hukuman lebih dari satu tahun.</span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>e. Pasien yang Tinggal di Rumah Sakit Jiwa</strong> — pasien <em>”long stay”</em> yang tidak didata di keluarganya.</span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: #059669;"></i>
+                <span><strong>f. Pengungsi dari luar negeri</strong> yang sudah menetap di wilayah Indonesia selama satu tahun atau lebih.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kategori 2: Keluarga Khusus Nomaden -->
+          <div style="background: #FFFDF9; border: 1.5px solid #FFEDD5; border-radius: 12px; padding: 16px 18px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span class="role-tag role-ppl" style="font-size: 12px; font-weight: 800;"><i class="fa-solid fa-person-walking-luggage"></i> 2. Keluarga Khusus Nomaden atau berpindah-pindah</span>
+            </div>
+            <p style="font-size: 13px; color: #334155; line-height: 1.55; margin-bottom: 10px;">
+              Keluarga khusus berpindah-pindah adalah individu yang tidak memiliki tempat tinggal tetap dan hidup secara nomaden. Terdapat dua kelompok dalam kategori ini:
+            </p>
+            <div class="family-criteria-list" style="margin-top: 0; gap: 8px;">
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: var(--deep-orange);"></i>
+                <span><strong>a. Penghuni Rumah Perahu</strong> — penduduk yang tinggal secara nomaden di rumah perahu dan berpindah-pindah di sungai atau di laut.</span>
+              </div>
+              <div class="family-criteria-item">
+                <i class="fa-solid fa-circle-check" style="color: var(--deep-orange);"></i>
+                <span><strong>b. Tunawisma</strong> — penduduk yang tidak memiliki tempat tinggal tetap, seperti yang tinggal di kolong jembatan, pasar, terminal, stasiun, emperan toko, taman umum, trotoar jalan, maupun manusia gerobak, termasuk suku terasing yang tidak mempunyai tempat tinggal (nomaden).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabel Keluarga Khusus -->
+      <div class="table-responsive-box">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th style="width: 45px; text-align: center;">No.</th>
+              <th style="width: 250px;">Nama Tempat / Keluarga Khusus</th>
+              <th>Alamat & Desa</th>
+              <th style="width: 140px;">Kecamatan</th>
+              <th style="width: 170px;">Jenis Tempat Khusus</th>
+              <th style="width: 190px;">PIC / Kontak</th>
+            </tr>
+          </thead>
+          <tbody id="keluarga-khusus-table-body">
+            <!-- Dynamically Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Keluarga Khusus -->
+      <div class="sop-toggle-wrap" id="keluarga-khusus-toggle-wrap" style="margin-top: 14px;">
+        <button id="btn-toggle-keluarga-khusus" class="btn-toggle-sop" onclick="toggleKeluargaKhususList()">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-keluarga-khusus"></i>
+          <span id="text-toggle-keluarga-khusus">Tampilkan Semua (38 Keluarga Khusus)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 8: WEEKLY BRIEFING ==================== -->
+    <section id="briefing" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-bullhorn"></i> Koordinasi Mingguan</span>
+          <h2 class="section-title">Weekly Briefing & Evaluasi Lapangan</h2>
+          <p class="section-subtitle">Bahan paparan evaluasi mingguan, arahan pimpinan BPS Jeneponto, dan catatan
+            strategis tim teknis.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-briefing" href="#" class="btn btn-primary">
+            <i class="fa-brands fa-google-drive"></i> Drive Weekly Briefing
+          </a>
+        </div>
+      </div>
+
+      <div class="briefing-card-wrap">
+        <div class="briefing-text">
+          <h3>Forum Evaluasi Mingguan Sensus Ekonomi 2026</h3>
+          <p>
+            Forum <em>Weekly Briefing</em> diadakan secara rutin setiap pekan untuk membedah kendala lapangan, memonitor
+            kecamatan yang memerlukan akselerasi, serta menyamakan persepsi mitigasi anomali data SE2026.
+          </p>
+          <div class="briefing-agenda-tags">
+            <span class="agenda-tag"><i class="fa-solid fa-calendar-day"></i> Setiap Hari Senin 08.30 WITA</span>
+            <span class="agenda-tag"><i class="fa-solid fa-video"></i> Hybrid (Aula BPS & Zoom)</span>
+            <span class="agenda-tag"><i class="fa-solid fa-clipboard-list"></i> Review Target & Anomali</span>
+          </div>
+        </div>
+
+        <div class="briefing-action-box">
+          <i class="fa-solid fa-folder-arrow-down"></i>
+          <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 8px;">Materi Paparan & Notula</h4>
+          <p style="font-size: 12.5px; opacity: 0.85; margin-bottom: 16px;">Unduh slide presentasi, matriks tindak
+            lanjut, dan rekaman arahan briefing mingguan.</p>
+          <a id="btn-link-briefing-2" href="#" class="btn btn-white" style="width: 100%;">
+            <i class="fa-brands fa-google-drive"></i> Akses Folder Drive
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>PoSE <span>2026</span></h4>
+          <p>
+            Portal Sensus Ekonomi 2026 dikembangkan oleh <strong>Badan Pusat Statistik (BPS) Kabupaten
+              Jeneponto</strong> untuk mendukung kelancaran operasional, akurasi, dan kualitas data perekonomian daerah.
+          </p>
+          <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <span class="section-tag" style="background: rgba(255, 107, 0, 0.2); color: #FFA94D;"><i
+                class="fa-solid fa-location-dot"></i> Jl. Ishak Ngwing, Jeneponto</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Menu Cepat</h5>
+          <div class="footer-links-list">
+            <a href="#pengenalan">Beranda & Pengenalan</a>
+            <a href="#monitoring">Dashboard Monitoring Petugas</a>
+            <a href="#anomali">Deteksi & SOP Anomali</a>
+            <a href="#pelatihan">Materi Pelatihan Petugas</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Instrumen Lapangan</h5>
+          <div class="footer-links-list">
+            <a href="#kbli">KBLI 2025 Jeneponto</a>
+            <a href="#pusat">Data Kantor Pusat (Kode 7)</a>
+            <a href="#keluarga">Daftar Keluarga Khusus</a>
+            <a href="#briefing">Weekly Briefing Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="footer-copy">
+            <p>&copy; 2026 BPS Kabupaten Jeneponto. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="font-size: 11.5px; opacity: 0.75; margin-top: 3px;">Sensus Ekonomi 2026: <em>Memotret Dinamika Perekonomian Bangsa</em></p>
+          </div>
+
+          <a href="https://github.com/salsabilaputri95" target="_blank" rel="noopener noreferrer" class="footer-github-badge" title="GitHub: Thinkerstone">
+            <i class="fa-brands fa-github"></i>
+            <span class="github-name">Thinkerstone</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js?v=4.9"></script>
+  <script src="js/charts.js?v=4.9"></script>
+  <script src="js/sync.js?v=4.9"></script>
+  <script src="js/app.js?v=4.9"></script>
+</body>
+
+</html>
