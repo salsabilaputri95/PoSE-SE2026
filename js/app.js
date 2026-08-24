@@ -173,17 +173,28 @@ function renderKBLITable() {
 
   // Update Toggle Button Visibility & Label
   if (toggleWrap) {
+    const toggleBtn = document.getElementById('btn-toggle-kbli');
+    const scrollTopBtn = document.getElementById('btn-scroll-top-kbli');
+
     if (totalFiltered <= 5) {
       toggleWrap.style.display = 'none';
     } else {
       toggleWrap.style.display = 'flex';
-      if (toggleBtnText && toggleIcon) {
+      if (toggleBtnText && toggleIcon && toggleBtn) {
         if (isKbliExpanded) {
-          toggleIcon.className = 'fa-solid fa-chevron-up';
-          toggleBtnText.textContent = 'Tampilkan Lebih Sedikit (5 Teratas)';
+          toggleBtn.classList.add('btn-icon-only');
+          toggleBtn.title = 'Perkecil / Tampilkan 5 Teratas';
+          toggleIcon.className = 'fa-solid fa-compress';
+          toggleBtnText.style.display = 'none';
+          toggleBtnText.textContent = '';
+          if (scrollTopBtn) scrollTopBtn.style.display = 'inline-flex';
         } else {
+          toggleBtn.classList.remove('btn-icon-only');
+          toggleBtn.title = 'Tampilkan Semua Data KBLI';
           toggleIcon.className = 'fa-solid fa-chevron-down';
+          toggleBtnText.style.display = 'inline';
           toggleBtnText.textContent = `Tampilkan Semua (${totalFiltered} KBLI)`;
+          if (scrollTopBtn) scrollTopBtn.style.display = 'none';
         }
       }
     }
@@ -224,8 +235,13 @@ function renderKBLITable() {
 }
 
 window.toggleKbliList = function() {
+  const wasExpanded = isKbliExpanded;
   isKbliExpanded = !isKbliExpanded;
   renderKBLITable();
+  if (wasExpanded) {
+    scrollToSection('kbli');
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
 };
 
 /**
@@ -236,8 +252,10 @@ let isUsahaPusatExpanded = false;
 function renderUsahaPusatTable() {
   const tableBody = document.getElementById('usaha-pusat-table-body');
   const toggleWrap = document.getElementById('usaha-pusat-toggle-wrap');
+  const toggleBtn = document.getElementById('btn-toggle-usaha-pusat');
   const toggleIcon = document.getElementById('icon-toggle-usaha-pusat');
   const toggleBtnText = document.getElementById('text-toggle-usaha-pusat');
+  const scrollTopBtn = document.getElementById('btn-scroll-top-usaha-pusat');
   if (!tableBody || !POSE_DATA.usahaPusatSample) return;
 
   const list = POSE_DATA.usahaPusatSample;
@@ -249,13 +267,21 @@ function renderUsahaPusatTable() {
       toggleWrap.style.display = 'none';
     } else {
       toggleWrap.style.display = 'flex';
-      if (toggleBtnText && toggleIcon) {
+      if (toggleBtnText && toggleIcon && toggleBtn) {
         if (isUsahaPusatExpanded) {
-          toggleIcon.className = 'fa-solid fa-chevron-up';
-          toggleBtnText.textContent = 'Tampilkan Lebih Sedikit (5 Teratas)';
+          toggleBtn.classList.add('btn-icon-only');
+          toggleBtn.title = 'Perkecil / Tampilkan 5 Teratas';
+          toggleIcon.className = 'fa-solid fa-compress';
+          toggleBtnText.style.display = 'none';
+          toggleBtnText.textContent = '';
+          if (scrollTopBtn) scrollTopBtn.style.display = 'inline-flex';
         } else {
+          toggleBtn.classList.remove('btn-icon-only');
+          toggleBtn.title = 'Tampilkan Semua Usaha Pusat';
           toggleIcon.className = 'fa-solid fa-chevron-down';
+          toggleBtnText.style.display = 'inline';
           toggleBtnText.textContent = `Tampilkan Semua (${list.length} Usaha Pusat)`;
+          if (scrollTopBtn) scrollTopBtn.style.display = 'none';
         }
       }
     }
@@ -285,8 +311,13 @@ function renderUsahaPusatTable() {
 }
 
 window.toggleUsahaPusatList = function() {
+  const wasExpanded = isUsahaPusatExpanded;
   isUsahaPusatExpanded = !isUsahaPusatExpanded;
   renderUsahaPusatTable();
+  if (wasExpanded) {
+    scrollToSection('pusat');
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
 };
 
 /**
@@ -297,8 +328,10 @@ let isKeluargaKhususExpanded = false;
 function renderKeluargaKhususTable() {
   const tableBody = document.getElementById('keluarga-khusus-table-body');
   const toggleWrap = document.getElementById('keluarga-khusus-toggle-wrap');
+  const toggleBtn = document.getElementById('btn-toggle-keluarga-khusus');
   const toggleIcon = document.getElementById('icon-toggle-keluarga-khusus');
   const toggleBtnText = document.getElementById('text-toggle-keluarga-khusus');
+  const scrollTopBtn = document.getElementById('btn-scroll-top-keluarga-khusus');
   if (!tableBody || !POSE_DATA.keluargaKhususList) return;
 
   const list = POSE_DATA.keluargaKhususList;
@@ -310,13 +343,21 @@ function renderKeluargaKhususTable() {
       toggleWrap.style.display = 'none';
     } else {
       toggleWrap.style.display = 'flex';
-      if (toggleBtnText && toggleIcon) {
+      if (toggleBtnText && toggleIcon && toggleBtn) {
         if (isKeluargaKhususExpanded) {
-          toggleIcon.className = 'fa-solid fa-chevron-up';
-          toggleBtnText.textContent = 'Tampilkan Lebih Sedikit (10 Teratas)';
+          toggleBtn.classList.add('btn-icon-only');
+          toggleBtn.title = 'Perkecil / Tampilkan 10 Teratas';
+          toggleIcon.className = 'fa-solid fa-compress';
+          toggleBtnText.style.display = 'none';
+          toggleBtnText.textContent = '';
+          if (scrollTopBtn) scrollTopBtn.style.display = 'inline-flex';
         } else {
+          toggleBtn.classList.remove('btn-icon-only');
+          toggleBtn.title = 'Tampilkan Semua Keluarga Khusus';
           toggleIcon.className = 'fa-solid fa-chevron-down';
+          toggleBtnText.style.display = 'inline';
           toggleBtnText.textContent = `Tampilkan Semua (${list.length} Keluarga Khusus)`;
+          if (scrollTopBtn) scrollTopBtn.style.display = 'none';
         }
       }
     }
@@ -342,9 +383,87 @@ function renderKeluargaKhususTable() {
 }
 
 window.toggleKeluargaKhususList = function() {
+  const wasExpanded = isKeluargaKhususExpanded;
   isKeluargaKhususExpanded = !isKeluargaKhususExpanded;
   renderKeluargaKhususTable();
+  if (wasExpanded) {
+    scrollToSection('keluarga');
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
 };
+
+/**
+ * Smooth Scroll to a section
+ */
+window.scrollToSection = function(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
+/**
+ * Floating Action Dock Management for Expanded Tables (KBLI, Usaha Pusat, Keluarga Khusus)
+ */
+let activeExpandedSection = null;
+
+function updateFloatingDockVisibility() {
+  const dock = document.getElementById('floating-table-actions');
+  if (!dock) return;
+
+  const sections = [
+    { id: 'kbli', isExpanded: isKbliExpanded, collapseFn: toggleKbliList },
+    { id: 'pusat', isExpanded: isUsahaPusatExpanded, collapseFn: toggleUsahaPusatList },
+    { id: 'keluarga', isExpanded: isKeluargaKhususExpanded, collapseFn: toggleKeluargaKhususList }
+  ];
+
+  let visibleActive = null;
+  const viewportHeight = window.innerHeight;
+
+  for (const sec of sections) {
+    if (!sec.isExpanded) continue;
+    const el = document.getElementById(sec.id);
+    if (!el) continue;
+    const rect = el.getBoundingClientRect();
+    // Check if section is currently in the visible viewport
+    if (rect.top <= viewportHeight - 60 && rect.bottom >= 100) {
+      visibleActive = sec;
+      break;
+    }
+  }
+
+  if (visibleActive) {
+    activeExpandedSection = visibleActive;
+    dock.style.display = 'flex';
+  } else {
+    activeExpandedSection = null;
+    dock.style.display = 'none';
+  }
+}
+
+window.triggerActiveTableCollapse = function() {
+  if (activeExpandedSection && typeof activeExpandedSection.collapseFn === 'function') {
+    activeExpandedSection.collapseFn();
+  } else {
+    if (isKbliExpanded) toggleKbliList();
+    else if (isUsahaPusatExpanded) toggleUsahaPusatList();
+    else if (isKeluargaKhususExpanded) toggleKeluargaKhususList();
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+window.triggerActiveTableScrollTop = function() {
+  if (activeExpandedSection) {
+    scrollToSection(activeExpandedSection.id);
+  } else {
+    if (isKbliExpanded) scrollToSection('kbli');
+    else if (isUsahaPusatExpanded) scrollToSection('pusat');
+    else if (isKeluargaKhususExpanded) scrollToSection('keluarga');
+  }
+};
+
+window.addEventListener('scroll', updateFloatingDockVisibility, { passive: true });
+window.addEventListener('resize', updateFloatingDockVisibility, { passive: true });
 
 /**
  * Update Monitoring KPI Cards Dynamically Based on Selected Wilayah

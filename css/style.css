@@ -1755,3 +1755,161 @@ button {
     margin-left: 0;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Table Expand / Collapse & Scroll Actions (KBLI, Usaha Pusat, Keluarga Khusus)
+   -------------------------------------------------------------------------- */
+.sop-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.btn-toggle-sop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #FFF7ED;
+  color: var(--deep-orange);
+  border: 1.5px solid var(--border-orange);
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 107, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-toggle-sop:hover {
+  background: var(--gradient-badge);
+  color: var(--white);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.25);
+}
+
+.btn-toggle-sop.btn-icon-only {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 16px;
+  background: #FFF7ED;
+  border-color: #FED7AA;
+  color: #EA580C;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.12);
+}
+
+.btn-toggle-sop.btn-icon-only:hover {
+  background: var(--gradient-badge);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 14px rgba(255, 107, 0, 0.25);
+}
+
+.btn-scroll-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: #0F172A;
+  border: 1.5px solid #CBD5E1;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.btn-scroll-action:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Floating Quick Action Dock for Expanded Tables (Fixed at bottom screen)
+   -------------------------------------------------------------------------- */
+.floating-table-dock {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 107, 0, 0.25);
+  animation: floatDockIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes floatDockIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.btn-floating-dock {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.btn-floating-compress {
+  background: #FFF7ED;
+  border-color: #FED7AA;
+  color: #EA580C;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.15);
+}
+
+.btn-floating-compress:hover {
+  background: var(--gradient-badge);
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.35);
+}
+
+.btn-floating-arrow {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-floating-arrow:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.3);
+}

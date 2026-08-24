@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=5.2">
+  <link rel="stylesheet" href="css/style.css?v=5.4">
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -1078,11 +1078,14 @@
         </table>
       </div>
 
-      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk KBLI -->
-      <div class="sop-toggle-wrap" id="kbli-toggle-wrap" style="margin-top: 14px;">
-        <button id="btn-toggle-kbli" class="btn-toggle-sop" onclick="toggleKbliList()">
+      <!-- Tombol Tampilkan Semua / Perkecil & Menuju ke Atas untuk KBLI -->
+      <div class="sop-toggle-wrap" id="kbli-toggle-wrap">
+        <button id="btn-toggle-kbli" class="btn-toggle-sop" onclick="toggleKbliList()" title="Tampilkan Semua Data KBLI">
           <i class="fa-solid fa-chevron-down" id="icon-toggle-kbli"></i>
           <span id="text-toggle-kbli">Tampilkan Semua (416 KBLI)</span>
+        </button>
+        <button id="btn-scroll-top-kbli" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('kbli')" title="Menuju ke Atas Tabel KBLI">
+          <i class="fa-solid fa-arrow-up"></i>
         </button>
       </div>
     </section>
@@ -1143,11 +1146,14 @@
         </table>
       </div>
 
-      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Usaha Pusat -->
-      <div class="sop-toggle-wrap" id="usaha-pusat-toggle-wrap" style="margin-top: 14px;">
-        <button id="btn-toggle-usaha-pusat" class="btn-toggle-sop" onclick="toggleUsahaPusatList()">
+      <!-- Tombol Tampilkan Semua / Perkecil & Menuju ke Atas untuk Usaha Pusat -->
+      <div class="sop-toggle-wrap" id="usaha-pusat-toggle-wrap">
+        <button id="btn-toggle-usaha-pusat" class="btn-toggle-sop" onclick="toggleUsahaPusatList()" title="Tampilkan Semua Usaha Pusat">
           <i class="fa-solid fa-chevron-down" id="icon-toggle-usaha-pusat"></i>
           <span id="text-toggle-usaha-pusat">Tampilkan Semua (34 Usaha Pusat)</span>
+        </button>
+        <button id="btn-scroll-top-usaha-pusat" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('pusat')" title="Menuju ke Atas Tabel Usaha Pusat">
+          <i class="fa-solid fa-arrow-up"></i>
         </button>
       </div>
     </section>
@@ -1269,11 +1275,14 @@
         </table>
       </div>
 
-      <!-- Tombol Tampilkan Semua / Lebih Sedikit untuk Keluarga Khusus -->
-      <div class="sop-toggle-wrap" id="keluarga-khusus-toggle-wrap" style="margin-top: 14px;">
-        <button id="btn-toggle-keluarga-khusus" class="btn-toggle-sop" onclick="toggleKeluargaKhususList()">
+      <!-- Tombol Tampilkan Semua / Perkecil & Menuju ke Atas untuk Keluarga Khusus -->
+      <div class="sop-toggle-wrap" id="keluarga-khusus-toggle-wrap">
+        <button id="btn-toggle-keluarga-khusus" class="btn-toggle-sop" onclick="toggleKeluargaKhususList()" title="Tampilkan Semua Keluarga Khusus">
           <i class="fa-solid fa-chevron-down" id="icon-toggle-keluarga-khusus"></i>
           <span id="text-toggle-keluarga-khusus">Tampilkan Semua (38 Keluarga Khusus)</span>
+        </button>
+        <button id="btn-scroll-top-keluarga-khusus" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('keluarga')" title="Menuju ke Atas Tabel Keluarga Khusus">
+          <i class="fa-solid fa-arrow-up"></i>
         </button>
       </div>
     </section>
@@ -1378,11 +1387,21 @@
     </div>
   </footer>
 
+  <!-- Floating Quick Actions Dock for Expanded Tables (KBLI, Usaha Pusat, Keluarga Khusus) -->
+  <div id="floating-table-actions" class="floating-table-dock" style="display: none;">
+    <button id="floating-btn-collapse" class="btn-floating-dock btn-floating-compress" title="Perkecil Tabel (Tampilkan Lebih Sedikit)" onclick="triggerActiveTableCollapse()">
+      <i class="fa-solid fa-compress"></i>
+    </button>
+    <button id="floating-btn-scroll-top" class="btn-floating-dock btn-floating-arrow" title="Kembali ke Atas Tabel" onclick="triggerActiveTableScrollTop()">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/data.js?v=5.2"></script>
-  <script src="js/charts.js?v=5.2"></script>
-  <script src="js/sync.js?v=5.2"></script>
-  <script src="js/app.js?v=5.2"></script>
+  <script src="js/data.js?v=5.4"></script>
+  <script src="js/charts.js?v=5.4"></script>
+  <script src="js/sync.js?v=5.4"></script>
+  <script src="js/app.js?v=5.4"></script>
 </body>
 
 </html>
