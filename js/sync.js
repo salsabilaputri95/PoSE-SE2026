@@ -142,7 +142,7 @@ function processUsahaPusatCSV(rows) {
   if (!rows || rows.length < 2) return false;
 
   const header = rows[0].map(h => (h || '').toUpperCase());
-  const perushIdx = header.findIndex(h => h.includes('PERUSAHAAN') || h.includes('NAMA'));
+  const perushIdx = header.findIndex(h => h.includes('PERUSAHAAN') || (h.includes('NAMA') && !h.includes('KOMERSIL')));
   const komersilIdx = header.findIndex(h => h.includes('KOMERSIL') || h.includes('BRAND') || h.includes('MERK'));
   const alamatIdx = header.findIndex(h => h.includes('ALAMAT'));
 
@@ -153,11 +153,16 @@ function processUsahaPusatCSV(rows) {
     const perush = perushIdx !== -1 ? (r[perushIdx] || '').trim() : '';
     if (!perush) continue;
 
+    const brand = komersilIdx !== -1 ? (r[komersilIdx] || '-').trim() : '-';
+    const address = alamatIdx !== -1 ? (r[alamatIdx] || '-').trim() : '-';
+
     parsedList.push({
       id: parsedList.length + 1,
+      namaUsaha: perush,
       nama: perush,
-      komersil: komersilIdx !== -1 ? (r[komersilIdx] || '-').trim() : '-',
-      alamat: alamatIdx !== -1 ? (r[alamatIdx] || '-').trim() : '-'
+      namaKomersil: brand,
+      komersil: brand,
+      alamat: address
     });
   }
 

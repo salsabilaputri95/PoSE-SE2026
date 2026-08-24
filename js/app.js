@@ -262,21 +262,23 @@ function renderUsahaPusatTable() {
   }
 
   tableBody.innerHTML = displayItems.map((item, idx) => {
-    let rawCompany = item.namaUsaha;
-    if (item.namaKomersil && rawCompany.includes(` (${item.namaKomersil})`)) {
-      rawCompany = rawCompany.replace(` (${item.namaKomersil})`, '');
+    let companyName = item.namaUsaha || item.nama || item.perusahaan || '-';
+    let brandName = item.namaKomersil || item.komersil || '-';
+
+    if (brandName && brandName !== '-' && companyName.includes(` (${brandName})`)) {
+      companyName = companyName.replace(` (${brandName})`, '');
     }
 
     return `
       <tr>
         <td style="width: 45px; text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
-        <td><strong>${escapeHtml(rawCompany)}</strong></td>
+        <td><strong>${escapeHtml(companyName)}</strong></td>
         <td>
           <span class="section-tag" style="font-size: 11.5px; font-weight: 700; color: var(--dark-slate); background: rgba(255, 107, 0, 0.1); border: 1px solid var(--border-orange); text-transform: none; padding: 4px 10px;">
-            <i class="fa-solid fa-store" style="color: var(--deep-orange);"></i> ${escapeHtml(item.namaKomersil || '-')}
+            <i class="fa-solid fa-store" style="color: var(--deep-orange);"></i> ${escapeHtml(brandName)}
           </span>
         </td>
-        <td style="font-size: 12.5px; color: #334155;">${escapeHtml(item.alamat)}</td>
+        <td style="font-size: 12.5px; color: #334155;">${escapeHtml(item.alamat || '-')}</td>
       </tr>
     `;
   }).join('');
