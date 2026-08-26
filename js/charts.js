@@ -172,13 +172,13 @@ function renderMonitoringCharts(selectedOption) {
 
   if (isKabupaten) {
     allLabels1 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik1.belum = POSE_DATA.progresKecamatan.map(k => +(Math.max(0, 100 - k.submit).toFixed(1)));
-    allDataGrafik1.submitOnly = POSE_DATA.progresKecamatan.map(k => +(Math.max(0, k.submit - k.approved).toFixed(1)));
+    allDataGrafik1.rejected = POSE_DATA.progresKecamatan.map(k => +(k.rejected).toFixed(1));
+    allDataGrafik1.submitOnly = POSE_DATA.progresKecamatan.map(k => +(k.submit).toFixed(1));
     allDataGrafik1.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved).toFixed(1));
 
     allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
     allDataGrafik2.rejected = POSE_DATA.progresKecamatan.map(k => +(k.rejected).toFixed(1));
-    allDataGrafik2.belumPeriksa = POSE_DATA.progresKecamatan.map(k => +(Math.max(0, 100 - k.approved - k.rejected).toFixed(1)));
+    allDataGrafik2.belumPeriksa = POSE_DATA.progresKecamatan.map(k => +(k.submit).toFixed(1));
     allDataGrafik2.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved).toFixed(1));
 
     titleGrafik1 = "Progres Pendataan SE2026 Kabupaten Jeneponto (per Kecamatan)";
@@ -188,14 +188,14 @@ function renderMonitoringCharts(selectedOption) {
     
     // Grafik 1: PPL
     allLabels1 = dataKec.ppl.map(p => p.nama);
-    allDataGrafik1.belum = dataKec.ppl.map(p => +(Math.max(0, 100 - p.submit).toFixed(1)));
-    allDataGrafik1.submitOnly = dataKec.ppl.map(p => +(Math.max(0, p.submit - p.approved).toFixed(1)));
+    allDataGrafik1.rejected = dataKec.ppl.map(p => +(p.rejected).toFixed(1));
+    allDataGrafik1.submitOnly = dataKec.ppl.map(p => +(p.submit).toFixed(1));
     allDataGrafik1.approved = dataKec.ppl.map(p => +(p.approved).toFixed(1));
     
     // Grafik 2: PML
     allLabels2 = dataKec.pml.map(p => p.nama);
     allDataGrafik2.rejected = dataKec.pml.map(p => +(p.rejected).toFixed(1));
-    allDataGrafik2.belumPeriksa = dataKec.pml.map(p => +(Math.max(0, 100 - p.approved - p.rejected).toFixed(1)));
+    allDataGrafik2.belumPeriksa = dataKec.pml.map(p => +(p.submit).toFixed(1));
     allDataGrafik2.approved = dataKec.pml.map(p => +(p.approved).toFixed(1));
 
     titleGrafik1 = `Progres Pendataan SE2026 Kec. ${selectedOption} (per PPL)`;
@@ -219,7 +219,7 @@ function renderMonitoringCharts(selectedOption) {
 
   // Apply Slicing if not expanded
   const labels1 = isMonitoringExpanded ? allLabels1 : allLabels1.slice(0, 5);
-  const data1Belum = isMonitoringExpanded ? allDataGrafik1.belum : allDataGrafik1.belum.slice(0, 5);
+  const data1Rejected = isMonitoringExpanded ? allDataGrafik1.rejected : allDataGrafik1.rejected.slice(0, 5);
   const data1SubmitOnly = isMonitoringExpanded ? allDataGrafik1.submitOnly : allDataGrafik1.submitOnly.slice(0, 5);
   const data1Approved = isMonitoringExpanded ? allDataGrafik1.approved : allDataGrafik1.approved.slice(0, 5);
 
@@ -257,9 +257,9 @@ function renderMonitoringCharts(selectedOption) {
       datasets: [
         {
           label: '% Rejected by Pengawas',
-          data: data1Belum,
-          backgroundColor: CHART_COLORS.anomaliBelum,
-          borderColor: CHART_COLORS.anomaliBelumBorder,
+          data: data1Rejected,
+          backgroundColor: CHART_COLORS.rejectedCoral,
+          borderColor: CHART_COLORS.rejectedCoralBorder,
           borderWidth: 1.5,
           borderRadius: 4,
           barPercentage: 0.8,
@@ -302,7 +302,7 @@ function renderMonitoringCharts(selectedOption) {
       labels: labels2,
       datasets: [
         {
-          label: '% Rejected',
+          label: '% Rejected by Pengawas',
           data: data2Rejected,
           backgroundColor: CHART_COLORS.rejectedCoral,
           borderColor: CHART_COLORS.rejectedCoralBorder,
@@ -312,10 +312,10 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Belum Diperiksa',
+          label: '% Submit (Menunggu Approval)',
           data: data2BelumPeriksa,
-          backgroundColor: CHART_COLORS.anomaliCatatan,
-          borderColor: CHART_COLORS.anomaliCatatanBorder,
+          backgroundColor: CHART_COLORS.submitOrange,
+          borderColor: CHART_COLORS.submitOrangeBorder,
           borderWidth: 1.5,
           borderRadius: 4,
           barPercentage: 0.8,
