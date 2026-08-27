@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initKBLIDropdown();
   populateKPIs();
   initPoSECharts();
+  renderPertanianTable();
+  renderUsahaBesarTable();
   renderKBLITable();
   renderUsahaPusatTable();
   renderKeluargaKhususTable();
@@ -26,10 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function initDropdowns() {
   const selectMonitoring = document.getElementById('select-kecamatan-monitoring');
   const selectAnomali = document.getElementById('select-kecamatan-anomali');
+  const selectPertanian = document.getElementById('select-kecamatan-pertanian');
 
-  const populateOptions = (selectElem) => {
+  const populateOptions = (selectElem, isPertanian = false) => {
     if (!selectElem) return;
-    selectElem.innerHTML = `<option value="Kabupaten Jeneponto">Kabupaten Jeneponto (Semua)</option>`;
+    selectElem.innerHTML = isPertanian 
+      ? `<option value="Semua">Semua Kecamatan (11 Kecamatan)</option>`
+      : `<option value="Kabupaten Jeneponto">Kabupaten Jeneponto (Semua)</option>`;
     POSE_DATA.kecamatanList.forEach(kec => {
       const opt = document.createElement('option');
       opt.value = kec;
@@ -40,6 +45,7 @@ function initDropdowns() {
 
   populateOptions(selectMonitoring);
   populateOptions(selectAnomali);
+  populateOptions(selectPertanian, true);
 }
 
 /**
@@ -94,10 +100,14 @@ function populateKPIs() {
  */
 function setupLinks() {
   const linkElements = {
+    'btn-link-pertanian': POSE_DATA.links.pertanian,
+    'btn-link-pertanian-2': POSE_DATA.links.pertanian,
     'btn-link-monitoring': POSE_DATA.links.monitoringPetugas,
     'btn-link-monitoring-2': POSE_DATA.links.monitoringPetugas,
     'btn-link-anomali': POSE_DATA.links.anomaliData,
     'btn-link-pusat': POSE_DATA.links.dataPusat,
+    'btn-link-usaha-besar': POSE_DATA.links.usahaBesar,
+    'btn-link-usaha-besar-2': POSE_DATA.links.usahaBesar,
     'btn-link-kbli': POSE_DATA.links.kbli2025,
     'btn-link-keluarga': POSE_DATA.links.keluargaKhusus,
     'btn-link-keluarga-2': POSE_DATA.links.keluargaKhusus,
@@ -321,6 +331,302 @@ window.toggleUsahaPusatList = function() {
 };
 
 /**
+ * Render Perbandingan Hasil Usaha Pertanian SE2026 vs ST2023 with Live Filter & Search
+ */
+let isPertanianExpanded = false;
+let pertanianSearchQuery = '';
+let currentPertanianKecamatan = 'Semua';
+
+function renderPertanianTable() {
+  const tableBody = document.getElementById('pertanian-table-body');
+  const toggleWrap = document.getElementById('pertanian-toggle-wrap');
+  const toggleBtn = document.getElementById('btn-toggle-pertanian');
+  const toggleIcon = document.getElementById('icon-toggle-pertanian');
+  const toggleBtnText = document.getElementById('text-toggle-pertanian');
+  const scrollTopBtn = document.getElementById('btn-scroll-top-pertanian');
+  const badgeCount = document.getElementById('badge-count-pertanian');
+
+  // KPI Elements in Pertanian Section
+  const elUtpKab = document.getElementById('kpi-pertanian-utp-val');
+  const elSeKab = document.getElementById('kpi-pertanian-se-val');
+  const elPersenKab = document.getElementById('kpi-pertanian-persen-val');
+  const barPersenKab = document.getElementById('kpi-pertanian-persen-bar');
+
+  if (POSE_DATA.kpiPertanian) {
+    if (elUtpKab) elUtpKab.textContent = (POSE_DATA.kpiPertanian.totalUtp2023 || 0).toLocaleString('id-ID');
+    if (elSeKab) elSeKab.textContent = (POSE_DATA.kpiPertanian.totalSe2026 || 0).toLocaleString('id-ID');
+    if (elPersenKab) elPersenKab.textContent = POSE_DATA.kpiPertanian.persentaseRealisasi || '0.00%';
+    if (barPersenKab) {
+      const pNum = parseFloat(POSE_DATA.kpiPertanian.persentaseRealisasi) || 0;
+      barPersenKab.style.width = `${Math.min(pNum, 100)}%`;
+    }
+  }
+
+  if (!tableBody || !POSE_DATA.pertanianList) return;
+
+  let list = POSE_DATA.pertanianList;
+
+  // Filter Kecamatan
+  if (currentPertanianKecamatan && currentPertanianKecamatan !== 'Semua') {
+    list = list.filter(item => item.kecamatan && item.kecamatan.toUpperCase() === currentPertanianKecamatan.toUpperCase());
+  }
+
+  // Filter Search Query
+  if (pertanianSearchQuery) {
+    const q = pertanianSearchQuery.toLowerCase();
+    list = list.filter(item =>
+      (item.desa && item.desa.toLowerCase().includes(q)) ||
+      (item.kecamatan && item.kecamatan.toLowerCase().includes(q)) ||
+      (item.kodeDesa && item.kodeDesa.toLowerCase().includes(q))
+    );
+  }
+
+  const displayItems = isPertanianExpanded || pertanianSearchQuery || (currentPertanianKecamatan && currentPertanianKecamatan !== 'Semua') ? list : list.slice(0, 10);
+
+  if (badgeCount) {
+    badgeCount.textContent = `Menampilkan ${displayItems.length} dari ${list.length} Desa / Kelurahan`;
+  }
+
+  // Update Toggle Button Visibility & Label
+  if (toggleWrap) {
+    if (list.length <= 10 || pertanianSearchQuery || (currentPertanianKecamatan && currentPertanianKecamatan !== 'Semua')) {
+      toggleWrap.style.display = 'none';
+    } else {
+      toggleWrap.style.display = 'flex';
+      if (toggleBtnText && toggleIcon && toggleBtn) {
+        if (isPertanianExpanded) {
+          toggleBtn.classList.add('btn-icon-only');
+          toggleBtn.title = 'Perkecil / Tampilkan 10 Teratas';
+          toggleIcon.className = 'fa-solid fa-compress';
+          toggleBtnText.style.display = 'none';
+          toggleBtnText.textContent = '';
+          if (scrollTopBtn) scrollTopBtn.style.display = 'inline-flex';
+        } else {
+          toggleBtn.classList.remove('btn-icon-only');
+          toggleBtn.title = 'Tampilkan Semua Desa/Kelurahan';
+          toggleIcon.className = 'fa-solid fa-chevron-down';
+          toggleBtnText.style.display = 'inline';
+          toggleBtnText.textContent = `Tampilkan Semua (${list.length} Desa / Kelurahan)`;
+          if (scrollTopBtn) scrollTopBtn.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  if (displayItems.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align: center; padding: 32px 16px; color: var(--text-muted);">
+          <i class="fa-solid fa-seedling" style="font-size: 28px; color: #CBD5E1; margin-bottom: 8px; display: block;"></i>
+          <strong>Tidak ditemukan data Desa/Kelurahan yang cocok</strong><br>
+          <span style="font-size: 12px;">Coba gunakan kata kunci pencarian atau pilih kecamatan lain.</span>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tableBody.innerHTML = displayItems.map((item, idx) => {
+    const utpFormatted = (item.utp2023 || 0).toLocaleString('id-ID');
+    const seFormatted = (item.se2026 || 0).toLocaleString('id-ID');
+    const persenNum = item.persenVal || parseFloat(item.persentase) || 0;
+
+    // Color theme for percentage
+    let badgeColor = '#059669';
+    let badgeBg = 'rgba(16, 185, 129, 0.1)';
+    let badgeBorder = 'rgba(16, 185, 129, 0.25)';
+    if (persenNum < 50) {
+      badgeColor = '#DC2626';
+      badgeBg = 'rgba(239, 68, 68, 0.1)';
+      badgeBorder = 'rgba(239, 68, 68, 0.25)';
+    } else if (persenNum < 70) {
+      badgeColor = '#D97706';
+      badgeBg = 'rgba(245, 158, 11, 0.1)';
+      badgeBorder = 'rgba(245, 158, 11, 0.25)';
+    }
+
+    return `
+      <tr>
+        <td style="width: 50px; text-align: center; color: var(--text-muted); font-weight: 700; vertical-align: middle;">${idx + 1}</td>
+        <td style="vertical-align: middle; font-weight: 700; color: #0F172A; font-size: 13.5px; line-height: 1.35;">
+          ${escapeHtml(item.desa)}
+        </td>
+        <td style="width: 150px; text-align: center; vertical-align: middle;">
+          <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <span class="section-tag" style="font-size: 11px; padding: 4px 10px; text-transform: uppercase; font-weight: 700; border-radius: 9999px; letter-spacing: 0.3px; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; margin: 0;">
+              <i class="fa-solid fa-location-dot" style="font-size: 10px;"></i> ${escapeHtml(item.kecamatan || '-')}
+            </span>
+          </div>
+        </td>
+        <td style="width: 140px; text-align: center; vertical-align: middle;">
+          <span style="display: inline-block; font-weight: 700; color: #334155; font-size: 13.5px; background: #F1F5F9; padding: 4px 12px; border-radius: 8px;">
+            ${utpFormatted}
+          </span>
+        </td>
+        <td style="width: 160px; text-align: center; vertical-align: middle;">
+          <span style="display: inline-block; font-weight: 800; color: var(--deep-orange); font-size: 13.5px; background: #FFF7ED; padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(255, 107, 0, 0.25);">
+            ${seFormatted}
+          </span>
+        </td>
+        <td style="vertical-align: middle; width: 220px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+            <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 800; padding: 2px 8px; border-radius: 6px; background: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeBorder};">
+              <i class="fa-solid fa-chart-line" style="font-size: 10px;"></i> ${item.persentase || '0.00%'}
+            </span>
+            <span style="font-size: 11px; color: #64748B; font-weight: 600;">Realisasi</span>
+          </div>
+          <div style="height: 6px; background: #E2E8F0; border-radius: 9999px; overflow: hidden;">
+            <div style="height: 100%; width: ${Math.min(persenNum, 100)}%; background: ${badgeColor}; border-radius: 9999px; transition: width 0.3s ease;"></div>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+window.handlePertanianSearch = function(val) {
+  pertanianSearchQuery = (val || '').trim();
+  renderPertanianTable();
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+window.handlePertanianKecamatanChange = function(kec) {
+  currentPertanianKecamatan = kec || 'Semua';
+  renderPertanianTable();
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+window.togglePertanianList = function() {
+  const wasExpanded = isPertanianExpanded;
+  isPertanianExpanded = !isPertanianExpanded;
+  renderPertanianTable();
+  if (wasExpanded) {
+    scrollToSection('pertanian');
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+/**
+ * Render Daftar Usaha Besar (UB) with Live Search & Toggle Expansion
+ */
+let isUsahaBesarExpanded = false;
+let usahaBesarSearchQuery = '';
+
+function cleanAlamatUB(alamat, desa) {
+  if (!alamat || alamat === '-') return desa && desa !== '-' ? `Ds. ${desa}` : '-';
+  let clean = alamat.trim();
+  if (desa && desa !== '-' && !clean.toUpperCase().includes(desa.toUpperCase())) {
+    clean += `, Ds. ${desa}`;
+  }
+  return clean;
+}
+
+function renderUsahaBesarTable() {
+  const tableBody = document.getElementById('usaha-besar-table-body');
+  const toggleWrap = document.getElementById('usaha-besar-toggle-wrap');
+  const toggleBtn = document.getElementById('btn-toggle-usaha-besar');
+  const toggleIcon = document.getElementById('icon-toggle-usaha-besar');
+  const toggleBtnText = document.getElementById('text-toggle-usaha-besar');
+  const scrollTopBtn = document.getElementById('btn-scroll-top-usaha-besar');
+  const badgeCount = document.getElementById('badge-count-usaha-besar');
+
+  if (!tableBody || !POSE_DATA.usahaBesarList) return;
+
+  let list = POSE_DATA.usahaBesarList;
+
+  // Filter with search query
+  if (usahaBesarSearchQuery) {
+    const q = usahaBesarSearchQuery.toLowerCase();
+    list = list.filter(item => 
+      (item.nama && item.nama.toLowerCase().includes(q)) ||
+      (item.kecamatan && item.kecamatan.toLowerCase().includes(q)) ||
+      (item.desa && item.desa.toLowerCase().includes(q)) ||
+      (item.alamat && item.alamat.toLowerCase().includes(q))
+    );
+  }
+
+  const displayItems = isUsahaBesarExpanded || usahaBesarSearchQuery ? list : list.slice(0, 10);
+
+  if (badgeCount) {
+    badgeCount.textContent = `Menampilkan ${displayItems.length} dari ${list.length} Usaha Besar`;
+  }
+
+  // Update Toggle Button Visibility & Label
+  if (toggleWrap) {
+    if (list.length <= 10 || usahaBesarSearchQuery) {
+      toggleWrap.style.display = 'none';
+    } else {
+      toggleWrap.style.display = 'flex';
+      if (toggleBtnText && toggleIcon && toggleBtn) {
+        if (isUsahaBesarExpanded) {
+          toggleBtn.classList.add('btn-icon-only');
+          toggleBtn.title = 'Perkecil / Tampilkan 10 Teratas';
+          toggleIcon.className = 'fa-solid fa-compress';
+          toggleBtnText.style.display = 'none';
+          toggleBtnText.textContent = '';
+          if (scrollTopBtn) scrollTopBtn.style.display = 'inline-flex';
+        } else {
+          toggleBtn.classList.remove('btn-icon-only');
+          toggleBtn.title = 'Tampilkan Semua Usaha Besar';
+          toggleIcon.className = 'fa-solid fa-chevron-down';
+          toggleBtnText.style.display = 'inline';
+          toggleBtnText.textContent = `Tampilkan Semua (${list.length} Usaha Besar)`;
+          if (scrollTopBtn) scrollTopBtn.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  if (displayItems.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="4" style="text-align: center; padding: 32px 16px; color: var(--text-muted);">
+          <i class="fa-solid fa-industry" style="font-size: 28px; color: #CBD5E1; margin-bottom: 8px; display: block;"></i>
+          <strong>Tidak ditemukan Usaha Besar yang cocok</strong><br>
+          <span style="font-size: 12px;">Coba gunakan kata kunci pencarian nama perusahaan atau kecamatan lain.</span>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tableBody.innerHTML = displayItems.map((item, idx) => `
+    <tr>
+      <td style="width: 50px; text-align: center; color: var(--text-muted); font-weight: 700; vertical-align: middle;">${idx + 1}</td>
+      <td style="vertical-align: middle; font-weight: 700; color: #0F172A; font-size: 13.5px; line-height: 1.45;">
+        ${escapeHtml(item.nama)}
+      </td>
+      <td style="width: 160px; text-align: center; vertical-align: middle;">
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+          <span class="section-tag" style="font-size: 11px; padding: 4px 12px; text-transform: uppercase; font-weight: 700; border-radius: 9999px; letter-spacing: 0.3px; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; margin: 0;">
+            <i class="fa-solid fa-location-dot" style="font-size: 10px;"></i> ${escapeHtml(item.kecamatan || '-')}
+          </span>
+        </div>
+      </td>
+      <td style="font-size: 12.5px; color: #334155; line-height: 1.5; vertical-align: middle;">
+        ${escapeHtml(cleanAlamatUB(item.alamat, item.desa))}
+      </td>
+    </tr>
+  `).join('');
+}
+
+window.handleUsahaBesarSearch = function(val) {
+  usahaBesarSearchQuery = (val || '').trim();
+  renderUsahaBesarTable();
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+window.toggleUsahaBesarList = function() {
+  const wasExpanded = isUsahaBesarExpanded;
+  isUsahaBesarExpanded = !isUsahaBesarExpanded;
+  renderUsahaBesarTable();
+  if (wasExpanded) {
+    scrollToSection('usaha-besar');
+  }
+  setTimeout(updateFloatingDockVisibility, 50);
+};
+
+/**
  * Render Daftar Keluarga Khusus with 10 Default Items + Toggle
  */
 let isKeluargaKhususExpanded = false;
@@ -363,23 +669,40 @@ function renderKeluargaKhususTable() {
     }
   }
 
-  tableBody.innerHTML = displayItems.map((item, idx) => `
-    <tr>
-      <td style="width: 45px; text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
-      <td><strong>${escapeHtml(item.nama)}</strong></td>
-      <td style="font-size: 12.5px; color: #334155;">${escapeHtml(item.alamat)}${item.desa && item.desa !== '-' ? `, Ds. ${escapeHtml(item.desa)}` : ''}</td>
-      <td><span class="section-tag" style="font-size: 11px; padding: 3px 8px; text-transform: none; font-weight: 700;">${escapeHtml(item.kec)}</span></td>
-      <td>
-        <span class="badge-live-status" style="background: rgba(245, 158, 11, 0.1); color: #B45309; border-color: rgba(245, 158, 11, 0.3); font-size: 11px; font-weight: 700; white-space: nowrap;">
-          <i class="fa-solid fa-users-viewfinder"></i> ${escapeHtml(item.jenis)}
-        </span>
-      </td>
-      <td style="font-size: 12px; line-height: 1.4;">
-        <strong>${escapeHtml(item.pic)}</strong>
-        ${item.kontak && item.kontak !== item.pic && item.kontak !== '-' ? `<br><span style="color: var(--text-muted); font-size: 11px;"><i class="fa-solid fa-phone" style="font-size: 10px;"></i> ${escapeHtml(item.kontak)}</span>` : ''}
-      </td>
-    </tr>
-  `).join('');
+  tableBody.innerHTML = displayItems.map((item, idx) => {
+    const isSubmit = (item.status || '').toUpperCase() === 'SUBMIT';
+    const statusBadge = isSubmit
+      ? `<span class="badge-live-status" style="background: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.3); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; white-space: nowrap;"><i class="fa-solid fa-circle-check"></i> SUBMIT</span>`
+      : `<span class="badge-live-status" style="background: rgba(245, 158, 11, 0.12); color: #B45309; border-color: rgba(245, 158, 11, 0.3); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; white-space: nowrap;"><i class="fa-solid fa-clock"></i> OPEN</span>`;
+
+    const noHp = item.noHpPic || item.kontak || '-';
+    const hpDisplay = noHp && noHp !== '-'
+      ? `<a href="tel:${escapeHtml(noHp)}" style="color: var(--deep-orange); font-weight: 600; text-decoration: none; font-size: 12px; white-space: nowrap;"><i class="fa-solid fa-phone" style="font-size: 10.5px;"></i> ${escapeHtml(noHp)}</a>`
+      : `<span style="color: var(--text-muted); font-size: 12px;">-</span>`;
+
+    const pjBadge = item.pj && item.pj !== '-'
+      ? `<span class="role-tag role-pml" style="font-size: 10.5px; padding: 3px 8px; font-weight: 700; white-space: nowrap;">${escapeHtml(item.pj)}</span>`
+      : `<span style="color: var(--text-muted); font-size: 12px;">-</span>`;
+
+    return `
+      <tr>
+        <td style="width: 45px; text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
+        <td><strong>${escapeHtml(item.nama)}</strong></td>
+        <td style="font-size: 12.5px; color: #334155;">${escapeHtml(item.alamat || '-')}</td>
+        <td style="font-size: 12.5px; color: #334155; font-weight: 600;">${escapeHtml(item.desa || '-')}</td>
+        <td><span class="section-tag" style="font-size: 11px; padding: 3px 8px; text-transform: none; font-weight: 700;">${escapeHtml(item.kec || '-')}</span></td>
+        <td style="font-size: 12px; line-height: 1.4; font-weight: 600; color: #1E293B;">${escapeHtml(item.pic || '-')}</td>
+        <td>${hpDisplay}</td>
+        <td>
+          <span class="badge-live-status" style="background: rgba(255, 107, 0, 0.08); color: var(--dark-slate); border-color: rgba(255, 107, 0, 0.25); font-size: 11px; font-weight: 700; white-space: nowrap;">
+            <i class="fa-solid fa-users-viewfinder" style="color: var(--deep-orange);"></i> ${escapeHtml(item.jenis || '-')}
+          </span>
+        </td>
+        <td>${pjBadge}</td>
+        <td style="text-align: center;">${statusBadge}</td>
+      </tr>
+    `;
+  }).join('');
 }
 
 window.toggleKeluargaKhususList = function() {
@@ -403,7 +726,7 @@ window.scrollToSection = function(sectionId) {
 };
 
 /**
- * Floating Action Dock Management for Expanded Tables (KBLI, Usaha Pusat, Keluarga Khusus)
+ * Floating Action Dock Management for Expanded Tables (Pertanian, Usaha Besar, KBLI, Usaha Pusat, Keluarga Khusus)
  */
 let activeExpandedSection = null;
 
@@ -412,6 +735,8 @@ function updateFloatingDockVisibility() {
   if (!dock) return;
 
   const sections = [
+    { id: 'pertanian', isExpanded: isPertanianExpanded, collapseFn: togglePertanianList },
+    { id: 'usaha-besar', isExpanded: isUsahaBesarExpanded, collapseFn: toggleUsahaBesarList },
     { id: 'kbli', isExpanded: isKbliExpanded, collapseFn: toggleKbliList },
     { id: 'pusat', isExpanded: isUsahaPusatExpanded, collapseFn: toggleUsahaPusatList },
     { id: 'keluarga', isExpanded: isKeluargaKhususExpanded, collapseFn: toggleKeluargaKhususList }
@@ -445,7 +770,9 @@ window.triggerActiveTableCollapse = function() {
   if (activeExpandedSection && typeof activeExpandedSection.collapseFn === 'function') {
     activeExpandedSection.collapseFn();
   } else {
-    if (isKbliExpanded) toggleKbliList();
+    if (isPertanianExpanded) togglePertanianList();
+    else if (isUsahaBesarExpanded) toggleUsahaBesarList();
+    else if (isKbliExpanded) toggleKbliList();
     else if (isUsahaPusatExpanded) toggleUsahaPusatList();
     else if (isKeluargaKhususExpanded) toggleKeluargaKhususList();
   }
@@ -456,7 +783,9 @@ window.triggerActiveTableScrollTop = function() {
   if (activeExpandedSection) {
     scrollToSection(activeExpandedSection.id);
   } else {
-    if (isKbliExpanded) scrollToSection('kbli');
+    if (isPertanianExpanded) scrollToSection('pertanian');
+    else if (isUsahaBesarExpanded) scrollToSection('usaha-besar');
+    else if (isKbliExpanded) scrollToSection('kbli');
     else if (isUsahaPusatExpanded) scrollToSection('pusat');
     else if (isKeluargaKhususExpanded) scrollToSection('keluarga');
   }

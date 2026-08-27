@@ -5,11 +5,13 @@
  */
 
 const SYNC_CONFIG = {
-  cacheKey: 'pose_bps_jeneponto_cache_v3',
-  cacheTimeKey: 'pose_bps_jeneponto_cache_time_v3',
+  cacheKey: 'pose_bps_jeneponto_cache_v4',
+  cacheTimeKey: 'pose_bps_jeneponto_cache_time_v4',
   urls: {
-    keluargaKhusus: 'https://docs.google.com/spreadsheets/d/1VfurEu3pLfqO0cJRiUfiB1NcY4MJGAnWWOI0pQIVAng/gviz/tq?tqx=out:csv',
+    pertanian: 'https://docs.google.com/spreadsheets/d/19DcV3CA0FkcpsZldqd-ChW8JL0SgcVFX-dC7Y_0_3So/gviz/tq?tqx=out:csv&gid=46846179',
+    keluargaKhusus: 'https://docs.google.com/spreadsheets/d/1VfurEu3pLfqO0cJRiUfiB1NcY4MJGAnWWOI0pQIVAng/gviz/tq?tqx=out:csv&gid=0',
     usahaPusat: 'https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/gviz/tq?tqx=out:csv',
+    usahaBesar: 'https://docs.google.com/spreadsheets/d/18e4NwGBJy8myLvNLTVj1jV4pLpwgqZn3/gviz/tq?tqx=out:csv',
     monitoring: 'https://docs.google.com/spreadsheets/d/1R1UAfk_LlQM06nwiEK5_WFbIvqyTU3yjuxHlcJtf1qI/gviz/tq?tqx=out:csv&gid=0',
     anomali: 'https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/gviz/tq?tqx=out:csv&gid=105002898'
   }
@@ -20,34 +22,40 @@ const SYNC_CONFIG = {
  */
 function parseCSV(text) {
   if (!text) return [];
-  const lines = text.split(/\r\n|\n/);
-  const result = [];
-  
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line) continue;
+  const rows = [];
+  let currentRow = [];
+  let currentCell = '';
+  let insideQuotes = false;
 
-    const row = [];
-    let insideQuotes = false;
-    let currentCell = '';
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
 
-    for (let charIdx = 0; charIdx < line.length; charIdx++) {
-      const char = line[charIdx];
-
-      if (char === '"') {
-        insideQuotes = !insideQuotes;
-      } else if (char === ',' && !insideQuotes) {
-        row.push(currentCell.trim());
-        currentCell = '';
+    if (char === '"') {
+      if (insideQuotes && nextChar === '"') {
+        currentCell += '"';
+        i++;
       } else {
-        currentCell += char;
+        insideQuotes = !insideQuotes;
       }
+    } else if (char === ',' && !insideQuotes) {
+      currentRow.push(currentCell.trim());
+      currentCell = '';
+    } else if ((char === '\r' || char === '\n') && !insideQuotes) {
+      if (char === '\r' && nextChar === '\n') i++;
+      currentRow.push(currentCell.trim());
+      if (currentRow.some(c => c.length > 0)) rows.push(currentRow);
+      currentRow = [];
+      currentCell = '';
+    } else {
+      currentCell += char;
     }
-    row.push(currentCell.trim());
-    result.push(row);
   }
-
-  return result;
+  if (currentCell.length > 0 || currentRow.length > 0) {
+    currentRow.push(currentCell.trim());
+    if (currentRow.some(c => c.length > 0)) rows.push(currentRow);
+  }
+  return rows;
 }
 
 /**
@@ -104,31 +112,45 @@ function processKeluargaKhususCSV(rows) {
   const namaIdx = header.findIndex(h => h.includes('NAMA'));
   const alamatIdx = header.findIndex(h => h.includes('ALAMAT'));
   const desaIdx = header.findIndex(h => h.includes('DESA') || h.includes('KELURAHAN'));
-  const kecIdx = header.findIndex(h => h.includes('KECAMATAN'));
-  const jenisIdx = header.findIndex(h => h.includes('JENIS'));
-  const picIdx = header.findIndex(h => h.includes('PIC') && !h.includes('HP') && !h.includes('NOMOR'));
+  const kecIdx = header.findIndex(h => h.includes('KECAMATAN') || h.includes('KEC'));
+  const picIdx = header.findIndex(h => h === 'PIC' || (h.includes('PIC') && !h.includes('HP') && !h.includes('NOMOR')));
   const hpIdx = header.findIndex(h => h.includes('HP') || h.includes('NOMOR') || h.includes('KONTAK') || h.includes('TELP'));
+  const jenisIdx = header.findIndex(h => h.includes('JENIS'));
+  const pjIdx = header.findIndex(h => h === 'PJ' || h.includes('PENANGGUNG'));
+  const statusIdx = header.findIndex(h => h.includes('STATUS'));
 
   const parsedList = [];
 
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
     const nama = namaIdx !== -1 ? (r[namaIdx] || '').trim() : '';
-    if (!nama) continue;
+    if (!nama || nama.includes('#N/A')) continue;
+
+    const hpRaw = hpIdx !== -1 ? (r[hpIdx] || '').trim() : '';
+    let hpFormatted = hpRaw;
+    if (hpRaw && !hpRaw.startsWith('0') && !hpRaw.startsWith('+') && hpRaw.length >= 9) {
+      hpFormatted = '0' + hpRaw;
+    }
 
     parsedList.push({
       nama: nama,
       alamat: alamatIdx !== -1 ? (r[alamatIdx] || '-').trim() : '-',
       desa: desaIdx !== -1 ? (r[desaIdx] || '-').trim() : '-',
       kec: kecIdx !== -1 ? (r[kecIdx] || '-').trim() : '-',
-      jenis: jenisIdx !== -1 ? (r[jenisIdx] || 'Tempat Khusus').trim() : 'Tempat Khusus',
-      pic: picIdx !== -1 ? (r[picIdx] || 'Pengelola').trim() : 'Pengelola',
-      kontak: hpIdx !== -1 && r[hpIdx] ? (r[hpIdx].startsWith('0') ? r[hpIdx] : '0' + r[hpIdx]) : '-'
+      pic: picIdx !== -1 ? (r[picIdx] || '-').trim() || '-' : '-',
+      kontak: hpFormatted || '-',
+      noHpPic: hpFormatted || '-',
+      jenis: jenisIdx !== -1 ? (r[jenisIdx] || '-').trim() || 'Tempat Tinggal Khusus' : 'Tempat Tinggal Khusus',
+      pj: pjIdx !== -1 ? (r[pjIdx] || '-').trim() || '-' : '-',
+      status: statusIdx !== -1 ? (r[statusIdx] || 'OPEN').trim() || 'OPEN' : 'OPEN'
     });
   }
 
   if (parsedList.length > 0) {
     POSE_DATA.keluargaKhususList = parsedList;
+    if (POSE_DATA.kpiKabupaten) {
+      POSE_DATA.kpiKabupaten.totalKeluargaKhusus = parsedList.length;
+    }
     return true;
   }
 
@@ -168,6 +190,117 @@ function processUsahaPusatCSV(rows) {
 
   if (parsedList.length > 0) {
     POSE_DATA.usahaPusatSample = parsedList;
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Process Usaha Besar (UB) CSV Data
+ */
+function processUsahaBesarCSV(rows) {
+  if (!rows || rows.length < 2) return false;
+
+  const header = rows[0].map(h => (h || '').toUpperCase());
+  const namaIdx = header.findIndex(h => h === 'NAMA' || h.includes('NAMA_USAHA') || h === 'NAMA USAHA');
+  const alamatIdx = header.findIndex(h => h === 'ALAMAT');
+  const kecIdx = header.findIndex(h => h === 'NMKEC' || h === 'KECAMATAN');
+  const desaIdx = header.findIndex(h => h === 'NMDESA' || h === 'DESA');
+  const kegIdx = header.findIndex(h => h.includes('KEGIATAN_USAHA') || h.includes('KEGIATAN'));
+
+  const parsedList = [];
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i];
+    const nama = namaIdx !== -1 ? (r[namaIdx] || '').trim() : '';
+    if (!nama || nama.includes('#N/A')) continue;
+
+    parsedList.push({
+      id: parsedList.length + 1,
+      nama: nama,
+      kecamatan: kecIdx !== -1 ? (r[kecIdx] || '-').trim() : '-',
+      desa: desaIdx !== -1 ? (r[desaIdx] || '-').trim() : '-',
+      alamat: alamatIdx !== -1 ? (r[alamatIdx] || '-').trim() : '-',
+      kegiatan: kegIdx !== -1 ? (r[kegIdx] || '-').trim() : '-'
+    });
+  }
+
+  if (parsedList.length > 0) {
+    POSE_DATA.usahaBesarList = parsedList;
+    if (POSE_DATA.kpiKabupaten) {
+      POSE_DATA.kpiKabupaten.totalUsahaBesar = parsedList.length;
+    }
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Process Perbandingan Usaha Pertanian SE2026 vs ST2023 CSV Data
+ */
+function processPertanianCSV(rows) {
+  if (!rows || rows.length < 2) return false;
+
+  const header = rows[0].map(h => (h || '').toUpperCase());
+  const kabIdx = header.findIndex(h => h.includes('KABUPATEN') || h.includes('KAB'));
+  const kecIdx = header.findIndex(h => h.includes('KECAMATAN') || h.includes('KEC'));
+  const desaIdx = header.findIndex(h => h.includes('DESA') || h.includes('KELURAHAN'));
+  const utpIdx = header.findIndex(h => h.includes('UTP') || h.includes('ST2023'));
+  const seIdx = header.findIndex(h => h.includes('USAHA PERTANIAN') || h.includes('SE2026'));
+  const persenIdx = header.findIndex(h => h.includes('PERSENTASE') || h.includes('PERSEN'));
+
+  const cleanLabel = (text) => (text || '').replace(/^\[\d+\]\s*/, '').trim();
+
+  const parsedList = [];
+  let totalUtp = 0;
+  let totalSe = 0;
+
+  for (let i = 1; i < rows.length; i++) {
+    const r = rows[i];
+    const kabText = kabIdx !== -1 ? (r[kabIdx] || '') : (r[0] || '');
+    if (!kabText.toUpperCase().includes('JENEPONTO')) continue;
+
+    const kec = kecIdx !== -1 ? cleanLabel(r[kecIdx]) : '-';
+    const desa = desaIdx !== -1 ? cleanLabel(r[desaIdx]) : '-';
+    const kodeDesa = r[2] || '';
+
+    const utp = utpIdx !== -1 ? parseInt((r[utpIdx] || '0').replace(/\./g, '').replace(/,/g, '').trim(), 10) || 0 : 0;
+    const se = seIdx !== -1 ? parseInt((r[seIdx] || '0').replace(/\./g, '').replace(/,/g, '').trim(), 10) || 0 : 0;
+
+    let persenVal = 0;
+    if (persenIdx !== -1 && r[persenIdx]) {
+      const pStr = r[persenIdx].replace('%', '').replace(',', '.').trim();
+      persenVal = parseFloat(pStr) || 0;
+    }
+    if (!persenVal && utp > 0) {
+      persenVal = Math.round((se / utp) * 10000) / 100;
+    }
+
+    totalUtp += utp;
+    totalSe += se;
+
+    parsedList.push({
+      id: parsedList.length + 1,
+      kecamatan: kec,
+      desa: desa,
+      kodeDesa: kodeDesa,
+      utp2023: utp,
+      se2026: se,
+      persentase: `${persenVal.toFixed(2)}%`,
+      persenVal: persenVal
+    });
+  }
+
+  if (parsedList.length > 0) {
+    POSE_DATA.pertanianList = parsedList;
+    const kabPersen = totalUtp > 0 ? (totalSe / totalUtp * 100).toFixed(2) + '%' : '0.00%';
+    POSE_DATA.kpiPertanian = {
+      totalUtp2023: totalUtp,
+      totalSe2026: totalSe,
+      persentaseRealisasi: kabPersen,
+      totalDesa: parsedList.length
+    };
     return true;
   }
 
@@ -557,6 +690,19 @@ async function syncPoSEData(force = false) {
 
   try {
     const fetchPromises = [
+      fetchSheetCSV(SYNC_CONFIG.urls.pertanian)
+        .then(rows => {
+          const ok = processPertanianCSV(rows);
+          if (ok && typeof renderPertanianTable === 'function') {
+            renderPertanianTable();
+          }
+          return ok;
+        })
+        .catch(err => {
+          console.warn('Sync pertanian fallback:', err);
+          return false;
+        }),
+
       fetchSheetCSV(SYNC_CONFIG.urls.keluargaKhusus)
         .then(rows => {
           const ok = processKeluargaKhususCSV(rows);
@@ -580,6 +726,19 @@ async function syncPoSEData(force = false) {
         })
         .catch(err => {
           console.warn('Sync usaha pusat fallback:', err);
+          return false;
+        }),
+
+      fetchSheetCSV(SYNC_CONFIG.urls.usahaBesar)
+        .then(rows => {
+          const ok = processUsahaBesarCSV(rows);
+          if (ok && typeof renderUsahaBesarTable === 'function') {
+            renderUsahaBesarTable();
+          }
+          return ok;
+        })
+        .catch(err => {
+          console.warn('Sync usaha besar fallback:', err);
           return false;
         }),
 

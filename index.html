@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=6.0">
+  <link rel="stylesheet" href="css/style.css?v=9.3">
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -39,6 +39,8 @@
         <a href="#pengenalan" class="nav-link active"><i class="fa-solid fa-house"></i> Beranda</a>
         <a href="#monitoring" class="nav-link"><i class="fa-solid fa-chart-column"></i> Monitoring</a>
         <a href="#anomali" class="nav-link"><i class="fa-solid fa-triangle-exclamation"></i> Anomali</a>
+        <a href="#pertanian" class="nav-link"><i class="fa-solid fa-seedling"></i> Pertanian</a>
+        <a href="#usaha-besar" class="nav-link"><i class="fa-solid fa-industry"></i> Usaha Besar</a>
         <a href="#pelatihan" class="nav-link"><i class="fa-solid fa-book-open"></i> Pelatihan</a>
         <a href="#kbli" class="nav-link"><i class="fa-solid fa-tags"></i> KBLI 2025</a>
         <a href="#pusat" class="nav-link"><i class="fa-solid fa-building-flag"></i> Data Pusat</a>
@@ -940,7 +942,215 @@
       </div>
     </section>
 
-    <!-- ==================== FITUR 4: MATERI PELATIHAN PETUGAS ==================== -->
+    <!-- ==================== FITUR 4: PERBANDINGAN HASIL USAHA PERTANIAN SE2026 DENGAN ST2023 ==================== -->
+    <section id="pertanian" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-seedling"></i> Evaluasi Usaha Pertanian</span>
+          <h2 class="section-title">Perbandingan Hasil Usaha Pertanian SE2026 dengan ST2023</h2>
+          <p class="section-subtitle">Monitoring perbandingan jumlah unit usaha pertanian SE2026 terhadap baseline Sensus Pertanian 2023 (ST2023) per Desa / Kelurahan se-Kabupaten Jeneponto.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-pertanian" href="https://docs.google.com/spreadsheets/d/19DcV3CA0FkcpsZldqd-ChW8JL0SgcVFX-dC7Y_0_3So/edit?gid=46846179#gid=46846179" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Pertanian
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Pertanian Grid (Ringkas 4 Kolom) -->
+      <div class="kpi-row-grid" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px;">
+        <div class="kpi-card variant-blue" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">UTP ST2023</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(59, 130, 246, 0.1); color: #2563EB;"><i class="fa-solid fa-tractor"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-pertanian-utp-val" style="font-size: 22px;">104.502</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">Unit Usaha</span>
+          </div>
+          <p class="kpi-subtext" style="font-size: 11px; margin-bottom: 6px;">Total baseline ST2023</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" style="width: 100%; background: #3B82F6;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-orange" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Usaha Pertanian SE2026</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(255, 107, 0, 0.1); color: var(--deep-orange);"><i class="fa-solid fa-seedling"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-pertanian-se-val" style="font-size: 22px;">68.959</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">Unit Usaha</span>
+          </div>
+          <p class="kpi-subtext" style="font-size: 11px; margin-bottom: 6px;">Hasil terdata SE2026 saat ini</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" style="width: 65.99%; background: var(--deep-orange);"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-emerald" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Realisasi SE2026</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(16, 185, 129, 0.1); color: #059669;"><i class="fa-solid fa-chart-pie"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-pertanian-persen-val" style="font-size: 22px;">65,99%</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">Rasio</span>
+          </div>
+          <p class="kpi-subtext" style="font-size: 11px; margin-bottom: 6px;">Rasio SE2026 vs ST2023</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" id="kpi-pertanian-persen-bar" style="width: 65.99%; background: #10B981;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-purple" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Cakupan Wilayah</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(139, 92, 246, 0.1); color: #7C3AED;"><i class="fa-solid fa-map-location-dot"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" style="font-size: 22px;">113</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">Desa/Kel</span>
+          </div>
+          <p class="kpi-subtext" style="font-size: 11px; margin-bottom: 6px;">11 Kecamatan di Jeneponto</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" style="width: 100%; background: #8B5CF6;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar Pencarian & Filter Pertanian -->
+      <div style="background: var(--white); border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 14px 18px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; flex: 1; min-width: 280px;">
+          <!-- Dropdown Kecamatan -->
+          <div class="filter-dropdown-box" style="min-width: 240px;">
+            <label for="select-kecamatan-pertanian"><i class="fa-solid fa-map-pin"></i> Kecamatan:</label>
+            <select id="select-kecamatan-pertanian" class="custom-select" style="font-weight: 600;" onchange="handlePertanianKecamatanChange(this.value)">
+              <option value="Semua">Semua Kecamatan (11 Kecamatan)</option>
+              <!-- Populated via initDropdowns() -->
+            </select>
+          </div>
+
+          <!-- Live Search Input -->
+          <div style="flex: 1; min-width: 240px; position: relative;">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--deep-orange); font-size: 13px;"></i>
+            <input type="text" id="search-pertanian" placeholder="Cari desa/kelurahan atau kode desa..." class="custom-input" style="padding: 9px 14px 9px 38px; width: 100%; border-radius: 10px; font-size: 13px; border: 1.5px solid #E2E8F0; background: #F8FAFC; transition: all 0.2s;" onfocus="this.style.background='#fff'; this.style.borderColor='var(--deep-orange)'" onblur="this.style.background='#F8FAFC'; this.style.borderColor='#E2E8F0'" oninput="handlePertanianSearch(this.value)">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span id="badge-count-pertanian" class="badge-live-status" style="background: rgba(16, 185, 129, 0.08); color: #065F46; border-color: rgba(16, 185, 129, 0.25); font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 9999px;">
+            <i class="fa-solid fa-seedling" style="color: #10B981;"></i> Menampilkan 10 dari 113 Desa / Kelurahan
+          </span>
+        </div>
+      </div>
+
+      <!-- Tabel Perbandingan Usaha Pertanian -->
+      <div class="table-responsive-box">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th style="width: 50px; text-align: center;">No.</th>
+              <th style="min-width: 180px;">Desa / Kelurahan</th>
+              <th style="width: 150px; text-align: center;">Kecamatan</th>
+              <th style="width: 140px; text-align: center;">UTP 2023</th>
+              <th style="width: 160px; text-align: center;">Usaha Pertanian SE2026</th>
+              <th style="width: 220px; text-align: center;">Persentase Realisasi SE2026</th>
+            </tr>
+          </thead>
+          <tbody id="pertanian-table-body">
+            <!-- Dynamically Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol Tampilkan Semua / Perkecil & Menuju ke Atas untuk Pertanian -->
+      <div class="sop-toggle-wrap" id="pertanian-toggle-wrap">
+        <button id="btn-toggle-pertanian" class="btn-toggle-sop" onclick="togglePertanianList()" title="Tampilkan Semua Desa/Kelurahan">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-pertanian"></i>
+          <span id="text-toggle-pertanian">Tampilkan Semua (113 Desa / Kelurahan)</span>
+        </button>
+        <button id="btn-scroll-top-pertanian" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('pertanian')" title="Menuju ke Atas Tabel Pertanian">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 5: DAFTAR USAHA BESAR (UB) KABUPATEN JENEPONTO ==================== -->
+    <section id="usaha-besar" class="main-section">
+      <div class="section-head-card">
+        <div class="section-title-wrap">
+          <span class="section-tag"><i class="fa-solid fa-industry"></i> Skala Usaha Besar</span>
+          <h2 class="section-title">Daftar Usaha Besar (UB) Kabupaten Jeneponto</h2>
+          <p class="section-subtitle">Direktori usaha berskala besar di Kabupaten Jeneponto untuk konfirmasi dan verifikasi cakupan pendataan Sensus Ekonomi 2026.</p>
+        </div>
+        <div class="section-actions">
+          <a id="btn-link-usaha-besar" href="https://docs.google.com/spreadsheets/d/18e4NwGBJy8myLvNLTVj1jV4pLpwgqZn3/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Usaha Besar
+          </a>
+        </div>
+      </div>
+
+      <div class="special-family-card" style="margin-bottom: 24px; display: block; border-left: 4px solid var(--deep-orange);">
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <div style="font-size: 24px; color: var(--deep-orange); margin-top: 2px;">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <div>
+            <h4 style="font-size: 16px; font-weight: 800; color: var(--dark-slate); margin-bottom: 6px;">
+              Cakupan Usaha Besar (UB) Kabupaten Jeneponto
+            </h4>
+            <p style="font-size: 13.5px; color: #475569; line-height: 1.6; margin: 0;">
+              Menampilkan entitas usaha berskala besar di Kabupaten Jeneponto, meliputi sektor ketenagalistrikan (<strong>PLTU Bosowa Energi</strong>, <strong>PLTB PT Energi Bayu Jeneponto</strong>), perbankan & jasa keuangan (<strong>Bank Mandiri, BRI, BNI, Bank Sulselbar</strong>), fasilitas kesehatan (<strong>RSUD Lanto Dg Pasewang</strong>), dan industri akuakultur pertambakan modern.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar Pencarian & Filter Usaha Besar -->
+      <div style="background: var(--white); border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 12px 18px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+        <div style="flex: 1; min-width: 280px; max-width: 520px; position: relative;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--deep-orange); font-size: 14px;"></i>
+          <input type="text" id="search-usaha-besar" placeholder="Cari nama usaha, kecamatan, atau alamat..." class="custom-input" style="padding: 10px 14px 10px 42px; width: 100%; border-radius: 10px; font-size: 13.5px; border: 1.5px solid #E2E8F0; background: #F8FAFC; transition: all 0.2s;" onfocus="this.style.background='#fff'; this.style.borderColor='var(--deep-orange)'" onblur="this.style.background='#F8FAFC'; this.style.borderColor='#E2E8F0'" oninput="handleUsahaBesarSearch(this.value)">
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <span id="badge-count-usaha-besar" class="badge-live-status" style="background: rgba(255, 107, 0, 0.08); color: var(--dark-slate); border-color: rgba(255, 107, 0, 0.25); font-size: 12px; font-weight: 700; padding: 7px 16px; border-radius: 9999px;">
+            <i class="fa-solid fa-industry" style="color: var(--deep-orange);"></i> Menampilkan 10 dari 21 Usaha Besar
+          </span>
+        </div>
+      </div>
+
+      <!-- Tabel Usaha Besar -->
+      <div class="table-responsive-box">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th style="width: 50px; text-align: center;">No.</th>
+              <th style="width: 42%;">Nama Usaha / Perusahaan</th>
+              <th style="width: 160px; text-align: center;">Kecamatan</th>
+              <th>Alamat UB di Kabupaten Jeneponto</th>
+            </tr>
+          </thead>
+          <tbody id="usaha-besar-table-body">
+            <!-- Dynamically Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tombol Tampilkan Semua / Perkecil & Menuju ke Atas untuk Usaha Besar -->
+      <div class="sop-toggle-wrap" id="usaha-besar-toggle-wrap">
+        <button id="btn-toggle-usaha-besar" class="btn-toggle-sop" onclick="toggleUsahaBesarList()" title="Tampilkan Semua Usaha Besar">
+          <i class="fa-solid fa-chevron-down" id="icon-toggle-usaha-besar"></i>
+          <span id="text-toggle-usaha-besar">Tampilkan Semua (21 Usaha Besar)</span>
+        </button>
+        <button id="btn-scroll-top-usaha-besar" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('usaha-besar')" title="Menuju ke Atas Tabel Usaha Besar">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== FITUR 5: MATERI PELATIHAN PETUGAS ==================== -->
     <section id="pelatihan" class="main-section">
       <div class="section-head-card">
         <div class="section-title-wrap">
@@ -1262,11 +1472,15 @@
           <thead>
             <tr>
               <th style="width: 45px; text-align: center;">No.</th>
-              <th style="width: 250px;">Nama Tempat / Keluarga Khusus</th>
-              <th>Alamat & Desa</th>
-              <th style="width: 140px;">Kecamatan</th>
-              <th style="width: 170px;">Jenis Tempat Khusus</th>
-              <th style="width: 190px;">PIC / Kontak</th>
+              <th style="width: 220px;">Nama Keluarga Khusus</th>
+              <th style="width: 190px;">Alamat</th>
+              <th style="width: 140px;">Desa / Kelurahan</th>
+              <th style="width: 125px;">Kecamatan</th>
+              <th style="width: 160px;">PIC</th>
+              <th style="width: 135px;">Nomor HP PIC</th>
+              <th style="width: 155px;">Jenis</th>
+              <th style="width: 95px;">PJ</th>
+              <th style="width: 105px; text-align: center;">Status</th>
             </tr>
           </thead>
           <tbody id="keluarga-khusus-table-body">
@@ -1279,7 +1493,7 @@
       <div class="sop-toggle-wrap" id="keluarga-khusus-toggle-wrap">
         <button id="btn-toggle-keluarga-khusus" class="btn-toggle-sop" onclick="toggleKeluargaKhususList()" title="Tampilkan Semua Keluarga Khusus">
           <i class="fa-solid fa-chevron-down" id="icon-toggle-keluarga-khusus"></i>
-          <span id="text-toggle-keluarga-khusus">Tampilkan Semua (38 Keluarga Khusus)</span>
+          <span id="text-toggle-keluarga-khusus">Tampilkan Semua (28 Keluarga Khusus)</span>
         </button>
         <button id="btn-scroll-top-keluarga-khusus" class="btn-scroll-action" style="display: none;" onclick="scrollToSection('keluarga')" title="Menuju ke Atas Tabel Keluarga Khusus">
           <i class="fa-solid fa-arrow-up"></i>
@@ -1287,7 +1501,7 @@
       </div>
     </section>
 
-    <!-- ==================== FITUR 8: WEEKLY BRIEFING ==================== -->
+    <!-- ==================== FITUR 9: WEEKLY BRIEFING ==================== -->
     <section id="briefing" class="main-section">
       <div class="section-head-card">
         <div class="section-title-wrap">
@@ -1398,10 +1612,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=6.0"></script>
-  <script src="js/charts.js?v=6.0"></script>
-  <script src="js/sync.js?v=6.0"></script>
-  <script src="js/app.js?v=6.0"></script>
+  <script src="js/data.js?v=9.3"></script>
+  <script src="js/charts.js?v=9.3"></script>
+  <script src="js/sync.js?v=9.3"></script>
+  <script src="js/app.js?v=9.3"></script>
 </body>
 
 </html>
