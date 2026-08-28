@@ -809,6 +809,7 @@ function updateMonitoringKPI(selectedOption) {
   const barDraft = document.getElementById('kpi-draft-bar');
   const barApproved = document.getElementById('kpi-approved-bar');
   const descSubmit = document.getElementById('kpi-submit-desc');
+  const descDraft = document.getElementById('kpi-draft-desc');
   const descApproved = document.getElementById('kpi-approved-desc');
 
   const elWilTitle = document.getElementById('kpi-wilayah-title');
@@ -818,29 +819,35 @@ function updateMonitoringKPI(selectedOption) {
 
   if (selectedOption === "Kabupaten Jeneponto") {
     const kpi = POSE_DATA.kpiKabupaten;
-    if (elSubmit) elSubmit.textContent = kpi.persentaseSubmit;
-    if (elDraft) elDraft.textContent = kpi.persentaseDraft;
+    if (elSubmit) elSubmit.textContent = kpi.persentaseProgres || kpi.persentaseSubmit;
+    if (elDraft) elDraft.textContent = kpi.persentaseOpenDraft || kpi.persentaseDraft;
     if (elApproved) elApproved.textContent = kpi.persentaseApproved;
-    if (barSubmit) barSubmit.style.width = `${kpi.persentaseSubmit}%`;
-    if (barDraft) barDraft.style.width = `${kpi.persentaseDraft}%`;
+    if (barSubmit) barSubmit.style.width = `${kpi.persentaseProgres || kpi.persentaseSubmit}%`;
+    if (barDraft) barDraft.style.width = `${kpi.persentaseOpenDraft || kpi.persentaseDraft}%`;
     if (barApproved) barApproved.style.width = `${kpi.persentaseApproved}%`;
-    if (descSubmit) descSubmit.textContent = "Kolom R: Submit se-Kabupaten";
-    if (descApproved) descApproved.textContent = "Kolom T: Approved se-Kabupaten";
+    if (descSubmit) descSubmit.textContent = "Kolom P: Progres se-Kabupaten";
+    if (descDraft) descDraft.textContent = "Kolom Q: Open+Draft se-Kabupaten";
+    if (descApproved) descApproved.textContent = "Kolom R: Approved se-Kabupaten";
 
     if (elWilTitle) elWilTitle.textContent = "Wilayah Cakupan";
     if (elWilVal) elWilVal.textContent = "11";
     if (elWilUnit) elWilUnit.textContent = "Kecamatan";
-    if (elWilDesc) elWilDesc.textContent = `Total ${kpi.totalPPL || 327} PPL & ${kpi.totalPML || 48} PML`;
+    if (elWilDesc) elWilDesc.textContent = `Total ${kpi.totalPPL || 327} PPL & ${kpi.totalPML || 47} PML`;
   } else {
     const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || {};
-    if (elSubmit) elSubmit.textContent = dataKec.submit || 0;
-    if (elDraft) elDraft.textContent = dataKec.draft || 0;
-    if (elApproved) elApproved.textContent = dataKec.approved || 0;
-    if (barSubmit) barSubmit.style.width = `${dataKec.submit || 0}%`;
-    if (barDraft) barDraft.style.width = `${dataKec.draft || 0}%`;
-    if (barApproved) barApproved.style.width = `${dataKec.approved || 0}%`;
-    if (descSubmit) descSubmit.textContent = `Kolom R: Submit Kec. ${selectedOption}`;
-    if (descApproved) descApproved.textContent = `Kolom T: Approved Kec. ${selectedOption}`;
+    const valProg = dataKec.progres !== undefined ? dataKec.progres : (dataKec.submit || 0);
+    const valOpDr = dataKec.openDraft !== undefined ? dataKec.openDraft : (dataKec.draft || 0);
+    const valApp = dataKec.approved !== undefined ? dataKec.approved : 0;
+
+    if (elSubmit) elSubmit.textContent = valProg;
+    if (elDraft) elDraft.textContent = valOpDr;
+    if (elApproved) elApproved.textContent = valApp;
+    if (barSubmit) barSubmit.style.width = `${valProg}%`;
+    if (barDraft) barDraft.style.width = `${valOpDr}%`;
+    if (barApproved) barApproved.style.width = `${valApp}%`;
+    if (descSubmit) descSubmit.textContent = `Kolom P: Progres Kec. ${selectedOption}`;
+    if (descDraft) descDraft.textContent = `Kolom Q: Open+Draft Kec. ${selectedOption}`;
+    if (descApproved) descApproved.textContent = `Kolom R: Approved Kec. ${selectedOption}`;
 
     if (elWilTitle) elWilTitle.textContent = `Kec. ${selectedOption}`;
     if (elWilVal) elWilVal.textContent = dataKec.totalPPL || (dataKec.ppl ? dataKec.ppl.length : 0);
@@ -938,6 +945,14 @@ function setupEventListeners() {
   const selectMonitoring = document.getElementById('select-kecamatan-monitoring');
   if (selectMonitoring) {
     selectMonitoring.addEventListener('change', (e) => {
+      // Reset expanded state saat filter berubah (kembali tampilkan 3 teratas)
+      if (typeof isMonitoringExpanded !== 'undefined') {
+        isMonitoringExpanded = false;
+        const icon = document.getElementById('icon-toggle-monitoring');
+        const text = document.getElementById('text-toggle-monitoring');
+        if (icon) icon.className = 'fa-solid fa-chevron-down';
+        if (text) text.textContent = 'Lihat Selengkapnya (Semua Data)';
+      }
       updateMonitoringKPI(e.target.value);
       renderMonitoringCharts(e.target.value);
     });

@@ -23,8 +23,7 @@ const POSE_DATA = {
     links: {
         pertanian: "https://docs.google.com/spreadsheets/d/19DcV3CA0FkcpsZldqd-ChW8JL0SgcVFX-dC7Y_0_3So/edit?gid=46846179#gid=46846179",
         usahaBesar: "https://docs.google.com/spreadsheets/d/18e4NwGBJy8myLvNLTVj1jV4pLpwgqZn3/edit?usp=sharing",
-        monitoringPetugas: "https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?gid=0#gid=0",
-        anomaliData: "https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/edit?gid=105002898#gid=105002898",
+        monitoringPetugas: "https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?gid=1206401506#gid=1206401506",        anomaliData: "https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/edit?gid=105002898#gid=105002898",
         dataPusat: "https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/edit?usp=sharing",
         kbli2025: "https://s.bps.go.id/kbli7304_se2026",
         keluargaKhusus: "https://docs.google.com/spreadsheets/d/1VfurEu3pLfqO0cJRiUfiB1NcY4MJGAnWWOI0pQIVAng/edit?gid=0#gid=0",
@@ -58,3210 +57,4331 @@ const POSE_DATA = {
     // Data Progres per Kecamatan untuk Grafik Kabupaten (Data Riil)
     progresKecamatan: [
         {
+                "nama": "Arungkeke",
+                "progres": 100.0,
+                "openDraft": 0.0,
+                "approved": 98.7,
+                "muatan": 9388,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
+        },
+        {
                 "nama": "Bangkala",
-                "muatan": 26489,
-                "submit": 95.9,
-                "draft": 3.6,
+                "progres": 95.9,
+                "openDraft": 3.6,
                 "approved": 76.4,
-                "rejected": 3.6
+                "muatan": 26489,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
                 "nama": "Bangkala Barat",
-                "muatan": 13248,
-                "submit": 95.7,
-                "draft": 3.3,
+                "progres": 95.7,
+                "openDraft": 3.3,
                 "approved": 74.7,
-                "rejected": 3.3
-        },
-        {
-                "nama": "Tamalatea",
-                "muatan": 20307,
-                "submit": 97.4,
-                "draft": 1.7,
-                "approved": 83.2,
-                "rejected": 1.7
-        },
-        {
-                "nama": "Bontoramba",
-                "muatan": 17451,
-                "submit": 98.6,
-                "draft": 1.3,
-                "approved": 95.8,
-                "rejected": 1.3
-        },
-        {
-                "nama": "Binamu",
-                "muatan": 27644,
-                "submit": 94.9,
-                "draft": 2.4,
-                "approved": 86.7,
-                "rejected": 2.4
-        },
-        {
-                "nama": "Turatea",
-                "muatan": 13727,
-                "submit": 98.5,
-                "draft": 1.5,
-                "approved": 64.5,
-                "rejected": 1.5
+                "muatan": 13248,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
                 "nama": "Batang",
-                "muatan": 8422,
-                "submit": 100.0,
-                "draft": 0.0,
+                "progres": 100.0,
+                "openDraft": 0.0,
                 "approved": 93.3,
-                "rejected": 0.0
+                "muatan": 8422,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
-                "nama": "Arungkeke",
-                "muatan": 9388,
-                "submit": 100.0,
-                "draft": 0.0,
-                "approved": 98.7,
-                "rejected": 0.0
+                "nama": "Binamu",
+                "progres": 94.9,
+                "openDraft": 2.4,
+                "approved": 86.7,
+                "muatan": 27644,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
-                "nama": "Tarowang",
-                "muatan": 10401,
-                "submit": 99.4,
-                "draft": 0.6,
-                "approved": 98.8,
-                "rejected": 0.6
+                "nama": "Bontoramba",
+                "progres": 98.6,
+                "openDraft": 1.3,
+                "approved": 95.8,
+                "muatan": 17451,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
                 "nama": "Kelara",
-                "muatan": 12928,
-                "submit": 98.2,
-                "draft": 1.6,
+                "progres": 98.2,
+                "openDraft": 1.6,
                 "approved": 93.8,
-                "rejected": 1.6
+                "muatan": 12928,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         },
         {
                 "nama": "Rumbia",
-                "muatan": 11624,
-                "submit": 99.9,
-                "draft": 0.1,
+                "progres": 99.9,
+                "openDraft": 0.1,
                 "approved": 98.8,
-                "rejected": 0.1
+                "muatan": 11624,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
+        },
+        {
+                "nama": "Tamalatea",
+                "progres": 97.4,
+                "openDraft": 1.7,
+                "approved": 83.2,
+                "muatan": 20307,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
+        },
+        {
+                "nama": "Tarowang",
+                "progres": 99.4,
+                "openDraft": 0.6,
+                "approved": 98.8,
+                "muatan": 10401,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
+        },
+        {
+                "nama": "Turatea",
+                "progres": 98.5,
+                "openDraft": 1.5,
+                "approved": 64.5,
+                "muatan": 13727,
+                "anomaliBelum": 34.2,
+                "anomaliCatatan": 22.3,
+                "anomaliPerbaikan": 43.5
         }
 ],
 
-    // Data Petugas per Kecamatan (PPL & PML Lengkap Data Riil)
+    // Breakdown Petugas per Kecamatan (PPL & PML)
     petugasKecamatan: {
         "Arungkeke": {
-            "ppl": [
-                {
-                    "nama": "Medi afriani",
-                    "submit": 99.7,
-                    "approved": 97.2,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.2
-                },
-                {
-                    "nama": "RESKY HANDAYANI",
-                    "submit": 98.8,
-                    "approved": 97.3,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.3
-                },
-                {
-                    "nama": "Rizal Ilyas",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "Annisa M",
-                    "submit": 100.0,
-                    "approved": 99.2,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.2
-                },
-                {
-                    "nama": "Kurnia",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "MUH. ANSYAR. A",
-                    "submit": 100.0,
-                    "approved": 92.9,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 92.9
-                },
-                {
-                    "nama": "Rasni Ramadhani",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Rizki Wahyuni",
-                    "submit": 97.8,
-                    "approved": 93.7,
-                    "anomaliBelum": 1.3,
-                    "anomaliCatatan": 1.9,
-                    "anomaliPerbaikan": 93.7
-                },
-                {
-                    "nama": "Sahabuddin",
-                    "submit": 96.7,
-                    "approved": 81.8,
-                    "anomaliBelum": 3.6,
-                    "anomaliCatatan": 5.5,
-                    "anomaliPerbaikan": 81.8
-                },
-                {
-                    "nama": "Sri Rahmidani Imran",
-                    "submit": 100.0,
-                    "approved": 93.1,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 93.1
-                },
-                {
-                    "nama": "Hasri Muliati",
-                    "submit": 99.2,
-                    "approved": 96.4,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.1,
-                    "anomaliPerbaikan": 96.4
-                },
-                {
-                    "nama": "NADYA",
-                    "submit": 96.0,
-                    "approved": 80.3,
-                    "anomaliBelum": 3.9,
-                    "anomaliCatatan": 5.9,
-                    "anomaliPerbaikan": 80.3
-                },
-                {
-                    "nama": "Nirawanti",
-                    "submit": 100.0,
-                    "approved": 76.3,
-                    "anomaliBelum": 4.7,
-                    "anomaliCatatan": 7.1,
-                    "anomaliPerbaikan": 76.3
-                },
-                {
-                    "nama": "Nur Rahmadani. S",
-                    "submit": 100.0,
-                    "approved": 76.4,
-                    "anomaliBelum": 4.7,
-                    "anomaliCatatan": 7.1,
-                    "anomaliPerbaikan": 76.4
-                },
-                {
-                    "nama": "RESKY ARDIANTI.M",
-                    "submit": 99.8,
-                    "approved": 95.8,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.3,
-                    "anomaliPerbaikan": 95.8
-                },
-                {
-                    "nama": "Syamsinar",
-                    "submit": 100.0,
-                    "approved": 98.1,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.6,
-                    "anomaliPerbaikan": 98.1
-                },
-                {
-                    "nama": "Waslah Zakiah Syam",
-                    "submit": 100.0,
-                    "approved": 84.4,
-                    "anomaliBelum": 3.1,
-                    "anomaliCatatan": 4.7,
-                    "anomaliPerbaikan": 84.4
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "ABD HALIM HAKIM",
-                    "approved": 97.4,
-                    "rejected": 0.3,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.9,
-                    "anomaliPerbaikan": 97.4
-                },
-                {
-                    "nama": "HASBULLAH. H",
-                    "approved": 93.6,
-                    "rejected": 1.4,
-                    "anomaliBelum": 1.6,
-                    "anomaliCatatan": 2.2,
-                    "anomaliPerbaikan": 93.6
-                },
-                {
-                    "nama": "IMA RESKI",
-                    "approved": 86.0,
-                    "rejected": 0.5,
-                    "anomaliBelum": 3.5,
-                    "anomaliCatatan": 4.9,
-                    "anomaliPerbaikan": 86.0
-                }
-            ],
-            "submit": 99.3,
-            "approved": 91.8,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 9388,
+                "progres": 100.0,
+                "openDraft": 0.0,
+                "approved": 98.7,
+                "totalPPL": 17,
+                "totalPML": 3,
+                "ppl": [
+                        {
+                                "nama": "MUH. ANSYAR. A",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 681,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Annisa M",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 489,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Kurnia",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 455,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Medi afriani",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 580,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hasri Muliati",
+                                "pml": "Ima reski",
+                                "muatan": 538,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NADYA",
+                                "pml": "Ima reski",
+                                "muatan": 727,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 91.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nirawanti",
+                                "pml": "Ima reski",
+                                "muatan": 671,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur Rahmadani. S",
+                                "pml": "Ima reski",
+                                "muatan": 556,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 98.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rizki Wahyuni",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 503,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rasni Ramadhani",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 458,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RESKY ARDIANTI.M",
+                                "pml": "Ima reski",
+                                "muatan": 503,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RESKY HANDAYANI",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 535,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rizal Ilyas",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 437,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sahabuddin",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 553,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Rahmidani Imran",
+                                "pml": "HASBULLAH. H",
+                                "muatan": 591,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Syamsinar",
+                                "pml": "Ima reski",
+                                "muatan": 587,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Waslah Zakiah Syam",
+                                "pml": "Ima reski",
+                                "muatan": 524,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 96.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "HASBULLAH. H",
+                                "muatan": 3730,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Abd Halim Hakim",
+                                "muatan": 1552,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ima reski",
+                                "muatan": 4106,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 97.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Bangkala": {
-            "ppl": [
-                {
-                    "nama": "A.m.Ilham Firdaus",
-                    "submit": 90.3,
-                    "approved": 70.3,
-                    "anomaliBelum": 5.9,
-                    "anomaliCatatan": 8.9,
-                    "anomaliPerbaikan": 70.3
-                },
-                {
-                    "nama": "Astri Yuliatmi",
-                    "submit": 100.0,
-                    "approved": 66.8,
-                    "anomaliBelum": 6.6,
-                    "anomaliCatatan": 10.0,
-                    "anomaliPerbaikan": 66.8
-                },
-                {
-                    "nama": "Halija",
-                    "submit": 99.4,
-                    "approved": 79.2,
-                    "anomaliBelum": 4.2,
-                    "anomaliCatatan": 6.2,
-                    "anomaliPerbaikan": 79.2
-                },
-                {
-                    "nama": "Nurul fahmi",
-                    "submit": 97.3,
-                    "approved": 86.0,
-                    "anomaliBelum": 2.8,
-                    "anomaliCatatan": 4.2,
-                    "anomaliPerbaikan": 86.0
-                },
-                {
-                    "nama": "PUTRI DWI ARIANTI",
-                    "submit": 99.6,
-                    "approved": 75.2,
-                    "anomaliBelum": 5.0,
-                    "anomaliCatatan": 7.4,
-                    "anomaliPerbaikan": 75.2
-                },
-                {
-                    "nama": "Rahmi",
-                    "submit": 99.4,
-                    "approved": 96.2,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.1,
-                    "anomaliPerbaikan": 96.2
-                },
-                {
-                    "nama": "SRI INDAH SARI",
-                    "submit": 98.0,
-                    "approved": 73.8,
-                    "anomaliBelum": 5.2,
-                    "anomaliCatatan": 7.9,
-                    "anomaliPerbaikan": 73.8
-                },
-                {
-                    "nama": "Andi Ayu Junia Fitriani Lomba",
-                    "submit": 100.0,
-                    "approved": 59.3,
-                    "anomaliBelum": 8.1,
-                    "anomaliCatatan": 12.2,
-                    "anomaliPerbaikan": 59.3
-                },
-                {
-                    "nama": "Ansar",
-                    "submit": 94.8,
-                    "approved": 26.1,
-                    "anomaliBelum": 14.8,
-                    "anomaliCatatan": 22.2,
-                    "anomaliPerbaikan": 26.1
-                },
-                {
-                    "nama": "Aulia Shiera",
-                    "submit": 90.1,
-                    "approved": 34.0,
-                    "anomaliBelum": 13.2,
-                    "anomaliCatatan": 19.8,
-                    "anomaliPerbaikan": 34.0
-                },
-                {
-                    "nama": "Hasmila",
-                    "submit": 99.6,
-                    "approved": 46.9,
-                    "anomaliBelum": 10.6,
-                    "anomaliCatatan": 15.9,
-                    "anomaliPerbaikan": 46.9
-                },
-                {
-                    "nama": "Mentari Asmar",
-                    "submit": 100.0,
-                    "approved": 49.8,
-                    "anomaliBelum": 10.0,
-                    "anomaliCatatan": 15.1,
-                    "anomaliPerbaikan": 49.8
-                },
-                {
-                    "nama": "Mira",
-                    "submit": 98.7,
-                    "approved": 51.6,
-                    "anomaliBelum": 9.7,
-                    "anomaliCatatan": 14.5,
-                    "anomaliPerbaikan": 51.6
-                },
-                {
-                    "nama": "NURHANA RAHMA DEWI",
-                    "submit": 97.4,
-                    "approved": 42.5,
-                    "anomaliBelum": 11.5,
-                    "anomaliCatatan": 17.2,
-                    "anomaliPerbaikan": 42.5
-                },
-                {
-                    "nama": "IRWANTO",
-                    "submit": 97.0,
-                    "approved": 13.8,
-                    "anomaliBelum": 17.2,
-                    "anomaliCatatan": 25.9,
-                    "anomaliPerbaikan": 13.8
-                },
-                {
-                    "nama": "MUH.FAHMI PRASETYO",
-                    "submit": 98.4,
-                    "approved": 65.8,
-                    "anomaliBelum": 6.8,
-                    "anomaliCatatan": 10.3,
-                    "anomaliPerbaikan": 65.8
-                },
-                {
-                    "nama": "NUR FITRAH",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "NURJANNAH",
-                    "submit": 99.8,
-                    "approved": 49.5,
-                    "anomaliBelum": 10.1,
-                    "anomaliCatatan": 15.1,
-                    "anomaliPerbaikan": 49.5
-                },
-                {
-                    "nama": "Riska Sainuddin",
-                    "submit": 100.0,
-                    "approved": 48.1,
-                    "anomaliBelum": 10.4,
-                    "anomaliCatatan": 15.6,
-                    "anomaliPerbaikan": 48.1
-                },
-                {
-                    "nama": "Riskawati",
-                    "submit": 100.0,
-                    "approved": 99.4,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.4
-                },
-                {
-                    "nama": "SUNARTI",
-                    "submit": 99.8,
-                    "approved": 14.5,
-                    "anomaliBelum": 17.1,
-                    "anomaliCatatan": 25.6,
-                    "anomaliPerbaikan": 14.5
-                },
-                {
-                    "nama": "A.Tri Nurul Adha. K,",
-                    "submit": 99.4,
-                    "approved": 67.3,
-                    "anomaliBelum": 6.5,
-                    "anomaliCatatan": 9.8,
-                    "anomaliPerbaikan": 67.3
-                },
-                {
-                    "nama": "Evi Ashari",
-                    "submit": 99.5,
-                    "approved": 35.1,
-                    "anomaliBelum": 13.0,
-                    "anomaliCatatan": 19.5,
-                    "anomaliPerbaikan": 35.1
-                },
-                {
-                    "nama": "ferri fadli",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Halzahirah Syahwani Hasbi",
-                    "submit": 98.2,
-                    "approved": 70.0,
-                    "anomaliBelum": 6.0,
-                    "anomaliCatatan": 9.0,
-                    "anomaliPerbaikan": 70.0
-                },
-                {
-                    "nama": "Sunarti",
-                    "submit": 100.0,
-                    "approved": 47.1,
-                    "anomaliBelum": 10.6,
-                    "anomaliCatatan": 15.9,
-                    "anomaliPerbaikan": 47.1
-                },
-                {
-                    "nama": "Syamsuria",
-                    "submit": 99.5,
-                    "approved": 54.5,
-                    "anomaliBelum": 9.1,
-                    "anomaliCatatan": 13.7,
-                    "anomaliPerbaikan": 54.5
-                },
-                {
-                    "nama": "Yuyun dwi andika",
-                    "submit": 100.0,
-                    "approved": 53.9,
-                    "anomaliBelum": 9.2,
-                    "anomaliCatatan": 13.8,
-                    "anomaliPerbaikan": 53.9
-                },
-                {
-                    "nama": "A.RIVALDY LATIEF",
-                    "submit": 93.0,
-                    "approved": 36.4,
-                    "anomaliBelum": 12.7,
-                    "anomaliCatatan": 19.1,
-                    "anomaliPerbaikan": 36.4
-                },
-                {
-                    "nama": "Daswang",
-                    "submit": 100.0,
-                    "approved": 99.6,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.6
-                },
-                {
-                    "nama": "Marlina",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Nurfani kadir",
-                    "submit": 79.5,
-                    "approved": 7.6,
-                    "anomaliBelum": 18.5,
-                    "anomaliCatatan": 27.7,
-                    "anomaliPerbaikan": 7.6
-                },
-                {
-                    "nama": "Sri Ratnawati Nur",
-                    "submit": 99.6,
-                    "approved": 65.2,
-                    "anomaliBelum": 7.0,
-                    "anomaliCatatan": 10.4,
-                    "anomaliPerbaikan": 65.2
-                },
-                {
-                    "nama": "Sri wahyuni",
-                    "submit": 97.6,
-                    "approved": 16.0,
-                    "anomaliBelum": 16.8,
-                    "anomaliCatatan": 25.2,
-                    "anomaliPerbaikan": 16.0
-                },
-                {
-                    "nama": "Sumarni",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "Andi Hasrul Haris",
-                    "submit": 97.1,
-                    "approved": 34.3,
-                    "anomaliBelum": 13.1,
-                    "anomaliCatatan": 19.7,
-                    "anomaliPerbaikan": 34.3
-                },
-                {
-                    "nama": "Basri",
-                    "submit": 95.9,
-                    "approved": 36.4,
-                    "anomaliBelum": 12.7,
-                    "anomaliCatatan": 19.1,
-                    "anomaliPerbaikan": 36.4
-                },
-                {
-                    "nama": "Hasmira",
-                    "submit": 99.5,
-                    "approved": 38.8,
-                    "anomaliBelum": 12.2,
-                    "anomaliCatatan": 18.4,
-                    "anomaliPerbaikan": 38.8
-                },
-                {
-                    "nama": "IRMA PUTRIADE",
-                    "submit": 98.6,
-                    "approved": 24.0,
-                    "anomaliBelum": 15.2,
-                    "anomaliCatatan": 22.8,
-                    "anomaliPerbaikan": 24.0
-                },
-                {
-                    "nama": "MUH.ANGGA GAUTAMA PUTRA",
-                    "submit": 98.6,
-                    "approved": 33.0,
-                    "anomaliBelum": 13.4,
-                    "anomaliCatatan": 20.1,
-                    "anomaliPerbaikan": 33.0
-                },
-                {
-                    "nama": "Rahmawati",
-                    "submit": 100.0,
-                    "approved": 59.1,
-                    "anomaliBelum": 8.2,
-                    "anomaliCatatan": 12.3,
-                    "anomaliPerbaikan": 59.1
-                },
-                {
-                    "nama": "RAHMIATI",
-                    "submit": 100.0,
-                    "approved": 82.4,
-                    "anomaliBelum": 3.5,
-                    "anomaliCatatan": 5.3,
-                    "anomaliPerbaikan": 82.4
-                },
-                {
-                    "nama": "Arifin",
-                    "submit": 94.9,
-                    "approved": 50.8,
-                    "anomaliBelum": 9.8,
-                    "anomaliCatatan": 14.8,
-                    "anomaliPerbaikan": 50.8
-                },
-                {
-                    "nama": "Arwini Puspitasari",
-                    "submit": 99.5,
-                    "approved": 78.1,
-                    "anomaliBelum": 4.4,
-                    "anomaliCatatan": 6.6,
-                    "anomaliPerbaikan": 78.1
-                },
-                {
-                    "nama": "ELVA RIANI",
-                    "submit": 99.3,
-                    "approved": 71.9,
-                    "anomaliBelum": 5.6,
-                    "anomaliCatatan": 8.4,
-                    "anomaliPerbaikan": 71.9
-                },
-                {
-                    "nama": "RABIATUL AL ADAWIAH",
-                    "submit": 100.0,
-                    "approved": 90.4,
-                    "anomaliBelum": 1.9,
-                    "anomaliCatatan": 2.9,
-                    "anomaliPerbaikan": 90.4
-                },
-                {
-                    "nama": "Rusni",
-                    "submit": 97.8,
-                    "approved": 46.6,
-                    "anomaliBelum": 10.7,
-                    "anomaliCatatan": 16.0,
-                    "anomaliPerbaikan": 46.6
-                },
-                {
-                    "nama": "Sri warni",
-                    "submit": 99.8,
-                    "approved": 46.5,
-                    "anomaliBelum": 10.7,
-                    "anomaliCatatan": 16.1,
-                    "anomaliPerbaikan": 46.5
-                },
-                {
-                    "nama": "ST. Kasma",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "AFDALIAH YAHYA",
-                    "approved": 77.6,
-                    "rejected": 0.4,
-                    "anomaliBelum": 5.6,
-                    "anomaliCatatan": 7.8,
-                    "anomaliPerbaikan": 77.6
-                },
-                {
-                    "nama": "ANDI ASTRID",
-                    "approved": 45.7,
-                    "rejected": 1.2,
-                    "anomaliBelum": 13.6,
-                    "anomaliCatatan": 19.0,
-                    "anomaliPerbaikan": 45.7
-                },
-                {
-                    "nama": "FADEL",
-                    "approved": 56.0,
-                    "rejected": 2.0,
-                    "anomaliBelum": 11.0,
-                    "anomaliCatatan": 15.4,
-                    "anomaliPerbaikan": 56.0
-                },
-                {
-                    "nama": "HENDRA SUGIARTHO",
-                    "approved": 61.8,
-                    "rejected": 0.2,
-                    "anomaliBelum": 9.6,
-                    "anomaliCatatan": 13.4,
-                    "anomaliPerbaikan": 61.8
-                },
-                {
-                    "nama": "NASRULLAH",
-                    "approved": 57.4,
-                    "rejected": 2.3,
-                    "anomaliBelum": 10.7,
-                    "anomaliCatatan": 14.9,
-                    "anomaliPerbaikan": 57.4
-                },
-                {
-                    "nama": "PERAWATI RAMLI",
-                    "approved": 44.6,
-                    "rejected": 4.8,
-                    "anomaliBelum": 13.8,
-                    "anomaliCatatan": 19.4,
-                    "anomaliPerbaikan": 44.6
-                },
-                {
-                    "nama": "ROBI DARWIS",
-                    "approved": 66.9,
-                    "rejected": 1.1,
-                    "anomaliBelum": 8.3,
-                    "anomaliCatatan": 11.6,
-                    "anomaliPerbaikan": 66.9
-                }
-            ],
-            "submit": 98.1,
-            "approved": 59.0,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 26489,
+                "progres": 95.9,
+                "openDraft": 3.6,
+                "approved": 76.4,
+                "totalPPL": 49,
+                "totalPML": 7,
+                "ppl": [
+                        {
+                                "nama": "IRMA PUTRIADE",
+                                "pml": "perawati ramli",
+                                "muatan": 437,
+                                "progres": 93.6,
+                                "openDraft": 6.0,
+                                "approved": 36.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Syamsuria",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 633,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 76.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Andi Ayu Junia Fitriani Lomba",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 1011,
+                                "progres": 92.9,
+                                "openDraft": 7.1,
+                                "approved": 71.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Andi Hasrul Haris",
+                                "pml": "perawati ramli",
+                                "muatan": 408,
+                                "progres": 92.4,
+                                "openDraft": 6.4,
+                                "approved": 61.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ansar",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 663,
+                                "progres": 87.6,
+                                "openDraft": 12.2,
+                                "approved": 60.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Astri Yuliatmi",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 551,
+                                "progres": 92.7,
+                                "openDraft": 7.3,
+                                "approved": 81.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A.Tri Nurul Adha. K,",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 561,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 84.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Aulia Shiera",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 531,
+                                "progres": 93.8,
+                                "openDraft": 6.2,
+                                "approved": 70.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Basri",
+                                "pml": "perawati ramli",
+                                "muatan": 525,
+                                "progres": 99.4,
+                                "openDraft": 0.6,
+                                "approved": 62.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Daswang",
+                                "pml": "Nasrullah",
+                                "muatan": 489,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Yuyun dwi andika",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 434,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 77.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ELVA RIANI",
+                                "pml": "Robi darwis",
+                                "muatan": 559,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Evi Ashari",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 405,
+                                "progres": 98.3,
+                                "openDraft": 1.7,
+                                "approved": 41.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUH.FAHMI PRASETYO",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 583,
+                                "progres": 98.1,
+                                "openDraft": 1.9,
+                                "approved": 90.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ferri fadli",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 494,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hasmila",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 506,
+                                "progres": 97.2,
+                                "openDraft": 2.8,
+                                "approved": 78.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Halzahirah Syahwani Hasbi",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 499,
+                                "progres": 96.4,
+                                "openDraft": 2.8,
+                                "approved": 88.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A.m.Ilham Firdaus",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 482,
+                                "progres": 90.0,
+                                "openDraft": 4.6,
+                                "approved": 82.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Arifin",
+                                "pml": "Robi darwis",
+                                "muatan": 487,
+                                "progres": 93.2,
+                                "openDraft": 6.2,
+                                "approved": 62.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "IRWANTO",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 470,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 36.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ST. Kasma",
+                                "pml": "Robi darwis",
+                                "muatan": 454,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Halija",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 530,
+                                "progres": 99.1,
+                                "openDraft": 0.9,
+                                "approved": 90.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Marlina",
+                                "pml": "Nasrullah",
+                                "muatan": 494,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Mentari Asmar",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 624,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 94.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hasmira",
+                                "pml": "perawati ramli",
+                                "muatan": 618,
+                                "progres": 93.8,
+                                "openDraft": 6.2,
+                                "approved": 88.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Mira",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 724,
+                                "progres": 99.6,
+                                "openDraft": 0.3,
+                                "approved": 76.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUH.ANGGA GAUTAMA PUTRA",
+                                "pml": "perawati ramli",
+                                "muatan": 450,
+                                "progres": 93.6,
+                                "openDraft": 6.4,
+                                "approved": 70.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Riskawati",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 466,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurul fahmi",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 517,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 93.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURJANNAH",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 437,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 76.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri wahyuni",
+                                "pml": "Nasrullah",
+                                "muatan": 508,
+                                "progres": 80.3,
+                                "openDraft": 17.7,
+                                "approved": 32.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurfani kadir",
+                                "pml": "Nasrullah",
+                                "muatan": 748,
+                                "progres": 73.3,
+                                "openDraft": 18.3,
+                                "approved": 22.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR FITRAH",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 572,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURHANA RAHMA DEWI",
+                                "pml": "andi astri oktaviani",
+                                "muatan": 724,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 74.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Arwini Puspitasari",
+                                "pml": "Robi darwis",
+                                "muatan": 558,
+                                "progres": 96.6,
+                                "openDraft": 3.0,
+                                "approved": 81.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "PUTRI DWI ARIANTI",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 514,
+                                "progres": 98.6,
+                                "openDraft": 1.4,
+                                "approved": 93.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RABIATUL AL ADAWIAH",
+                                "pml": "Robi darwis",
+                                "muatan": 470,
+                                "progres": 96.0,
+                                "openDraft": 4.0,
+                                "approved": 95.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmawati",
+                                "pml": "perawati ramli",
+                                "muatan": 499,
+                                "progres": 97.6,
+                                "openDraft": 2.4,
+                                "approved": 83.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RAHMIATI",
+                                "pml": "perawati ramli",
+                                "muatan": 500,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 85.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmi",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 460,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Riska Sainuddin",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 575,
+                                "progres": 97.0,
+                                "openDraft": 3.0,
+                                "approved": 63.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rusni",
+                                "pml": "Robi darwis",
+                                "muatan": 760,
+                                "progres": 93.2,
+                                "openDraft": 6.7,
+                                "approved": 55.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Ratnawati Nur",
+                                "pml": "Nasrullah",
+                                "muatan": 467,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 98.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SRI INDAH SARI",
+                                "pml": "Afdalia Yahya",
+                                "muatan": 509,
+                                "progres": 92.5,
+                                "openDraft": 7.3,
+                                "approved": 85.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri warni",
+                                "pml": "Robi darwis",
+                                "muatan": 601,
+                                "progres": 99.0,
+                                "openDraft": 0.8,
+                                "approved": 94.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sumarni",
+                                "pml": "Nasrullah",
+                                "muatan": 477,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sunarti",
+                                "pml": "HENDRA SUGIARTHO, S",
+                                "muatan": 476,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 64.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SUNARTI",
+                                "pml": "MUH. FADEL PRASASTI",
+                                "muatan": 578,
+                                "progres": 96.2,
+                                "openDraft": 3.8,
+                                "approved": 19.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A.RIVALDY LATIEF",
+                                "pml": "Nasrullah",
+                                "muatan": 451,
+                                "progres": 83.2,
+                                "openDraft": 16.2,
+                                "approved": 74.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "perawati ramli",
+                                "muatan": 3437,
+                                "progres": 95.9,
+                                "openDraft": 3.9,
+                                "approved": 71.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "HENDRA SUGIARTHO, S",
+                                "muatan": 3502,
+                                "progres": 99.1,
+                                "openDraft": 0.8,
+                                "approved": 77.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "andi astri oktaviani",
+                                "muatan": 4783,
+                                "progres": 95.7,
+                                "openDraft": 4.2,
+                                "approved": 74.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Afdalia Yahya",
+                                "muatan": 3563,
+                                "progres": 96.0,
+                                "openDraft": 3.2,
+                                "approved": 89.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nasrullah",
+                                "muatan": 3634,
+                                "progres": 89.6,
+                                "openDraft": 8.3,
+                                "approved": 71.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Robi darwis",
+                                "muatan": 3889,
+                                "progres": 96.7,
+                                "openDraft": 3.1,
+                                "approved": 82.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUH. FADEL PRASASTI",
+                                "muatan": 3681,
+                                "progres": 98.6,
+                                "openDraft": 1.4,
+                                "approved": 69.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Bangkala Barat": {
-            "ppl": [
-                {
-                    "nama": "Diva Alfathiha Maharani",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Dwi Erni Al Hijrah",
-                    "submit": 97.7,
-                    "approved": 74.2,
-                    "anomaliBelum": 5.2,
-                    "anomaliCatatan": 7.7,
-                    "anomaliPerbaikan": 74.2
-                },
-                {
-                    "nama": "Hasbi sukku",
-                    "submit": 85.0,
-                    "approved": 48.9,
-                    "anomaliBelum": 10.2,
-                    "anomaliCatatan": 15.3,
-                    "anomaliPerbaikan": 48.9
-                },
-                {
-                    "nama": "Linda Dg Te'ne",
-                    "submit": 96.8,
-                    "approved": 17.0,
-                    "anomaliBelum": 16.6,
-                    "anomaliCatatan": 24.9,
-                    "anomaliPerbaikan": 17.0
-                },
-                {
-                    "nama": "Nopiyanti",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Rosmawati, Spd",
-                    "submit": 95.6,
-                    "approved": 64.9,
-                    "anomaliBelum": 7.0,
-                    "anomaliCatatan": 10.5,
-                    "anomaliPerbaikan": 64.9
-                },
-                {
-                    "nama": "Selmianti",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "A. POPPI AZHARI",
-                    "submit": 99.6,
-                    "approved": 81.7,
-                    "anomaliBelum": 3.7,
-                    "anomaliCatatan": 5.5,
-                    "anomaliPerbaikan": 81.7
-                },
-                {
-                    "nama": "ANSAR RAHIMAKUMULLAH",
-                    "submit": 77.7,
-                    "approved": 33.2,
-                    "anomaliBelum": 13.4,
-                    "anomaliCatatan": 20.0,
-                    "anomaliPerbaikan": 33.2
-                },
-                {
-                    "nama": "PUTRI NENGSI",
-                    "submit": 100.0,
-                    "approved": 77.3,
-                    "anomaliBelum": 4.5,
-                    "anomaliCatatan": 6.8,
-                    "anomaliPerbaikan": 77.3
-                },
-                {
-                    "nama": "Rahman",
-                    "submit": 99.8,
-                    "approved": 79.9,
-                    "anomaliBelum": 4.0,
-                    "anomaliCatatan": 6.0,
-                    "anomaliPerbaikan": 79.9
-                },
-                {
-                    "nama": "Rosmawati",
-                    "submit": 100.0,
-                    "approved": 76.8,
-                    "anomaliBelum": 4.6,
-                    "anomaliCatatan": 7.0,
-                    "anomaliPerbaikan": 76.8
-                },
-                {
-                    "nama": "Suhartati Tahir",
-                    "submit": 100.0,
-                    "approved": 46.8,
-                    "anomaliBelum": 10.6,
-                    "anomaliCatatan": 16.0,
-                    "anomaliPerbaikan": 46.8
-                },
-                {
-                    "nama": "Taba",
-                    "submit": 99.3,
-                    "approved": 53.2,
-                    "anomaliBelum": 9.4,
-                    "anomaliCatatan": 14.0,
-                    "anomaliPerbaikan": 53.2
-                },
-                {
-                    "nama": "Faisal",
-                    "submit": 91.8,
-                    "approved": 41.1,
-                    "anomaliBelum": 11.8,
-                    "anomaliCatatan": 17.7,
-                    "anomaliPerbaikan": 41.1
-                },
-                {
-                    "nama": "Indra Sultan",
-                    "submit": 100.0,
-                    "approved": 52.6,
-                    "anomaliBelum": 9.5,
-                    "anomaliCatatan": 14.2,
-                    "anomaliPerbaikan": 52.6
-                },
-                {
-                    "nama": "M Bakri Tamar",
-                    "submit": 99.9,
-                    "approved": 60.3,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.9,
-                    "anomaliPerbaikan": 60.3
-                },
-                {
-                    "nama": "MITRA",
-                    "submit": 100.0,
-                    "approved": 43.0,
-                    "anomaliBelum": 11.4,
-                    "anomaliCatatan": 17.1,
-                    "anomaliPerbaikan": 43.0
-                },
-                {
-                    "nama": "Ratna",
-                    "submit": 100.0,
-                    "approved": 70.4,
-                    "anomaliBelum": 5.9,
-                    "anomaliCatatan": 8.9,
-                    "anomaliPerbaikan": 70.4
-                },
-                {
-                    "nama": "Supalding",
-                    "submit": 88.9,
-                    "approved": 21.8,
-                    "anomaliBelum": 15.6,
-                    "anomaliCatatan": 23.5,
-                    "anomaliPerbaikan": 21.8
-                },
-                {
-                    "nama": "DANDI",
-                    "submit": 93.2,
-                    "approved": 38.2,
-                    "anomaliBelum": 12.4,
-                    "anomaliCatatan": 18.5,
-                    "anomaliPerbaikan": 38.2
-                },
-                {
-                    "nama": "JUSRI",
-                    "submit": 69.4,
-                    "approved": 18.1,
-                    "anomaliBelum": 16.4,
-                    "anomaliCatatan": 24.6,
-                    "anomaliPerbaikan": 18.1
-                },
-                {
-                    "nama": "Muh. Ilyas Pasang S.Kep",
-                    "submit": 78.8,
-                    "approved": 73.9,
-                    "anomaliBelum": 5.2,
-                    "anomaliCatatan": 7.8,
-                    "anomaliPerbaikan": 73.9
-                },
-                {
-                    "nama": "Nengsi",
-                    "submit": 100.0,
-                    "approved": 68.6,
-                    "anomaliBelum": 6.3,
-                    "anomaliCatatan": 9.4,
-                    "anomaliPerbaikan": 68.6
-                },
-                {
-                    "nama": "NURINDAH SUKRI",
-                    "submit": 95.5,
-                    "approved": 81.2,
-                    "anomaliBelum": 3.8,
-                    "anomaliCatatan": 5.6,
-                    "anomaliPerbaikan": 81.2
-                },
-                {
-                    "nama": "Sri Yuliana P.",
-                    "submit": 96.9,
-                    "approved": 66.4,
-                    "anomaliBelum": 6.7,
-                    "anomaliCatatan": 10.1,
-                    "anomaliPerbaikan": 66.4
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "AMANDA TRINI WAHDANIAH",
-                    "approved": 70.1,
-                    "rejected": 7.5,
-                    "anomaliBelum": 7.5,
-                    "anomaliCatatan": 10.5,
-                    "anomaliPerbaikan": 70.1
-                },
-                {
-                    "nama": "KASMAWATI ARLAN",
-                    "approved": 65.3,
-                    "rejected": 0.5,
-                    "anomaliBelum": 8.7,
-                    "anomaliCatatan": 12.1,
-                    "anomaliPerbaikan": 65.3
-                },
-                {
-                    "nama": "RESKI ANGGA",
-                    "approved": 47.5,
-                    "rejected": 4.5,
-                    "anomaliBelum": 13.1,
-                    "anomaliCatatan": 18.4,
-                    "anomaliPerbaikan": 47.5
-                },
-                {
-                    "nama": "SULTAN",
-                    "approved": 59.1,
-                    "rejected": 1.0,
-                    "anomaliBelum": 10.2,
-                    "anomaliCatatan": 14.3,
-                    "anomaliPerbaikan": 59.1
-                }
-            ],
-            "submit": 94.8,
-            "approved": 61.1,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 13248,
+                "progres": 95.7,
+                "openDraft": 3.3,
+                "approved": 74.7,
+                "totalPPL": 26,
+                "totalPML": 4,
+                "ppl": [
+                        {
+                                "nama": "PUTRI NENGSI",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 497,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 91.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A. POPPI AZHARI",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 482,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 89.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nopiyanti",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 406,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ANSAR RAHIMAKUMULLAH",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 434,
+                                "progres": 93.3,
+                                "openDraft": 4.2,
+                                "approved": 54.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "M Bakri Tamar",
+                                "pml": "Reski angga",
+                                "muatan": 745,
+                                "progres": 98.3,
+                                "openDraft": 1.7,
+                                "approved": 73.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "DANDI",
+                                "pml": "Sultan",
+                                "muatan": 341,
+                                "progres": 97.7,
+                                "openDraft": 2.4,
+                                "approved": 59.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Diva Alfathiha Maharani",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 380,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Dwi Erni Al Hijrah",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 333,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hasbi sukku",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 741,
+                                "progres": 78.3,
+                                "openDraft": 16.1,
+                                "approved": 60.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh. Ilyas Pasang S.Kep",
+                                "pml": "Sultan",
+                                "muatan": 368,
+                                "progres": 90.5,
+                                "openDraft": 8.7,
+                                "approved": 85.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURINDAH SUKRI",
+                                "pml": "Sultan",
+                                "muatan": 584,
+                                "progres": 96.2,
+                                "openDraft": 2.7,
+                                "approved": 92.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Indra Sultan",
+                                "pml": "Reski angga",
+                                "muatan": 397,
+                                "progres": 98.5,
+                                "openDraft": 1.5,
+                                "approved": 77.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "JUSRI",
+                                "pml": "Sultan",
+                                "muatan": 486,
+                                "progres": 79.6,
+                                "openDraft": 8.8,
+                                "approved": 23.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Linda Dg Te'ne",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 505,
+                                "progres": 89.9,
+                                "openDraft": 8.9,
+                                "approved": 24.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MITRA",
+                                "pml": "Reski angga",
+                                "muatan": 653,
+                                "progres": 97.4,
+                                "openDraft": 2.6,
+                                "approved": 63.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Faisal",
+                                "pml": "Reski angga",
+                                "muatan": 620,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 64.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nengsi",
+                                "pml": "Sultan",
+                                "muatan": 456,
+                                "progres": 98.2,
+                                "openDraft": 1.8,
+                                "approved": 90.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahman",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 522,
+                                "progres": 98.1,
+                                "openDraft": 1.9,
+                                "approved": 97.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ratna",
+                                "pml": "Reski angga",
+                                "muatan": 531,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 82.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rosmawati",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 564,
+                                "progres": 98.0,
+                                "openDraft": 1.9,
+                                "approved": 80.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rosmawati, Spd",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 616,
+                                "progres": 95.0,
+                                "openDraft": 4.4,
+                                "approved": 73.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Selmianti",
+                                "pml": "Amanda Trini Wahdaniah",
+                                "muatan": 438,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 98.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Yuliana P.",
+                                "pml": "Sultan",
+                                "muatan": 490,
+                                "progres": 91.6,
+                                "openDraft": 6.7,
+                                "approved": 82.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suhartati Tahir",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 373,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 58.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Supalding",
+                                "pml": "Reski angga",
+                                "muatan": 678,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 51.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Taba",
+                                "pml": "Kasmawati Arlan",
+                                "muatan": 608,
+                                "progres": 96.2,
+                                "openDraft": 3.8,
+                                "approved": 94.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Kasmawati Arlan",
+                                "muatan": 3480,
+                                "progres": 97.9,
+                                "openDraft": 1.8,
+                                "approved": 82.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Amanda Trini Wahdaniah",
+                                "muatan": 3419,
+                                "progres": 92.9,
+                                "openDraft": 5.6,
+                                "approved": 75.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Reski angga",
+                                "muatan": 3624,
+                                "progres": 98.8,
+                                "openDraft": 1.2,
+                                "approved": 67.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sultan",
+                                "muatan": 2725,
+                                "progres": 92.2,
+                                "openDraft": 5.1,
+                                "approved": 73.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Batang": {
-            "ppl": [
-                {
-                    "nama": "EKA LESTARI",
-                    "submit": 97.4,
-                    "approved": 82.1,
-                    "anomaliBelum": 3.6,
-                    "anomaliCatatan": 5.4,
-                    "anomaliPerbaikan": 82.1
-                },
-                {
-                    "nama": "NURUL HIKMAH. AS",
-                    "submit": 99.6,
-                    "approved": 90.4,
-                    "anomaliBelum": 1.9,
-                    "anomaliCatatan": 2.9,
-                    "anomaliPerbaikan": 90.4
-                },
-                {
-                    "nama": "SUSANTO",
-                    "submit": 97.7,
-                    "approved": 84.6,
-                    "anomaliBelum": 3.1,
-                    "anomaliCatatan": 4.6,
-                    "anomaliPerbaikan": 84.6
-                },
-                {
-                    "nama": "A.muti angraeni",
-                    "submit": 99.2,
-                    "approved": 60.0,
-                    "anomaliBelum": 8.0,
-                    "anomaliCatatan": 12.0,
-                    "anomaliPerbaikan": 60.0
-                },
-                {
-                    "nama": "Elviana",
-                    "submit": 97.0,
-                    "approved": 60.7,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.8,
-                    "anomaliPerbaikan": 60.7
-                },
-                {
-                    "nama": "M.Azhar",
-                    "submit": 100.0,
-                    "approved": 52.8,
-                    "anomaliBelum": 9.4,
-                    "anomaliCatatan": 14.2,
-                    "anomaliPerbaikan": 52.8
-                },
-                {
-                    "nama": "Namira rahmadani adil ninra",
-                    "submit": 98.7,
-                    "approved": 48.4,
-                    "anomaliBelum": 10.3,
-                    "anomaliCatatan": 15.5,
-                    "anomaliPerbaikan": 48.4
-                },
-                {
-                    "nama": "SAHARUDDIN",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Sri Devi",
-                    "submit": 100.0,
-                    "approved": 52.4,
-                    "anomaliBelum": 9.5,
-                    "anomaliCatatan": 14.3,
-                    "anomaliPerbaikan": 52.4
-                },
-                {
-                    "nama": "Sugianto",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Karmila",
-                    "submit": 100.0,
-                    "approved": 95.2,
-                    "anomaliBelum": 1.0,
-                    "anomaliCatatan": 1.4,
-                    "anomaliPerbaikan": 95.2
-                },
-                {
-                    "nama": "M Wahyu Ap",
-                    "submit": 91.3,
-                    "approved": 70.8,
-                    "anomaliBelum": 5.8,
-                    "anomaliCatatan": 8.8,
-                    "anomaliPerbaikan": 70.8
-                },
-                {
-                    "nama": "martati",
-                    "submit": 99.2,
-                    "approved": 82.3,
-                    "anomaliBelum": 3.5,
-                    "anomaliCatatan": 5.3,
-                    "anomaliPerbaikan": 82.3
-                },
-                {
-                    "nama": "Rahmawati",
-                    "submit": 100.0,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "Sukaena",
-                    "submit": 100.0,
-                    "approved": 99.5,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.5
-                },
-                {
-                    "nama": "WIWIK PRATIWI",
-                    "submit": 81.7,
-                    "approved": 60.4,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.9,
-                    "anomaliPerbaikan": 60.4
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "ABD HALIM HAKIM",
-                    "approved": 85.5,
-                    "rejected": 4.1,
-                    "anomaliBelum": 3.6,
-                    "anomaliCatatan": 5.1,
-                    "anomaliPerbaikan": 85.5
-                },
-                {
-                    "nama": "AHMAD SETYAWAN HALIM",
-                    "approved": 65.4,
-                    "rejected": 3.5,
-                    "anomaliBelum": 8.6,
-                    "anomaliCatatan": 12.1,
-                    "anomaliPerbaikan": 65.4
-                },
-                {
-                    "nama": "NUR ANNIZA HALIM",
-                    "approved": 85.0,
-                    "rejected": 5.9,
-                    "anomaliBelum": 3.8,
-                    "anomaliCatatan": 5.2,
-                    "anomaliPerbaikan": 85.0
-                }
-            ],
-            "submit": 97.6,
-            "approved": 77.4,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 8422,
+                "progres": 100.0,
+                "openDraft": 0.0,
+                "approved": 93.3,
+                "totalPPL": 16,
+                "totalPML": 3,
+                "ppl": [
+                        {
+                                "nama": "M.Azhar",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 602,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 93.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Elviana",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 612,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 87.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sukaena",
+                                "pml": "Nur anniza halim",
+                                "muatan": 572,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Karmila",
+                                "pml": "Nur anniza halim",
+                                "muatan": 436,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "EKA LESTARI",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 540,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 98.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "WIWIK PRATIWI",
+                                "pml": "Nur anniza halim",
+                                "muatan": 474,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 82.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "martati",
+                                "pml": "Nur anniza halim",
+                                "muatan": 507,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A.muti angraeni",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 611,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 86.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "M Wahyu Ap",
+                                "pml": "Nur anniza halim",
+                                "muatan": 581,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 80.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Namira rahmadani adil ninra",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 567,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 87.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURUL HIKMAH. AS",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 510,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmawati",
+                                "pml": "Nur anniza halim",
+                                "muatan": 586,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 98.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SAHARUDDIN",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 446,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Devi",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 512,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 86.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sugianto",
+                                "pml": "Ahmad setyawan halim",
+                                "muatan": 424,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SUSANTO",
+                                "pml": "Abd Halim Hakim",
+                                "muatan": 442,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 98.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Ahmad setyawan halim",
+                                "muatan": 3774,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 91.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur anniza halim",
+                                "muatan": 3156,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 93.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Abd Halim Hakim",
+                                "muatan": 1492,
+                                "progres": 99.9,
+                                "openDraft": 0.1,
+                                "approved": 98.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Binamu": {
-            "ppl": [
-                {
-                    "nama": "ABD.RAHMAN,S.KEP",
-                    "submit": 86.5,
-                    "approved": 62.7,
-                    "anomaliBelum": 7.5,
-                    "anomaliCatatan": 11.2,
-                    "anomaliPerbaikan": 62.7
-                },
-                {
-                    "nama": "Alifia Ramadhani Emily",
-                    "submit": 87.3,
-                    "approved": 70.6,
-                    "anomaliBelum": 5.9,
-                    "anomaliCatatan": 8.8,
-                    "anomaliPerbaikan": 70.6
-                },
-                {
-                    "nama": "Arini Nurfadhilah Ridwan",
-                    "submit": 96.8,
-                    "approved": 56.0,
-                    "anomaliBelum": 8.8,
-                    "anomaliCatatan": 13.2,
-                    "anomaliPerbaikan": 56.0
-                },
-                {
-                    "nama": "Feby Awaliyah",
-                    "submit": 87.8,
-                    "approved": 41.3,
-                    "anomaliBelum": 11.7,
-                    "anomaliCatatan": 17.6,
-                    "anomaliPerbaikan": 41.3
-                },
-                {
-                    "nama": "Jumriani",
-                    "submit": 100.0,
-                    "approved": 85.0,
-                    "anomaliBelum": 3.0,
-                    "anomaliCatatan": 4.5,
-                    "anomaliPerbaikan": 85.0
-                },
-                {
-                    "nama": "NURLIANTI",
-                    "submit": 99.6,
-                    "approved": 69.2,
-                    "anomaliBelum": 6.2,
-                    "anomaliCatatan": 9.2,
-                    "anomaliPerbaikan": 69.2
-                },
-                {
-                    "nama": "Parida purnama ramadhani",
-                    "submit": 99.2,
-                    "approved": 91.0,
-                    "anomaliBelum": 1.8,
-                    "anomaliCatatan": 2.7,
-                    "anomaliPerbaikan": 91.0
-                },
-                {
-                    "nama": "Sri Rahmadani",
-                    "submit": 88.2,
-                    "approved": 46.5,
-                    "anomaliBelum": 10.7,
-                    "anomaliCatatan": 16.1,
-                    "anomaliPerbaikan": 46.5
-                },
-                {
-                    "nama": "ANDI SASTRA AVRIL",
-                    "submit": 93.5,
-                    "approved": 75.7,
-                    "anomaliBelum": 4.9,
-                    "anomaliCatatan": 7.3,
-                    "anomaliPerbaikan": 75.7
-                },
-                {
-                    "nama": "Annisa Nur Padila",
-                    "submit": 76.2,
-                    "approved": 53.2,
-                    "anomaliBelum": 9.4,
-                    "anomaliCatatan": 14.0,
-                    "anomaliPerbaikan": 53.2
-                },
-                {
-                    "nama": "Anugrah Dewantoro",
-                    "submit": 83.3,
-                    "approved": 77.6,
-                    "anomaliBelum": 4.5,
-                    "anomaliCatatan": 6.7,
-                    "anomaliPerbaikan": 77.6
-                },
-                {
-                    "nama": "Dewi",
-                    "submit": 94.8,
-                    "approved": 92.4,
-                    "anomaliBelum": 1.5,
-                    "anomaliCatatan": 2.3,
-                    "anomaliPerbaikan": 92.4
-                },
-                {
-                    "nama": "Kasmawati",
-                    "submit": 100.0,
-                    "approved": 94.3,
-                    "anomaliBelum": 1.1,
-                    "anomaliCatatan": 1.7,
-                    "anomaliPerbaikan": 94.3
-                },
-                {
-                    "nama": "Nurul Awaliah",
-                    "submit": 81.9,
-                    "approved": 46.0,
-                    "anomaliBelum": 10.8,
-                    "anomaliCatatan": 16.2,
-                    "anomaliPerbaikan": 46.0
-                },
-                {
-                    "nama": "Riska eka Putri",
-                    "submit": 95.8,
-                    "approved": 76.4,
-                    "anomaliBelum": 4.7,
-                    "anomaliCatatan": 7.1,
-                    "anomaliPerbaikan": 76.4
-                },
-                {
-                    "nama": "Sri israwati",
-                    "submit": 100.0,
-                    "approved": 84.0,
-                    "anomaliBelum": 3.2,
-                    "anomaliCatatan": 4.8,
-                    "anomaliPerbaikan": 84.0
-                },
-                {
-                    "nama": "Asmaul Husna",
-                    "submit": 100.0,
-                    "approved": 99.7,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.7
-                },
-                {
-                    "nama": "Aswidah syahrir",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "FEBRIYANA GUNAWAN",
-                    "submit": 100.0,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "Muh nurwahyu",
-                    "submit": 97.3,
-                    "approved": 95.8,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.3,
-                    "anomaliPerbaikan": 95.8
-                },
-                {
-                    "nama": "Nabila Liliyanti Salsabil",
-                    "submit": 100.0,
-                    "approved": 96.6,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 96.6
-                },
-                {
-                    "nama": "Sahrul rezki setiawan",
-                    "submit": 100.0,
-                    "approved": 99.1,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.1
-                },
-                {
-                    "nama": "Selfi",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "Dela Nurcahyani",
-                    "submit": 98.3,
-                    "approved": 85.6,
-                    "anomaliBelum": 2.9,
-                    "anomaliCatatan": 4.3,
-                    "anomaliPerbaikan": 85.6
-                },
-                {
-                    "nama": "FADLIAH YUSMAN",
-                    "submit": 100.0,
-                    "approved": 60.5,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.8,
-                    "anomaliPerbaikan": 60.5
-                },
-                {
-                    "nama": "NUR ALDHIRA AZIZAH. K",
-                    "submit": 100.0,
-                    "approved": 93.1,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 93.1
-                },
-                {
-                    "nama": "Nur Rahma Azizah Basmahuddin",
-                    "submit": 99.9,
-                    "approved": 97.4,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.4
-                },
-                {
-                    "nama": "Satturia",
-                    "submit": 99.1,
-                    "approved": 80.3,
-                    "anomaliBelum": 3.9,
-                    "anomaliCatatan": 5.9,
-                    "anomaliPerbaikan": 80.3
-                },
-                {
-                    "nama": "Siti Ainun Jeniharta",
-                    "submit": 100.0,
-                    "approved": 91.0,
-                    "anomaliBelum": 1.8,
-                    "anomaliCatatan": 2.7,
-                    "anomaliPerbaikan": 91.0
-                },
-                {
-                    "nama": "Syamsiar",
-                    "submit": 100.0,
-                    "approved": 99.5,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.5
-                },
-                {
-                    "nama": "HUSNIATI K",
-                    "submit": 89.7,
-                    "approved": 81.5,
-                    "anomaliBelum": 3.7,
-                    "anomaliCatatan": 5.5,
-                    "anomaliPerbaikan": 81.5
-                },
-                {
-                    "nama": "Lesyia Nurfadila",
-                    "submit": 100.0,
-                    "approved": 92.7,
-                    "anomaliBelum": 1.5,
-                    "anomaliCatatan": 2.2,
-                    "anomaliPerbaikan": 92.7
-                },
-                {
-                    "nama": "Mirwahyuni",
-                    "submit": 99.9,
-                    "approved": 99.2,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.2
-                },
-                {
-                    "nama": "NUR ALIYAH FEBRINA RAZAK",
-                    "submit": 79.9,
-                    "approved": 68.8,
-                    "anomaliBelum": 6.2,
-                    "anomaliCatatan": 9.4,
-                    "anomaliPerbaikan": 68.8
-                },
-                {
-                    "nama": "Nurfani Fadhila Razak",
-                    "submit": 97.5,
-                    "approved": 89.0,
-                    "anomaliBelum": 2.2,
-                    "anomaliCatatan": 3.3,
-                    "anomaliPerbaikan": 89.0
-                },
-                {
-                    "nama": "Nurfina Fadhila Razak",
-                    "submit": 92.6,
-                    "approved": 91.2,
-                    "anomaliBelum": 1.8,
-                    "anomaliCatatan": 2.6,
-                    "anomaliPerbaikan": 91.2
-                },
-                {
-                    "nama": "Rismayanti",
-                    "submit": 100.0,
-                    "approved": 75.9,
-                    "anomaliBelum": 4.8,
-                    "anomaliCatatan": 7.2,
-                    "anomaliPerbaikan": 75.9
-                },
-                {
-                    "nama": "St Arphina Bahar",
-                    "submit": 99.2,
-                    "approved": 83.0,
-                    "anomaliBelum": 3.4,
-                    "anomaliCatatan": 5.1,
-                    "anomaliPerbaikan": 83.0
-                },
-                {
-                    "nama": "Asis Arifuddin",
-                    "submit": 50.1,
-                    "approved": 17.8,
-                    "anomaliBelum": 16.4,
-                    "anomaliCatatan": 24.7,
-                    "anomaliPerbaikan": 17.8
-                },
-                {
-                    "nama": "Isna",
-                    "submit": 96.4,
-                    "approved": 51.4,
-                    "anomaliBelum": 9.7,
-                    "anomaliCatatan": 14.6,
-                    "anomaliPerbaikan": 51.4
-                },
-                {
-                    "nama": "Misnah",
-                    "submit": 85.5,
-                    "approved": 50.7,
-                    "anomaliBelum": 9.9,
-                    "anomaliCatatan": 14.8,
-                    "anomaliPerbaikan": 50.7
-                },
-                {
-                    "nama": "Muh. Asri",
-                    "submit": 52.8,
-                    "approved": 45.4,
-                    "anomaliBelum": 10.9,
-                    "anomaliCatatan": 16.4,
-                    "anomaliPerbaikan": 45.4
-                },
-                {
-                    "nama": "Sayid Muhammad Nur Al Aidid, S.Sos",
-                    "submit": 72.7,
-                    "approved": 40.7,
-                    "anomaliBelum": 11.9,
-                    "anomaliCatatan": 17.8,
-                    "anomaliPerbaikan": 40.7
-                },
-                {
-                    "nama": "Sri Wahyuni Pratiwi Sudirman",
-                    "submit": 78.3,
-                    "approved": 36.4,
-                    "anomaliBelum": 12.7,
-                    "anomaliCatatan": 19.1,
-                    "anomaliPerbaikan": 36.4
-                },
-                {
-                    "nama": "Wawan Setiawan",
-                    "submit": 68.9,
-                    "approved": 43.8,
-                    "anomaliBelum": 11.2,
-                    "anomaliCatatan": 16.9,
-                    "anomaliPerbaikan": 43.8
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "DWI REZKI AMALIA SYARIFUDDIN",
-                    "approved": 65.0,
-                    "rejected": 1.8,
-                    "anomaliBelum": 8.8,
-                    "anomaliCatatan": 12.2,
-                    "anomaliPerbaikan": 65.0
-                },
-                {
-                    "nama": "EKAWATI",
-                    "approved": 76.0,
-                    "rejected": 4.0,
-                    "anomaliBelum": 6.0,
-                    "anomaliCatatan": 8.4,
-                    "anomaliPerbaikan": 76.0
-                },
-                {
-                    "nama": "H. M. SABRI. G. SE. DG JARRE",
-                    "approved": 98.5,
-                    "rejected": 0.0,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.5,
-                    "anomaliPerbaikan": 98.5
-                },
-                {
-                    "nama": "MUH TRIALDI SYARIFUDDIN",
-                    "approved": 87.6,
-                    "rejected": 3.5,
-                    "anomaliBelum": 3.1,
-                    "anomaliCatatan": 4.3,
-                    "anomaliPerbaikan": 87.6
-                },
-                {
-                    "nama": "NURLIYANA S.SOS",
-                    "approved": 85.3,
-                    "rejected": 0.2,
-                    "anomaliBelum": 3.7,
-                    "anomaliCatatan": 5.1,
-                    "anomaliPerbaikan": 85.3
-                },
-                {
-                    "nama": "WAHYUNI TOMO",
-                    "approved": 41.7,
-                    "rejected": 6.5,
-                    "anomaliBelum": 14.6,
-                    "anomaliCatatan": 20.4,
-                    "anomaliPerbaikan": 41.7
-                }
-            ],
-            "submit": 91.8,
-            "approved": 75.2,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 27644,
+                "progres": 94.9,
+                "openDraft": 2.4,
+                "approved": 86.7,
+                "totalPPL": 45,
+                "totalPML": 6,
+                "ppl": [
+                        {
+                                "nama": "Alifia Ramadhani Emily",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 608,
+                                "progres": 95.2,
+                                "openDraft": 3.3,
+                                "approved": 87.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR ALIYAH FEBRINA RAZAK",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 639,
+                                "progres": 86.1,
+                                "openDraft": 0.0,
+                                "approved": 80.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ANDI SASTRA AVRIL",
+                                "pml": "Ekawati",
+                                "muatan": 585,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURLIANTI",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 515,
+                                "progres": 96.9,
+                                "openDraft": 3.1,
+                                "approved": 92.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "St Arphina Bahar",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 608,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 98.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Asis Arifuddin",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 518,
+                                "progres": 72.8,
+                                "openDraft": 5.0,
+                                "approved": 26.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Asmaul Husna",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 630,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Aswidah syahrir",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 483,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Dela Nurcahyani",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 717,
+                                "progres": 99.7,
+                                "openDraft": 0.3,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Dewi",
+                                "pml": "Ekawati",
+                                "muatan": 924,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Annisa Nur Padila",
+                                "pml": "Ekawati",
+                                "muatan": 595,
+                                "progres": 82.5,
+                                "openDraft": 10.6,
+                                "approved": 71.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "FADLIAH YUSMAN",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 464,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 98.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "FEBRIYANA GUNAWAN",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 413,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Feby Awaliyah",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 589,
+                                "progres": 93.5,
+                                "openDraft": 4.8,
+                                "approved": 74.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Anugrah Dewantoro",
+                                "pml": "Ekawati",
+                                "muatan": 709,
+                                "progres": 92.4,
+                                "openDraft": 2.7,
+                                "approved": 91.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "HUSNIATI K",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 645,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Isna",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 468,
+                                "progres": 99.4,
+                                "openDraft": 0.6,
+                                "approved": 59.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Siti Ainun Jeniharta",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 413,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Jumriani",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 403,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 44.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Kasmawati",
+                                "pml": "Ekawati",
+                                "muatan": 701,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Rahmadani",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 475,
+                                "progres": 82.7,
+                                "openDraft": 17.3,
+                                "approved": 76.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Lesyia Nurfadila",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 464,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Mirwahyuni",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 713,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Misnah",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 802,
+                                "progres": 98.8,
+                                "openDraft": 0.4,
+                                "approved": 60.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh. Asri",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 886,
+                                "progres": 65.5,
+                                "openDraft": 10.1,
+                                "approved": 45.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nabila Liliyanti Salsabil",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 651,
+                                "progres": 97.7,
+                                "openDraft": 2.3,
+                                "approved": 97.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR ALDHIRA AZIZAH. K",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 736,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Arini Nurfadhilah Ridwan",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 434,
+                                "progres": 90.8,
+                                "openDraft": 6.2,
+                                "approved": 80.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurfani Fadhila Razak",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 601,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurfina Fadhila Razak",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 640,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur Rahma Azizah Basmahuddin",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 805,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurul Awaliah",
+                                "pml": "Ekawati",
+                                "muatan": 821,
+                                "progres": 97.9,
+                                "openDraft": 1.0,
+                                "approved": 88.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Parida purnama ramadhani",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 544,
+                                "progres": 96.7,
+                                "openDraft": 3.3,
+                                "approved": 95.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh nurwahyu",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 335,
+                                "progres": 99.7,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ABD.RAHMAN,S.KEP",
+                                "pml": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 583,
+                                "progres": 90.4,
+                                "openDraft": 0.0,
+                                "approved": 76.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Satturia",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 1080,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 98.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Riska eka Putri",
+                                "pml": "Ekawati",
+                                "muatan": 610,
+                                "progres": 95.4,
+                                "openDraft": 4.4,
+                                "approved": 93.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rismayanti",
+                                "pml": "NURLIYANA S.SOS",
+                                "muatan": 539,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sahrul rezki setiawan",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 332,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sayid Muhammad Nur Al Aidid, S.Sos",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 664,
+                                "progres": 64.5,
+                                "openDraft": 21.1,
+                                "approved": 38.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Selfi",
+                                "pml": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 528,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 99.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Syamsiar",
+                                "pml": "Muh Trialdi Syarifuddin",
+                                "muatan": 663,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri israwati",
+                                "pml": "Ekawati",
+                                "muatan": 999,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Wahyuni Pratiwi Sudirman",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 550,
+                                "progres": 94.4,
+                                "openDraft": 3.5,
+                                "approved": 57.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Wawan Setiawan",
+                                "pml": "Wahyuni Tomo",
+                                "muatan": 562,
+                                "progres": 85.8,
+                                "openDraft": 7.5,
+                                "approved": 60.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Dwi Rezki Amalia Syarifuddin",
+                                "muatan": 4151,
+                                "progres": 93.3,
+                                "openDraft": 4.6,
+                                "approved": 79.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURLIYANA S.SOS",
+                                "muatan": 4849,
+                                "progres": 98.1,
+                                "openDraft": 0.0,
+                                "approved": 96.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ekawati",
+                                "muatan": 5944,
+                                "progres": 96.6,
+                                "openDraft": 2.0,
+                                "approved": 93.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Wahyuni Tomo",
+                                "muatan": 4450,
+                                "progres": 81.9,
+                                "openDraft": 7.2,
+                                "approved": 49.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "H. M. Sabri. G. SE. DG JARRE",
+                                "muatan": 3372,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh Trialdi Syarifuddin",
+                                "muatan": 4878,
+                                "progres": 99.7,
+                                "openDraft": 0.3,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Bontoramba": {
-            "ppl": [
-                {
-                    "nama": "HASLINDAH. S",
-                    "submit": 99.8,
-                    "approved": 97.6,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.7,
-                    "anomaliPerbaikan": 97.6
-                },
-                {
-                    "nama": "Hendrik",
-                    "submit": 100.0,
-                    "approved": 88.8,
-                    "anomaliBelum": 2.2,
-                    "anomaliCatatan": 3.4,
-                    "anomaliPerbaikan": 88.8
-                },
-                {
-                    "nama": "IRPANDI NUR SPDI",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Sahabuddin Al hasar",
-                    "submit": 99.8,
-                    "approved": 97.9,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.6,
-                    "anomaliPerbaikan": 97.9
-                },
-                {
-                    "nama": "Sahrullah",
-                    "submit": 99.1,
-                    "approved": 95.4,
-                    "anomaliBelum": 0.9,
-                    "anomaliCatatan": 1.4,
-                    "anomaliPerbaikan": 95.4
-                },
-                {
-                    "nama": "Tori",
-                    "submit": 100.0,
-                    "approved": 77.4,
-                    "anomaliBelum": 4.5,
-                    "anomaliCatatan": 6.8,
-                    "anomaliPerbaikan": 77.4
-                },
-                {
-                    "nama": "Wahyuningsih",
-                    "submit": 100.0,
-                    "approved": 92.2,
-                    "anomaliBelum": 1.6,
-                    "anomaliCatatan": 2.3,
-                    "anomaliPerbaikan": 92.2
-                },
-                {
-                    "nama": "Ana Mardiana",
-                    "submit": 98.8,
-                    "approved": 84.0,
-                    "anomaliBelum": 3.2,
-                    "anomaliCatatan": 4.8,
-                    "anomaliPerbaikan": 84.0
-                },
-                {
-                    "nama": "Faridatulwinarni",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "Hairin Annisa",
-                    "submit": 86.7,
-                    "approved": 60.8,
-                    "anomaliBelum": 7.8,
-                    "anomaliCatatan": 11.8,
-                    "anomaliPerbaikan": 60.8
-                },
-                {
-                    "nama": "Nur Anisa",
-                    "submit": 100.0,
-                    "approved": 84.0,
-                    "anomaliBelum": 3.2,
-                    "anomaliCatatan": 4.8,
-                    "anomaliPerbaikan": 84.0
-                },
-                {
-                    "nama": "Nurmiati",
-                    "submit": 99.5,
-                    "approved": 79.8,
-                    "anomaliBelum": 4.0,
-                    "anomaliCatatan": 6.1,
-                    "anomaliPerbaikan": 79.8
-                },
-                {
-                    "nama": "Sunarti",
-                    "submit": 100.0,
-                    "approved": 89.6,
-                    "anomaliBelum": 2.1,
-                    "anomaliCatatan": 3.1,
-                    "anomaliPerbaikan": 89.6
-                },
-                {
-                    "nama": "Zarah Azhari",
-                    "submit": 88.7,
-                    "approved": 77.3,
-                    "anomaliBelum": 4.5,
-                    "anomaliCatatan": 6.8,
-                    "anomaliPerbaikan": 77.3
-                },
-                {
-                    "nama": "Haerul Nur Amin",
-                    "submit": 100.0,
-                    "approved": 93.1,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 93.1
-                },
-                {
-                    "nama": "Kiki Nuswati",
-                    "submit": 100.0,
-                    "approved": 98.8,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.8
-                },
-                {
-                    "nama": "NUR HADIJAH",
-                    "submit": 100.0,
-                    "approved": 95.7,
-                    "anomaliBelum": 0.9,
-                    "anomaliCatatan": 1.3,
-                    "anomaliPerbaikan": 95.7
-                },
-                {
-                    "nama": "NURLIAH S.PDI",
-                    "submit": 100.0,
-                    "approved": 98.2,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.5,
-                    "anomaliPerbaikan": 98.2
-                },
-                {
-                    "nama": "ratna wati",
-                    "submit": 100.0,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "Sabiani",
-                    "submit": 99.6,
-                    "approved": 94.9,
-                    "anomaliBelum": 1.0,
-                    "anomaliCatatan": 1.5,
-                    "anomaliPerbaikan": 94.9
-                },
-                {
-                    "nama": "WAHDANIAR",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Erni ariyanti",
-                    "submit": 100.0,
-                    "approved": 86.5,
-                    "anomaliBelum": 2.7,
-                    "anomaliCatatan": 4.0,
-                    "anomaliPerbaikan": 86.5
-                },
-                {
-                    "nama": "JUMRIANI",
-                    "submit": 94.6,
-                    "approved": 35.3,
-                    "anomaliBelum": 12.9,
-                    "anomaliCatatan": 19.4,
-                    "anomaliPerbaikan": 35.3
-                },
-                {
-                    "nama": "Nanna Safitri",
-                    "submit": 99.5,
-                    "approved": 38.0,
-                    "anomaliBelum": 12.4,
-                    "anomaliCatatan": 18.6,
-                    "anomaliPerbaikan": 38.0
-                },
-                {
-                    "nama": "RAHMIATI",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "Rohani Nasaruddin",
-                    "submit": 100.0,
-                    "approved": 99.6,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.6
-                },
-                {
-                    "nama": "Rosmini",
-                    "submit": 100.0,
-                    "approved": 98.3,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.5,
-                    "anomaliPerbaikan": 98.3
-                },
-                {
-                    "nama": "Rusmin Nuryadin",
-                    "submit": 100.0,
-                    "approved": 75.8,
-                    "anomaliBelum": 4.8,
-                    "anomaliCatatan": 7.3,
-                    "anomaliPerbaikan": 75.8
-                },
-                {
-                    "nama": "Suandi",
-                    "submit": 100.0,
-                    "approved": 80.6,
-                    "anomaliBelum": 3.9,
-                    "anomaliCatatan": 5.8,
-                    "anomaliPerbaikan": 80.6
-                },
-                {
-                    "nama": "ARMITA KURNIA DEWI",
-                    "submit": 86.3,
-                    "approved": 75.9,
-                    "anomaliBelum": 4.8,
-                    "anomaliCatatan": 7.2,
-                    "anomaliPerbaikan": 75.9
-                },
-                {
-                    "nama": "Muh. Imran",
-                    "submit": 94.3,
-                    "approved": 78.9,
-                    "anomaliBelum": 4.2,
-                    "anomaliCatatan": 6.3,
-                    "anomaliPerbaikan": 78.9
-                },
-                {
-                    "nama": "MULIANA.M",
-                    "submit": 99.6,
-                    "approved": 97.9,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.6,
-                    "anomaliPerbaikan": 97.9
-                },
-                {
-                    "nama": "Rahmah Djabal Arfah",
-                    "submit": 83.7,
-                    "approved": 30.9,
-                    "anomaliBelum": 13.8,
-                    "anomaliCatatan": 20.7,
-                    "anomaliPerbaikan": 30.9
-                },
-                {
-                    "nama": "Rika Siswati",
-                    "submit": 99.8,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "ROSDIANA",
-                    "submit": 99.2,
-                    "approved": 97.0,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.9,
-                    "anomaliPerbaikan": 97.0
-                },
-                {
-                    "nama": "Syamsul Bakhry, SE",
-                    "submit": 100.0,
-                    "approved": 97.1,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.9,
-                    "anomaliPerbaikan": 97.1
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "KADIR JAELANI",
-                    "approved": 93.5,
-                    "rejected": 1.4,
-                    "anomaliBelum": 1.6,
-                    "anomaliCatatan": 2.3,
-                    "anomaliPerbaikan": 93.5
-                },
-                {
-                    "nama": "MUHAMMAD TAHIR",
-                    "approved": 82.3,
-                    "rejected": 0.9,
-                    "anomaliBelum": 4.4,
-                    "anomaliCatatan": 6.2,
-                    "anomaliPerbaikan": 82.3
-                },
-                {
-                    "nama": "NUR AULIA",
-                    "approved": 97.1,
-                    "rejected": 0.5,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 97.1
-                },
-                {
-                    "nama": "NURJANNAH B.S",
-                    "approved": 76.9,
-                    "rejected": 2.6,
-                    "anomaliBelum": 5.8,
-                    "anomaliCatatan": 8.1,
-                    "anomaliPerbaikan": 76.9
-                },
-                {
-                    "nama": "UMRAYENI JAMAL",
-                    "approved": 83.1,
-                    "rejected": 0.9,
-                    "anomaliBelum": 4.2,
-                    "anomaliCatatan": 5.9,
-                    "anomaliPerbaikan": 83.1
-                }
-            ],
-            "submit": 98.0,
-            "approved": 86.0,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 17451,
+                "progres": 98.6,
+                "openDraft": 1.3,
+                "approved": 95.8,
+                "totalPPL": 36,
+                "totalPML": 5,
+                "ppl": [
+                        {
+                                "nama": "Rahmah Djabal Arfah",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 534,
+                                "progres": 57.7,
+                                "openDraft": 39.3,
+                                "approved": 32.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ana Mardiana",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 479,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ARMITA KURNIA DEWI",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 438,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 90.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Erni ariyanti",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 488,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Faridatulwinarni",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 400,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hairin Annisa",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 412,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "HASLINDAH. S",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 535,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh. Imran",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 460,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 95.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Syamsul Bakhry, SE",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 544,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "JUMRIANI",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 514,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 91.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Kiki Nuswati",
+                                "pml": "NUR AULIA",
+                                "muatan": 521,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MULIANA.M",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 486,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nanna Safitri",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 435,
+                                "progres": 98.8,
+                                "openDraft": 1.1,
+                                "approved": 52.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur Anisa",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 488,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR HADIJAH",
+                                "pml": "NUR AULIA",
+                                "muatan": 495,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "IRPANDI NUR SPDI",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 845,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURLIAH S.PDI",
+                                "pml": "NUR AULIA",
+                                "muatan": 450,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "WAHDANIAR",
+                                "pml": "NUR AULIA",
+                                "muatan": 409,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurmiati",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 442,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hendrik",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 584,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RAHMIATI",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 441,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ratna wati",
+                                "pml": "NUR AULIA",
+                                "muatan": 462,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rika Siswati",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 461,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rohani Nasaruddin",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 518,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ROSDIANA",
+                                "pml": "Umrayeni Jamal",
+                                "muatan": 496,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 96.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rosmini",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 486,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rusmin Nuryadin",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 392,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sabiani",
+                                "pml": "NUR AULIA",
+                                "muatan": 529,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sahabuddin Al hasar",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 519,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Haerul Nur Amin",
+                                "pml": "NUR AULIA",
+                                "muatan": 488,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suandi",
+                                "pml": "NURJANNAH B.S",
+                                "muatan": 414,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sunarti",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 448,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Tori",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 487,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 96.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sahrullah",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 438,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Wahyuningsih",
+                                "pml": "KADIR JAELANI",
+                                "muatan": 413,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Zarah Azhari",
+                                "pml": "Muhammad Tahir",
+                                "muatan": 500,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Umrayeni Jamal",
+                                "muatan": 3419,
+                                "progres": 93.2,
+                                "openDraft": 6.3,
+                                "approved": 87.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muhammad Tahir",
+                                "muatan": 3169,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURJANNAH B.S",
+                                "muatan": 3688,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 93.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "KADIR JAELANI",
+                                "muatan": 3821,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR AULIA",
+                                "muatan": 3354,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Kelara": {
-            "ppl": [
-                {
-                    "nama": "APDI",
-                    "submit": 100.0,
-                    "approved": 78.9,
-                    "anomaliBelum": 4.2,
-                    "anomaliCatatan": 6.3,
-                    "anomaliPerbaikan": 78.9
-                },
-                {
-                    "nama": "M ASPAR",
-                    "submit": 97.9,
-                    "approved": 68.0,
-                    "anomaliBelum": 6.4,
-                    "anomaliCatatan": 9.6,
-                    "anomaliPerbaikan": 68.0
-                },
-                {
-                    "nama": "MUH. RIZKY TAUFIK ISMAIL",
-                    "submit": 100.0,
-                    "approved": 89.0,
-                    "anomaliBelum": 2.2,
-                    "anomaliCatatan": 3.3,
-                    "anomaliPerbaikan": 89.0
-                },
-                {
-                    "nama": "Muh.fadil usamah dalali",
-                    "submit": 85.6,
-                    "approved": 41.8,
-                    "anomaliBelum": 11.6,
-                    "anomaliCatatan": 17.5,
-                    "anomaliPerbaikan": 41.8
-                },
-                {
-                    "nama": "NUR AL HAYYUL RAMADHANI",
-                    "submit": 97.9,
-                    "approved": 80.4,
-                    "anomaliBelum": 3.9,
-                    "anomaliCatatan": 5.9,
-                    "anomaliPerbaikan": 80.4
-                },
-                {
-                    "nama": "Nurjanna S",
-                    "submit": 100.0,
-                    "approved": 64.8,
-                    "anomaliBelum": 7.0,
-                    "anomaliCatatan": 10.6,
-                    "anomaliPerbaikan": 64.8
-                },
-                {
-                    "nama": "Citra Ayu Lestari",
-                    "submit": 100.0,
-                    "approved": 98.8,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.8
-                },
-                {
-                    "nama": "mirna yolanda",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "NURUL AZIZA",
-                    "submit": 100.0,
-                    "approved": 99.4,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.4
-                },
-                {
-                    "nama": "NURUL FADILA",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Rahmat Lallo",
-                    "submit": 100.0,
-                    "approved": 98.2,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.5,
-                    "anomaliPerbaikan": 98.2
-                },
-                {
-                    "nama": "Siti Syahidah Mujahidah",
-                    "submit": 100.0,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "Supriadi",
-                    "submit": 100.0,
-                    "approved": 98.8,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.8
-                },
-                {
-                    "nama": "Agung Sahdana SE",
-                    "submit": 98.3,
-                    "approved": 86.2,
-                    "anomaliBelum": 2.8,
-                    "anomaliCatatan": 4.1,
-                    "anomaliPerbaikan": 86.2
-                },
-                {
-                    "nama": "Dahlia",
-                    "submit": 95.1,
-                    "approved": 81.5,
-                    "anomaliBelum": 3.7,
-                    "anomaliCatatan": 5.5,
-                    "anomaliPerbaikan": 81.5
-                },
-                {
-                    "nama": "ernawati",
-                    "submit": 94.3,
-                    "approved": 83.0,
-                    "anomaliBelum": 3.4,
-                    "anomaliCatatan": 5.1,
-                    "anomaliPerbaikan": 83.0
-                },
-                {
-                    "nama": "IRMA INDI PRATAMA",
-                    "submit": 85.6,
-                    "approved": 20.9,
-                    "anomaliBelum": 15.8,
-                    "anomaliCatatan": 23.7,
-                    "anomaliPerbaikan": 20.9
-                },
-                {
-                    "nama": "Muh Fathir Reski Ilyas A.Md.p",
-                    "submit": 97.1,
-                    "approved": 89.8,
-                    "anomaliBelum": 2.0,
-                    "anomaliCatatan": 3.1,
-                    "anomaliPerbaikan": 89.8
-                },
-                {
-                    "nama": "REGINA MAHARANI. R, A.MD.KEP",
-                    "submit": 100.0,
-                    "approved": 99.1,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.1
-                },
-                {
-                    "nama": "Ahmad Alamsyah Said",
-                    "submit": 100.0,
-                    "approved": 84.8,
-                    "anomaliBelum": 3.0,
-                    "anomaliCatatan": 4.6,
-                    "anomaliPerbaikan": 84.8
-                },
-                {
-                    "nama": "JUSNI",
-                    "submit": 100.0,
-                    "approved": 70.9,
-                    "anomaliBelum": 5.8,
-                    "anomaliCatatan": 8.7,
-                    "anomaliPerbaikan": 70.9
-                },
-                {
-                    "nama": "MAULIDIANTI PUSPITA HAMSURI",
-                    "submit": 97.9,
-                    "approved": 66.4,
-                    "anomaliBelum": 6.7,
-                    "anomaliCatatan": 10.1,
-                    "anomaliPerbaikan": 66.4
-                },
-                {
-                    "nama": "RABASENG",
-                    "submit": 100.0,
-                    "approved": 96.7,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 96.7
-                },
-                {
-                    "nama": "Rahmadani",
-                    "submit": 95.6,
-                    "approved": 72.6,
-                    "anomaliBelum": 5.5,
-                    "anomaliCatatan": 8.2,
-                    "anomaliPerbaikan": 72.6
-                },
-                {
-                    "nama": "SUMARTI.J",
-                    "submit": 99.4,
-                    "approved": 84.5,
-                    "anomaliBelum": 3.1,
-                    "anomaliCatatan": 4.6,
-                    "anomaliPerbaikan": 84.5
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "KARIMALI SOFYAN",
-                    "approved": 70.3,
-                    "rejected": 2.5,
-                    "anomaliBelum": 7.4,
-                    "anomaliCatatan": 10.4,
-                    "anomaliPerbaikan": 70.3
-                },
-                {
-                    "nama": "KASMAWATI. HJ",
-                    "approved": 99.1,
-                    "rejected": 0.0,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.1
-                },
-                {
-                    "nama": "PUTRI WAHDA",
-                    "approved": 76.0,
-                    "rejected": 7.2,
-                    "anomaliBelum": 6.0,
-                    "anomaliCatatan": 8.4,
-                    "anomaliPerbaikan": 76.0
-                },
-                {
-                    "nama": "YUNITA",
-                    "approved": 78.5,
-                    "rejected": 0.5,
-                    "anomaliBelum": 5.4,
-                    "anomaliCatatan": 7.5,
-                    "anomaliPerbaikan": 78.5
-                }
-            ],
-            "submit": 97.8,
-            "approved": 82.1,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 12928,
+                "progres": 98.2,
+                "openDraft": 1.6,
+                "approved": 93.8,
+                "totalPPL": 25,
+                "totalPML": 4,
+                "ppl": [
+                        {
+                                "nama": "APDI",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 498,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Agung Sahdana SE",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 532,
+                                "progres": 97.2,
+                                "openDraft": 2.3,
+                                "approved": 95.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ahmad Alamsyah Said",
+                                "pml": "YUNITA",
+                                "muatan": 389,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "M ASPAR",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 490,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 72.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURUL AZIZA",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 350,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Citra Ayu Lestari",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 501,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MAULIDIANTI PUSPITA HAMSURI",
+                                "pml": "YUNITA",
+                                "muatan": 749,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh Fathir Reski Ilyas A.Md.p",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 584,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR AL HAYYUL RAMADHANI",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 555,
+                                "progres": 99.1,
+                                "openDraft": 0.9,
+                                "approved": 98.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "mirna yolanda",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 474,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "IRMA INDI PRATAMA",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 664,
+                                "progres": 82.4,
+                                "openDraft": 17.5,
+                                "approved": 56.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "JUSNI",
+                                "pml": "YUNITA",
+                                "muatan": 501,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Dahlia",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 554,
+                                "progres": 96.8,
+                                "openDraft": 2.9,
+                                "approved": 95.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUH. RIZKY TAUFIK ISMAIL",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 523,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muh.fadil usamah dalali",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 569,
+                                "progres": 91.6,
+                                "openDraft": 6.2,
+                                "approved": 53.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SUMARTI.J",
+                                "pml": "YUNITA",
+                                "muatan": 510,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ernawati",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 586,
+                                "progres": 99.0,
+                                "openDraft": 0.8,
+                                "approved": 97.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurjanna S",
+                                "pml": "KARIMALI SOFYAN",
+                                "muatan": 543,
+                                "progres": 98.3,
+                                "openDraft": 1.7,
+                                "approved": 97.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURUL FADILA",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 401,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmat Lallo",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 496,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmadani",
+                                "pml": "YUNITA",
+                                "muatan": 477,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 97.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "REGINA MAHARANI. R, A.MD.KEP",
+                                "pml": "PUTRI WAHDA",
+                                "muatan": 645,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Supriadi",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 416,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Siti Syahidah Mujahidah",
+                                "pml": "KASMAWATI. HJ",
+                                "muatan": 365,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RABASENG",
+                                "pml": "YUNITA",
+                                "muatan": 556,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "KARIMALI SOFYAN",
+                                "muatan": 3178,
+                                "progres": 97.9,
+                                "openDraft": 1.7,
+                                "approved": 86.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "PUTRI WAHDA",
+                                "muatan": 3565,
+                                "progres": 95.6,
+                                "openDraft": 4.2,
+                                "approved": 89.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "YUNITA",
+                                "muatan": 3182,
+                                "progres": 99.7,
+                                "openDraft": 0.3,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "KASMAWATI. HJ",
+                                "muatan": 3003,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Rumbia": {
-            "ppl": [
-                {
-                    "nama": "Ayunengsih",
-                    "submit": 99.6,
-                    "approved": 98.9,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 98.9
-                },
-                {
-                    "nama": "NIRWAN",
-                    "submit": 86.7,
-                    "approved": 68.2,
-                    "anomaliBelum": 6.4,
-                    "anomaliCatatan": 9.5,
-                    "anomaliPerbaikan": 68.2
-                },
-                {
-                    "nama": "Nurfitra Qauli",
-                    "submit": 100.0,
-                    "approved": 98.7,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.7
-                },
-                {
-                    "nama": "NURUL NOVITASARI",
-                    "submit": 100.0,
-                    "approved": 98.8,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.8
-                },
-                {
-                    "nama": "Rahmi Yul Hidayanti",
-                    "submit": 97.9,
-                    "approved": 93.6,
-                    "anomaliBelum": 1.3,
-                    "anomaliCatatan": 1.9,
-                    "anomaliPerbaikan": 93.6
-                },
-                {
-                    "nama": "Surya andini",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "Winda.L",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "INDAH B",
-                    "submit": 100.0,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "Nadila kurniati",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Nurlindah",
-                    "submit": 91.5,
-                    "approved": 81.4,
-                    "anomaliBelum": 3.7,
-                    "anomaliCatatan": 5.6,
-                    "anomaliPerbaikan": 81.4
-                },
-                {
-                    "nama": "Rospinawati",
-                    "submit": 100.0,
-                    "approved": 99.3,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.2,
-                    "anomaliPerbaikan": 99.3
-                },
-                {
-                    "nama": "SALMA",
-                    "submit": 100.0,
-                    "approved": 98.5,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.5
-                },
-                {
-                    "nama": "Sukri. B",
-                    "submit": 93.9,
-                    "approved": 84.7,
-                    "anomaliBelum": 3.1,
-                    "anomaliCatatan": 4.6,
-                    "anomaliPerbaikan": 84.7
-                },
-                {
-                    "nama": "Syarifuddin",
-                    "submit": 99.4,
-                    "approved": 96.6,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 96.6
-                },
-                {
-                    "nama": "Irmawati Said",
-                    "submit": 98.0,
-                    "approved": 89.7,
-                    "anomaliBelum": 2.1,
-                    "anomaliCatatan": 3.1,
-                    "anomaliPerbaikan": 89.7
-                },
-                {
-                    "nama": "M JUFRI HS",
-                    "submit": 100.0,
-                    "approved": 95.9,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.2,
-                    "anomaliPerbaikan": 95.9
-                },
-                {
-                    "nama": "Nur amnah fhadillah",
-                    "submit": 100.0,
-                    "approved": 99.1,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.1
-                },
-                {
-                    "nama": "NUR CAHYANI",
-                    "submit": 100.0,
-                    "approved": 99.0,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.0
-                },
-                {
-                    "nama": "Sri wahyuni",
-                    "submit": 100.0,
-                    "approved": 99.5,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.5
-                },
-                {
-                    "nama": "Suaib",
-                    "submit": 100.0,
-                    "approved": 73.7,
-                    "anomaliBelum": 5.3,
-                    "anomaliCatatan": 7.9,
-                    "anomaliPerbaikan": 73.7
-                },
-                {
-                    "nama": "Hardianti",
-                    "submit": 100.0,
-                    "approved": 97.2,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.2
-                },
-                {
-                    "nama": "Indah",
-                    "submit": 100.0,
-                    "approved": 98.0,
-                    "anomaliBelum": 0.4,
-                    "anomaliCatatan": 0.6,
-                    "anomaliPerbaikan": 98.0
-                },
-                {
-                    "nama": "M. Ishak",
-                    "submit": 95.6,
-                    "approved": 76.6,
-                    "anomaliBelum": 4.7,
-                    "anomaliCatatan": 7.0,
-                    "anomaliPerbaikan": 76.6
-                },
-                {
-                    "nama": "RAYHANA SYAM",
-                    "submit": 98.6,
-                    "approved": 34.6,
-                    "anomaliBelum": 13.1,
-                    "anomaliCatatan": 19.6,
-                    "anomaliPerbaikan": 34.6
-                },
-                {
-                    "nama": "Sri ira anita putri",
-                    "submit": 100.0,
-                    "approved": 98.8,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.8
-                },
-                {
-                    "nama": "St Nurpadila DL",
-                    "submit": 100.0,
-                    "approved": 74.2,
-                    "anomaliBelum": 5.2,
-                    "anomaliCatatan": 7.7,
-                    "anomaliPerbaikan": 74.2
-                },
-                {
-                    "nama": "Wahyuni",
-                    "submit": 100.0,
-                    "approved": 95.0,
-                    "anomaliBelum": 1.0,
-                    "anomaliCatatan": 1.5,
-                    "anomaliPerbaikan": 95.0
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "AYU WINATA ILHAM",
-                    "approved": 94.6,
-                    "rejected": 0.5,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 1.9,
-                    "anomaliPerbaikan": 94.6
-                },
-                {
-                    "nama": "MIFTAHUDDIN",
-                    "approved": 94.0,
-                    "rejected": 0.4,
-                    "anomaliBelum": 1.5,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 94.0
-                },
-                {
-                    "nama": "RESKINA",
-                    "approved": 91.7,
-                    "rejected": 1.7,
-                    "anomaliBelum": 2.1,
-                    "anomaliCatatan": 2.9,
-                    "anomaliPerbaikan": 91.7
-                },
-                {
-                    "nama": "RUSWITA",
-                    "approved": 81.3,
-                    "rejected": 2.6,
-                    "anomaliBelum": 4.7,
-                    "anomaliCatatan": 6.5,
-                    "anomaliPerbaikan": 81.3
-                }
-            ],
-            "submit": 98.6,
-            "approved": 90.7,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 11624,
+                "progres": 99.9,
+                "openDraft": 0.1,
+                "approved": 98.8,
+                "totalPPL": 27,
+                "totalPML": 4,
+                "ppl": [
+                        {
+                                "nama": "Syarifuddin",
+                                "pml": "Miftahuddin",
+                                "muatan": 535,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nadila kurniati",
+                                "pml": "Miftahuddin",
+                                "muatan": 431,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ayunengsih",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 467,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "M JUFRI HS",
+                                "pml": "Reskina",
+                                "muatan": 343,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "St Nurpadila DL",
+                                "pml": "RUSWITA",
+                                "muatan": 746,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 97.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hardianti",
+                                "pml": "RUSWITA",
+                                "muatan": 399,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 84.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Indah",
+                                "pml": "RUSWITA",
+                                "muatan": 410,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "INDAH B",
+                                "pml": "Miftahuddin",
+                                "muatan": 461,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri ira anita putri",
+                                "pml": "RUSWITA",
+                                "muatan": 488,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Irmawati Said",
+                                "pml": "Reskina",
+                                "muatan": 527,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "M. Ishak",
+                                "pml": "RUSWITA",
+                                "muatan": 381,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Winda.L",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 331,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NIRWAN",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 341,
+                                "progres": 96.8,
+                                "openDraft": 3.2,
+                                "approved": 92.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURUL NOVITASARI",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 398,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NUR CAHYANI",
+                                "pml": "Reskina",
+                                "muatan": 412,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur amnah fhadillah",
+                                "pml": "Reskina",
+                                "muatan": 434,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurfitra Qauli",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 385,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurlindah",
+                                "pml": "Miftahuddin",
+                                "muatan": 489,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmi Yul Hidayanti",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 332,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RAYHANA SYAM",
+                                "pml": "RUSWITA",
+                                "muatan": 438,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 96.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Surya andini",
+                                "pml": "AYU WINATA ILHAM",
+                                "muatan": 418,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rospinawati",
+                                "pml": "Miftahuddin",
+                                "muatan": 283,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SALMA",
+                                "pml": "Miftahuddin",
+                                "muatan": 410,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suaib",
+                                "pml": "Reskina",
+                                "muatan": 560,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sukri. B",
+                                "pml": "Miftahuddin",
+                                "muatan": 405,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri wahyuni",
+                                "pml": "Reskina",
+                                "muatan": 424,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Wahyuni",
+                                "pml": "RUSWITA",
+                                "muatan": 376,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Miftahuddin",
+                                "muatan": 3014,
+                                "progres": 99.9,
+                                "openDraft": 0.1,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "AYU WINATA ILHAM",
+                                "muatan": 2672,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 99.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Reskina",
+                                "muatan": 2700,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RUSWITA",
+                                "muatan": 3238,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 97.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Tamalatea": {
-            "ppl": [
-                {
-                    "nama": "AN NAHL NUR SA'AD",
-                    "submit": 90.5,
-                    "approved": 61.7,
-                    "anomaliBelum": 7.7,
-                    "anomaliCatatan": 11.5,
-                    "anomaliPerbaikan": 61.7
-                },
-                {
-                    "nama": "Asda Zulqaidah",
-                    "submit": 87.3,
-                    "approved": 42.8,
-                    "anomaliBelum": 11.4,
-                    "anomaliCatatan": 17.2,
-                    "anomaliPerbaikan": 42.8
-                },
-                {
-                    "nama": "EKA PUTRI AMELIA",
-                    "submit": 93.6,
-                    "approved": 72.3,
-                    "anomaliBelum": 5.5,
-                    "anomaliCatatan": 8.3,
-                    "anomaliPerbaikan": 72.3
-                },
-                {
-                    "nama": "Emmi Agustina",
-                    "submit": 94.3,
-                    "approved": 52.6,
-                    "anomaliBelum": 9.5,
-                    "anomaliCatatan": 14.2,
-                    "anomaliPerbaikan": 52.6
-                },
-                {
-                    "nama": "Indah Anggraeni",
-                    "submit": 100.0,
-                    "approved": 98.7,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.7
-                },
-                {
-                    "nama": "ST SAHARA",
-                    "submit": 99.9,
-                    "approved": 85.5,
-                    "anomaliBelum": 2.9,
-                    "anomaliCatatan": 4.3,
-                    "anomaliPerbaikan": 85.5
-                },
-                {
-                    "nama": "St. Hardiani Jufri",
-                    "submit": 95.8,
-                    "approved": 53.6,
-                    "anomaliBelum": 9.3,
-                    "anomaliCatatan": 13.9,
-                    "anomaliPerbaikan": 53.6
-                },
-                {
-                    "nama": "MUH. IKBAL",
-                    "submit": 98.8,
-                    "approved": 79.0,
-                    "anomaliBelum": 4.2,
-                    "anomaliCatatan": 6.3,
-                    "anomaliPerbaikan": 79.0
-                },
-                {
-                    "nama": "NETTI IRAWATI",
-                    "submit": 84.4,
-                    "approved": 45.0,
-                    "anomaliBelum": 11.0,
-                    "anomaliCatatan": 16.5,
-                    "anomaliPerbaikan": 45.0
-                },
-                {
-                    "nama": "NURJANNAH",
-                    "submit": 71.8,
-                    "approved": 35.8,
-                    "anomaliBelum": 12.8,
-                    "anomaliCatatan": 19.3,
-                    "anomaliPerbaikan": 35.8
-                },
-                {
-                    "nama": "SRI DEWY",
-                    "submit": 75.6,
-                    "approved": 59.3,
-                    "anomaliBelum": 8.1,
-                    "anomaliCatatan": 12.2,
-                    "anomaliPerbaikan": 59.3
-                },
-                {
-                    "nama": "sukmawati",
-                    "submit": 100.0,
-                    "approved": 97.3,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.3
-                },
-                {
-                    "nama": "Suparman",
-                    "submit": 62.5,
-                    "approved": 60.3,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.9,
-                    "anomaliPerbaikan": 60.3
-                },
-                {
-                    "nama": "SYAMSINAR",
-                    "submit": 92.0,
-                    "approved": 76.0,
-                    "anomaliBelum": 4.8,
-                    "anomaliCatatan": 7.2,
-                    "anomaliPerbaikan": 76.0
-                },
-                {
-                    "nama": "Devi Ariastriyanti Idrus",
-                    "submit": 99.2,
-                    "approved": 97.5,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.5
-                },
-                {
-                    "nama": "Indah Sari Syam",
-                    "submit": 94.8,
-                    "approved": 94.0,
-                    "anomaliBelum": 1.2,
-                    "anomaliCatatan": 1.8,
-                    "anomaliPerbaikan": 94.0
-                },
-                {
-                    "nama": "Pitri Handayani",
-                    "submit": 100.0,
-                    "approved": 99.5,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.5
-                },
-                {
-                    "nama": "Selvi",
-                    "submit": 96.2,
-                    "approved": 92.2,
-                    "anomaliBelum": 1.6,
-                    "anomaliCatatan": 2.3,
-                    "anomaliPerbaikan": 92.2
-                },
-                {
-                    "nama": "SINTA WULAN SARI",
-                    "submit": 95.7,
-                    "approved": 93.0,
-                    "anomaliBelum": 1.4,
-                    "anomaliCatatan": 2.1,
-                    "anomaliPerbaikan": 93.0
-                },
-                {
-                    "nama": "Sri Wahyuni",
-                    "submit": 84.2,
-                    "approved": 75.7,
-                    "anomaliBelum": 4.9,
-                    "anomaliCatatan": 7.3,
-                    "anomaliPerbaikan": 75.7
-                },
-                {
-                    "nama": "TAHIRUDDIN",
-                    "submit": 100.0,
-                    "approved": 85.1,
-                    "anomaliBelum": 3.0,
-                    "anomaliCatatan": 4.5,
-                    "anomaliPerbaikan": 85.1
-                },
-                {
-                    "nama": "Wiwid Windasari",
-                    "submit": 97.5,
-                    "approved": 96.1,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.2,
-                    "anomaliPerbaikan": 96.1
-                },
-                {
-                    "nama": "Ariadi",
-                    "submit": 96.5,
-                    "approved": 94.0,
-                    "anomaliBelum": 1.2,
-                    "anomaliCatatan": 1.8,
-                    "anomaliPerbaikan": 94.0
-                },
-                {
-                    "nama": "Murni syam",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "Naldi Saputra",
-                    "submit": 95.9,
-                    "approved": 86.9,
-                    "anomaliBelum": 2.6,
-                    "anomaliCatatan": 3.9,
-                    "anomaliPerbaikan": 86.9
-                },
-                {
-                    "nama": "Rahmi Damayanti",
-                    "submit": 92.1,
-                    "approved": 86.5,
-                    "anomaliBelum": 2.7,
-                    "anomaliCatatan": 4.0,
-                    "anomaliPerbaikan": 86.5
-                },
-                {
-                    "nama": "Reski Amelia Putri",
-                    "submit": 99.6,
-                    "approved": 98.5,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.5
-                },
-                {
-                    "nama": "Saiful Anwar",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Suci Rahmadani.A",
-                    "submit": 97.5,
-                    "approved": 97.3,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.3
-                },
-                {
-                    "nama": "Annisa Indie Eka Hadini",
-                    "submit": 90.3,
-                    "approved": 19.8,
-                    "anomaliBelum": 16.0,
-                    "anomaliCatatan": 24.1,
-                    "anomaliPerbaikan": 19.8
-                },
-                {
-                    "nama": "Harmiati",
-                    "submit": 77.4,
-                    "approved": 18.2,
-                    "anomaliBelum": 16.4,
-                    "anomaliCatatan": 24.5,
-                    "anomaliPerbaikan": 18.2
-                },
-                {
-                    "nama": "Irfan",
-                    "submit": 99.8,
-                    "approved": 41.4,
-                    "anomaliBelum": 11.7,
-                    "anomaliCatatan": 17.6,
-                    "anomaliPerbaikan": 41.4
-                },
-                {
-                    "nama": "Masni",
-                    "submit": 99.9,
-                    "approved": 34.0,
-                    "anomaliBelum": 13.2,
-                    "anomaliCatatan": 19.8,
-                    "anomaliPerbaikan": 34.0
-                },
-                {
-                    "nama": "Nurfadhilah",
-                    "submit": 100.0,
-                    "approved": 25.5,
-                    "anomaliBelum": 14.9,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 25.5
-                },
-                {
-                    "nama": "Santi",
-                    "submit": 98.9,
-                    "approved": 31.1,
-                    "anomaliBelum": 13.8,
-                    "anomaliCatatan": 20.7,
-                    "anomaliPerbaikan": 31.1
-                },
-                {
-                    "nama": "Suhartini",
-                    "submit": 86.8,
-                    "approved": 18.6,
-                    "anomaliBelum": 16.3,
-                    "anomaliCatatan": 24.4,
-                    "anomaliPerbaikan": 18.6
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "A. ALFIRA YUNINGSIH. M",
-                    "approved": 68.3,
-                    "rejected": 3.6,
-                    "anomaliBelum": 7.9,
-                    "anomaliCatatan": 11.1,
-                    "anomaliPerbaikan": 68.3
-                },
-                {
-                    "nama": "AFDALUDDIN RAUF",
-                    "approved": 65.7,
-                    "rejected": 7.1,
-                    "anomaliBelum": 8.6,
-                    "anomaliCatatan": 12.0,
-                    "anomaliPerbaikan": 65.7
-                },
-                {
-                    "nama": "LESTARI",
-                    "approved": 91.6,
-                    "rejected": 0.7,
-                    "anomaliBelum": 2.1,
-                    "anomaliCatatan": 2.9,
-                    "anomaliPerbaikan": 91.6
-                },
-                {
-                    "nama": "MEGAWATI, S.E",
-                    "approved": 94.7,
-                    "rejected": 1.3,
-                    "anomaliBelum": 1.3,
-                    "anomaliCatatan": 1.9,
-                    "anomaliPerbaikan": 94.7
-                },
-                {
-                    "nama": "WA ODE NUR WAFIQ AZIZAH",
-                    "approved": 27.2,
-                    "rejected": 2.0,
-                    "anomaliBelum": 18.2,
-                    "anomaliCatatan": 25.5,
-                    "anomaliPerbaikan": 27.2
-                }
-            ],
-            "submit": 93.0,
-            "approved": 69.6,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 20307,
+                "progres": 97.4,
+                "openDraft": 1.7,
+                "approved": 83.2,
+                "totalPPL": 36,
+                "totalPML": 5,
+                "ppl": [
+                        {
+                                "nama": "sukmawati",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 547,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suparman",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 494,
+                                "progres": 80.6,
+                                "openDraft": 0.8,
+                                "approved": 72.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUH. IKBAL",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 578,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "AN NAHL NUR SA'AD",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 460,
+                                "progres": 93.9,
+                                "openDraft": 5.4,
+                                "approved": 73.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Annisa Indie Eka Hadini",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 606,
+                                "progres": 94.5,
+                                "openDraft": 5.5,
+                                "approved": 19.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ariadi",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 464,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Asda Zulqaidah",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 431,
+                                "progres": 95.1,
+                                "openDraft": 1.6,
+                                "approved": 54.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Devi Ariastriyanti Idrus",
+                                "pml": "Lestari",
+                                "muatan": 597,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "EKA PUTRI AMELIA",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 570,
+                                "progres": 99.7,
+                                "openDraft": 0.3,
+                                "approved": 96.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Emmi Agustina",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 549,
+                                "progres": 89.1,
+                                "openDraft": 10.4,
+                                "approved": 71.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Pitri Handayani",
+                                "pml": "Lestari",
+                                "muatan": 549,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "St. Hardiani Jufri",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 639,
+                                "progres": 81.7,
+                                "openDraft": 18.3,
+                                "approved": 70.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Harmiati",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 594,
+                                "progres": 97.0,
+                                "openDraft": 3.0,
+                                "approved": 36.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Saiful Anwar",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 551,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Indah Anggraeni",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 552,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Indah Sari Syam",
+                                "pml": "Lestari",
+                                "muatan": 682,
+                                "progres": 99.7,
+                                "openDraft": 0.3,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Masni",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 765,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 52.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri Wahyuni",
+                                "pml": "Lestari",
+                                "muatan": 564,
+                                "progres": 98.4,
+                                "openDraft": 1.6,
+                                "approved": 98.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Murni syam",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 458,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Naldi Saputra",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 513,
+                                "progres": 98.2,
+                                "openDraft": 1.8,
+                                "approved": 98.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NETTI IRAWATI",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 546,
+                                "progres": 95.4,
+                                "openDraft": 3.5,
+                                "approved": 91.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurfadhilah",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 594,
+                                "progres": 98.0,
+                                "openDraft": 2.0,
+                                "approved": 48.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NURJANNAH",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 496,
+                                "progres": 95.8,
+                                "openDraft": 0.0,
+                                "approved": 81.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Irfan",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 545,
+                                "progres": 99.5,
+                                "openDraft": 0.6,
+                                "approved": 60.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahmi Damayanti",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 525,
+                                "progres": 99.8,
+                                "openDraft": 0.0,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Reski Amelia Putri",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 552,
+                                "progres": 99.6,
+                                "openDraft": 0.2,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Santi",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 555,
+                                "progres": 98.9,
+                                "openDraft": 1.1,
+                                "approved": 63.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Selvi",
+                                "pml": "Lestari",
+                                "muatan": 641,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SRI DEWY",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 572,
+                                "progres": 93.7,
+                                "openDraft": 0.2,
+                                "approved": 89.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ST SAHARA",
+                                "pml": "A. Alfira Yuningsih. M",
+                                "muatan": 741,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suci Rahmadani.A",
+                                "pml": "MEGAWATI, S.E",
+                                "muatan": 490,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suhartini",
+                                "pml": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 589,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 34.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SINTA WULAN SARI",
+                                "pml": "Lestari",
+                                "muatan": 519,
+                                "progres": 99.4,
+                                "openDraft": 0.6,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SYAMSINAR",
+                                "pml": "AFDALUDDIN RAUF",
+                                "muatan": 600,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "TAHIRUDDIN",
+                                "pml": "Lestari",
+                                "muatan": 595,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Wiwid Windasari",
+                                "pml": "Lestari",
+                                "muatan": 584,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "AFDALUDDIN RAUF",
+                                "muatan": 3833,
+                                "progres": 95.2,
+                                "openDraft": 0.8,
+                                "approved": 91.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "A. Alfira Yuningsih. M",
+                                "muatan": 3942,
+                                "progres": 94.2,
+                                "openDraft": 5.3,
+                                "approved": 82.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "WA ODE NUR WAFIQ AZIZAH",
+                                "muatan": 4248,
+                                "progres": 98.1,
+                                "openDraft": 1.9,
+                                "approved": 45.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MEGAWATI, S.E",
+                                "muatan": 3553,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Lestari",
+                                "muatan": 4731,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 99.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Tarowang": {
-            "ppl": [
-                {
-                    "nama": "Aina alfira",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "Erna Sri Ratna Nur",
-                    "submit": 100.0,
-                    "approved": 99.6,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.6
-                },
-                {
-                    "nama": "Nopiana",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Nur Harini",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "Rahman",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "ST. KHADIJAH",
-                    "submit": 100.0,
-                    "approved": 99.8,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "Andi Tenri Aprianti",
-                    "submit": 99.6,
-                    "approved": 97.4,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.4
-                },
-                {
-                    "nama": "Ayu andira",
-                    "submit": 100.0,
-                    "approved": 99.5,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.5
-                },
-                {
-                    "nama": "MUSDALIFAH",
-                    "submit": 99.6,
-                    "approved": 96.2,
-                    "anomaliBelum": 0.8,
-                    "anomaliCatatan": 1.1,
-                    "anomaliPerbaikan": 96.2
-                },
-                {
-                    "nama": "Reski Amalia",
-                    "submit": 100.0,
-                    "approved": 94.8,
-                    "anomaliBelum": 1.0,
-                    "anomaliCatatan": 1.6,
-                    "anomaliPerbaikan": 94.8
-                },
-                {
-                    "nama": "ROSDAYANTI",
-                    "submit": 100.0,
-                    "approved": 98.7,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.7
-                },
-                {
-                    "nama": "Rosmini Baji Mustafa",
-                    "submit": 100.0,
-                    "approved": 98.5,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.5
-                },
-                {
-                    "nama": "RUSDI",
-                    "submit": 100.0,
-                    "approved": 99.1,
-                    "anomaliBelum": 0.2,
-                    "anomaliCatatan": 0.3,
-                    "anomaliPerbaikan": 99.1
-                },
-                {
-                    "nama": "Endah Dwi Ningrum Sasmito, S.Pt",
-                    "submit": 100.0,
-                    "approved": 98.6,
-                    "anomaliBelum": 0.3,
-                    "anomaliCatatan": 0.4,
-                    "anomaliPerbaikan": 98.6
-                },
-                {
-                    "nama": "Fira Dian Utari",
-                    "submit": 100.0,
-                    "approved": 88.1,
-                    "anomaliBelum": 2.4,
-                    "anomaliCatatan": 3.6,
-                    "anomaliPerbaikan": 88.1
-                },
-                {
-                    "nama": "Hendriansyah",
-                    "submit": 100.0,
-                    "approved": 94.8,
-                    "anomaliBelum": 1.0,
-                    "anomaliCatatan": 1.6,
-                    "anomaliPerbaikan": 94.8
-                },
-                {
-                    "nama": "Kasma",
-                    "submit": 100.0,
-                    "approved": 97.3,
-                    "anomaliBelum": 0.5,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.3
-                },
-                {
-                    "nama": "MASITA",
-                    "submit": 89.0,
-                    "approved": 72.3,
-                    "anomaliBelum": 5.5,
-                    "anomaliCatatan": 8.3,
-                    "anomaliPerbaikan": 72.3
-                },
-                {
-                    "nama": "NITA",
-                    "submit": 100.0,
-                    "approved": 99.7,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.7
-                },
-                {
-                    "nama": "RISDA PERMATASARI",
-                    "submit": 100.0,
-                    "approved": 96.8,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 96.8
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "DARMA",
-                    "approved": 99.8,
-                    "rejected": 0.0,
-                    "anomaliBelum": 0.1,
-                    "anomaliCatatan": 0.1,
-                    "anomaliPerbaikan": 99.8
-                },
-                {
-                    "nama": "DISMA",
-                    "approved": 97.8,
-                    "rejected": 0.4,
-                    "anomaliBelum": 0.6,
-                    "anomaliCatatan": 0.8,
-                    "anomaliPerbaikan": 97.8
-                },
-                {
-                    "nama": "HARNIATI",
-                    "approved": 93.1,
-                    "rejected": 0.6,
-                    "anomaliBelum": 1.7,
-                    "anomaliCatatan": 2.4,
-                    "anomaliPerbaikan": 93.1
-                }
-            ],
-            "submit": 99.4,
-            "approved": 96.5,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 10401,
+                "progres": 99.4,
+                "openDraft": 0.6,
+                "approved": 98.8,
+                "totalPPL": 20,
+                "totalPML": 3,
+                "ppl": [
+                        {
+                                "nama": "Aina alfira",
+                                "pml": "Darma",
+                                "muatan": 506,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Andi Tenri Aprianti",
+                                "pml": "Disma",
+                                "muatan": 546,
+                                "progres": 99.8,
+                                "openDraft": 0.0,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RUSDI",
+                                "pml": "Disma",
+                                "muatan": 572,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nopiana",
+                                "pml": "Darma",
+                                "muatan": 504,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ayu andira",
+                                "pml": "Disma",
+                                "muatan": 573,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Endah Dwi Ningrum Sasmito, S.Pt",
+                                "pml": "Harniati",
+                                "muatan": 577,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Erna Sri Ratna Nur",
+                                "pml": "Darma",
+                                "muatan": 504,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Fira Dian Utari",
+                                "pml": "Harniati",
+                                "muatan": 566,
+                                "progres": 97.5,
+                                "openDraft": 2.5,
+                                "approved": 97.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ST. KHADIJAH",
+                                "pml": "Darma",
+                                "muatan": 546,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Hendriansyah",
+                                "pml": "Harniati",
+                                "muatan": 536,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 98.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MASITA",
+                                "pml": "Harniati",
+                                "muatan": 512,
+                                "progres": 91.8,
+                                "openDraft": 7.8,
+                                "approved": 90.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Kasma",
+                                "pml": "Harniati",
+                                "muatan": 437,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUSDALIFAH",
+                                "pml": "Disma",
+                                "muatan": 525,
+                                "progres": 98.5,
+                                "openDraft": 1.5,
+                                "approved": 97.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "NITA",
+                                "pml": "Harniati",
+                                "muatan": 644,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "ROSDAYANTI",
+                                "pml": "Disma",
+                                "muatan": 544,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rahman",
+                                "pml": "Darma",
+                                "muatan": 405,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Reski Amalia",
+                                "pml": "Disma",
+                                "muatan": 493,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RISDA PERMATASARI",
+                                "pml": "Harniati",
+                                "muatan": 488,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur Harini",
+                                "pml": "Darma",
+                                "muatan": 448,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rosmini Baji Mustafa",
+                                "pml": "Disma",
+                                "muatan": 475,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 95.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Darma",
+                                "muatan": 2913,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 99.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Disma",
+                                "muatan": 3728,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 98.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Harniati",
+                                "muatan": 3760,
+                                "progres": 98.5,
+                                "openDraft": 1.4,
+                                "approved": 97.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         },
         "Turatea": {
-            "ppl": [
-                {
-                    "nama": "Asfhira",
-                    "submit": 90.0,
-                    "approved": 47.7,
-                    "anomaliBelum": 10.5,
-                    "anomaliCatatan": 15.7,
-                    "anomaliPerbaikan": 47.7
-                },
-                {
-                    "nama": "Juita Fitriani",
-                    "submit": 100.0,
-                    "approved": 34.7,
-                    "anomaliBelum": 13.1,
-                    "anomaliCatatan": 19.6,
-                    "anomaliPerbaikan": 34.7
-                },
-                {
-                    "nama": "JUSRIADI LIWANG",
-                    "submit": 100.0,
-                    "approved": 57.0,
-                    "anomaliBelum": 8.6,
-                    "anomaliCatatan": 12.9,
-                    "anomaliPerbaikan": 57.0
-                },
-                {
-                    "nama": "Lisdawati",
-                    "submit": 95.8,
-                    "approved": 42.8,
-                    "anomaliBelum": 11.4,
-                    "anomaliCatatan": 17.2,
-                    "anomaliPerbaikan": 42.8
-                },
-                {
-                    "nama": "Lismawati",
-                    "submit": 98.4,
-                    "approved": 35.8,
-                    "anomaliBelum": 12.8,
-                    "anomaliCatatan": 19.3,
-                    "anomaliPerbaikan": 35.8
-                },
-                {
-                    "nama": "Nur Ika Putri",
-                    "submit": 88.8,
-                    "approved": 44.5,
-                    "anomaliBelum": 11.1,
-                    "anomaliCatatan": 16.6,
-                    "anomaliPerbaikan": 44.5
-                },
-                {
-                    "nama": "Sri ariyanti dewi",
-                    "submit": 100.0,
-                    "approved": 66.9,
-                    "anomaliBelum": 6.6,
-                    "anomaliCatatan": 9.9,
-                    "anomaliPerbaikan": 66.9
-                },
-                {
-                    "nama": "Syeh Awal Alham",
-                    "submit": 100.0,
-                    "approved": 57.6,
-                    "anomaliBelum": 8.5,
-                    "anomaliCatatan": 12.7,
-                    "anomaliPerbaikan": 57.6
-                },
-                {
-                    "nama": "Al Maida Maulana",
-                    "submit": 100.0,
-                    "approved": 89.1,
-                    "anomaliBelum": 2.2,
-                    "anomaliCatatan": 3.3,
-                    "anomaliPerbaikan": 89.1
-                },
-                {
-                    "nama": "Masdar Sila",
-                    "submit": 100.0,
-                    "approved": 57.9,
-                    "anomaliBelum": 8.4,
-                    "anomaliCatatan": 12.6,
-                    "anomaliPerbaikan": 57.9
-                },
-                {
-                    "nama": "Mita",
-                    "submit": 95.4,
-                    "approved": 25.4,
-                    "anomaliBelum": 14.9,
-                    "anomaliCatatan": 22.4,
-                    "anomaliPerbaikan": 25.4
-                },
-                {
-                    "nama": "Nurwahyuni",
-                    "submit": 100.0,
-                    "approved": 41.0,
-                    "anomaliBelum": 11.8,
-                    "anomaliCatatan": 17.7,
-                    "anomaliPerbaikan": 41.0
-                },
-                {
-                    "nama": "Randy hariady raha",
-                    "submit": 85.1,
-                    "approved": 21.3,
-                    "anomaliBelum": 15.7,
-                    "anomaliCatatan": 23.6,
-                    "anomaliPerbaikan": 21.3
-                },
-                {
-                    "nama": "Rini Winarsih",
-                    "submit": 100.0,
-                    "approved": 100.0,
-                    "anomaliBelum": 0.0,
-                    "anomaliCatatan": 0.0,
-                    "anomaliPerbaikan": 100.0
-                },
-                {
-                    "nama": "SULFADILA",
-                    "submit": 99.6,
-                    "approved": 34.6,
-                    "anomaliBelum": 13.1,
-                    "anomaliCatatan": 19.6,
-                    "anomaliPerbaikan": 34.6
-                },
-                {
-                    "nama": "Anugrah Putri Pratiwi",
-                    "submit": 97.5,
-                    "approved": 47.0,
-                    "anomaliBelum": 10.6,
-                    "anomaliCatatan": 15.9,
-                    "anomaliPerbaikan": 47.0
-                },
-                {
-                    "nama": "Debi",
-                    "submit": 99.8,
-                    "approved": 46.4,
-                    "anomaliBelum": 10.7,
-                    "anomaliCatatan": 16.1,
-                    "anomaliPerbaikan": 46.4
-                },
-                {
-                    "nama": "FAIDUL ARIF",
-                    "submit": 91.4,
-                    "approved": 28.6,
-                    "anomaliBelum": 14.3,
-                    "anomaliCatatan": 21.4,
-                    "anomaliPerbaikan": 28.6
-                },
-                {
-                    "nama": "Indah Wahyuni",
-                    "submit": 100.0,
-                    "approved": 96.6,
-                    "anomaliBelum": 0.7,
-                    "anomaliCatatan": 1.0,
-                    "anomaliPerbaikan": 96.6
-                },
-                {
-                    "nama": "m. nur fajar bakri",
-                    "submit": 100.0,
-                    "approved": 54.9,
-                    "anomaliBelum": 9.0,
-                    "anomaliCatatan": 13.5,
-                    "anomaliPerbaikan": 54.9
-                },
-                {
-                    "nama": "MUHAMMAD YUSUF",
-                    "submit": 98.5,
-                    "approved": 72.0,
-                    "anomaliBelum": 5.6,
-                    "anomaliCatatan": 8.4,
-                    "anomaliPerbaikan": 72.0
-                },
-                {
-                    "nama": "Nurhidayat Anggi",
-                    "submit": 100.0,
-                    "approved": 22.1,
-                    "anomaliBelum": 15.6,
-                    "anomaliCatatan": 23.4,
-                    "anomaliPerbaikan": 22.1
-                },
-                {
-                    "nama": "Sahar purnama",
-                    "submit": 100.0,
-                    "approved": 46.2,
-                    "anomaliBelum": 10.8,
-                    "anomaliCatatan": 16.1,
-                    "anomaliPerbaikan": 46.2
-                },
-                {
-                    "nama": "Ali syamzu zain",
-                    "submit": 98.9,
-                    "approved": 20.9,
-                    "anomaliBelum": 15.8,
-                    "anomaliCatatan": 23.7,
-                    "anomaliPerbaikan": 20.9
-                },
-                {
-                    "nama": "JUNITA",
-                    "submit": 99.8,
-                    "approved": 38.4,
-                    "anomaliBelum": 12.3,
-                    "anomaliCatatan": 18.5,
-                    "anomaliPerbaikan": 38.4
-                },
-                {
-                    "nama": "Martini",
-                    "submit": 100.0,
-                    "approved": 40.2,
-                    "anomaliBelum": 12.0,
-                    "anomaliCatatan": 17.9,
-                    "anomaliPerbaikan": 40.2
-                },
-                {
-                    "nama": "NASARUDDIN",
-                    "submit": 99.8,
-                    "approved": 37.5,
-                    "anomaliBelum": 12.5,
-                    "anomaliCatatan": 18.8,
-                    "anomaliPerbaikan": 37.5
-                },
-                {
-                    "nama": "SRI HANDAYANI",
-                    "submit": 100.0,
-                    "approved": 65.0,
-                    "anomaliBelum": 7.0,
-                    "anomaliCatatan": 10.5,
-                    "anomaliPerbaikan": 65.0
-                },
-                {
-                    "nama": "Suryadi",
-                    "submit": 100.0,
-                    "approved": 58.1,
-                    "anomaliBelum": 8.4,
-                    "anomaliCatatan": 12.6,
-                    "anomaliPerbaikan": 58.1
-                },
-                {
-                    "nama": "SYAMSINAR. S",
-                    "submit": 99.8,
-                    "approved": 63.4,
-                    "anomaliBelum": 7.3,
-                    "anomaliCatatan": 11.0,
-                    "anomaliPerbaikan": 63.4
-                }
-            ],
-            "pml": [
-                {
-                    "nama": "MUHAMMAD KAHFI MS",
-                    "approved": 49.9,
-                    "rejected": 16.4,
-                    "anomaliBelum": 12.5,
-                    "anomaliCatatan": 17.5,
-                    "anomaliPerbaikan": 49.9
-                },
-                {
-                    "nama": "RAHMAWATI",
-                    "approved": 50.4,
-                    "rejected": 3.0,
-                    "anomaliBelum": 12.4,
-                    "anomaliCatatan": 17.4,
-                    "anomaliPerbaikan": 50.4
-                },
-                {
-                    "nama": "SUDIRMAN M",
-                    "approved": 50.9,
-                    "rejected": 4.1,
-                    "anomaliBelum": 12.3,
-                    "anomaliCatatan": 17.2,
-                    "anomaliPerbaikan": 50.9
-                },
-                {
-                    "nama": "WAHYU ADRIANI",
-                    "approved": 45.6,
-                    "rejected": 1.9,
-                    "anomaliBelum": 13.6,
-                    "anomaliCatatan": 19.0,
-                    "anomaliPerbaikan": 45.6
-                }
-            ],
-            "submit": 98.0,
-            "approved": 49.8,
-            "totalPPL": 327,
-            "totalPML": 48
+                "muatan": 13727,
+                "progres": 98.5,
+                "openDraft": 1.5,
+                "approved": 64.5,
+                "totalPPL": 30,
+                "totalPML": 4,
+                "ppl": [
+                        {
+                                "nama": "NASARUDDIN",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 423,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 53.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Ali syamzu zain",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 593,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 20.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Al Maida Maulana",
+                                "pml": "RAHMAWATI",
+                                "muatan": 439,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SRI HANDAYANI",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 459,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "m. nur fajar bakri",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 454,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 70.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Asfhira",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 431,
+                                "progres": 96.1,
+                                "openDraft": 3.9,
+                                "approved": 80.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Lismawati",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 443,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 49.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "JUNITA",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 419,
+                                "progres": 99.8,
+                                "openDraft": 0.2,
+                                "approved": 56.3,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "FAIDUL ARIF",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 445,
+                                "progres": 96.0,
+                                "openDraft": 4.0,
+                                "approved": 42.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nur Ika Putri",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 361,
+                                "progres": 81.4,
+                                "openDraft": 18.6,
+                                "approved": 56.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Indah Wahyuni",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 412,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 96.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "MUHAMMAD YUSUF",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 406,
+                                "progres": 98.8,
+                                "openDraft": 1.2,
+                                "approved": 89.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Juita Fitriani",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 465,
+                                "progres": 98.5,
+                                "openDraft": 1.5,
+                                "approved": 41.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "JUSRIADI LIWANG",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 400,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 82.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Lisdawati",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 419,
+                                "progres": 95.2,
+                                "openDraft": 4.8,
+                                "approved": 41.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Debi",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 444,
+                                "progres": 99.3,
+                                "openDraft": 0.7,
+                                "approved": 65.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Martini",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 351,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 44.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Masdar Sila",
+                                "pml": "RAHMAWATI",
+                                "muatan": 428,
+                                "progres": 97.9,
+                                "openDraft": 2.1,
+                                "approved": 64.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurhidayat Anggi",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 479,
+                                "progres": 99.6,
+                                "openDraft": 0.4,
+                                "approved": 60.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Nurwahyuni",
+                                "pml": "RAHMAWATI",
+                                "muatan": 442,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 97.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Anugrah Putri Pratiwi",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 406,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 64.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Randy hariady raha",
+                                "pml": "RAHMAWATI",
+                                "muatan": 511,
+                                "progres": 98.6,
+                                "openDraft": 1.4,
+                                "approved": 22.1,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Rini Winarsih",
+                                "pml": "RAHMAWATI",
+                                "muatan": 470,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sahar purnama",
+                                "pml": "SUDIRMAN M",
+                                "muatan": 419,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 50.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Mita",
+                                "pml": "RAHMAWATI",
+                                "muatan": 638,
+                                "progres": 98.1,
+                                "openDraft": 1.6,
+                                "approved": 44.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Sri ariyanti dewi",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 750,
+                                "progres": 99.5,
+                                "openDraft": 0.5,
+                                "approved": 66.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SULFADILA",
+                                "pml": "RAHMAWATI",
+                                "muatan": 526,
+                                "progres": 96.2,
+                                "openDraft": 3.8,
+                                "approved": 42.6,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Suryadi",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 430,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 100.0,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SYAMSINAR. S",
+                                "pml": "Wahyu Adriani",
+                                "muatan": 427,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 94.4,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Syeh Awal Alham",
+                                "pml": "Muhammad Kahfi MS",
+                                "muatan": 437,
+                                "progres": 97.2,
+                                "openDraft": 2.8,
+                                "approved": 65.9,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ],
+                "pml": [
+                        {
+                                "nama": "Wahyu Adriani",
+                                "muatan": 3102,
+                                "progres": 100.0,
+                                "openDraft": 0.0,
+                                "approved": 65.5,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "RAHMAWATI",
+                                "muatan": 3454,
+                                "progres": 98.6,
+                                "openDraft": 1.3,
+                                "approved": 64.7,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "SUDIRMAN M",
+                                "muatan": 3465,
+                                "progres": 99.2,
+                                "openDraft": 0.8,
+                                "approved": 67.2,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        },
+                        {
+                                "nama": "Muhammad Kahfi MS",
+                                "muatan": 3706,
+                                "progres": 96.6,
+                                "openDraft": 3.4,
+                                "approved": 60.8,
+                                "anomaliBelum": 35,
+                                "anomaliCatatan": 20,
+                                "anomaliPerbaikan": 45
+                        }
+                ]
         }
-    },
+},
 
-    // Referensi KBLI 2025 yang Sering Muncul di Jeneponto (5 Digit)
+    
     kbliJeneponto: [
         { kode: "01121", judul: "Pertanian Jagung", kategori: "Pertanian", deskripsi: "Mencakup usaha penanaman jagung pipil, jagung manis, dan benih jagung hibrida yang dominan di Jeneponto." },
         { kode: "03213", judul: "Budidaya Rumput Laut", kategori: "Perikanan", deskripsi: "Mencakup usaha pembibitan dan budidaya rumput laut di perairan pantai Arungkeke, Bangkala, dan Tarowang." },

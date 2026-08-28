@@ -8,11 +8,13 @@ let chartMonitoringPemeriksaan = null;
 let chartAnomaliPendataan = null;
 let chartAnomaliPemeriksaan = null;
 
-// Palette Colors for Charts (Orange Derivatives)
+// Palette Colors for Charts (Orange, Blue, Green Derivatives)
 const CHART_COLORS = {
-  submitOrange: 'rgba(255, 107, 0, 0.85)',       // % Submit
+  submitBlue: 'rgba(37, 99, 235, 0.85)',          // % Submit (Vibrant Primary Blue)
+  submitBlueBorder: '#1D4ED8',
+  submitOrange: 'rgba(255, 107, 0, 0.85)',       // Legacy / Accent
   submitOrangeBorder: '#E05300',
-  approvedGreen: 'rgba(16, 185, 129, 0.85)',     // % Approved
+  approvedGreen: 'rgba(16, 185, 129, 0.85)',     // % Approved (Emerald Green)
   approvedGreenBorder: '#059669',
   rejectedCoral: 'rgba(224, 83, 60, 0.85)',      // % Rejected (Soft Crimson / Coral)
   rejectedCoralBorder: '#C2410C',
@@ -26,11 +28,13 @@ const CHART_COLORS = {
   anomaliPerbaikanBorder: '#047857'
 };
 
-let isMonitoringExpanded = false;
-let currentMonitoringSelection = "Kabupaten Jeneponto";
+var isMonitoringExpanded = false;
+var currentMonitoringSelection = "Kabupaten Jeneponto";
 
 /**
  * Helper to build responsive Chart.js options optimized for Mobile, Tablet & Desktop
+ * Sumbu X: Label persen dihilangkan (ticks: display: false)
+ * Persentase muncul saat bar disentuh/di-hover melalui tooltip interaktif
  */
 function buildResponsiveChartOptions(labels, isStacked = false) {
   const width = window.innerWidth;
@@ -41,6 +45,11 @@ function buildResponsiveChartOptions(labels, isStacked = false) {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      axis: 'y',
+      intersect: false
+    },
     layout: {
       padding: {
         left: 0,
@@ -53,18 +62,16 @@ function buildResponsiveChartOptions(labels, isStacked = false) {
       x: {
         stacked: isStacked,
         beginAtZero: true,
-        max: 100,
+        max: 100, // Pas dengan kotak chart 100% seperti Anomali
         ticks: {
-          callback: value => value + '%',
-          font: { 
-            size: isSmallMobile ? 9.5 : (isMobile ? 10.5 : 11),
-            weight: '600'
-          },
-          color: '#64748B',
-          maxTicksLimit: isSmallMobile ? 6 : 11
+          display: false // Sembunyikan angka persen di sumbu X
         },
         grid: {
-          color: 'rgba(0,0,0,0.05)'
+          display: false,
+          drawBorder: false
+        },
+        border: {
+          display: false
         }
       },
       y: {
@@ -85,6 +92,9 @@ function buildResponsiveChartOptions(labels, isStacked = false) {
         },
         grid: {
           display: false
+        },
+        border: {
+          color: 'rgba(0,0,0,0.06)'
         }
       }
     },
@@ -104,6 +114,7 @@ function buildResponsiveChartOptions(labels, isStacked = false) {
         }
       },
       tooltip: {
+        enabled: true,
         backgroundColor: 'rgba(15, 23, 42, 0.94)',
         titleFont: { size: isMobile ? 11.5 : 12.5, weight: '700' },
         bodyFont: { size: isMobile ? 11 : 12 },
@@ -141,7 +152,7 @@ function toggleMonitoringExpanded() {
   if (icon && text) {
     if (isMonitoringExpanded) {
       icon.className = 'fa-solid fa-chevron-up';
-      text.textContent = 'Tampilkan Lebih Sedikit (5 Teratas)';
+      text.textContent = 'Tampilkan Lebih Sedikit (3 Teratas)';
     } else {
       icon.className = 'fa-solid fa-chevron-down';
       text.textContent = 'Lihat Selengkapnya (Semua Data)';
@@ -152,10 +163,11 @@ function toggleMonitoringExpanded() {
 }
 
 /**
- * Render or Update Monitoring Charts (Grafik 1: Pendataan - PPL, Grafik 2: Pemeriksaan - PML)
- * Kolom R: Persentase Submit
- * Kolom S: Persentase Draft
- * Kolom T: Persentase Approve
+ * Render or Update Monitoring Charts (Grafik 1: PPL, Grafik 2: PML)
+ * Kolom P: Persentase Progres (Biru)
+ * Kolom Q: Persentase Open+Draft (Kuning)
+ * Kolom R: Persentase Approve (Hijau)
+ * Tampil berdampingan (grouped horizontal bars) agar ketiga nilai terlihat jelas 0-100%
  * @param {string} selectedOption - "Kabupaten Jeneponto" or specific Kecamatan
  */
 function renderMonitoringCharts(selectedOption) {
@@ -167,39 +179,63 @@ function renderMonitoringCharts(selectedOption) {
 
   const isKabupaten = selectedOption === "Kabupaten Jeneponto";
   let allLabels1 = [];
-  let allDataGrafik1 = { submit: [], draft: [], approved: [] };
+  let allDataGrafik1 = [];  // array of {progres, openDraft, approved, ...}
   let allLabels2 = [];
-  let allDataGrafik2 = { submit: [], draft: [], approved: [] };
+  let allDataGrafik2 = [];  // array of {progres, openDraft, approved, ...}
   let titleGrafik1 = "";
   let titleGrafik2 = "";
 
   if (isKabupaten) {
     allLabels1 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik1.submit = POSE_DATA.progresKecamatan.map(k => +(k.submit || 0).toFixed(1));
-    allDataGrafik1.draft = POSE_DATA.progresKecamatan.map(k => +(k.draft || 0).toFixed(1));
-    allDataGrafik1.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved || 0).toFixed(1));
+    allDataGrafik1 = POSE_DATA.progresKecamatan.map(k => ({
+      progres: +(k.progres || k.submit || 0).toFixed(1),
+      openDraft: +(k.openDraft || k.draft || 0).toFixed(1),
+      approved: +(k.approved || 0).toFixed(1)
+    }));
 
     allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik2.submit = POSE_DATA.progresKecamatan.map(k => +(k.submit || 0).toFixed(1));
-    allDataGrafik2.draft = POSE_DATA.progresKecamatan.map(k => +(k.draft || 0).toFixed(1));
-    allDataGrafik2.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved || 0).toFixed(1));
+    allDataGrafik2 = allDataGrafik1.map(d => ({...d}));
 
     titleGrafik1 = "Progres Pendataan SE2026 Kabupaten Jeneponto (per Kecamatan)";
     titleGrafik2 = "Progres Pemeriksaan SE2026 Kabupaten Jeneponto (per Kecamatan)";
   } else {
     const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || { ppl: [], pml: [] };
     
-    // Grafik 1: PPL
-    allLabels1 = (dataKec.ppl || []).map(p => p.nama);
-    allDataGrafik1.submit = (dataKec.ppl || []).map(p => +(p.submit || 0).toFixed(1));
-    allDataGrafik1.draft = (dataKec.ppl || []).map(p => +(p.draft || 0).toFixed(1));
-    allDataGrafik1.approved = (dataKec.ppl || []).map(p => +(p.approved || 0).toFixed(1));
+    // Grafik 1: Per PPL (nama PPL + info PML pengawasnya)
+    const pplList = dataKec.ppl || [];
+    allLabels1 = pplList.map(p => p.nama + (p.pml ? ` [${p.pml}]` : ''));
+    allDataGrafik1 = pplList.map(p => ({
+      nama: p.nama,
+      pml: p.pml || '-',
+      progres: +(p.progres || p.submit || 0).toFixed(1),
+      openDraft: +(p.openDraft || p.draft || 0).toFixed(1),
+      approved: +(p.approved || 0).toFixed(1)
+    }));
     
-    // Grafik 2: PML
-    allLabels2 = (dataKec.pml || []).map(p => p.nama);
-    allDataGrafik2.submit = (dataKec.pml || []).map(p => +(p.submit || 0).toFixed(1));
-    allDataGrafik2.draft = (dataKec.pml || []).map(p => +(p.draft || 0).toFixed(1));
-    allDataGrafik2.approved = (dataKec.pml || []).map(p => +(p.approved || 0).toFixed(1));
+    // Grafik 2: Per PML - kelompokkan PPL di bawah PML masing-masing
+    // Buat daftar unik PML dan rata-rata data PPL-nya
+    const pmlMap = {};
+    pplList.forEach(p => {
+      const pmlName = p.pml || 'Tidak Diketahui';
+      if (!pmlMap[pmlName]) {
+        pmlMap[pmlName] = { nama: pmlName, pplList: [], progresSum: 0, openDraftSum: 0, approvedSum: 0, count: 0 };
+      }
+      pmlMap[pmlName].pplList.push(p.nama);
+      pmlMap[pmlName].progresSum += +(p.progres || p.submit || 0);
+      pmlMap[pmlName].openDraftSum += +(p.openDraft || p.draft || 0);
+      pmlMap[pmlName].approvedSum += +(p.approved || 0);
+      pmlMap[pmlName].count++;
+    });
+    const pmlList = Object.values(pmlMap);
+    allLabels2 = pmlList.map(m => `${m.nama} (${m.count} PPL)`);
+    allDataGrafik2 = pmlList.map(m => ({
+      nama: m.nama,
+      jumlahPPL: m.count,
+      pplNames: m.pplList,
+      progres: m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0,
+      openDraft: m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0,
+      approved: m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0
+    }));
 
     titleGrafik1 = `Progres Pendataan SE2026 Kec. ${selectedOption} (per PPL)`;
     titleGrafik2 = `Progres Pemeriksaan SE2026 Kec. ${selectedOption} (per PML)`;
@@ -214,24 +250,24 @@ function renderMonitoringCharts(selectedOption) {
   if (elTitle1) elTitle1.textContent = titleGrafik1;
   if (elTitle2) elTitle2.textContent = titleGrafik2;
 
-  const countDisplay1 = isMonitoringExpanded ? allLabels1.length : Math.min(5, allLabels1.length);
-  const countDisplay2 = isMonitoringExpanded ? allLabels2.length : Math.min(5, allLabels2.length);
+  if (elSub1) elSub1.textContent = `Menampilkan ${isMonitoringExpanded ? allLabels1.length : Math.min(3, allLabels1.length)} dari ${allLabels1.length} data (${isKabupaten ? 'Kecamatan' : 'PPL'})`;
+  if (elSub2) elSub2.textContent = `Menampilkan ${isMonitoringExpanded ? allLabels2.length : Math.min(3, allLabels2.length)} dari ${allLabels2.length} data (${isKabupaten ? 'Kecamatan' : 'PML'})`;
 
-  if (elSub1) elSub1.textContent = `Menampilkan ${countDisplay1} dari ${allLabels1.length} data (${isKabupaten ? 'Kecamatan' : 'PPL'})`;
-  if (elSub2) elSub2.textContent = `Menampilkan ${countDisplay2} dari ${allLabels2.length} data (${isKabupaten ? 'Kecamatan' : 'PML'})`;
+  // Tampilkan 3 data by default, semua jika expanded
+  const defaultCount = 3;
+  const labels1 = isMonitoringExpanded ? allLabels1 : allLabels1.slice(0, defaultCount);
+  const rawList1 = isMonitoringExpanded ? allDataGrafik1 : allDataGrafik1.slice(0, defaultCount);
+  const seg1App   = rawList1.map(d => d.approved);
+  const seg1Draft = rawList1.map(d => d.openDraft);
+  const seg1Prog  = rawList1.map(d => d.progres);
 
-  // Apply Slicing if not expanded
-  const labels1 = isMonitoringExpanded ? allLabels1 : allLabels1.slice(0, 5);
-  const data1Submit = isMonitoringExpanded ? allDataGrafik1.submit : allDataGrafik1.submit.slice(0, 5);
-  const data1Draft = isMonitoringExpanded ? allDataGrafik1.draft : allDataGrafik1.draft.slice(0, 5);
-  const data1Approved = isMonitoringExpanded ? allDataGrafik1.approved : allDataGrafik1.approved.slice(0, 5);
+  const labels2 = isMonitoringExpanded ? allLabels2 : allLabels2.slice(0, defaultCount);
+  const rawList2 = isMonitoringExpanded ? allDataGrafik2 : allDataGrafik2.slice(0, defaultCount);
+  const seg2App   = rawList2.map(d => d.approved);
+  const seg2Draft = rawList2.map(d => d.openDraft);
+  const seg2Prog  = rawList2.map(d => d.progres);
 
-  const labels2 = isMonitoringExpanded ? allLabels2 : allLabels2.slice(0, 5);
-  const data2Submit = isMonitoringExpanded ? allDataGrafik2.submit : allDataGrafik2.submit.slice(0, 5);
-  const data2Draft = isMonitoringExpanded ? allDataGrafik2.draft : allDataGrafik2.draft.slice(0, 5);
-  const data2Approved = isMonitoringExpanded ? allDataGrafik2.approved : allDataGrafik2.approved.slice(0, 5);
-
-  // Dynamically adjust container heights (Stacked Horizontal Bar)
+  // Sesuaikan tinggi kontainer - kompak karena sumbu X sudah tidak ada persen
   const container1 = document.getElementById('container-chart-monitoring-1');
   const container2 = document.getElementById('container-chart-monitoring-2');
 
@@ -239,104 +275,130 @@ function renderMonitoringCharts(selectedOption) {
   const isMobile = width <= 640;
   const isSmallMobile = width <= 480;
 
-  const itemHeight1 = isMobile ? (isSmallMobile ? 32 : 36) : 30;
-  const itemHeight2 = isMobile ? (isSmallMobile ? 32 : 36) : 34;
+  // Lebih kecil per baris agar semua muat dengan proporsional
+  const itemHeight1 = isMobile ? (isSmallMobile ? 24 : 26) : 22;
+  const itemHeight2 = isMobile ? (isSmallMobile ? 24 : 26) : 22;
 
-  const calcHeight1 = isMonitoringExpanded ? Math.max(280, labels1.length * itemHeight1) : (isMobile ? 240 : 280);
-  const calcHeight2 = isMonitoringExpanded ? Math.max(280, labels2.length * itemHeight2) : (isMobile ? 240 : 280);
+  const calcHeight1 = Math.max(200, labels1.length * itemHeight1 + 60);
+  const calcHeight2 = Math.max(200, labels2.length * itemHeight2 + 60);
 
   if (container1) container1.style.height = `${calcHeight1}px`;
   if (container2) container2.style.height = `${calcHeight2}px`;
 
-  // Chart 1: Progres Pendataan (Stacked Horizontal Bar - Identik dengan Anomali)
+  // Options dengan custom tooltip + sumbu X max 300% (khusus monitoring)
+  const opts1 = buildResponsiveChartOptions(labels1, true);
+  opts1.scales.x.max = 300;
+  opts1.plugins.tooltip.callbacks.label = function(context) {
+    const d = rawList1[context.dataIndex];
+    if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
+    if (context.datasetIndex === 0) return ` % Approve (Kolom R): ${d.approved}%`;
+    if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
+    if (context.datasetIndex === 2) return ` % Progres (Kolom P): ${d.progres}%`;
+    return ` ${context.dataset.label}: ${context.raw}%`;
+  };
+
+  const opts2 = buildResponsiveChartOptions(labels2, true);
+  opts2.scales.x.max = 300;
+  opts2.plugins.tooltip.callbacks.label = function(context) {
+    const d = rawList2[context.dataIndex];
+    if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
+    if (context.datasetIndex === 0) return ` % Approve (Kolom R): ${d.approved}%`;
+    if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
+    if (context.datasetIndex === 2) return ` % Progres (Kolom P): ${d.progres}%`;
+    // Untuk PML: tampilkan nama PPL di bawahnya
+    if (d.pplNames && d.pplNames.length > 0) return ` PPL: ${d.pplNames.join(', ')}`;
+    return ` ${context.dataset.label}: ${context.raw}%`;
+  };
+
+  // Grafik 1: Progres Pendataan (100% Stacked: Hijau Approve + Biru Progres + Kuning Open/Draft)
   const ctx1 = document.getElementById('chart-monitoring-1').getContext('2d');
   if (chartMonitoringPendataan) {
     chartMonitoringPendataan.destroy();
   }
+  // Grafik 1: Urutan dataset: 🟢 Approve → 🟡 Open+Draft → 🔵 Progres Belum Approve
   chartMonitoringPendataan = new Chart(ctx1, {
     type: 'bar',
     data: {
       labels: labels1,
       datasets: [
         {
-          label: '% Submit (Kolom R)',
-          data: data1Submit,
-          backgroundColor: CHART_COLORS.submitOrange,
-          borderColor: CHART_COLORS.submitOrangeBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Draft (Kolom S)',
-          data: data1Draft,
-          backgroundColor: 'rgba(245, 158, 11, 0.85)',
-          borderColor: '#D97706',
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Approve (Kolom T)',
-          data: data1Approved,
+          label: '% Approve (Kolom R)',
+          data: seg1App,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
+          borderWidth: 1,
+          borderRadius: { topLeft: 3, bottomLeft: 3 },
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
+        },
+        {
+          label: '% Open+Draft (Kolom Q)',
+          data: seg1Draft,
+          backgroundColor: 'rgba(245, 158, 11, 0.85)',
+          borderColor: '#D97706',
+          borderWidth: 1,
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
+        },
+        {
+          label: '% Progres (Kolom P)',
+          data: seg1Prog,
+          backgroundColor: CHART_COLORS.submitBlue,
+          borderColor: CHART_COLORS.submitBlueBorder,
+          borderWidth: 1,
+          borderRadius: { topRight: 4, bottomRight: 4 },
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels1, true)
+    options: opts1
   });
 
-  // Chart 2: Progres Pemeriksaan (Stacked Horizontal Bar - Identik dengan Anomali)
+  // Grafik 2: Progres Pemeriksaan (100% Stacked: Hijau Approve + Biru Progres + Kuning Open/Draft)
   const ctx2 = document.getElementById('chart-monitoring-2').getContext('2d');
   if (chartMonitoringPemeriksaan) {
     chartMonitoringPemeriksaan.destroy();
   }
 
+  // Grafik 2: Urutan dataset: 🟢 Approve → 🟡 Open+Draft → 🔵 Progres Belum Approve
   chartMonitoringPemeriksaan = new Chart(ctx2, {
     type: 'bar',
     data: {
       labels: labels2,
       datasets: [
         {
-          label: '% Submit (Kolom R)',
-          data: data2Submit,
-          backgroundColor: CHART_COLORS.submitOrange,
-          borderColor: CHART_COLORS.submitOrangeBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Draft (Kolom S)',
-          data: data2Draft,
-          backgroundColor: 'rgba(245, 158, 11, 0.85)',
-          borderColor: '#D97706',
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Approve (Kolom T)',
-          data: data2Approved,
+          label: '% Approve (Kolom R)',
+          data: seg2App,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
+          borderWidth: 1,
+          borderRadius: { topLeft: 3, bottomLeft: 3 },
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
+        },
+        {
+          label: '% Open+Draft (Kolom Q)',
+          data: seg2Draft,
+          backgroundColor: 'rgba(245, 158, 11, 0.85)',
+          borderColor: '#D97706',
+          borderWidth: 1,
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
+        },
+        {
+          label: '% Progres (Kolom P)',
+          data: seg2Prog,
+          backgroundColor: CHART_COLORS.submitBlue,
+          borderColor: CHART_COLORS.submitBlueBorder,
+          borderWidth: 1,
+          borderRadius: { topRight: 4, bottomRight: 4 },
+          barPercentage: 0.65,
+          categoryPercentage: 0.75
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels2, true)
+    options: opts2
   });
 }
 
