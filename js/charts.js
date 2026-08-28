@@ -32,7 +32,7 @@ let currentMonitoringSelection = "Kabupaten Jeneponto";
 /**
  * Helper to build responsive Chart.js options optimized for Mobile, Tablet & Desktop
  */
-function buildResponsiveChartOptions(labels) {
+function buildResponsiveChartOptions(labels, isStacked = false) {
   const width = window.innerWidth;
   const isMobile = width <= 640;
   const isSmallMobile = width <= 480;
@@ -51,7 +51,7 @@ function buildResponsiveChartOptions(labels) {
     },
     scales: {
       x: {
-        stacked: true,
+        stacked: isStacked,
         beginAtZero: true,
         max: 100,
         ticks: {
@@ -68,7 +68,7 @@ function buildResponsiveChartOptions(labels) {
         }
       },
       y: {
-        stacked: true,
+        stacked: isStacked,
         ticks: {
           font: { 
             size: labels.length > 20 ? (isSmallMobile ? 9 : 10) : (isSmallMobile ? 9.5 : (isMobile ? 10.5 : 11)),
@@ -152,7 +152,10 @@ function toggleMonitoringExpanded() {
 }
 
 /**
- * Render or Update Monitoring Charts (Grafik 1: Pendataan, Grafik 2: Pemeriksaan)
+ * Render or Update Monitoring Charts (Grafik 1: Pendataan - PPL, Grafik 2: Pemeriksaan - PML)
+ * Kolom R: Persentase Submit
+ * Kolom S: Persentase Draft
+ * Kolom T: Persentase Approve
  * @param {string} selectedOption - "Kabupaten Jeneponto" or specific Kecamatan
  */
 function renderMonitoringCharts(selectedOption) {
@@ -164,39 +167,39 @@ function renderMonitoringCharts(selectedOption) {
 
   const isKabupaten = selectedOption === "Kabupaten Jeneponto";
   let allLabels1 = [];
-  let allDataGrafik1 = { belum: [], submitOnly: [], approved: [] };
+  let allDataGrafik1 = { submit: [], draft: [], approved: [] };
   let allLabels2 = [];
-  let allDataGrafik2 = { rejected: [], belumPeriksa: [], approved: [] };
+  let allDataGrafik2 = { submit: [], draft: [], approved: [] };
   let titleGrafik1 = "";
   let titleGrafik2 = "";
 
   if (isKabupaten) {
     allLabels1 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik1.rejected = POSE_DATA.progresKecamatan.map(k => +(k.rejected).toFixed(1));
-    allDataGrafik1.submitOnly = POSE_DATA.progresKecamatan.map(k => +(k.submit).toFixed(1));
-    allDataGrafik1.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved).toFixed(1));
+    allDataGrafik1.submit = POSE_DATA.progresKecamatan.map(k => +(k.submit || 0).toFixed(1));
+    allDataGrafik1.draft = POSE_DATA.progresKecamatan.map(k => +(k.draft || 0).toFixed(1));
+    allDataGrafik1.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved || 0).toFixed(1));
 
     allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
-    allDataGrafik2.rejected = POSE_DATA.progresKecamatan.map(k => +(k.rejected).toFixed(1));
-    allDataGrafik2.belumPeriksa = POSE_DATA.progresKecamatan.map(k => +(k.submit).toFixed(1));
-    allDataGrafik2.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved).toFixed(1));
+    allDataGrafik2.submit = POSE_DATA.progresKecamatan.map(k => +(k.submit || 0).toFixed(1));
+    allDataGrafik2.draft = POSE_DATA.progresKecamatan.map(k => +(k.draft || 0).toFixed(1));
+    allDataGrafik2.approved = POSE_DATA.progresKecamatan.map(k => +(k.approved || 0).toFixed(1));
 
     titleGrafik1 = "Progres Pendataan SE2026 Kabupaten Jeneponto (per Kecamatan)";
     titleGrafik2 = "Progres Pemeriksaan SE2026 Kabupaten Jeneponto (per Kecamatan)";
   } else {
-    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"];
+    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || { ppl: [], pml: [] };
     
     // Grafik 1: PPL
-    allLabels1 = dataKec.ppl.map(p => p.nama);
-    allDataGrafik1.rejected = dataKec.ppl.map(p => +(p.rejected).toFixed(1));
-    allDataGrafik1.submitOnly = dataKec.ppl.map(p => +(p.submit).toFixed(1));
-    allDataGrafik1.approved = dataKec.ppl.map(p => +(p.approved).toFixed(1));
+    allLabels1 = (dataKec.ppl || []).map(p => p.nama);
+    allDataGrafik1.submit = (dataKec.ppl || []).map(p => +(p.submit || 0).toFixed(1));
+    allDataGrafik1.draft = (dataKec.ppl || []).map(p => +(p.draft || 0).toFixed(1));
+    allDataGrafik1.approved = (dataKec.ppl || []).map(p => +(p.approved || 0).toFixed(1));
     
     // Grafik 2: PML
-    allLabels2 = dataKec.pml.map(p => p.nama);
-    allDataGrafik2.rejected = dataKec.pml.map(p => +(p.rejected).toFixed(1));
-    allDataGrafik2.belumPeriksa = dataKec.pml.map(p => +(p.submit).toFixed(1));
-    allDataGrafik2.approved = dataKec.pml.map(p => +(p.approved).toFixed(1));
+    allLabels2 = (dataKec.pml || []).map(p => p.nama);
+    allDataGrafik2.submit = (dataKec.pml || []).map(p => +(p.submit || 0).toFixed(1));
+    allDataGrafik2.draft = (dataKec.pml || []).map(p => +(p.draft || 0).toFixed(1));
+    allDataGrafik2.approved = (dataKec.pml || []).map(p => +(p.approved || 0).toFixed(1));
 
     titleGrafik1 = `Progres Pendataan SE2026 Kec. ${selectedOption} (per PPL)`;
     titleGrafik2 = `Progres Pemeriksaan SE2026 Kec. ${selectedOption} (per PML)`;
@@ -219,16 +222,16 @@ function renderMonitoringCharts(selectedOption) {
 
   // Apply Slicing if not expanded
   const labels1 = isMonitoringExpanded ? allLabels1 : allLabels1.slice(0, 5);
-  const data1Rejected = isMonitoringExpanded ? allDataGrafik1.rejected : allDataGrafik1.rejected.slice(0, 5);
-  const data1SubmitOnly = isMonitoringExpanded ? allDataGrafik1.submitOnly : allDataGrafik1.submitOnly.slice(0, 5);
+  const data1Submit = isMonitoringExpanded ? allDataGrafik1.submit : allDataGrafik1.submit.slice(0, 5);
+  const data1Draft = isMonitoringExpanded ? allDataGrafik1.draft : allDataGrafik1.draft.slice(0, 5);
   const data1Approved = isMonitoringExpanded ? allDataGrafik1.approved : allDataGrafik1.approved.slice(0, 5);
 
   const labels2 = isMonitoringExpanded ? allLabels2 : allLabels2.slice(0, 5);
-  const data2Rejected = isMonitoringExpanded ? allDataGrafik2.rejected : allDataGrafik2.rejected.slice(0, 5);
-  const data2BelumPeriksa = isMonitoringExpanded ? allDataGrafik2.belumPeriksa : allDataGrafik2.belumPeriksa.slice(0, 5);
+  const data2Submit = isMonitoringExpanded ? allDataGrafik2.submit : allDataGrafik2.submit.slice(0, 5);
+  const data2Draft = isMonitoringExpanded ? allDataGrafik2.draft : allDataGrafik2.draft.slice(0, 5);
   const data2Approved = isMonitoringExpanded ? allDataGrafik2.approved : allDataGrafik2.approved.slice(0, 5);
 
-  // Dynamically adjust container heights
+  // Dynamically adjust container heights (Stacked Horizontal Bar)
   const container1 = document.getElementById('container-chart-monitoring-1');
   const container2 = document.getElementById('container-chart-monitoring-2');
 
@@ -256,18 +259,8 @@ function renderMonitoringCharts(selectedOption) {
       labels: labels1,
       datasets: [
         {
-          label: '% Rejected by Pengawas',
-          data: data1Rejected,
-          backgroundColor: CHART_COLORS.rejectedCoral,
-          borderColor: CHART_COLORS.rejectedCoralBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Submit (Menunggu Approval)',
-          data: data1SubmitOnly,
+          label: '% Submit (Kolom R)',
+          data: data1Submit,
           backgroundColor: CHART_COLORS.submitOrange,
           borderColor: CHART_COLORS.submitOrangeBorder,
           borderWidth: 1.5,
@@ -276,7 +269,17 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Approved (PML)',
+          label: '% Draft (Kolom S)',
+          data: data1Draft,
+          backgroundColor: 'rgba(245, 158, 11, 0.85)',
+          borderColor: '#D97706',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          barPercentage: 0.8,
+          categoryPercentage: 0.85
+        },
+        {
+          label: '% Approve (Kolom T)',
           data: data1Approved,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
@@ -287,7 +290,7 @@ function renderMonitoringCharts(selectedOption) {
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels1)
+    options: buildResponsiveChartOptions(labels1, true)
   });
 
   // Chart 2: Progres Pemeriksaan (Stacked Horizontal Bar - Identik dengan Anomali)
@@ -302,18 +305,8 @@ function renderMonitoringCharts(selectedOption) {
       labels: labels2,
       datasets: [
         {
-          label: '% Rejected by Pengawas',
-          data: data2Rejected,
-          backgroundColor: CHART_COLORS.rejectedCoral,
-          borderColor: CHART_COLORS.rejectedCoralBorder,
-          borderWidth: 1.5,
-          borderRadius: 4,
-          barPercentage: 0.8,
-          categoryPercentage: 0.85
-        },
-        {
-          label: '% Submit (Menunggu Approval)',
-          data: data2BelumPeriksa,
+          label: '% Submit (Kolom R)',
+          data: data2Submit,
           backgroundColor: CHART_COLORS.submitOrange,
           borderColor: CHART_COLORS.submitOrangeBorder,
           borderWidth: 1.5,
@@ -322,7 +315,17 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Approved',
+          label: '% Draft (Kolom S)',
+          data: data2Draft,
+          backgroundColor: 'rgba(245, 158, 11, 0.85)',
+          borderColor: '#D97706',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          barPercentage: 0.8,
+          categoryPercentage: 0.85
+        },
+        {
+          label: '% Approve (Kolom T)',
           data: data2Approved,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
@@ -333,7 +336,7 @@ function renderMonitoringCharts(selectedOption) {
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels2)
+    options: buildResponsiveChartOptions(labels2, true)
   });
 }
 
@@ -500,7 +503,7 @@ function renderAnomaliCharts(selectedOption) {
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels1)
+    options: buildResponsiveChartOptions(labels1, true)
   });
 
   // Chart 2: Pemeriksaan Anomali (Stacked Horizontal Bar)
@@ -546,7 +549,7 @@ function renderAnomaliCharts(selectedOption) {
         }
       ]
     },
-    options: buildResponsiveChartOptions(labels2)
+    options: buildResponsiveChartOptions(labels2, true)
   });
 }
 

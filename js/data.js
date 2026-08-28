@@ -23,7 +23,7 @@ const POSE_DATA = {
     links: {
         pertanian: "https://docs.google.com/spreadsheets/d/19DcV3CA0FkcpsZldqd-ChW8JL0SgcVFX-dC7Y_0_3So/edit?gid=46846179#gid=46846179",
         usahaBesar: "https://docs.google.com/spreadsheets/d/18e4NwGBJy8myLvNLTVj1jV4pLpwgqZn3/edit?usp=sharing",
-        monitoringPetugas: "https://docs.google.com/spreadsheets/d/1R1UAfk_LlQM06nwiEK5_WFbIvqyTU3yjuxHlcJtf1qI/edit?gid=0#gid=0",
+        monitoringPetugas: "https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?gid=0#gid=0",
         anomaliData: "https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/edit?gid=105002898#gid=105002898",
         dataPusat: "https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/edit?usp=sharing",
         kbli2025: "https://s.bps.go.id/kbli7304_se2026",
@@ -37,12 +37,13 @@ const POSE_DATA = {
     // KPI Ringkasan Kabupaten Jeneponto (Data Riil)
     kpiKabupaten: {
             "targetKeluargaUsaha": "148.025",
-            "totalMuatan": 148025,
-            "persentaseApproved": 36.9,
-            "persentaseSubmit": 17.2,
+            "totalMuatan": 171629,
+            "persentaseApproved": 86.0,
+            "persentaseSubmit": 97.5,
+        "persentaseDraft": 1.8,
             "persentaseRejected": 1.9,
             "persentaseProgresTotal": 56,
-            "totalPPL": 324,
+            "totalPPL": 327,
             "totalPML": 48,
             "persentaseAnomaliUsahaSelesai": 65.8,
             "persentaseAnomaliKeluargaSelesai": 65.8,
@@ -56,117 +57,95 @@ const POSE_DATA = {
 
     // Data Progres per Kecamatan untuk Grafik Kabupaten (Data Riil)
     progresKecamatan: [
-            {
-                    "nama": "Arungkeke",
-                    "submit": 26.3,
-                    "approved": 37.5,
-                    "rejected": 0.6,
-                    "muatan": 8339,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Bangkala",
-                    "submit": 22.9,
-                    "approved": 27.5,
-                    "rejected": 1,
-                    "muatan": 22634,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Bangkala Barat",
-                    "submit": 21.1,
-                    "approved": 30.7,
-                    "rejected": 1.8,
-                    "muatan": 11687,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Batang",
-                    "submit": 21.4,
-                    "approved": 34.6,
-                    "rejected": 2.7,
-                    "muatan": 7415,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Binamu",
-                    "submit": 14.1,
-                    "approved": 40.9,
-                    "rejected": 1.6,
-                    "muatan": 23576,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Bontoramba",
-                    "submit": 15.1,
-                    "approved": 41,
-                    "rejected": 2.4,
-                    "muatan": 15398,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Kelara",
-                    "submit": 11.5,
-                    "approved": 44.8,
-                    "rejected": 1.2,
-                    "muatan": 11243,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Rumbia",
-                    "submit": 4.1,
-                    "approved": 48.2,
-                    "rejected": 4.4,
-                    "muatan": 9885,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Tamalatea",
-                    "submit": 17.4,
-                    "approved": 37,
-                    "rejected": 1.4,
-                    "muatan": 17461,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Tarowang",
-                    "submit": 17.8,
-                    "approved": 42.6,
-                    "rejected": 0.4,
-                    "muatan": 8558,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            },
-            {
-                    "nama": "Turatea",
-                    "submit": 17.8,
-                    "approved": 27.5,
-                    "rejected": 4.9,
-                    "muatan": 11829,
-                    "anomaliBelum": 34.2,
-                    "anomaliCatatan": 22.3,
-                    "anomaliPerbaikan": 43.5
-            }
-    ],
+        {
+                "nama": "Bangkala",
+                "muatan": 26489,
+                "submit": 95.9,
+                "draft": 3.6,
+                "approved": 76.4,
+                "rejected": 3.6
+        },
+        {
+                "nama": "Bangkala Barat",
+                "muatan": 13248,
+                "submit": 95.7,
+                "draft": 3.3,
+                "approved": 74.7,
+                "rejected": 3.3
+        },
+        {
+                "nama": "Tamalatea",
+                "muatan": 20307,
+                "submit": 97.4,
+                "draft": 1.7,
+                "approved": 83.2,
+                "rejected": 1.7
+        },
+        {
+                "nama": "Bontoramba",
+                "muatan": 17451,
+                "submit": 98.6,
+                "draft": 1.3,
+                "approved": 95.8,
+                "rejected": 1.3
+        },
+        {
+                "nama": "Binamu",
+                "muatan": 27644,
+                "submit": 94.9,
+                "draft": 2.4,
+                "approved": 86.7,
+                "rejected": 2.4
+        },
+        {
+                "nama": "Turatea",
+                "muatan": 13727,
+                "submit": 98.5,
+                "draft": 1.5,
+                "approved": 64.5,
+                "rejected": 1.5
+        },
+        {
+                "nama": "Batang",
+                "muatan": 8422,
+                "submit": 100.0,
+                "draft": 0.0,
+                "approved": 93.3,
+                "rejected": 0.0
+        },
+        {
+                "nama": "Arungkeke",
+                "muatan": 9388,
+                "submit": 100.0,
+                "draft": 0.0,
+                "approved": 98.7,
+                "rejected": 0.0
+        },
+        {
+                "nama": "Tarowang",
+                "muatan": 10401,
+                "submit": 99.4,
+                "draft": 0.6,
+                "approved": 98.8,
+                "rejected": 0.6
+        },
+        {
+                "nama": "Kelara",
+                "muatan": 12928,
+                "submit": 98.2,
+                "draft": 1.6,
+                "approved": 93.8,
+                "rejected": 1.6
+        },
+        {
+                "nama": "Rumbia",
+                "muatan": 11624,
+                "submit": 99.9,
+                "draft": 0.1,
+                "approved": 98.8,
+                "rejected": 0.1
+        }
+],
 
     // Data Petugas per Kecamatan (PPL & PML Lengkap Data Riil)
     petugasKecamatan: {
@@ -337,8 +316,8 @@ const POSE_DATA = {
             ],
             "submit": 99.3,
             "approved": 91.8,
-            "totalPPL": 17,
-            "totalPML": 3
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Bangkala": {
             "ppl": [
@@ -795,8 +774,8 @@ const POSE_DATA = {
             ],
             "submit": 98.1,
             "approved": 59.0,
-            "totalPPL": 49,
-            "totalPML": 7
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Bangkala Barat": {
             "ppl": [
@@ -1045,8 +1024,8 @@ const POSE_DATA = {
             ],
             "submit": 94.8,
             "approved": 61.1,
-            "totalPPL": 26,
-            "totalPML": 4
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Batang": {
             "ppl": [
@@ -1207,8 +1186,8 @@ const POSE_DATA = {
             ],
             "submit": 97.6,
             "approved": 77.4,
-            "totalPPL": 16,
-            "totalPML": 3
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Binamu": {
             "ppl": [
@@ -1625,8 +1604,8 @@ const POSE_DATA = {
             ],
             "submit": 91.8,
             "approved": 75.2,
-            "totalPPL": 45,
-            "totalPML": 6
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Bontoramba": {
             "ppl": [
@@ -1963,8 +1942,8 @@ const POSE_DATA = {
             ],
             "submit": 98.0,
             "approved": 86.0,
-            "totalPPL": 36,
-            "totalPML": 5
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Kelara": {
             "ppl": [
@@ -2205,8 +2184,8 @@ const POSE_DATA = {
             ],
             "submit": 97.8,
             "approved": 82.1,
-            "totalPPL": 25,
-            "totalPML": 4
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Rumbia": {
             "ppl": [
@@ -2463,8 +2442,8 @@ const POSE_DATA = {
             ],
             "submit": 98.6,
             "approved": 90.7,
-            "totalPPL": 27,
-            "totalPML": 4
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Tamalatea": {
             "ppl": [
@@ -2801,8 +2780,8 @@ const POSE_DATA = {
             ],
             "submit": 93.0,
             "approved": 69.6,
-            "totalPPL": 36,
-            "totalPML": 5
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Tarowang": {
             "ppl": [
@@ -2995,8 +2974,8 @@ const POSE_DATA = {
             ],
             "submit": 99.4,
             "approved": 96.5,
-            "totalPPL": 20,
-            "totalPML": 3
+            "totalPPL": 327,
+            "totalPML": 48
         },
         "Turatea": {
             "ppl": [
@@ -3277,8 +3256,8 @@ const POSE_DATA = {
             ],
             "submit": 98.0,
             "approved": 49.8,
-            "totalPPL": 30,
-            "totalPML": 4
+            "totalPPL": 327,
+            "totalPML": 48
         }
     },
 

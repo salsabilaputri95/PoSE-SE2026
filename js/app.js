@@ -74,13 +74,17 @@ function populateKPIs() {
   
   // Monitoring KPIs
   const elSubmit = document.getElementById('kpi-submit-val');
+  const elDraft = document.getElementById('kpi-draft-val');
   const elApproved = document.getElementById('kpi-approved-val');
   const barSubmit = document.getElementById('kpi-submit-bar');
+  const barDraft = document.getElementById('kpi-draft-bar');
   const barApproved = document.getElementById('kpi-approved-bar');
 
   if (elSubmit) elSubmit.textContent = kpi.persentaseSubmit;
+  if (elDraft) elDraft.textContent = kpi.persentaseDraft;
   if (elApproved) elApproved.textContent = kpi.persentaseApproved;
   if (barSubmit) barSubmit.style.width = `${kpi.persentaseSubmit}%`;
+  if (barDraft) barDraft.style.width = `${kpi.persentaseDraft}%`;
   if (barApproved) barApproved.style.width = `${kpi.persentaseApproved}%`;
 
   // Anomali KPIs

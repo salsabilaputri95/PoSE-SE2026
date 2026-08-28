@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=9.4">
+  <link rel="stylesheet" href="css/style.css?v=10.3">
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -160,57 +160,72 @@
             </select>
           </div>
           <a id="btn-link-monitoring-2"
-            href="https://docs.google.com/spreadsheets/d/1R1UAfk_LlQM06nwiEK5_WFbIvqyTU3yjuxHlcJtf1qI/edit?gid=0#gid=0"
+            href="https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?gid=0#gid=0"
             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Spreadsheet Monitoring
           </a>
         </div>
       </div>
 
-      <!-- KPI Summary Cards (Compact & Dinamis) -->
-      <div class="kpi-row-grid compact-kpi">
-        <div class="kpi-card variant-coral">
-          <div class="kpi-card-header">
-            <span class="kpi-title">Persentase Submit (PPL)</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <!-- KPI Summary Cards (Compact & Dinamis 4 Kolom) -->
+      <div class="kpi-row-grid compact-kpi" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+        <div class="kpi-card variant-coral" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Persentase Submit</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px;"><i class="fa-solid fa-cloud-arrow-up"></i></div>
           </div>
-          <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-submit-val">96.9</span>
-            <span class="kpi-unit">%</span>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-submit-val" style="font-size: 22px;">97.5</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">%</span>
           </div>
-          <p class="kpi-subtext" id="kpi-submit-desc">Capaian submit petugas se-Kabupaten</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" id="kpi-submit-bar" style="width: 96.9%;"></div>
-          </div>
-        </div>
-
-        <div class="kpi-card variant-green">
-          <div class="kpi-card-header">
-            <span class="kpi-title">Persentase Approved (PML)</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-circle-check"></i></div>
-          </div>
-          <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-approved-val">76.3</span>
-            <span class="kpi-unit">%</span>
-          </div>
-          <p class="kpi-subtext" id="kpi-approved-desc">Data telah disetujui pemeriksa se-Kabupaten</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" id="kpi-approved-bar" style="width: 76.3%; background: #10B981;"></div>
+          <p class="kpi-subtext" id="kpi-submit-desc" style="font-size: 11px; margin-bottom: 6px;">Kolom R: Submit se-Kabupaten</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" id="kpi-submit-bar" style="width: 97.5%;"></div>
           </div>
         </div>
 
-        <div class="kpi-card variant-amber">
-          <div class="kpi-card-header">
-            <span class="kpi-title" id="kpi-wilayah-title">Wilayah Cakupan</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div class="kpi-card variant-amber" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Persentase Draft</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(245, 158, 11, 0.1); color: #D97706;"><i class="fa-solid fa-file-pen"></i></div>
           </div>
-          <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-wilayah-val">11</span>
-            <span class="kpi-unit" id="kpi-wilayah-unit">Kecamatan</span>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-draft-val" style="font-size: 22px;">1.8</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">%</span>
           </div>
-          <p class="kpi-subtext" id="kpi-wilayah-desc">Total 327 PPL & 48 PML se-Kabupaten</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" style="width: 100%; background: #F59E0B;"></div>
+          <p class="kpi-subtext" style="font-size: 11px; margin-bottom: 6px;">Kolom S: Draft se-Kabupaten</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" id="kpi-draft-bar" style="width: 1.8%; background: #F59E0B;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-green" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" style="font-size: 11px;">Persentase Approve</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(16, 185, 129, 0.1); color: #059669;"><i class="fa-solid fa-circle-check"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-approved-val" style="font-size: 22px;">86.0</span>
+            <span class="kpi-unit" style="font-size: 11.5px;">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-approved-desc" style="font-size: 11px; margin-bottom: 6px;">Kolom T: Approved se-Kabupaten</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" id="kpi-approved-bar" style="width: 86.0%; background: #10B981;"></div>
+          </div>
+        </div>
+
+        <div class="kpi-card variant-blue" style="padding: 12px 14px;">
+          <div class="kpi-card-header" style="margin-bottom: 4px;">
+            <span class="kpi-title" id="kpi-wilayah-title" style="font-size: 11px;">Wilayah Cakupan</span>
+            <div class="kpi-icon-pill" style="width: 28px; height: 28px; font-size: 12px; background: rgba(59, 130, 246, 0.1); color: #2563EB;"><i class="fa-solid fa-map-location-dot"></i></div>
+          </div>
+          <div class="kpi-value-row" style="margin-bottom: 2px;">
+            <span class="kpi-number" id="kpi-wilayah-val" style="font-size: 22px;">11</span>
+            <span class="kpi-unit" id="kpi-wilayah-unit" style="font-size: 11.5px;">Kecamatan</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-wilayah-desc" style="font-size: 11px; margin-bottom: 6px;">Total 327 PPL & 48 PML</p>
+          <div class="kpi-progress-track" style="height: 4px;">
+            <div class="kpi-progress-fill" style="width: 100%; background: #3B82F6;"></div>
           </div>
         </div>
       </div>
@@ -222,7 +237,7 @@
           <div class="chart-header">
             <div class="chart-title-box">
               <h3 id="title-chart-monitoring-1">Progres Pendataan SE2026 Kabupaten Jeneponto</h3>
-              <p id="sub-chart-monitoring-1">Sumbu X: % Rejected by Pengawas, % Menunggu Approval, % Approved | Sumbu Y:
+              <p id="sub-chart-monitoring-1">Sumbu X: % Submit (Kolom R), % Draft (Kolom S), % Approve (Kolom T) | Sumbu Y:
                 Wilayah / Petugas PPL</p>
             </div>
             <span class="chart-badge-indicator"><i class="fa-solid fa-bars-progress"></i> Pendataan</span>
@@ -237,8 +252,8 @@
           <div class="chart-header">
             <div class="chart-title-box">
               <h3 id="title-chart-monitoring-2">Progres Pemeriksaan SE2026 Kabupaten Jeneponto</h3>
-              <p id="sub-chart-monitoring-2">Sumbu X: % Rejected, % Belum Diperiksa, % Approved | Sumbu Y: Wilayah /
-                Petugas PML
+              <p id="sub-chart-monitoring-2">Sumbu X: % Submit (Kolom R), % Draft (Kolom S), % Approve (Kolom T) | Sumbu Y:
+                Wilayah / Petugas PML
               </p>
             </div>
             <span class="chart-badge-indicator" style="background: rgba(16, 185, 129, 0.1); color: #065F46;">
@@ -1612,10 +1627,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=9.4"></script>
-  <script src="js/charts.js?v=9.4"></script>
-  <script src="js/sync.js?v=9.4"></script>
-  <script src="js/app.js?v=9.4"></script>
+  <script src="js/data.js?v=10.3"></script>
+  <script src="js/charts.js?v=10.3"></script>
+  <script src="js/sync.js?v=10.3"></script>
+  <script src="js/app.js?v=10.3"></script>
 </body>
 
 </html>

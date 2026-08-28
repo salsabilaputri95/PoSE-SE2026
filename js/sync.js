@@ -12,7 +12,7 @@ const SYNC_CONFIG = {
     keluargaKhusus: 'https://docs.google.com/spreadsheets/d/1VfurEu3pLfqO0cJRiUfiB1NcY4MJGAnWWOI0pQIVAng/gviz/tq?tqx=out:csv&gid=0',
     usahaPusat: 'https://docs.google.com/spreadsheets/d/1BT_ub01ex_h3yqI-n_EFO8pYFoVORRweB8V_5ebpgHo/gviz/tq?tqx=out:csv',
     usahaBesar: 'https://docs.google.com/spreadsheets/d/18e4NwGBJy8myLvNLTVj1jV4pLpwgqZn3/gviz/tq?tqx=out:csv',
-    monitoring: 'https://docs.google.com/spreadsheets/d/1R1UAfk_LlQM06nwiEK5_WFbIvqyTU3yjuxHlcJtf1qI/gviz/tq?tqx=out:csv&gid=0',
+    monitoring: 'https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/gviz/tq?tqx=out:csv&gid=0',
     anomali: 'https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/gviz/tq?tqx=out:csv&gid=105002898'
   }
 };
@@ -308,40 +308,53 @@ function processPertanianCSV(rows) {
 }
 
 /**
- * Process Monitoring Sheet CSV Data
+ * Process Monitoring Sheet CSV Data (Kolom R: % Submit, Kolom S: % Draft, Kolom T: % Approve)
  */
 function processMonitoringCSV(rows) {
   if (!rows || rows.length < 2) return false;
 
   const header = rows[0].map(h => (h || '').toUpperCase());
-  const kecIdx = header.findIndex(h => h.includes('KECAMATAN'));
-  const pclIdx = header.findIndex(h => h.includes('PCL') || h.includes('PPL') || h.includes('PENDATA'));
-  const pmlIdx = header.findIndex(h => h.includes('PML') || h.includes('PEMERIKSA'));
-  const muatanIdx = header.findIndex(h => h.includes('MUATAN') || h.includes('TARGET'));
-  const subIdx = header.findIndex(h => h === 'SUBMIT');
-  const appIdx = header.findIndex(h => h === 'APPROVED' || h.includes('APPROV'));
-  const rejIdx = header.findIndex(h => h === 'REJECTED' || h.includes('REJECT'));
+  let kecIdx = header.findIndex(h => h.includes('KECAMATAN'));
+  let pclIdx = header.findIndex(h => h.includes('PENCACAH') || h.includes('PCL') || h.includes('PPL'));
+  let pmlIdx = header.findIndex(h => h.includes('PENGAWAS') || h.includes('PML'));
+  let muatanIdx = header.findIndex(h => h.includes('TOTAL') || h.includes('MUATAN'));
+  let subIdx = header.findIndex(h => h.includes('TANPA DRAFT') || (h.includes('PROGRES') && h.includes('SUBMIT')));
+  let draftIdx = header.findIndex(h => h.includes('SELISIH PROGRES') || (h.includes('DRAFT') && !h.includes('CATATAN')));
+  let appIdx = header.findIndex(h => h.includes('PROGRES APPROVAL') || (h.includes('PROGRES') && h.includes('APPROV')));
 
-  if (kecIdx === -1) return false;
+  // Fallbacks by column position (A=0 ... R=17, S=18, T=19)
+  if (kecIdx === -1) kecIdx = 4;
+  if (pclIdx === -1) pclIdx = 3;
+  if (pmlIdx === -1) pmlIdx = 2;
+  if (muatanIdx === -1) muatanIdx = 5;
+  if (subIdx === -1) subIdx = 17;
+  if (draftIdx === -1) draftIdx = 18;
+  if (appIdx === -1) appIdx = 19;
+
+  const parsePercent = (val) => {
+    if (!val) return 0;
+    const clean = String(val).replace('%', '').replace(',', '.').trim();
+    const num = parseFloat(clean);
+    return isNaN(num) ? 0 : num;
+  };
 
   const kecMap = {};
   POSE_DATA.kecamatanList.forEach(k => {
     kecMap[k.toUpperCase()] = {
       nama: k,
       muatan: 0,
-      open: 0,
-      submit: 0,
-      approved: 0,
-      rejected: 0,
+      weightedSubmit: 0,
+      weightedDraft: 0,
+      weightedApproved: 0,
       pplMap: {},
       pmlMap: {}
     };
   });
 
   let totalMuatanKab = 0;
-  let totalApprovedKab = 0;
-  let totalSubmitKab = 0;
-  let totalRejectedKab = 0;
+  let totalWeightedSubmit = 0;
+  let totalWeightedDraft = 0;
+  let totalWeightedApproved = 0;
 
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
@@ -362,42 +375,51 @@ function processMonitoringCSV(rows) {
     }
     if (!matchedKey) continue;
 
-    const muatan = muatanIdx !== -1 ? parseInt(r[muatanIdx], 10) || 0 : 0;
-    const submit = subIdx !== -1 ? parseInt(r[subIdx], 10) || 0 : 0;
-    const approved = appIdx !== -1 ? parseInt(r[appIdx], 10) || 0 : 0;
-    const rejected = rejIdx !== -1 ? parseInt(r[rejIdx], 10) || 0 : 0;
+    const muatan = muatanIdx !== -1 ? parseInt(String(r[muatanIdx]).replace(/\./g, '').replace(/,/g, ''), 10) || 0 : 0;
+    const submit = subIdx !== -1 ? parsePercent(r[subIdx]) : 0;
+    const draft = draftIdx !== -1 ? parsePercent(r[draftIdx]) : 0;
+    const approved = appIdx !== -1 ? parsePercent(r[appIdx]) : 0;
 
     const kecObj = kecMap[matchedKey];
     kecObj.muatan += muatan;
-    kecObj.submit += submit;
-    kecObj.approved += approved;
-    kecObj.rejected += rejected;
+    kecObj.weightedSubmit += (submit * muatan);
+    kecObj.weightedDraft += (draft * muatan);
+    kecObj.weightedApproved += (approved * muatan);
 
     totalMuatanKab += muatan;
-    totalApprovedKab += approved;
-    totalSubmitKab += submit;
-    totalRejectedKab += rejected;
+    totalWeightedSubmit += (submit * muatan);
+    totalWeightedDraft += (draft * muatan);
+    totalWeightedApproved += (approved * muatan);
 
     // PPL
     if (!kecObj.pplMap[pcl]) {
-      kecObj.pplMap[pcl] = { nama: pcl, pml, muatan: 0, submit: 0, approved: 0, rejected: 0 };
+      kecObj.pplMap[pcl] = { 
+        nama: pcl, 
+        pml, 
+        muatan, 
+        submit: Math.round(submit * 10) / 10, 
+        draft: Math.round(draft * 10) / 10, 
+        approved: Math.round(approved * 10) / 10 
+      };
     }
-    const pObj = kecObj.pplMap[pcl];
-    pObj.muatan += muatan;
-    pObj.submit += submit;
-    pObj.approved += approved;
-    pObj.rejected += rejected;
 
     // PML
     if (pml) {
       if (!kecObj.pmlMap[pml]) {
-        kecObj.pmlMap[pml] = { nama: pml, muatan: 0, submit: 0, approved: 0, rejected: 0, pplCount: 0 };
+        kecObj.pmlMap[pml] = { 
+          nama: pml, 
+          muatan: 0, 
+          weightedSubmit: 0, 
+          weightedDraft: 0, 
+          weightedApproved: 0, 
+          pplCount: 0 
+        };
       }
       const pmlObj = kecObj.pmlMap[pml];
       pmlObj.muatan += muatan;
-      pmlObj.submit += submit;
-      pmlObj.approved += approved;
-      pmlObj.rejected += rejected;
+      pmlObj.weightedSubmit += (submit * muatan);
+      pmlObj.weightedDraft += (draft * muatan);
+      pmlObj.weightedApproved += (approved * muatan);
       pmlObj.pplCount++;
     }
   }
@@ -409,39 +431,36 @@ function processMonitoringCSV(rows) {
   Object.keys(kecMap).forEach(key => {
     const d = kecMap[key];
     const namaKec = d.nama;
-    const m = d.muatan || 1;
+    const m = d.muatan > 0 ? d.muatan : 1;
 
-    const pApproved = Math.round((d.approved / m) * 1000) / 10;
-    const pSubmit = Math.round((d.submit / m) * 1000) / 10;
-    const pRejected = Math.round((d.rejected / m) * 1000) / 10;
+    const pSubmit = Math.round((d.weightedSubmit / m) * 10) / 10;
+    const pDraft = Math.round((d.weightedDraft / m) * 10) / 10;
+    const pApproved = Math.round((d.weightedApproved / m) * 10) / 10;
 
     if (!POSE_DATA.petugasKecamatan[namaKec]) {
       POSE_DATA.petugasKecamatan[namaKec] = {};
     }
 
-    const pplList = Object.values(d.pplMap).map(p => {
-      const pm = p.muatan || 1;
-      return {
-        nama: p.nama,
-        pml: p.pml,
-        muatan: p.muatan,
-        submit: Math.round((p.submit / pm) * 1000) / 10,
-        approved: Math.round((p.approved / pm) * 1000) / 10,
-        rejected: Math.round((p.rejected / pm) * 1000) / 10,
-        anomaliBelum: 35,
-        anomaliCatatan: 20,
-        anomaliPerbaikan: 45
-      };
-    });
+    const pplList = Object.values(d.pplMap).map(p => ({
+      nama: p.nama,
+      pml: p.pml,
+      muatan: p.muatan,
+      submit: p.submit,
+      draft: p.draft,
+      approved: p.approved,
+      anomaliBelum: 35,
+      anomaliCatatan: 20,
+      anomaliPerbaikan: 45
+    }));
 
     const pmlList = Object.values(d.pmlMap).map(pml => {
-      const pm = pml.muatan || 1;
+      const pm = pml.muatan > 0 ? pml.muatan : 1;
       return {
         nama: pml.nama,
         muatan: pml.muatan,
-        submit: Math.round((pml.submit / pm) * 1000) / 10,
-        approved: Math.round((pml.approved / pm) * 1000) / 10,
-        rejected: Math.round((pml.rejected / pm) * 1000) / 10,
+        submit: Math.round((pml.weightedSubmit / pm) * 10) / 10,
+        draft: Math.round((pml.weightedDraft / pm) * 10) / 10,
+        approved: Math.round((pml.weightedApproved / pm) * 10) / 10,
         anomaliBelum: 35,
         anomaliCatatan: 20,
         anomaliPerbaikan: 45
@@ -461,8 +480,8 @@ function processMonitoringCSV(rows) {
 
     POSE_DATA.petugasKecamatan[namaKec].muatan = d.muatan;
     POSE_DATA.petugasKecamatan[namaKec].submit = pSubmit;
+    POSE_DATA.petugasKecamatan[namaKec].draft = pDraft;
     POSE_DATA.petugasKecamatan[namaKec].approved = pApproved;
-    POSE_DATA.petugasKecamatan[namaKec].rejected = pRejected;
 
     // Retain existing anomali data if present
     const existingKec = POSE_DATA.progresKecamatan.find(k => k.nama === namaKec);
@@ -470,8 +489,9 @@ function processMonitoringCSV(rows) {
     newProgresKec.push({
       nama: namaKec,
       submit: pSubmit,
+      draft: pDraft,
       approved: pApproved,
-      rejected: pRejected,
+      rejected: pDraft,
       muatan: d.muatan,
       anomaliBelum: existingKec ? existingKec.anomaliBelum : 34.2,
       anomaliCatatan: existingKec ? existingKec.anomaliCatatan : 22.3,
@@ -484,17 +504,16 @@ function processMonitoringCSV(rows) {
   }
 
   if (totalMuatanKab > 0) {
-    const pApprovedKab = Math.round((totalApprovedKab / totalMuatanKab) * 1000) / 10;
-    const pSubmitKab = Math.round((totalSubmitKab / totalMuatanKab) * 1000) / 10;
-    const pRejectedKab = Math.round((totalRejectedKab / totalMuatanKab) * 1000) / 10;
-    const pTotalKab = Math.round(((totalSubmitKab + totalApprovedKab + totalRejectedKab) / totalMuatanKab) * 1000) / 10;
+    const kabM = totalMuatanKab > 0 ? totalMuatanKab : 1;
+    const pSubmitKab = Math.round((totalWeightedSubmit / kabM) * 10) / 10;
+    const pDraftKab = Math.round((totalWeightedDraft / kabM) * 10) / 10;
+    const pApprovedKab = Math.round((totalWeightedApproved / kabM) * 10) / 10;
 
     POSE_DATA.kpiKabupaten.totalMuatan = totalMuatanKab;
     POSE_DATA.kpiKabupaten.targetKeluargaUsaha = totalMuatanKab.toLocaleString('id-ID');
-    POSE_DATA.kpiKabupaten.persentaseApproved = pApprovedKab;
     POSE_DATA.kpiKabupaten.persentaseSubmit = pSubmitKab;
-    POSE_DATA.kpiKabupaten.persentaseRejected = pRejectedKab;
-    POSE_DATA.kpiKabupaten.persentaseProgresTotal = pTotalKab;
+    POSE_DATA.kpiKabupaten.persentaseDraft = pDraftKab;
+    POSE_DATA.kpiKabupaten.persentaseApproved = pApprovedKab;
     if (totalPPLKab > 0) POSE_DATA.kpiKabupaten.totalPPL = totalPPLKab;
     if (totalPMLKab > 0) POSE_DATA.kpiKabupaten.totalPML = totalPMLKab;
   }
