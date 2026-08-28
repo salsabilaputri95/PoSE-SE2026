@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=12.0">
+  <link rel="stylesheet" href="css/style.css?v=12.4">
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -152,13 +152,25 @@
           <p class="section-subtitle">Pantau progres pengumpulan data oleh PPL dan pemeriksaan data oleh PML secara
             real-time.</p>
         </div>
-        <div class="section-actions">
+        <div class="section-actions filter-search-toolbar">
+          <!-- Filter Dropdown Kecamatan -->
           <div class="filter-dropdown-box">
             <label for="select-kecamatan-monitoring"><i class="fa-solid fa-filter"></i> Wilayah:</label>
             <select id="select-kecamatan-monitoring" class="custom-select">
               <!-- Dynamically Populated by app.js -->
             </select>
           </div>
+
+          <!-- Input Pencarian Nama PPL / PML (Modern UI) -->
+          <div class="search-input-box-modern">
+            <i class="fa-solid fa-magnifying-glass search-icon-left"></i>
+            <input type="text" id="monitoring-search-input" class="custom-search-input" placeholder="Cari nama PPL atau PML...">
+            <button id="btn-clear-monitoring-search" class="btn-clear-search" type="button" style="display: none;" title="Hapus pencarian">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Link Spreadsheet -->
           <a id="btn-link-monitoring-2"
             href="https://docs.google.com/spreadsheets/d/1o5KSszOIwgPrdtUv8ZOc4XfeUekJZ7xonl354GNtIUc/edit?gid=1206401506#gid=1206401506"
             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -847,13 +859,25 @@
             Progres Penyelesaian Anomali SE2026
           </h3>
         </div>
-        <div class="section-actions" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <div class="section-actions filter-search-toolbar">
+          <!-- Filter Dropdown Kecamatan Anomali -->
           <div class="filter-dropdown-box">
             <label for="select-kecamatan-anomali"><i class="fa-solid fa-filter"></i> Wilayah:</label>
             <select id="select-kecamatan-anomali" class="custom-select">
               <!-- Dynamically Populated by app.js -->
             </select>
           </div>
+
+          <!-- Input Pencarian Nama Petugas Anomali (Modern UI) -->
+          <div class="search-input-box-modern">
+            <i class="fa-solid fa-magnifying-glass search-icon-left"></i>
+            <input type="text" id="anomali-search-input" class="custom-search-input" placeholder="Cari nama petugas PPL / PML...">
+            <button id="btn-clear-anomali-search" class="btn-clear-search" type="button" style="display: none;" title="Hapus pencarian">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Link Spreadsheet Anomali -->
           <a id="btn-link-anomali"
             href="https://docs.google.com/spreadsheets/d/141zngbEXedgCgPF1c0TamUBdCy9g1T4YO-mVSzOmwUQ/edit?gid=105002898#gid=105002898"
             target="_blank" rel="noopener noreferrer" class="btn btn-primary"
@@ -1626,10 +1650,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=12.0"></script>
-  <script src="js/charts.js?v=12.0"></script>
-  <script src="js/sync.js?v=12.0"></script>
-  <script src="js/app.js?v=12.0"></script>
+  <script src="js/data.js?v=12.4"></script>
+  <script src="js/charts.js?v=12.4"></script>
+  <script src="js/sync.js?v=12.4"></script>
+  <script src="js/app.js?v=12.4"></script>
 </body>
 
 </html>

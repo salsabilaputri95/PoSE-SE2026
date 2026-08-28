@@ -976,6 +976,39 @@ function setupEventListeners() {
     });
   }
 
+  // Input Pencarian Nama PPL & PML (Live Search)
+  const inputSearchMonitoring = document.getElementById('monitoring-search-input');
+  const btnClearSearchMonitoring = document.getElementById('btn-clear-monitoring-search');
+
+  if (inputSearchMonitoring) {
+    inputSearchMonitoring.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (typeof monitoringSearchQuery !== 'undefined') {
+        monitoringSearchQuery = val;
+      }
+      if (btnClearSearchMonitoring) {
+        btnClearSearchMonitoring.style.display = val.trim().length > 0 ? 'block' : 'none';
+      }
+      const selectMon = document.getElementById('select-kecamatan-monitoring');
+      renderMonitoringCharts(selectMon ? selectMon.value : "Kabupaten Jeneponto");
+    });
+  }
+
+  if (btnClearSearchMonitoring) {
+    btnClearSearchMonitoring.addEventListener('click', () => {
+      if (inputSearchMonitoring) {
+        inputSearchMonitoring.value = '';
+        inputSearchMonitoring.focus();
+      }
+      if (typeof monitoringSearchQuery !== 'undefined') {
+        monitoringSearchQuery = '';
+      }
+      btnClearSearchMonitoring.style.display = 'none';
+      const selectMon = document.getElementById('select-kecamatan-monitoring');
+      renderMonitoringCharts(selectMon ? selectMon.value : "Kabupaten Jeneponto");
+    });
+  }
+
   // Toggle View Selengkapnya untuk Grafik Monitoring
   const btnToggleMonitoring = document.getElementById('btn-toggle-monitoring-view');
   if (btnToggleMonitoring) {
@@ -986,8 +1019,48 @@ function setupEventListeners() {
   const selectAnomali = document.getElementById('select-kecamatan-anomali');
   if (selectAnomali) {
     selectAnomali.addEventListener('change', (e) => {
+      if (typeof isAnomaliExpanded !== 'undefined') {
+        isAnomaliExpanded = false;
+        const icon = document.getElementById('icon-toggle-anomali');
+        const text = document.getElementById('text-toggle-anomali');
+        if (icon) icon.className = 'fa-solid fa-chevron-down';
+        if (text) text.textContent = 'Lihat Selengkapnya (Semua Data)';
+      }
       updateAnomaliKPI(e.target.value);
       renderAnomaliCharts(e.target.value);
+    });
+  }
+
+  // Input Pencarian Petugas Anomali (Live Search)
+  const inputSearchAnomali = document.getElementById('anomali-search-input');
+  const btnClearSearchAnomali = document.getElementById('btn-clear-anomali-search');
+
+  if (inputSearchAnomali) {
+    inputSearchAnomali.addEventListener('input', (e) => {
+      const val = e.target.value;
+      if (typeof anomaliSearchQuery !== 'undefined') {
+        anomaliSearchQuery = val;
+      }
+      if (btnClearSearchAnomali) {
+        btnClearSearchAnomali.style.display = val.trim().length > 0 ? 'block' : 'none';
+      }
+      const selectAnom = document.getElementById('select-kecamatan-anomali');
+      renderAnomaliCharts(selectAnom ? selectAnom.value : "Kabupaten Jeneponto");
+    });
+  }
+
+  if (btnClearSearchAnomali) {
+    btnClearSearchAnomali.addEventListener('click', () => {
+      if (inputSearchAnomali) {
+        inputSearchAnomali.value = '';
+        inputSearchAnomali.focus();
+      }
+      if (typeof anomaliSearchQuery !== 'undefined') {
+        anomaliSearchQuery = '';
+      }
+      btnClearSearchAnomali.style.display = 'none';
+      const selectAnom = document.getElementById('select-kecamatan-anomali');
+      renderAnomaliCharts(selectAnom ? selectAnom.value : "Kabupaten Jeneponto");
     });
   }
 
