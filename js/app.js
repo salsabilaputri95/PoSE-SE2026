@@ -19,6 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Background Live Sync with Google Sheets (Smart Cache Hybrid)
   if (typeof syncPoSEData === 'function') {
     syncPoSEData(false);
+
+    // Auto-sync setiap 5 menit untuk selalu update data terbaru
+    const SYNC_INTERVAL_MS = 5 * 60 * 1000; // 5 menit
+    setInterval(() => {
+      if (typeof syncPoSEData === 'function') {
+        syncPoSEData(false);
+      }
+    }, SYNC_INTERVAL_MS);
   }
 });
 

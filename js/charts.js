@@ -33,10 +33,9 @@ var currentMonitoringSelection = "Kabupaten Jeneponto";
 
 /**
  * Helper to build responsive Chart.js options optimized for Mobile, Tablet & Desktop
- * Sumbu X: Label persen dihilangkan (ticks: display: false)
- * Persentase muncul saat bar disentuh/di-hover melalui tooltip interaktif
+ * isMonitoring=true: tampilkan sumbu X dengan label %, grouped bars
  */
-function buildResponsiveChartOptions(labels, isStacked = false) {
+function buildResponsiveChartOptions(labels, isStacked = false, isMonitoring = false) {
   const width = window.innerWidth;
   const isMobile = width <= 640;
   const isSmallMobile = width <= 480;
@@ -62,11 +61,23 @@ function buildResponsiveChartOptions(labels, isStacked = false) {
       x: {
         stacked: isStacked,
         beginAtZero: true,
-        max: 100, // Pas dengan kotak chart 100% seperti Anomali
-        ticks: {
-          display: false // Sembunyikan angka persen di sumbu X
+        max: 100,
+        ticks: isMonitoring ? {
+          display: true,
+          color: '#64748B',
+          font: { size: isSmallMobile ? 9 : 10 },
+          callback: function(value) {
+            return value + '%';
+          },
+          maxTicksLimit: 5
+        } : {
+          display: false
         },
-        grid: {
+        grid: isMonitoring ? {
+          display: true,
+          color: 'rgba(100,116,139,0.12)',
+          drawBorder: false
+        } : {
           display: false,
           drawBorder: false
         },
@@ -275,36 +286,42 @@ function renderMonitoringCharts(selectedOption) {
   const isMobile = width <= 640;
   const isSmallMobile = width <= 480;
 
-  // Lebih kecil per baris agar semua muat dengan proporsional
-  const itemHeight1 = isMobile ? (isSmallMobile ? 24 : 26) : 22;
-  const itemHeight2 = isMobile ? (isSmallMobile ? 24 : 26) : 22;
+  // Chart grouped 3 dataset: tiap label group = 3 bar
+  // Expanded: ~100px per item agar nama PPL/PML terbaca jelas
+  const numDatasets = 3;
+  const barPx = isMobile ? (isSmallMobile ? 22 : 26) : 26;
+  const groupGap = isMobile ? 24 : 22;
+  const itemHeightExpanded = numDatasets * barPx + groupGap; // ~100px per label
+  const collapsedHeight = isMobile ? (isSmallMobile ? 280 : 320) : 300;
 
-  const calcHeight1 = Math.max(200, labels1.length * itemHeight1 + 60);
-  const calcHeight2 = Math.max(200, labels2.length * itemHeight2 + 60);
+  const calcHeight1 = isMonitoringExpanded
+    ? Math.max(collapsedHeight, labels1.length * itemHeightExpanded + 100)
+    : collapsedHeight;
+  const calcHeight2 = isMonitoringExpanded
+    ? Math.max(collapsedHeight, labels2.length * itemHeightExpanded + 100)
+    : collapsedHeight;
 
   if (container1) container1.style.height = `${calcHeight1}px`;
   if (container2) container2.style.height = `${calcHeight2}px`;
 
-  // Options dengan custom tooltip + sumbu X max 300% (khusus monitoring)
-  const opts1 = buildResponsiveChartOptions(labels1, true);
-  opts1.scales.x.max = 300;
+  // Options grouped (bukan stacked), sumbu X tampil 0-100%, tooltip nilai asli
+  const opts1 = buildResponsiveChartOptions(labels1, false, true);
   opts1.plugins.tooltip.callbacks.label = function(context) {
     const d = rawList1[context.dataIndex];
     if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
-    if (context.datasetIndex === 0) return ` % Approve (Kolom R): ${d.approved}%`;
+    if (context.datasetIndex === 0) return ` % Progres (Kolom P): ${d.progres}%`;
     if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
-    if (context.datasetIndex === 2) return ` % Progres (Kolom P): ${d.progres}%`;
+    if (context.datasetIndex === 2) return ` % Approve (Kolom R): ${d.approved}%`;
     return ` ${context.dataset.label}: ${context.raw}%`;
   };
 
-  const opts2 = buildResponsiveChartOptions(labels2, true);
-  opts2.scales.x.max = 300;
+  const opts2 = buildResponsiveChartOptions(labels2, false, true);
   opts2.plugins.tooltip.callbacks.label = function(context) {
     const d = rawList2[context.dataIndex];
     if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
-    if (context.datasetIndex === 0) return ` % Approve (Kolom R): ${d.approved}%`;
+    if (context.datasetIndex === 0) return ` % Progres (Kolom P): ${d.progres}%`;
     if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
-    if (context.datasetIndex === 2) return ` % Progres (Kolom P): ${d.progres}%`;
+    if (context.datasetIndex === 2) return ` % Approve (Kolom R): ${d.approved}%`;
     // Untuk PML: tampilkan nama PPL di bawahnya
     if (d.pplNames && d.pplNames.length > 0) return ` PPL: ${d.pplNames.join(', ')}`;
     return ` ${context.dataset.label}: ${context.raw}%`;
@@ -315,19 +332,19 @@ function renderMonitoringCharts(selectedOption) {
   if (chartMonitoringPendataan) {
     chartMonitoringPendataan.destroy();
   }
-  // Grafik 1: Urutan dataset: 🟢 Approve → 🟡 Open+Draft → 🔵 Progres Belum Approve
+  // Grafik 1: Grouped - Urutan: 🔵 Progres → 🟡 Open+Draft → 🟢 Approve
   chartMonitoringPendataan = new Chart(ctx1, {
     type: 'bar',
     data: {
       labels: labels1,
       datasets: [
         {
-          label: '% Approve (Kolom R)',
-          data: seg1App,
-          backgroundColor: CHART_COLORS.approvedGreen,
-          borderColor: CHART_COLORS.approvedGreenBorder,
+          label: '% Progres (Kolom P)',
+          data: seg1Prog,
+          backgroundColor: CHART_COLORS.submitBlue,
+          borderColor: CHART_COLORS.submitBlueBorder,
           borderWidth: 1,
-          borderRadius: { topLeft: 3, bottomLeft: 3 },
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         },
@@ -337,16 +354,17 @@ function renderMonitoringCharts(selectedOption) {
           backgroundColor: 'rgba(245, 158, 11, 0.85)',
           borderColor: '#D97706',
           borderWidth: 1,
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         },
         {
-          label: '% Progres (Kolom P)',
-          data: seg1Prog,
-          backgroundColor: CHART_COLORS.submitBlue,
-          borderColor: CHART_COLORS.submitBlueBorder,
+          label: '% Approve (Kolom R)',
+          data: seg1App,
+          backgroundColor: CHART_COLORS.approvedGreen,
+          borderColor: CHART_COLORS.approvedGreenBorder,
           borderWidth: 1,
-          borderRadius: { topRight: 4, bottomRight: 4 },
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         }
@@ -361,19 +379,19 @@ function renderMonitoringCharts(selectedOption) {
     chartMonitoringPemeriksaan.destroy();
   }
 
-  // Grafik 2: Urutan dataset: 🟢 Approve → 🟡 Open+Draft → 🔵 Progres Belum Approve
+  // Grafik 2: Grouped - Urutan: 🔵 Progres → 🟡 Open+Draft → 🟢 Approve
   chartMonitoringPemeriksaan = new Chart(ctx2, {
     type: 'bar',
     data: {
       labels: labels2,
       datasets: [
         {
-          label: '% Approve (Kolom R)',
-          data: seg2App,
-          backgroundColor: CHART_COLORS.approvedGreen,
-          borderColor: CHART_COLORS.approvedGreenBorder,
+          label: '% Progres (Kolom P)',
+          data: seg2Prog,
+          backgroundColor: CHART_COLORS.submitBlue,
+          borderColor: CHART_COLORS.submitBlueBorder,
           borderWidth: 1,
-          borderRadius: { topLeft: 3, bottomLeft: 3 },
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         },
@@ -383,16 +401,17 @@ function renderMonitoringCharts(selectedOption) {
           backgroundColor: 'rgba(245, 158, 11, 0.85)',
           borderColor: '#D97706',
           borderWidth: 1,
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         },
         {
-          label: '% Progres (Kolom P)',
-          data: seg2Prog,
-          backgroundColor: CHART_COLORS.submitBlue,
-          borderColor: CHART_COLORS.submitBlueBorder,
+          label: '% Approve (Kolom R)',
+          data: seg2App,
+          backgroundColor: CHART_COLORS.approvedGreen,
+          borderColor: CHART_COLORS.approvedGreenBorder,
           borderWidth: 1,
-          borderRadius: { topRight: 4, bottomRight: 4 },
+          borderRadius: 3,
           barPercentage: 0.65,
           categoryPercentage: 0.75
         }
