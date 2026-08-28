@@ -803,8 +803,10 @@ window.addEventListener('resize', updateFloatingDockVisibility, { passive: true 
  */
 function updateMonitoringKPI(selectedOption) {
   const elSubmit = document.getElementById('kpi-submit-val');
+  const elDraft = document.getElementById('kpi-draft-val');
   const elApproved = document.getElementById('kpi-approved-val');
   const barSubmit = document.getElementById('kpi-submit-bar');
+  const barDraft = document.getElementById('kpi-draft-bar');
   const barApproved = document.getElementById('kpi-approved-bar');
   const descSubmit = document.getElementById('kpi-submit-desc');
   const descApproved = document.getElementById('kpi-approved-desc');
@@ -817,29 +819,33 @@ function updateMonitoringKPI(selectedOption) {
   if (selectedOption === "Kabupaten Jeneponto") {
     const kpi = POSE_DATA.kpiKabupaten;
     if (elSubmit) elSubmit.textContent = kpi.persentaseSubmit;
+    if (elDraft) elDraft.textContent = kpi.persentaseDraft;
     if (elApproved) elApproved.textContent = kpi.persentaseApproved;
     if (barSubmit) barSubmit.style.width = `${kpi.persentaseSubmit}%`;
+    if (barDraft) barDraft.style.width = `${kpi.persentaseDraft}%`;
     if (barApproved) barApproved.style.width = `${kpi.persentaseApproved}%`;
-    if (descSubmit) descSubmit.textContent = "Capaian submit petugas se-Kabupaten";
-    if (descApproved) descApproved.textContent = "Data telah disetujui pemeriksa se-Kabupaten";
+    if (descSubmit) descSubmit.textContent = "Kolom R: Submit se-Kabupaten";
+    if (descApproved) descApproved.textContent = "Kolom T: Approved se-Kabupaten";
 
     if (elWilTitle) elWilTitle.textContent = "Wilayah Cakupan";
     if (elWilVal) elWilVal.textContent = "11";
     if (elWilUnit) elWilUnit.textContent = "Kecamatan";
-    if (elWilDesc) elWilDesc.textContent = `Total ${kpi.totalPPL} PPL & ${kpi.totalPML} PML se-Kabupaten`;
+    if (elWilDesc) elWilDesc.textContent = `Total ${kpi.totalPPL || 327} PPL & ${kpi.totalPML || 48} PML`;
   } else {
-    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"];
-    if (elSubmit) elSubmit.textContent = dataKec.submit;
-    if (elApproved) elApproved.textContent = dataKec.approved;
-    if (barSubmit) barSubmit.style.width = `${dataKec.submit}%`;
-    if (barApproved) barApproved.style.width = `${dataKec.approved}%`;
-    if (descSubmit) descSubmit.textContent = `Capaian submit petugas Kec. ${selectedOption}`;
-    if (descApproved) descApproved.textContent = `Pemeriksaan disetujui Kec. ${selectedOption}`;
+    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || {};
+    if (elSubmit) elSubmit.textContent = dataKec.submit || 0;
+    if (elDraft) elDraft.textContent = dataKec.draft || 0;
+    if (elApproved) elApproved.textContent = dataKec.approved || 0;
+    if (barSubmit) barSubmit.style.width = `${dataKec.submit || 0}%`;
+    if (barDraft) barDraft.style.width = `${dataKec.draft || 0}%`;
+    if (barApproved) barApproved.style.width = `${dataKec.approved || 0}%`;
+    if (descSubmit) descSubmit.textContent = `Kolom R: Submit Kec. ${selectedOption}`;
+    if (descApproved) descApproved.textContent = `Kolom T: Approved Kec. ${selectedOption}`;
 
     if (elWilTitle) elWilTitle.textContent = `Kec. ${selectedOption}`;
-    if (elWilVal) elWilVal.textContent = dataKec.totalPPL;
+    if (elWilVal) elWilVal.textContent = dataKec.totalPPL || (dataKec.ppl ? dataKec.ppl.length : 0);
     if (elWilUnit) elWilUnit.textContent = "PPL";
-    if (elWilDesc) elWilDesc.textContent = `${dataKec.totalPML} Petugas Pemeriksa (PML)`;
+    if (elWilDesc) elWilDesc.textContent = `${dataKec.totalPML || (dataKec.pml ? dataKec.pml.length : 0)} Petugas Pemeriksa (PML)`;
   }
 }
 
