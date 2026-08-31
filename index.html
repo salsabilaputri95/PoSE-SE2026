@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=12.4">
+  <link rel="stylesheet" href="css/style.css?v=12.6">
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -887,51 +887,69 @@
         </div>
       </div>
 
-      <!-- KPI Anomali (Compact & Dinamis) -->
-      <div class="kpi-row-grid compact-kpi">
-        <div class="kpi-card variant-coral">
-          <div class="kpi-card-header">
-            <span class="kpi-title">Penyelesaian Anomali Usaha</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-briefcase"></i></div>
+      <!-- KPI Anomali (4 Kartu Dinamis & Lengkap) -->
+      <div class="kpi-row-grid compact-kpi" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 20px;">
+        <!-- Card 1: Penyelesaian Anomali Usaha Sudah Ditindaklanjuti -->
+        <div class="kpi-card variant-blue" style="padding: 14px 16px;">
+          <div class="kpi-card-header" style="margin-bottom: 6px;">
+            <span class="kpi-title" style="font-size: 11px; font-weight: 700; line-height: 1.3;">Penyelesaian Anomali Usaha Sudah Ditindaklanjuti</span>
+            <div class="kpi-icon-pill" style="width: 30px; height: 30px; font-size: 13px; background: rgba(37, 99, 235, 0.1); color: #2563EB;"><i class="fa-solid fa-briefcase"></i></div>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-anomali-usaha-val">84.5</span>
-            <span class="kpi-unit">%</span>
+            <span class="kpi-number" id="kpi-anomali-usaha-selesai-val" style="font-size: 22px;">86.6</span>
+            <span class="kpi-unit" style="font-size: 14px;">%</span>
           </div>
-          <p class="kpi-subtext" id="kpi-anomali-usaha-desc">Persentase anomali usaha telah ditindaklanjuti</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" id="kpi-anomali-usaha-bar" style="width: 84.5%;"></div>
+          <p class="kpi-subtext" id="kpi-anomali-usaha-selesai-desc" style="font-size: 11.5px;">1.314 dari 1.518 kasus usaha selesai</p>
+          <div class="kpi-progress-track" style="margin-top: 8px; height: 5px;">
+            <div class="kpi-progress-fill" id="kpi-anomali-usaha-selesai-bar" style="width: 86.6%; background: #2563EB;"></div>
           </div>
         </div>
 
-        <div class="kpi-card variant-green">
-          <div class="kpi-card-header">
-            <span class="kpi-title">Penyelesaian Anomali Keluarga</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-house-user"></i></div>
+        <!-- Card 2: Anomali Usaha Belum Ditindaklanjuti -->
+        <div class="kpi-card variant-coral" style="padding: 14px 16px;">
+          <div class="kpi-card-header" style="margin-bottom: 6px;">
+            <span class="kpi-title" style="font-size: 11px; font-weight: 700; line-height: 1.3;">Anomali Usaha Belum Ditindaklanjuti</span>
+            <div class="kpi-icon-pill" style="width: 30px; height: 30px; font-size: 13px; background: rgba(239, 68, 68, 0.1); color: #EF4444;"><i class="fa-solid fa-triangle-exclamation"></i></div>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-anomali-keluarga-val">88.2</span>
-            <span class="kpi-unit">%</span>
+            <span class="kpi-number" id="kpi-anomali-usaha-belum-val" style="font-size: 22px; color: #EF4444;">13.4</span>
+            <span class="kpi-unit" style="font-size: 14px;">%</span>
           </div>
-          <p class="kpi-subtext" id="kpi-anomali-keluarga-desc">Persentase rekonsiliasi anomali keluarga tuntas</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" id="kpi-anomali-keluarga-bar" style="width: 88.2%; background: #10B981;">
-            </div>
+          <p class="kpi-subtext" id="kpi-anomali-usaha-belum-desc" style="font-size: 11.5px;">204 kasus usaha belum ditindaklanjuti</p>
+          <div class="kpi-progress-track" style="margin-top: 8px; height: 5px;">
+            <div class="kpi-progress-fill" id="kpi-anomali-usaha-belum-bar" style="width: 13.4%; background: #EF4444;"></div>
           </div>
         </div>
 
-        <div class="kpi-card variant-amber">
-          <div class="kpi-card-header">
-            <span class="kpi-title" id="kpi-anomali-wilayah-title">Wilayah Cakupan</span>
-            <div class="kpi-icon-pill"><i class="fa-solid fa-map-location-dot"></i></div>
+        <!-- Card 3: Penyelesaian Anomali Keluarga sudah ditindaklanjuti -->
+        <div class="kpi-card variant-green" style="padding: 14px 16px;">
+          <div class="kpi-card-header" style="margin-bottom: 6px;">
+            <span class="kpi-title" style="font-size: 11px; font-weight: 700; line-height: 1.3;">Penyelesaian Anomali Keluarga sudah ditindaklanjuti</span>
+            <div class="kpi-icon-pill" style="width: 30px; height: 30px; font-size: 13px; background: rgba(16, 185, 129, 0.1); color: #10B981;"><i class="fa-solid fa-house-circle-check"></i></div>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-number" id="kpi-anomali-wilayah-val">11</span>
-            <span class="kpi-unit" id="kpi-anomali-wilayah-unit">Kecamatan</span>
+            <span class="kpi-number" id="kpi-anomali-keluarga-selesai-val" style="font-size: 22px;">97.1</span>
+            <span class="kpi-unit" style="font-size: 14px;">%</span>
           </div>
-          <p class="kpi-subtext" id="kpi-anomali-wilayah-desc">Monitoring mitigasi anomali se-Kabupaten</p>
-          <div class="kpi-progress-track">
-            <div class="kpi-progress-fill" style="width: 100%; background: #F59E0B;"></div>
+          <p class="kpi-subtext" id="kpi-anomali-keluarga-selesai-desc" style="font-size: 11.5px;">473 dari 487 kasus keluarga selesai</p>
+          <div class="kpi-progress-track" style="margin-top: 8px; height: 5px;">
+            <div class="kpi-progress-fill" id="kpi-anomali-keluarga-selesai-bar" style="width: 97.1%; background: #10B981;"></div>
+          </div>
+        </div>
+
+        <!-- Card 4: Anomali Keluarga Belum ditindaklanjuti -->
+        <div class="kpi-card variant-amber" style="padding: 14px 16px;">
+          <div class="kpi-card-header" style="margin-bottom: 6px;">
+            <span class="kpi-title" style="font-size: 11px; font-weight: 700; line-height: 1.3;">Anomali Keluarga Belum ditindaklanjuti</span>
+            <div class="kpi-icon-pill" style="width: 30px; height: 30px; font-size: 13px; background: rgba(245, 158, 11, 0.1); color: #F59E0B;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-number" id="kpi-anomali-keluarga-belum-val" style="font-size: 22px; color: #F59E0B;">2.9</span>
+            <span class="kpi-unit" style="font-size: 14px;">%</span>
+          </div>
+          <p class="kpi-subtext" id="kpi-anomali-keluarga-belum-desc" style="font-size: 11.5px;">14 kasus keluarga belum ditindaklanjuti</p>
+          <div class="kpi-progress-track" style="margin-top: 8px; height: 5px;">
+            <div class="kpi-progress-fill" id="kpi-anomali-keluarga-belum-bar" style="width: 2.9%; background: #F59E0B;"></div>
           </div>
         </div>
       </div>
@@ -1650,10 +1668,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=12.4"></script>
-  <script src="js/charts.js?v=12.4"></script>
-  <script src="js/sync.js?v=12.4"></script>
-  <script src="js/app.js?v=12.4"></script>
+  <script src="js/data.js?v=12.6"></script>
+  <script src="js/charts.js?v=12.6"></script>
+  <script src="js/sync.js?v=12.6"></script>
+  <script src="js/app.js?v=12.6"></script>
 </body>
 
 </html>

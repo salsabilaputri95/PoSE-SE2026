@@ -547,6 +547,7 @@ function processAnomaliCSV(rows) {
   const pmlIdx = header.findIndex(h => h === 'PML' || h.includes('PML'));
   const kecIdx = header.findIndex(h => h.includes('NAMA KECAMATAN') || (h.includes('KECAMATAN') && !h.includes('KODE')));
   const statusIdx = header.findIndex(h => h.includes('TINDAK') || h.includes('STATUS'));
+  const namaAnomaliIdx = header.findIndex(h => h.includes('NAMA ANOMALI') || h.includes('ANOMALI'));
 
   if (kecIdx === -1) return false;
 
@@ -558,6 +559,12 @@ function processAnomaliCSV(rows) {
       belum: 0,
       catatan: 0,
       perbaikan: 0,
+      usahaTotal: 0,
+      usahaSelesai: 0,
+      usahaBelum: 0,
+      keluargaTotal: 0,
+      keluargaSelesai: 0,
+      keluargaBelum: 0,
       pplMap: {},
       pmlMap: {}
     };
@@ -567,6 +574,12 @@ function processAnomaliCSV(rows) {
   let belumKab = 0;
   let catatanKab = 0;
   let perbaikanKab = 0;
+  let usahaTotalKab = 0;
+  let usahaSelesaiKab = 0;
+  let usahaBelumKab = 0;
+  let keluargaTotalKab = 0;
+  let keluargaSelesaiKab = 0;
+  let keluargaBelumKab = 0;
 
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
@@ -574,6 +587,7 @@ function processAnomaliCSV(rows) {
     const ppl = pplIdx !== -1 ? (r[pplIdx] || '').trim() : '';
     const pml = pmlIdx !== -1 ? (r[pmlIdx] || '').trim() : '';
     const status = statusIdx !== -1 ? (r[statusIdx] || '').trim() : '';
+    const namaAnomali = namaAnomaliIdx !== -1 ? (r[namaAnomaliIdx] || '').trim() : '';
 
     if (!rawKec) continue;
 
@@ -590,9 +604,11 @@ function processAnomaliCSV(rows) {
     totalKab++;
     kecObj.total++;
 
-    let isPerbaikan = status.toLowerCase().includes('perbaikan');
-    let isCatatan = status.toLowerCase().includes('penjelasan') || status.toLowerCase().includes('catatan');
-    let isBelum = !isPerbaikan && !isCatatan;
+    const isUsaha = namaAnomali.toUpperCase().includes('USAHA') || (!namaAnomali.toUpperCase().includes('KELUARGA'));
+    const isPerbaikan = status.toLowerCase().includes('perbaikan');
+    const isCatatan = status.toLowerCase().includes('penjelasan') || status.toLowerCase().includes('catatan');
+    const isSelesai = isPerbaikan || isCatatan;
+    const isBelum = !isSelesai;
 
     if (isPerbaikan) {
       perbaikanKab++;
@@ -603,6 +619,28 @@ function processAnomaliCSV(rows) {
     } else {
       belumKab++;
       kecObj.belum++;
+    }
+
+    if (isUsaha) {
+      usahaTotalKab++;
+      kecObj.usahaTotal++;
+      if (isSelesai) {
+        usahaSelesaiKab++;
+        kecObj.usahaSelesai++;
+      } else {
+        usahaBelumKab++;
+        kecObj.usahaBelum++;
+      }
+    } else {
+      keluargaTotalKab++;
+      kecObj.keluargaTotal++;
+      if (isSelesai) {
+        keluargaSelesaiKab++;
+        kecObj.keluargaSelesai++;
+      } else {
+        keluargaBelumKab++;
+        kecObj.keluargaBelum++;
+      }
     }
 
     if (ppl) {
@@ -631,6 +669,8 @@ function processAnomaliCSV(rows) {
     const item = kecMap[key];
     const namaKec = item.nama;
     const total = item.total || 1;
+    const uTot = item.usahaTotal || 1;
+    const kTot = item.keluargaTotal || 1;
 
     const pBelum = Math.round((item.belum / total) * 1000) / 10;
     const pCatatan = Math.round((item.catatan / total) * 1000) / 10;
@@ -654,6 +694,18 @@ function processAnomaliCSV(rows) {
     kecPetugas.anomaliBelum = pBelum;
     kecPetugas.anomaliCatatan = pCatatan;
     kecPetugas.anomaliPerbaikan = pPerbaikan;
+
+    kecPetugas.anomaliUsahaTotal = item.usahaTotal;
+    kecPetugas.anomaliUsahaSelesai = item.usahaSelesai;
+    kecPetugas.anomaliUsahaBelum = item.usahaBelum;
+    kecPetugas.persentaseAnomaliUsahaSelesai = item.usahaTotal > 0 ? Math.round((item.usahaSelesai / uTot) * 1000) / 10 : 100.0;
+    kecPetugas.persentaseAnomaliUsahaBelum = item.usahaTotal > 0 ? Math.round((item.usahaBelum / uTot) * 1000) / 10 : 0.0;
+
+    kecPetugas.anomaliKeluargaTotal = item.keluargaTotal;
+    kecPetugas.anomaliKeluargaSelesai = item.keluargaSelesai;
+    kecPetugas.anomaliKeluargaBelum = item.keluargaBelum;
+    kecPetugas.persentaseAnomaliKeluargaSelesai = item.keluargaTotal > 0 ? Math.round((item.keluargaSelesai / kTot) * 1000) / 10 : 100.0;
+    kecPetugas.persentaseAnomaliKeluargaBelum = item.keluargaTotal > 0 ? Math.round((item.keluargaBelum / kTot) * 1000) / 10 : 0.0;
 
     // Map PPLs from sheet
     const sheetPpls = Object.values(item.pplMap).map(p => ({
@@ -689,12 +741,25 @@ function processAnomaliCSV(rows) {
   });
 
   if (totalKab > 0) {
+    const uTotKab = usahaTotalKab || 1;
+    const kTotKab = keluargaTotalKab || 1;
+
     POSE_DATA.kpiKabupaten.totalAnomali = totalKab;
+    POSE_DATA.kpiKabupaten.anomaliUsahaTotal = usahaTotalKab;
+    POSE_DATA.kpiKabupaten.anomaliUsahaSelesai = usahaSelesaiKab;
+    POSE_DATA.kpiKabupaten.anomaliUsahaBelum = usahaBelumKab;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliUsahaSelesai = Math.round((usahaSelesaiKab / uTotKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliUsahaBelum = Math.round((usahaBelumKab / uTotKab) * 1000) / 10;
+
+    POSE_DATA.kpiKabupaten.anomaliKeluargaTotal = keluargaTotalKab;
+    POSE_DATA.kpiKabupaten.anomaliKeluargaSelesai = keluargaSelesaiKab;
+    POSE_DATA.kpiKabupaten.anomaliKeluargaBelum = keluargaBelumKab;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliKeluargaSelesai = Math.round((keluargaSelesaiKab / kTotKab) * 1000) / 10;
+    POSE_DATA.kpiKabupaten.persentaseAnomaliKeluargaBelum = Math.round((keluargaBelumKab / kTotKab) * 1000) / 10;
+
     POSE_DATA.kpiKabupaten.persentaseAnomaliBelum = Math.round((belumKab / totalKab) * 1000) / 10;
     POSE_DATA.kpiKabupaten.persentaseAnomaliCatatan = Math.round((catatanKab / totalKab) * 1000) / 10;
     POSE_DATA.kpiKabupaten.persentaseAnomaliPerbaikan = Math.round((perbaikanKab / totalKab) * 1000) / 10;
-    POSE_DATA.kpiKabupaten.persentaseAnomaliUsahaSelesai = Math.round(((catatanKab + perbaikanKab) / totalKab) * 1000) / 10;
-    POSE_DATA.kpiKabupaten.persentaseAnomaliKeluargaSelesai = Math.round(((catatanKab + perbaikanKab) / totalKab) * 1000) / 10;
   }
 
   return true;

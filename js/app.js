@@ -95,16 +95,8 @@ function populateKPIs() {
   if (barDraft) barDraft.style.width = `${kpi.persentaseDraft}%`;
   if (barApproved) barApproved.style.width = `${kpi.persentaseApproved}%`;
 
-  // Anomali KPIs
-  const elAnomaliUsaha = document.getElementById('kpi-anomali-usaha-val');
-  const elAnomaliKeluarga = document.getElementById('kpi-anomali-keluarga-val');
-  const barAnomaliUsaha = document.getElementById('kpi-anomali-usaha-bar');
-  const barAnomaliKeluarga = document.getElementById('kpi-anomali-keluarga-bar');
-
-  if (elAnomaliUsaha) elAnomaliUsaha.textContent = kpi.persentaseAnomaliUsahaSelesai;
-  if (elAnomaliKeluarga) elAnomaliKeluarga.textContent = kpi.persentaseAnomaliKeluargaSelesai;
-  if (barAnomaliUsaha) barAnomaliUsaha.style.width = `${kpi.persentaseAnomaliUsahaSelesai}%`;
-  if (barAnomaliKeluarga) barAnomaliKeluarga.style.width = `${kpi.persentaseAnomaliKeluargaSelesai}%`;
+  // Anomali KPIs (5 Kartu Dinamis)
+  updateAnomaliKPI("Kabupaten Jeneponto");
 }
 
 /**
@@ -868,13 +860,24 @@ function updateMonitoringKPI(selectedOption) {
  * Update Anomali KPI Cards Dynamically Based on Selected Wilayah
  */
 function updateAnomaliKPI(selectedOption) {
-  const elUsaha = document.getElementById('kpi-anomali-usaha-val');
-  const elKeluarga = document.getElementById('kpi-anomali-keluarga-val');
-  const barUsaha = document.getElementById('kpi-anomali-usaha-bar');
-  const barKeluarga = document.getElementById('kpi-anomali-keluarga-bar');
-  const descUsaha = document.getElementById('kpi-anomali-usaha-desc');
-  const descKeluarga = document.getElementById('kpi-anomali-keluarga-desc');
+  // Elements for 4 Percentage Cards
+  const elUsahaSelesai = document.getElementById('kpi-anomali-usaha-selesai-val');
+  const barUsahaSelesai = document.getElementById('kpi-anomali-usaha-selesai-bar');
+  const descUsahaSelesai = document.getElementById('kpi-anomali-usaha-selesai-desc');
 
+  const elUsahaBelum = document.getElementById('kpi-anomali-usaha-belum-val');
+  const barUsahaBelum = document.getElementById('kpi-anomali-usaha-belum-bar');
+  const descUsahaBelum = document.getElementById('kpi-anomali-usaha-belum-desc');
+
+  const elKeluargaSelesai = document.getElementById('kpi-anomali-keluarga-selesai-val');
+  const barKeluargaSelesai = document.getElementById('kpi-anomali-keluarga-selesai-bar');
+  const descKeluargaSelesai = document.getElementById('kpi-anomali-keluarga-selesai-desc');
+
+  const elKeluargaBelum = document.getElementById('kpi-anomali-keluarga-belum-val');
+  const barKeluargaBelum = document.getElementById('kpi-anomali-keluarga-belum-bar');
+  const descKeluargaBelum = document.getElementById('kpi-anomali-keluarga-belum-desc');
+
+  // Element for Wilayah Card
   const elWilTitle = document.getElementById('kpi-anomali-wilayah-title');
   const elWilVal = document.getElementById('kpi-anomali-wilayah-val');
   const elWilUnit = document.getElementById('kpi-anomali-wilayah-unit');
@@ -882,38 +885,64 @@ function updateAnomaliKPI(selectedOption) {
 
   if (selectedOption === "Kabupaten Jeneponto") {
     const kpi = POSE_DATA.kpiKabupaten;
-    const selesaiVal = kpi.persentaseAnomaliUsahaSelesai !== undefined ? kpi.persentaseAnomaliUsahaSelesai : 65.8;
-    const belumVal = kpi.persentaseAnomaliBelum !== undefined ? kpi.persentaseAnomaliBelum : 34.2;
+    const uSelesai = kpi.persentaseAnomaliUsahaSelesai !== undefined ? kpi.persentaseAnomaliUsahaSelesai : 86.6;
+    const uBelum = kpi.persentaseAnomaliUsahaBelum !== undefined ? kpi.persentaseAnomaliUsahaBelum : 13.4;
+    const kSelesai = kpi.persentaseAnomaliKeluargaSelesai !== undefined ? kpi.persentaseAnomaliKeluargaSelesai : 97.1;
+    const kBelum = kpi.persentaseAnomaliKeluargaBelum !== undefined ? kpi.persentaseAnomaliKeluargaBelum : 2.9;
 
-    if (elUsaha) elUsaha.textContent = selesaiVal;
-    if (elKeluarga) elKeluarga.textContent = belumVal;
-    if (barUsaha) barUsaha.style.width = `${selesaiVal}%`;
-    if (barKeluarga) barKeluarga.style.width = `${belumVal}%`;
-    if (descUsaha) descUsaha.textContent = `${kpi.totalAnomali ? kpi.totalAnomali + ' Total Kasus Anomali' : 'Persentase anomali telah ditindaklanjuti'}`;
-    if (descKeluarga) descKeluarga.textContent = "Persentase kasus anomali berstatus Belum Ditindaklanjuti";
+    const uTot = kpi.anomaliUsahaTotal || 1518;
+    const uSel = kpi.anomaliUsahaSelesai || 1314;
+    const uBel = kpi.anomaliUsahaBelum || 204;
 
-    if (elWilTitle) elWilTitle.textContent = "Wilayah Cakupan";
-    if (elWilVal) elWilVal.textContent = "11";
-    if (elWilUnit) elWilUnit.textContent = "Kecamatan";
-    if (elWilDesc) elWilDesc.textContent = `${kpi.totalAnomali || 1731} Total Kasus Anomali se-Kabupaten`;
+    const kTot = kpi.anomaliKeluargaTotal || 487;
+    const kSel = kpi.anomaliKeluargaSelesai || 473;
+    const kBel = kpi.anomaliKeluargaBelum || 14;
+
+    if (elUsahaSelesai) elUsahaSelesai.textContent = uSelesai;
+    if (barUsahaSelesai) barUsahaSelesai.style.width = `${uSelesai}%`;
+    if (descUsahaSelesai) descUsahaSelesai.textContent = `${uSel.toLocaleString('id-ID')} dari ${uTot.toLocaleString('id-ID')} kasus usaha selesai`;
+
+    if (elUsahaBelum) elUsahaBelum.textContent = uBelum;
+    if (barUsahaBelum) barUsahaBelum.style.width = `${uBelum}%`;
+    if (descUsahaBelum) descUsahaBelum.textContent = `${uBel.toLocaleString('id-ID')} kasus usaha belum ditindaklanjuti`;
+
+    if (elKeluargaSelesai) elKeluargaSelesai.textContent = kSelesai;
+    if (barKeluargaSelesai) barKeluargaSelesai.style.width = `${kSelesai}%`;
+    if (descKeluargaSelesai) descKeluargaSelesai.textContent = `${kSel.toLocaleString('id-ID')} dari ${kTot.toLocaleString('id-ID')} kasus keluarga selesai`;
+
+    if (elKeluargaBelum) elKeluargaBelum.textContent = kBelum;
+    if (barKeluargaBelum) barKeluargaBelum.style.width = `${kBelum}%`;
+    if (descKeluargaBelum) descKeluargaBelum.textContent = `${kBel.toLocaleString('id-ID')} kasus keluarga belum ditindaklanjuti`;
   } else {
-    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"];
-    const selesaiVal = Math.round(((dataKec.anomaliCatatan || 0) + (dataKec.anomaliPerbaikan || 0)) * 10) / 10;
-    const belumVal = dataKec.anomaliBelum || 0;
+    const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || {};
 
-    if (elUsaha) elUsaha.textContent = selesaiVal;
-    if (elKeluarga) elKeluarga.textContent = belumVal;
-    if (barUsaha) barUsaha.style.width = `${selesaiVal}%`;
-    if (barKeluarga) barKeluarga.style.width = `${belumVal}%`;
-    if (descUsaha) descUsaha.textContent = `${dataKec.anomaliTotal || 0} Kasus Anomali Kec. ${selectedOption}`;
-    if (descKeluarga) descKeluarga.textContent = `% Belum Ditindaklanjuti di Kec. ${selectedOption}`;
+    const uTot = dataKec.anomaliUsahaTotal !== undefined ? dataKec.anomaliUsahaTotal : 100;
+    const uSel = dataKec.anomaliUsahaSelesai !== undefined ? dataKec.anomaliUsahaSelesai : (uTot - (dataKec.anomaliUsahaBelum || 0));
+    const uBel = dataKec.anomaliUsahaBelum !== undefined ? dataKec.anomaliUsahaBelum : 0;
+    const uSelesai = dataKec.persentaseAnomaliUsahaSelesai !== undefined ? dataKec.persentaseAnomaliUsahaSelesai : (uTot > 0 ? Math.round((uSel / uTot) * 1000) / 10 : 100.0);
+    const uBelum = dataKec.persentaseAnomaliUsahaBelum !== undefined ? dataKec.persentaseAnomaliUsahaBelum : (uTot > 0 ? Math.round((uBel / uTot) * 1000) / 10 : 0.0);
 
-    if (elWilTitle) elWilTitle.textContent = `Kec. ${selectedOption}`;
-    const pplCount = dataKec.anomaliPplList ? dataKec.anomaliPplList.length : dataKec.totalPPL;
-    const pmlCount = dataKec.anomaliPmlList ? dataKec.anomaliPmlList.length : dataKec.totalPML;
-    if (elWilVal) elWilVal.textContent = pplCount;
-    if (elWilUnit) elWilUnit.textContent = "PPL";
-    if (elWilDesc) elWilDesc.textContent = `${pmlCount} PML | ${dataKec.anomaliTotal || 0} Kasus Anomali`;
+    const kTot = dataKec.anomaliKeluargaTotal !== undefined ? dataKec.anomaliKeluargaTotal : 50;
+    const kSel = dataKec.anomaliKeluargaSelesai !== undefined ? dataKec.anomaliKeluargaSelesai : (kTot - (dataKec.anomaliKeluargaBelum || 0));
+    const kBel = dataKec.anomaliKeluargaBelum !== undefined ? dataKec.anomaliKeluargaBelum : 0;
+    const kSelesai = dataKec.persentaseAnomaliKeluargaSelesai !== undefined ? dataKec.persentaseAnomaliKeluargaSelesai : (kTot > 0 ? Math.round((kSel / kTot) * 1000) / 10 : 100.0);
+    const kBelum = dataKec.persentaseAnomaliKeluargaBelum !== undefined ? dataKec.persentaseAnomaliKeluargaBelum : (kTot > 0 ? Math.round((kBel / kTot) * 1000) / 10 : 0.0);
+
+    if (elUsahaSelesai) elUsahaSelesai.textContent = uSelesai;
+    if (barUsahaSelesai) barUsahaSelesai.style.width = `${uSelesai}%`;
+    if (descUsahaSelesai) descUsahaSelesai.textContent = `${uSel.toLocaleString('id-ID')} dari ${uTot.toLocaleString('id-ID')} kasus usaha selesai`;
+
+    if (elUsahaBelum) elUsahaBelum.textContent = uBelum;
+    if (barUsahaBelum) barUsahaBelum.style.width = `${uBelum}%`;
+    if (descUsahaBelum) descUsahaBelum.textContent = `${uBel.toLocaleString('id-ID')} kasus usaha belum ditindaklanjuti`;
+
+    if (elKeluargaSelesai) elKeluargaSelesai.textContent = kSelesai;
+    if (barKeluargaSelesai) barKeluargaSelesai.style.width = `${kSelesai}%`;
+    if (descKeluargaSelesai) descKeluargaSelesai.textContent = `${kSel.toLocaleString('id-ID')} dari ${kTot.toLocaleString('id-ID')} kasus keluarga selesai`;
+
+    if (elKeluargaBelum) elKeluargaBelum.textContent = kBelum;
+    if (barKeluargaBelum) barKeluargaBelum.style.width = `${kBelum}%`;
+    if (descKeluargaBelum) descKeluargaBelum.textContent = `${kBel.toLocaleString('id-ID')} kasus keluarga belum ditindaklanjuti`;
   }
 }
 
