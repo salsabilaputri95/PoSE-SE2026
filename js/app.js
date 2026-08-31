@@ -311,14 +311,13 @@ function renderUsahaPusatTable() {
 
     return `
       <tr>
-        <td style="width: 45px; text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
-        <td><strong>${escapeHtml(companyName)}</strong></td>
+        <td style="width: 60px; text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
+        <td><strong style="color: var(--dark-slate);">${escapeHtml(companyName)}</strong></td>
         <td>
-          <span class="section-tag" style="font-size: 11.5px; font-weight: 700; color: var(--dark-slate); background: rgba(255, 107, 0, 0.1); border: 1px solid var(--border-orange); text-transform: none; padding: 4px 10px;">
+          <span class="section-tag" style="font-size: 12px; font-weight: 700; color: var(--dark-slate); background: rgba(255, 107, 0, 0.1); border: 1px solid var(--border-orange); text-transform: none; padding: 4px 12px;">
             <i class="fa-solid fa-store" style="color: var(--deep-orange);"></i> ${escapeHtml(brandName)}
           </span>
         </td>
-        <td style="font-size: 12.5px; color: #334155;">${escapeHtml(item.alamat || '-')}</td>
       </tr>
     `;
   }).join('');
