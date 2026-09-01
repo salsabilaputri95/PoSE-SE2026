@@ -1,0 +1,8 @@
+# Dokumen internal / konseptual
+PoSE_ Portal Sensus Ekonomi 2026 BPS Kabupaten Jeneponto.md
+
+# Scratch & temporary scripts
+scratch/
+scratch_*
+*.pyc
+__pycache__/
