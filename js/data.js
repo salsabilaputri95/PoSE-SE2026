@@ -58,6 +58,9 @@ const POSE_DATA = {
         "persentaseAnomaliBelum": 10.9,
         "persentaseAnomaliCatatan": 30.9,
         "persentaseAnomaliPerbaikan": 58.3,
+        "belumCount": 218,
+        "catatanCount": 619,
+        "perbaikanCount": 1168,
         "totalUsahaPusat": 34,
         "totalKeluargaKhusus": 28
     },
@@ -70,9 +73,13 @@ const POSE_DATA = {
                 "openDraft": 0.0,
                 "approved": 98.7,
                 "muatan": 9388,
-                "anomaliBelum": 9.2,
-                "anomaliCatatan": 34.0,
-                "anomaliPerbaikan": 56.9
+                "anomaliBelum": 0.0,
+                "anomaliCatatan": 39.1,
+                "anomaliPerbaikan": 60.9,
+                "anomaliTotal": 156,
+                "belumCount": 0,
+                "catatanCount": 61,
+                "perbaikanCount": 95
         },
         {
                 "nama": "Bangkala",
@@ -80,9 +87,13 @@ const POSE_DATA = {
                 "openDraft": 3.6,
                 "approved": 76.4,
                 "muatan": 26489,
-                "anomaliBelum": 3.8,
+                "anomaliBelum": 3.2,
                 "anomaliCatatan": 33.3,
-                "anomaliPerbaikan": 62.8
+                "anomaliPerbaikan": 63.5,
+                "anomaliTotal": 156,
+                "belumCount": 5,
+                "catatanCount": 52,
+                "perbaikanCount": 99
         },
         {
                 "nama": "Bangkala Barat",
@@ -90,9 +101,13 @@ const POSE_DATA = {
                 "openDraft": 3.3,
                 "approved": 74.7,
                 "muatan": 13248,
-                "anomaliBelum": 11.7,
-                "anomaliCatatan": 24.5,
-                "anomaliPerbaikan": 63.8
+                "anomaliBelum": 12.6,
+                "anomaliCatatan": 24.2,
+                "anomaliPerbaikan": 63.2,
+                "anomaliTotal": 95,
+                "belumCount": 12,
+                "catatanCount": 23,
+                "perbaikanCount": 60
         },
         {
                 "nama": "Batang",
@@ -100,9 +115,13 @@ const POSE_DATA = {
                 "openDraft": 0.0,
                 "approved": 93.3,
                 "muatan": 8422,
-                "anomaliBelum": 13.8,
-                "anomaliCatatan": 26.2,
-                "anomaliPerbaikan": 60.0
+                "anomaliBelum": 0.0,
+                "anomaliCatatan": 34.4,
+                "anomaliPerbaikan": 65.6,
+                "anomaliTotal": 64,
+                "belumCount": 0,
+                "catatanCount": 22,
+                "perbaikanCount": 42
         },
         {
                 "nama": "Binamu",
@@ -110,9 +129,13 @@ const POSE_DATA = {
                 "openDraft": 2.4,
                 "approved": 86.7,
                 "muatan": 27644,
-                "anomaliBelum": 18.2,
-                "anomaliCatatan": 30.2,
-                "anomaliPerbaikan": 51.5
+                "anomaliBelum": 4.9,
+                "anomaliCatatan": 36.8,
+                "anomaliPerbaikan": 58.2,
+                "anomaliTotal": 304,
+                "belumCount": 15,
+                "catatanCount": 112,
+                "perbaikanCount": 177
         },
         {
                 "nama": "Bontoramba",
@@ -120,9 +143,13 @@ const POSE_DATA = {
                 "openDraft": 1.3,
                 "approved": 95.8,
                 "muatan": 17451,
-                "anomaliBelum": 6.4,
-                "anomaliCatatan": 31.1,
-                "anomaliPerbaikan": 62.5
+                "anomaliBelum": 1.4,
+                "anomaliCatatan": 34.6,
+                "anomaliPerbaikan": 64.0,
+                "anomaliTotal": 289,
+                "belumCount": 4,
+                "catatanCount": 100,
+                "perbaikanCount": 185
         },
         {
                 "nama": "Kelara",
@@ -132,7 +159,11 @@ const POSE_DATA = {
                 "muatan": 12928,
                 "anomaliBelum": 0.3,
                 "anomaliCatatan": 43.6,
-                "anomaliPerbaikan": 56.1
+                "anomaliPerbaikan": 56.1,
+                "anomaliTotal": 303,
+                "belumCount": 1,
+                "catatanCount": 132,
+                "perbaikanCount": 170
         },
         {
                 "nama": "Rumbia",
@@ -140,9 +171,13 @@ const POSE_DATA = {
                 "openDraft": 0.1,
                 "approved": 98.8,
                 "muatan": 11624,
-                "anomaliBelum": 24.1,
-                "anomaliCatatan": 14.8,
-                "anomaliPerbaikan": 61.1
+                "anomaliBelum": 19.5,
+                "anomaliCatatan": 14.4,
+                "anomaliPerbaikan": 66.1,
+                "anomaliTotal": 118,
+                "belumCount": 23,
+                "catatanCount": 17,
+                "perbaikanCount": 78
         },
         {
                 "nama": "Tamalatea",
@@ -150,9 +185,13 @@ const POSE_DATA = {
                 "openDraft": 1.7,
                 "approved": 83.2,
                 "muatan": 20307,
-                "anomaliBelum": 14.5,
-                "anomaliCatatan": 32.3,
-                "anomaliPerbaikan": 53.2
+                "anomaliBelum": 11.0,
+                "anomaliCatatan": 34.3,
+                "anomaliPerbaikan": 54.7,
+                "anomaliTotal": 254,
+                "belumCount": 28,
+                "catatanCount": 87,
+                "perbaikanCount": 139
         },
         {
                 "nama": "Tarowang",
@@ -160,9 +199,13 @@ const POSE_DATA = {
                 "openDraft": 0.6,
                 "approved": 98.8,
                 "muatan": 10401,
-                "anomaliBelum": 11.0,
-                "anomaliCatatan": 21.5,
-                "anomaliPerbaikan": 67.5
+                "anomaliBelum": 11.1,
+                "anomaliCatatan": 21.7,
+                "anomaliPerbaikan": 67.2,
+                "anomaliTotal": 189,
+                "belumCount": 21,
+                "catatanCount": 41,
+                "perbaikanCount": 127
         },
         {
                 "nama": "Turatea",
@@ -170,9 +213,13 @@ const POSE_DATA = {
                 "openDraft": 1.5,
                 "approved": 64.5,
                 "muatan": 13727,
-                "anomaliBelum": 20.4,
-                "anomaliCatatan": 26.5,
-                "anomaliPerbaikan": 53.1
+                "anomaliBelum": 20.5,
+                "anomaliCatatan": 26.8,
+                "anomaliPerbaikan": 52.7,
+                "anomaliTotal": 112,
+                "belumCount": 23,
+                "catatanCount": 30,
+                "perbaikanCount": 59
         }
 ],
 
@@ -198,119 +245,187 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "MEDI AFRIANI",
-                        "anomaliTotal": 25,
-                        "anomaliBelum": 4.0,
-                        "anomaliCatatan": 48.0,
-                        "anomaliPerbaikan": 48.0
+                        "pml": "ABD HALIM HAKIM",
+                        "anomaliTotal": 26,
+                        "belumCount": 0,
+                        "catatanCount": 13,
+                        "perbaikanCount": 13,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "RESKY HANDAYANI",
-                        "anomaliTotal": 13,
-                        "anomaliBelum": 7.7,
-                        "anomaliCatatan": 38.5,
-                        "anomaliPerbaikan": 53.8
-            },
-            {
-                        "nama": "MUH. ANSYAR. A",
-                        "anomaliTotal": 5,
-                        "anomaliBelum": 20.0,
-                        "anomaliCatatan": 20.0,
-                        "anomaliPerbaikan": 60.0
-            },
-            {
-                        "nama": "RIZKI WAHYUNI",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 25.0,
-                        "anomaliCatatan": 25.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "SAHABUDDIN",
-                        "anomaliTotal": 8,
-                        "anomaliBelum": 25.0,
-                        "anomaliCatatan": 12.5,
-                        "anomaliPerbaikan": 62.5
-            },
-            {
-                        "nama": "HASRI MULIATI",
-                        "anomaliTotal": 15,
-                        "anomaliBelum": 20.0,
-                        "anomaliCatatan": 33.3,
-                        "anomaliPerbaikan": 46.7
-            },
-            {
-                        "nama": "NIRAWANTI",
-                        "anomaliTotal": 11,
-                        "anomaliBelum": 18.2,
-                        "anomaliCatatan": 27.3,
-                        "anomaliPerbaikan": 54.5
-            },
-            {
-                        "nama": "RESKY ARDIANTI.M",
-                        "anomaliTotal": 8,
-                        "anomaliBelum": 12.5,
-                        "anomaliCatatan": 37.5,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "SYAMSINAR",
-                        "anomaliTotal": 8,
-                        "anomaliBelum": 25.0,
-                        "anomaliCatatan": 37.5,
-                        "anomaliPerbaikan": 37.5
+                        "pml": "ABD HALIM HAKIM",
+                        "anomaliTotal": 14,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 42.9,
+                        "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "RIZAL ILYAS",
+                        "pml": "ABD HALIM HAKIM",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 55.6,
                         "anomaliPerbaikan": 44.4
             },
             {
                         "nama": "ANNISA M",
-                        "anomaliTotal": 14,
+                        "pml": "HASBULLAH. H",
+                        "anomaliTotal": 13,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 11,
                         "anomaliBelum": 0.0,
-                        "anomaliCatatan": 21.4,
-                        "anomaliPerbaikan": 78.6
+                        "anomaliCatatan": 15.4,
+                        "anomaliPerbaikan": 84.6
             },
             {
                         "nama": "KURNIA",
+                        "pml": "HASBULLAH. H",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 60.0,
                         "anomaliPerbaikan": 40.0
+            },
+            {
+                        "nama": "MUH. ANSYAR. A",
+                        "pml": "HASBULLAH. H",
+                        "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 40.0,
+                        "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "RASNI RAMADHANI",
+                        "pml": "HASBULLAH. H",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 60.0,
                         "anomaliPerbaikan": 40.0
             },
             {
+                        "nama": "RIZKI WAHYUNI",
+                        "pml": "HASBULLAH. H",
+                        "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 40.0,
+                        "anomaliPerbaikan": 60.0
+            },
+            {
+                        "nama": "SAHABUDDIN",
+                        "pml": "HASBULLAH. H",
+                        "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 7,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 22.2,
+                        "anomaliPerbaikan": 77.8
+            },
+            {
+                        "nama": "HASRI MULIATI",
+                        "pml": "IMA RESKI",
+                        "anomaliTotal": 16,
+                        "belumCount": 0,
+                        "catatanCount": 8,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "NIRAWANTI",
+                        "pml": "IMA RESKI",
+                        "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 6,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 40.0,
+                        "anomaliPerbaikan": 60.0
+            },
+            {
+                        "nama": "RESKY ARDIANTI.M",
+                        "pml": "IMA RESKI",
+                        "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "SYAMSINAR",
+                        "pml": "IMA RESKI",
+                        "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 37.5,
+                        "anomaliPerbaikan": 62.5
+            },
+            {
                         "nama": "WASLAH ZAKIAH SYAM",
+                        "pml": "IMA RESKI",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SRI RAHMIDANI IMRAN",
+                        "pml": "HASBULLAH. H",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "NADYA",
+                        "pml": "IMA RESKI",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "NUR RAHMADANI. S",
+                        "pml": "IMA RESKI",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -319,24 +434,59 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "ABD HALIM HAKIM",
-                        "anomaliTotal": 47,
-                        "anomaliBelum": 4.3,
-                        "anomaliCatatan": 46.8,
-                        "anomaliPerbaikan": 48.9
+                        "pplCount": 3,
+                        "pplList": [
+                                    "MEDI AFRIANI",
+                                    "RIZAL ILYAS",
+                                    "RESKY HANDAYANI"
+                        ],
+                        "anomaliTotal": 49,
+                        "belumCount": 0,
+                        "catatanCount": 24,
+                        "perbaikanCount": 25,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 49.0,
+                        "anomaliPerbaikan": 51.0
             },
             {
                         "nama": "HASBULLAH. H",
-                        "anomaliTotal": 50,
-                        "anomaliBelum": 8.0,
-                        "anomaliCatatan": 30.0,
-                        "anomaliPerbaikan": 62.0
+                        "pplCount": 7,
+                        "pplList": [
+                                    "RIZKI WAHYUNI",
+                                    "SAHABUDDIN",
+                                    "ANNISA M",
+                                    "KURNIA",
+                                    "RASNI RAMADHANI",
+                                    "SRI RAHMIDANI IMRAN",
+                                    "MUH. ANSYAR. A"
+                        ],
+                        "anomaliTotal": 51,
+                        "belumCount": 0,
+                        "catatanCount": 17,
+                        "perbaikanCount": 34,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "IMA RESKI",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "NUR RAHMADANI. S",
+                                    "RESKY ARDIANTI.M",
+                                    "NADYA",
+                                    "SYAMSINAR",
+                                    "WASLAH ZAKIAH SYAM",
+                                    "HASRI MULIATI",
+                                    "NIRAWANTI"
+                        ],
                         "anomaliTotal": 56,
-                        "anomaliBelum": 14.3,
-                        "anomaliCatatan": 26.8,
-                        "anomaliPerbaikan": 58.9
+                        "belumCount": 0,
+                        "catatanCount": 20,
+                        "perbaikanCount": 36,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 35.7,
+                        "anomaliPerbaikan": 64.3
             }
 ],
                 "openDraft": 0.0,
@@ -569,6 +719,9 @@ const POSE_DATA = {
                 "muatan": 26489,
                 "progres": 95.9,
         anomaliTotal: 156,
+        belumCount: 5,
+        catatanCount: 61,
+        perbaikanCount: 95,
         anomaliUsahaTotal: 123,
         anomaliUsahaSelesai: 117,
         anomaliUsahaBelum: 6,
@@ -584,246 +737,386 @@ const POSE_DATA = {
         anomaliPerbaikan: 62.8,
         anomaliPplList: [
             {
-                        "nama": "PUTRI DWI ARIANTI",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
                         "nama": "RISKAWATI",
+                        "pml": "FADEL",
                         "anomaliTotal": 6,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 33.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SUNARTI",
+                        "pml": "FADEL",
                         "anomaliTotal": 4,
+                        "belumCount": 1,
+                        "catatanCount": 2,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 25.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 25.0
             },
             {
                         "nama": "ANDI HASRUL HARIS",
+                        "pml": "PERAWATI RAMLI",
                         "anomaliTotal": 1,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 100.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "RAHMIATI",
+                        "pml": "PERAWATI RAMLI",
                         "anomaliTotal": 7,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 14.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 85.7
             },
             {
                         "nama": "A.M.ILHAM FIRDAUS",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 44.4,
                         "anomaliPerbaikan": 55.6
             },
             {
                         "nama": "ASTRI YULIATMI",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "HALIJA",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "NURUL FAHMI",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 12,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "RAHMI",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SRI INDAH SARI",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 28.6,
                         "anomaliPerbaikan": 71.4
             },
             {
                         "nama": "ANDI AYU JUNIA FITRIANI LOMBA",
+                        "pml": "ANDI ASTRID",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "AULIA SHIERA",
+                        "pml": "ANDI ASTRID",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MENTARI ASMAR",
+                        "pml": "ANDI ASTRID",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 57.1,
                         "anomaliPerbaikan": 42.9
             },
             {
                         "nama": "MIRA",
+                        "pml": "ANDI ASTRID",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MUH.FAHMI PRASETYO",
+                        "pml": "FADEL",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 20.0,
                         "anomaliPerbaikan": 80.0
             },
             {
                         "nama": "NURJANNAH",
+                        "pml": "FADEL",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "RISKA SAINUDDIN",
+                        "pml": "FADEL",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "A.TRI NURUL ADHA K",
+                        "pml": "HENDRA SUGIARTHO",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "EVI ASHARI",
+                        "pml": "HENDRA SUGIARTHO",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "FERRI FADLI",
+                        "pml": "HENDRA SUGIARTHO",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SYAMSURIA",
+                        "pml": "HENDRA SUGIARTHO",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 100.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "MARLINA",
+                        "pml": "NASRULLAH",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SUMARNI",
+                        "pml": "NASRULLAH",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 16.7,
                         "anomaliPerbaikan": 83.3
             },
             {
                         "nama": "ARWINI PUSPITASARI",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "ELVA RIANI",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "RABIATUL AL ADAWIAH",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "ST KASMA",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 16,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 43.8,
                         "anomaliPerbaikan": 56.2
             },
             {
-                        "nama": "A.RIVALDY LATIEF",
+                        "nama": "PUTRI DWI ARIANTI",
+                        "pml": "AFDALIAH YAHYA",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 100.0
+            },
+            {
+                        "nama": "A.RIVALDY LATIEF",
+                        "pml": "NASRULLAH",
+                        "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "DASWANG",
+                        "pml": "NASRULLAH",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "BASRI",
+                        "pml": "PERAWATI RAMLI",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "MUH.ANGGA GAUTAMA PUTRA",
+                        "pml": "PERAWATI RAMLI",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "ARIFIN",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "RUSNI",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "SRI WARNI",
+                        "pml": "ROBI DARWIS",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -831,50 +1124,128 @@ const POSE_DATA = {
 ],
         anomaliPmlList: [
             {
-                        "nama": "AFDALIAH YAHYA",
-                        "anomaliTotal": 39,
-                        "anomaliBelum": 2.6,
-                        "anomaliCatatan": 38.5,
-                        "anomaliPerbaikan": 59.0
-            },
-            {
                         "nama": "FADEL",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "MUH.FAHMI PRASETYO",
+                                    "NURJANNAH",
+                                    "RISKAWATI",
+                                    "SUNARTI",
+                                    "RISKA SAINUDDIN"
+                        ],
                         "anomaliTotal": 19,
+                        "belumCount": 3,
+                        "catatanCount": 3,
+                        "perbaikanCount": 13,
                         "anomaliBelum": 15.8,
                         "anomaliCatatan": 15.8,
                         "anomaliPerbaikan": 68.4
             },
             {
                         "nama": "PERAWATI RAMLI",
+                        "pplCount": 4,
+                        "pplList": [
+                                    "RAHMIATI",
+                                    "MUH.ANGGA GAUTAMA PUTRA",
+                                    "BASRI",
+                                    "ANDI HASRUL HARIS"
+                        ],
                         "anomaliTotal": 15,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 13,
                         "anomaliBelum": 13.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 86.7
             },
             {
+                        "nama": "AFDALIAH YAHYA",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "HALIJA",
+                                    "NURUL FAHMI",
+                                    "A.M.ILHAM FIRDAUS",
+                                    "SRI INDAH SARI",
+                                    "PUTRI DWI ARIANTI",
+                                    "RAHMI",
+                                    "ASTRI YULIATMI"
+                        ],
+                        "anomaliTotal": 39,
+                        "belumCount": 0,
+                        "catatanCount": 15,
+                        "perbaikanCount": 24,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 38.5,
+                        "anomaliPerbaikan": 61.5
+            },
+            {
                         "nama": "ANDI ASTRID",
+                        "pplCount": 4,
+                        "pplList": [
+                                    "ANDI AYU JUNIA FITRIANI LOMBA",
+                                    "AULIA SHIERA",
+                                    "MIRA",
+                                    "MENTARI ASMAR"
+                        ],
                         "anomaliTotal": 13,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 53.8,
                         "anomaliPerbaikan": 46.2
             },
             {
                         "nama": "HENDRA SUGIARTHO",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "EVI ASHARI",
+                                    "A.TRI NURUL ADHA K",
+                                    "FERRI FADLI",
+                                    "SUNARTI",
+                                    "SYAMSURIA"
+                        ],
                         "anomaliTotal": 21,
+                        "belumCount": 0,
+                        "catatanCount": 10,
+                        "perbaikanCount": 11,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 47.6,
                         "anomaliPerbaikan": 52.4
             },
             {
                         "nama": "NASRULLAH",
+                        "pplCount": 4,
+                        "pplList": [
+                                    "DASWANG",
+                                    "MARLINA",
+                                    "A.RIVALDY LATIEF",
+                                    "SUMARNI"
+                        ],
                         "anomaliTotal": 14,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 10,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 28.6,
                         "anomaliPerbaikan": 71.4
             },
             {
                         "nama": "ROBI DARWIS",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "SRI WARNI",
+                                    "RABIATUL AL ADAWIAH",
+                                    "ARIFIN",
+                                    "ARWINI PUSPITASARI",
+                                    "RUSNI",
+                                    "ST KASMA",
+                                    "ELVA RIANI"
+                        ],
                         "anomaliTotal": 35,
+                        "belumCount": 0,
+                        "catatanCount": 13,
+                        "perbaikanCount": 22,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 37.1,
                         "anomaliPerbaikan": 62.9
@@ -1517,99 +1888,155 @@ const POSE_DATA = {
         anomaliPerbaikan: 63.8,
         anomaliPplList: [
             {
+                        "nama": "ANSAR RAHIMAKUMULLAH",
+                        "pml": "KASMAWATI ARLAN",
+                        "anomaliTotal": 3,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 33.3,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 33.3
+            },
+            {
                         "nama": "NENGSI",
+                        "pml": "SULTAN",
                         "anomaliTotal": 6,
+                        "belumCount": 3,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURINDAH SUKRI",
+                        "pml": "SULTAN",
                         "anomaliTotal": 18,
+                        "belumCount": 8,
+                        "catatanCount": 0,
+                        "perbaikanCount": 10,
                         "anomaliBelum": 44.4,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 55.6
             },
             {
                         "nama": "DIVA ALFATIHA MAHARANI",
+                        "pml": "AMANDA TRINI WAHDANIAH",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 28.6,
                         "anomaliPerbaikan": 71.4
             },
             {
                         "nama": "DWI ERNI AL HIJRAH",
+                        "pml": "AMANDA TRINI WAHDANIAH",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 16.7,
                         "anomaliPerbaikan": 83.3
             },
             {
                         "nama": "HASBI SUKKU",
+                        "pml": "AMANDA TRINI WAHDANIAH",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "NOPIYANTI",
+                        "pml": "AMANDA TRINI WAHDANIAH",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 16.7,
                         "anomaliPerbaikan": 83.3
             },
             {
                         "nama": "SELMIANTI",
+                        "pml": "AMANDA TRINI WAHDANIAH",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "A.POPPI AZHARI",
+                        "pml": "KASMAWATI ARLAN",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 44.4,
                         "anomaliPerbaikan": 55.6
             },
             {
-                        "nama": "ANSAR RAHIMAKUMULLAH",
-                        "anomaliTotal": 2,
-                        "anomaliBelum": 0.0,
-                        "anomaliCatatan": 50.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
                         "nama": "RAHMAN",
+                        "pml": "KASMAWATI ARLAN",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "TABA",
+                        "pml": "KASMAWATI ARLAN",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "MUH.ILYAS PASANG,S.KEP",
+                        "pml": "SULTAN",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "SRI YULIANA P.",
+                        "pml": "SULTAN",
                         "anomaliTotal": 21,
+                        "belumCount": 0,
+                        "catatanCount": 8,
+                        "perbaikanCount": 13,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 38.1,
                         "anomaliPerbaikan": 61.9
             },
             {
                         "nama": "PUTRI NENGSI",
+                        "pml": "KASMAWATI ARLAN",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -1617,25 +2044,57 @@ const POSE_DATA = {
 ],
         anomaliPmlList: [
             {
+                        "nama": "KASMAWATI ARLAN",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "TABA",
+                                    "PUTRI NENGSI",
+                                    "ANSAR RAHIMAKUMULLAH",
+                                    "RAHMAN",
+                                    "A.POPPI AZHARI"
+                        ],
+                        "anomaliTotal": 18,
+                        "belumCount": 1,
+                        "catatanCount": 7,
+                        "perbaikanCount": 10,
+                        "anomaliBelum": 5.6,
+                        "anomaliCatatan": 38.9,
+                        "anomaliPerbaikan": 55.6
+            },
+            {
                         "nama": "SULTAN",
+                        "pplCount": 4,
+                        "pplList": [
+                                    "MUH.ILYAS PASANG,S.KEP",
+                                    "SRI YULIANA P.",
+                                    "NURINDAH SUKRI",
+                                    "NENGSI"
+                        ],
                         "anomaliTotal": 49,
+                        "belumCount": 11,
+                        "catatanCount": 9,
+                        "perbaikanCount": 29,
                         "anomaliBelum": 22.4,
                         "anomaliCatatan": 18.4,
                         "anomaliPerbaikan": 59.2
             },
             {
                         "nama": "AMANDA TRINI WAHDANIAH",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "NOPIYANTI",
+                                    "HASBI SUKKU",
+                                    "SELMIANTI",
+                                    "DIVA ALFATIHA MAHARANI",
+                                    "DWI ERNI AL HIJRAH"
+                        ],
                         "anomaliTotal": 28,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 21,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
-            },
-            {
-                        "nama": "KASMAWATI ARLAN",
-                        "anomaliTotal": 17,
-                        "anomaliBelum": 0.0,
-                        "anomaliCatatan": 41.2,
-                        "anomaliPerbaikan": 58.8
             }
 ],
                 "openDraft": 3.3,
@@ -1992,92 +2451,144 @@ const POSE_DATA = {
         anomaliPerbaikan: 60.0,
         anomaliPplList: [
             {
-                        "nama": "SUSANTO",
-                        "anomaliTotal": 8,
-                        "anomaliBelum": 25.0,
-                        "anomaliCatatan": 12.5,
-                        "anomaliPerbaikan": 62.5
-            },
-            {
-                        "nama": "A.MUTI ANGRAENI",
-                        "anomaliTotal": 7,
-                        "anomaliBelum": 42.9,
-                        "anomaliCatatan": 14.3,
-                        "anomaliPerbaikan": 42.9
-            },
-            {
-                        "nama": "M.AZHAR",
-                        "anomaliTotal": 2,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "NAMIRA RAHMADANI ADIL NINRA",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
-                        "nama": "SUGIANTO",
-                        "anomaliTotal": 2,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "SUKAENA",
-                        "anomaliTotal": 11,
-                        "anomaliBelum": 9.1,
-                        "anomaliCatatan": 18.2,
-                        "anomaliPerbaikan": 72.7
-            },
-            {
                         "nama": "NURUL HIKMAH. AS",
+                        "pml": "ABD HALIM HAKIM",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
+                        "nama": "SUSANTO",
+                        "pml": "ABD HALIM HAKIM",
+                        "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 28.6,
+                        "anomaliPerbaikan": 71.4
+            },
+            {
+                        "nama": "A.MUTI ANGRAENI",
+                        "pml": "AHMAD SETYAWAN HALIM",
+                        "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 4,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 66.7
+            },
+            {
+                        "nama": "M.AZHAR",
+                        "pml": "AHMAD SETYAWAN HALIM",
+                        "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "NAMIRA RAHMADANI ADIL NINRA",
+                        "pml": "AHMAD SETYAWAN HALIM",
+                        "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
                         "nama": "SAHARUDDIN",
+                        "pml": "AHMAD SETYAWAN HALIM",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SRI DEVI",
+                        "pml": "AHMAD SETYAWAN HALIM",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "KARMILA",
+                        "pml": "NUR ANNIZA HALIM",
                         "anomaliTotal": 14,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "RISNAWATI",
+                        "pml": "NUR ANNIZA HALIM",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 37.5,
                         "anomaliPerbaikan": 62.5
             },
             {
+                        "nama": "SUKAENA",
+                        "pml": "NUR ANNIZA HALIM",
+                        "anomaliTotal": 12,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 9,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 25.0,
+                        "anomaliPerbaikan": 75.0
+            },
+            {
                         "nama": "EKA LESTARI",
+                        "pml": "ABD HALIM HAKIM",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 100.0
+            },
+            {
+                        "nama": "SUGIANTO",
+                        "pml": "AHMAD SETYAWAN HALIM",
+                        "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "RAHMAWATI",
+                        "pml": "NUR ANNIZA HALIM",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -2086,24 +2597,55 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "ABD HALIM HAKIM",
-                        "anomaliTotal": 12,
-                        "anomaliBelum": 16.7,
-                        "anomaliCatatan": 16.7,
-                        "anomaliPerbaikan": 66.7
+                        "pplCount": 3,
+                        "pplList": [
+                                    "EKA LESTARI",
+                                    "SUSANTO",
+                                    "NURUL HIKMAH. AS"
+                        ],
+                        "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 27.3,
+                        "anomaliPerbaikan": 72.7
             },
             {
                         "nama": "AHMAD SETYAWAN HALIM",
-                        "anomaliTotal": 17,
-                        "anomaliBelum": 35.3,
-                        "anomaliCatatan": 17.6,
-                        "anomaliPerbaikan": 47.1
+                        "pplCount": 6,
+                        "pplList": [
+                                    "SAHARUDDIN",
+                                    "A.MUTI ANGRAENI",
+                                    "SUGIANTO",
+                                    "M.AZHAR",
+                                    "NAMIRA RAHMADANI ADIL NINRA",
+                                    "SRI DEVI"
+                        ],
+                        "anomaliTotal": 16,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 10,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 37.5,
+                        "anomaliPerbaikan": 62.5
             },
             {
                         "nama": "NUR ANNIZA HALIM",
-                        "anomaliTotal": 36,
-                        "anomaliBelum": 2.8,
-                        "anomaliCatatan": 33.3,
-                        "anomaliPerbaikan": 63.9
+                        "pplCount": 4,
+                        "pplList": [
+                                    "RAHMAWATI",
+                                    "RISNAWATI",
+                                    "SUKAENA",
+                                    "KARMILA"
+                        ],
+                        "anomaliTotal": 37,
+                        "belumCount": 0,
+                        "catatanCount": 13,
+                        "perbaikanCount": 24,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 35.1,
+                        "anomaliPerbaikan": 64.9
             }
 ],
                 "openDraft": 0.0,
@@ -2340,260 +2882,408 @@ const POSE_DATA = {
         anomaliPerbaikan: 51.5,
         anomaliPplList: [
             {
-                        "nama": "ALIFIA RAMADHANI EMILY",
-                        "anomaliTotal": 8,
-                        "anomaliBelum": 12.5,
-                        "anomaliCatatan": 37.5,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
                         "nama": "ARINI NURFADHILAH RIDWAN",
-                        "anomaliTotal": 3,
-                        "anomaliBelum": 66.7,
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
+                        "anomaliTotal": 5,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 40.0,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 33.3
-            },
-            {
-                        "nama": "JUMRIANI",
-                        "anomaliTotal": 15,
-                        "anomaliBelum": 20.0,
-                        "anomaliCatatan": 13.3,
-                        "anomaliPerbaikan": 66.7
-            },
-            {
-                        "nama": "NURLIANTI",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
-                        "nama": "PARIDA PURNAMA RAMADHANI",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 25.0,
-                        "anomaliCatatan": 50.0,
-                        "anomaliPerbaikan": 25.0
-            },
-            {
-                        "nama": "ANNISA NUR PADILA",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "ANUGRAH DEWANTORO",
-                        "anomaliTotal": 9,
-                        "anomaliBelum": 66.7,
-                        "anomaliCatatan": 11.1,
-                        "anomaliPerbaikan": 22.2
-            },
-            {
-                        "nama": "DEWI",
-                        "anomaliTotal": 37,
-                        "anomaliBelum": 8.1,
-                        "anomaliCatatan": 48.6,
-                        "anomaliPerbaikan": 43.2
-            },
-            {
-                        "nama": "KASMAWATI",
-                        "anomaliTotal": 9,
-                        "anomaliBelum": 22.2,
-                        "anomaliCatatan": 44.4,
-                        "anomaliPerbaikan": 33.3
-            },
-            {
-                        "nama": "RISKA EKA PUTRI",
-                        "anomaliTotal": 11,
-                        "anomaliBelum": 27.3,
-                        "anomaliCatatan": 45.5,
-                        "anomaliPerbaikan": 27.3
-            },
-            {
-                        "nama": "SRI ISRAWATI",
-                        "anomaliTotal": 3,
-                        "anomaliBelum": 33.3,
-                        "anomaliCatatan": 33.3,
-                        "anomaliPerbaikan": 33.3
+                        "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "NABILA LILIYANTI SALSABIL",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
                         "anomaliTotal": 10,
+                        "belumCount": 1,
+                        "catatanCount": 3,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 10.0,
                         "anomaliCatatan": 30.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "SAHRUL REZKI SETIAWAN",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
                         "anomaliTotal": 19,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 18,
                         "anomaliBelum": 5.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 94.7
             },
             {
-                        "nama": "SELFI",
-                        "anomaliTotal": 28,
-                        "anomaliBelum": 7.1,
-                        "anomaliCatatan": 32.1,
-                        "anomaliPerbaikan": 60.7
-            },
-            {
-                        "nama": "NUR ALDHIRA AZIZAH. K",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 25.0,
-                        "anomaliPerbaikan": 25.0
-            },
-            {
                         "nama": "NUR RAHMA AZIZAH BASMAHUDDIN",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
                         "anomaliTotal": 9,
-                        "anomaliBelum": 22.2,
-                        "anomaliCatatan": 33.3,
+                        "belumCount": 1,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
+                        "anomaliBelum": 11.1,
+                        "anomaliCatatan": 44.4,
                         "anomaliPerbaikan": 44.4
             },
             {
-                        "nama": "SITI AINUN JENIHARTA",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
-                        "nama": "SYAMSIAR",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 75.0,
-                        "anomaliCatatan": 25.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
                         "nama": "LESYIA NURFADILA",
-                        "anomaliTotal": 9,
-                        "anomaliBelum": 22.2,
-                        "anomaliCatatan": 11.1,
-                        "anomaliPerbaikan": 66.7
+                        "pml": "NURLIYANA S.SOS",
+                        "anomaliTotal": 11,
+                        "belumCount": 1,
+                        "catatanCount": 2,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 9.1,
+                        "anomaliCatatan": 18.2,
+                        "anomaliPerbaikan": 72.7
             },
             {
                         "nama": "NUR ALIYAH FEBRINA RAZAK",
-                        "anomaliTotal": 13,
-                        "anomaliBelum": 30.8,
-                        "anomaliCatatan": 23.1,
-                        "anomaliPerbaikan": 46.2
-            },
-            {
-                        "nama": "RISMAYANTI",
-                        "anomaliTotal": 7,
-                        "anomaliBelum": 57.1,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 42.9
-            },
-            {
-                        "nama": "ISNA",
-                        "anomaliTotal": 2,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
+                        "pml": "NURLIYANA S.SOS",
+                        "anomaliTotal": 14,
+                        "belumCount": 4,
+                        "catatanCount": 3,
+                        "perbaikanCount": 7,
+                        "anomaliBelum": 28.6,
+                        "anomaliCatatan": 21.4,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MISNAH",
+                        "pml": "WAHYUNI TOMO",
                         "anomaliTotal": 1,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 100.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "SRI WAHYUNI PRATIWI SUDIRMAN",
+                        "pml": "WAHYUNI TOMO",
                         "anomaliTotal": 2,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "WAWAN SETIAWAN",
+                        "pml": "WAHYUNI TOMO",
                         "anomaliTotal": 4,
+                        "belumCount": 3,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 75.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 25.0
             },
             {
+                        "nama": "ALIFIA RAMADHANI EMILY",
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
+                        "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 44.4,
+                        "anomaliPerbaikan": 55.6
+            },
+            {
+                        "nama": "JUMRIANI",
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
+                        "anomaliTotal": 15,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 13,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 13.3,
+                        "anomaliPerbaikan": 86.7
+            },
+            {
+                        "nama": "PARIDA PURNAMA RAMADHANI",
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
+                        "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
                         "nama": "SRI RAHMADANI",
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
-                        "nama": "NURUL AWALIAH",
+                        "nama": "ANNISA NUR PADILA",
+                        "pml": "EKAWATI",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 25.0,
+                        "anomaliPerbaikan": 75.0
+            },
+            {
+                        "nama": "ANUGRAH DEWANTORO",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 75.0,
+                        "anomaliPerbaikan": 25.0
+            },
+            {
+                        "nama": "DEWI",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 37,
+                        "belumCount": 0,
+                        "catatanCount": 18,
+                        "perbaikanCount": 19,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 48.6,
+                        "anomaliPerbaikan": 51.4
+            },
+            {
+                        "nama": "KASMAWATI",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 66.7,
+                        "anomaliPerbaikan": 33.3
+            },
+            {
+                        "nama": "NURUL AWALIAH",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "RISKA EKA PUTRI",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 12,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 6,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "SRI ISRAWATI",
+                        "pml": "EKAWATI",
+                        "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "FEBRIYANA GUNAWAN",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "MUH NURWAHYU",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
+                        "nama": "SELFI",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
+                        "anomaliTotal": 29,
+                        "belumCount": 0,
+                        "catatanCount": 11,
+                        "perbaikanCount": 18,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 37.9,
+                        "anomaliPerbaikan": 62.1
+            },
+            {
                         "nama": "DELA NURCAHYANI",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 71.4,
                         "anomaliPerbaikan": 28.6
             },
             {
                         "nama": "FADLIAH YUSMAN",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
+                        "nama": "NUR ALDHIRA AZIZAH. K",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
+                        "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "SITI AINUN JENIHARTA",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
+                        "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "SYAMSIAR",
+                        "pml": "MUH TRIALDI SYARIFUDDIN",
+                        "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 57.1,
+                        "anomaliPerbaikan": 42.9
+            },
+            {
                         "nama": "HUSNIATI K",
+                        "pml": "NURLIYANA S.SOS",
                         "anomaliTotal": 13,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 38.5,
                         "anomaliPerbaikan": 61.5
             },
             {
                         "nama": "MIRWAHYUNI",
+                        "pml": "NURLIYANA S.SOS",
                         "anomaliTotal": 19,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 36.8,
                         "anomaliPerbaikan": 63.2
             },
             {
                         "nama": "NURFANI FADHILA RAZAK",
+                        "pml": "NURLIYANA S.SOS",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURFINA FADHILA RAZAK",
+                        "pml": "NURLIYANA S.SOS",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
-                        "nama": "ASMAUL HUSNA",
+                        "nama": "RISMAYANTI",
+                        "pml": "NURLIYANA S.SOS",
+                        "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 44.4,
+                        "anomaliPerbaikan": 55.6
+            },
+            {
+                        "nama": "NURLIANTI",
+                        "pml": "DWI REZKI AMALIA SYARIFUDDIN",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 100.0
+            },
+            {
+                        "nama": "ASMAUL HUSNA",
+                        "pml": "H. M. SABRI. G. SE. DG JARRE",
+                        "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "ST ARPHINA BAHAR",
+                        "pml": "NURLIYANA S.SOS",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 100.0
+            },
+            {
+                        "nama": "ISNA",
+                        "pml": "WAHYUNI TOMO",
+                        "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -2602,45 +3292,118 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "DWI REZKI AMALIA SYARIFUDDIN",
-                        "anomaliTotal": 36,
-                        "anomaliBelum": 22.2,
-                        "anomaliCatatan": 25.0,
-                        "anomaliPerbaikan": 52.8
-            },
-            {
-                        "nama": "EKAWATI",
-                        "anomaliTotal": 77,
-                        "anomaliBelum": 22.1,
-                        "anomaliCatatan": 40.3,
-                        "anomaliPerbaikan": 37.7
+                        "pplCount": 6,
+                        "pplList": [
+                                    "PARIDA PURNAMA RAMADHANI",
+                                    "ALIFIA RAMADHANI EMILY",
+                                    "ARINI NURFADHILAH RIDWAN",
+                                    "NURLIANTI",
+                                    "JUMRIANI",
+                                    "SRI RAHMADANI"
+                        ],
+                        "anomaliTotal": 39,
+                        "belumCount": 2,
+                        "catatanCount": 10,
+                        "perbaikanCount": 27,
+                        "anomaliBelum": 5.1,
+                        "anomaliCatatan": 25.6,
+                        "anomaliPerbaikan": 69.2
             },
             {
                         "nama": "H. M. SABRI. G. SE. DG JARRE",
-                        "anomaliTotal": 70,
-                        "anomaliBelum": 5.7,
-                        "anomaliCatatan": 24.3,
-                        "anomaliPerbaikan": 70.0
+                        "pplCount": 6,
+                        "pplList": [
+                                    "NABILA LILIYANTI SALSABIL",
+                                    "SAHRUL REZKI SETIAWAN",
+                                    "MUH NURWAHYU",
+                                    "SELFI",
+                                    "ASMAUL HUSNA",
+                                    "FEBRIYANA GUNAWAN"
+                        ],
+                        "anomaliTotal": 71,
+                        "belumCount": 2,
+                        "catatanCount": 19,
+                        "perbaikanCount": 50,
+                        "anomaliBelum": 2.8,
+                        "anomaliCatatan": 26.8,
+                        "anomaliPerbaikan": 70.4
             },
             {
                         "nama": "MUH TRIALDI SYARIFUDDIN",
-                        "anomaliTotal": 27,
-                        "anomaliBelum": 29.6,
-                        "anomaliCatatan": 40.7,
-                        "anomaliPerbaikan": 29.6
+                        "pplCount": 6,
+                        "pplList": [
+                                    "NUR RAHMA AZIZAH BASMAHUDDIN",
+                                    "SYAMSIAR",
+                                    "SITI AINUN JENIHARTA",
+                                    "FADLIAH YUSMAN",
+                                    "DELA NURCAHYANI",
+                                    "NUR ALDHIRA AZIZAH. K"
+                        ],
+                        "anomaliTotal": 31,
+                        "belumCount": 1,
+                        "catatanCount": 17,
+                        "perbaikanCount": 13,
+                        "anomaliBelum": 3.2,
+                        "anomaliCatatan": 54.8,
+                        "anomaliPerbaikan": 41.9
             },
             {
                         "nama": "NURLIYANA S.SOS",
-                        "anomaliTotal": 72,
-                        "anomaliBelum": 13.9,
-                        "anomaliCatatan": 27.8,
-                        "anomaliPerbaikan": 58.3
+                        "pplCount": 8,
+                        "pplList": [
+                                    "ST ARPHINA BAHAR",
+                                    "HUSNIATI K",
+                                    "MIRWAHYUNI",
+                                    "LESYIA NURFADILA",
+                                    "RISMAYANTI",
+                                    "NURFANI FADHILA RAZAK",
+                                    "NUR ALIYAH FEBRINA RAZAK",
+                                    "NURFINA FADHILA RAZAK"
+                        ],
+                        "anomaliTotal": 77,
+                        "belumCount": 5,
+                        "catatanCount": 25,
+                        "perbaikanCount": 47,
+                        "anomaliBelum": 6.5,
+                        "anomaliCatatan": 32.5,
+                        "anomaliPerbaikan": 61.0
             },
             {
                         "nama": "WAHYUNI TOMO",
-                        "anomaliTotal": 9,
-                        "anomaliBelum": 66.7,
+                        "pplCount": 4,
+                        "pplList": [
+                                    "ISNA",
+                                    "WAWAN SETIAWAN",
+                                    "MISNAH",
+                                    "SRI WAHYUNI PRATIWI SUDIRMAN"
+                        ],
+                        "anomaliTotal": 8,
+                        "belumCount": 5,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 62.5,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 33.3
+                        "anomaliPerbaikan": 37.5
+            },
+            {
+                        "nama": "EKAWATI",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "SRI ISRAWATI",
+                                    "RISKA EKA PUTRI",
+                                    "ANUGRAH DEWANTORO",
+                                    "ANNISA NUR PADILA",
+                                    "NURUL AWALIAH",
+                                    "KASMAWATI",
+                                    "DEWI"
+                        ],
+                        "anomaliTotal": 78,
+                        "belumCount": 0,
+                        "catatanCount": 41,
+                        "perbaikanCount": 37,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 52.6,
+                        "anomaliPerbaikan": 47.4
             }
 ],
                 "openDraft": 2.4,
@@ -3226,218 +3989,342 @@ const POSE_DATA = {
         anomaliPerbaikan: 62.5,
         anomaliPplList: [
             {
-                        "nama": "HENDRIK",
-                        "anomaliTotal": 7,
-                        "anomaliBelum": 28.6,
-                        "anomaliCatatan": 28.6,
-                        "anomaliPerbaikan": 42.9
-            },
-            {
-                        "nama": "SAHRULLAH",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
                         "nama": "TORI",
-                        "anomaliTotal": 4,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 25.0,
-                        "anomaliPerbaikan": 25.0
-            },
-            {
-                        "nama": "WAHYUNINGSIH",
-                        "anomaliTotal": 15,
-                        "anomaliBelum": 13.3,
-                        "anomaliCatatan": 33.3,
-                        "anomaliPerbaikan": 53.3
-            },
-            {
-                        "nama": "HAIRIN ANNISA",
-                        "anomaliTotal": 22,
-                        "anomaliBelum": 4.5,
-                        "anomaliCatatan": 40.9,
-                        "anomaliPerbaikan": 54.5
+                        "pml": "KADIR JAELANI",
+                        "anomaliTotal": 5,
+                        "belumCount": 1,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 20.0,
+                        "anomaliCatatan": 40.0,
+                        "anomaliPerbaikan": 40.0
             },
             {
                         "nama": "NUR ANISA",
+                        "pml": "MUHAMMAD TAHIR",
                         "anomaliTotal": 4,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 25.0,
+                        "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURMIATI",
+                        "pml": "MUHAMMAD TAHIR",
                         "anomaliTotal": 12,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 8.3,
                         "anomaliCatatan": 41.7,
                         "anomaliPerbaikan": 50.0
             },
             {
-                        "nama": "SUNARTI",
-                        "anomaliTotal": 26,
-                        "anomaliBelum": 7.7,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 92.3
-            },
-            {
-                        "nama": "ZARAH AZHARI",
-                        "anomaliTotal": 2,
-                        "anomaliBelum": 50.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 50.0
-            },
-            {
                         "nama": "NURLIAH S.PDI",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 18,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 16,
                         "anomaliBelum": 5.6,
                         "anomaliCatatan": 5.6,
                         "anomaliPerbaikan": 88.9
             },
             {
-                        "nama": "ARMITA KURNIA DEWI",
-                        "anomaliTotal": 11,
-                        "anomaliBelum": 18.2,
-                        "anomaliCatatan": 36.4,
-                        "anomaliPerbaikan": 45.5
-            },
-            {
-                        "nama": "ROSDIANA",
-                        "anomaliTotal": 10,
-                        "anomaliBelum": 10.0,
-                        "anomaliCatatan": 10.0,
-                        "anomaliPerbaikan": 80.0
+                        "nama": "HENDRIK",
+                        "pml": "KADIR JAELANI",
+                        "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "IRPANDI NUR SPDI",
+                        "pml": "KADIR JAELANI",
                         "anomaliTotal": 24,
+                        "belumCount": 0,
+                        "catatanCount": 12,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SAHABUDDIN AL HASAR",
+                        "pml": "KADIR JAELANI",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
+                        "nama": "SAHRULLAH",
+                        "pml": "KADIR JAELANI",
+                        "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 0,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 100.0,
+                        "anomaliPerbaikan": 0.0
+            },
+            {
+                        "nama": "WAHYUNINGSIH",
+                        "pml": "KADIR JAELANI",
+                        "anomaliTotal": 17,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 10,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 41.2,
+                        "anomaliPerbaikan": 58.8
+            },
+            {
                         "nama": "ANA MARDIANA",
+                        "pml": "MUHAMMAD TAHIR",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "FARIDATULWINARNI",
+                        "pml": "MUHAMMAD TAHIR",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 16.7,
                         "anomaliPerbaikan": 83.3
             },
             {
+                        "nama": "HAIRIN ANNISA",
+                        "pml": "MUHAMMAD TAHIR",
+                        "anomaliTotal": 23,
+                        "belumCount": 0,
+                        "catatanCount": 10,
+                        "perbaikanCount": 13,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 43.5,
+                        "anomaliPerbaikan": 56.5
+            },
+            {
+                        "nama": "ZARAH AZHARI",
+                        "pml": "MUHAMMAD TAHIR",
+                        "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 66.7
+            },
+            {
                         "nama": "HAERUL NUR AMIN",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "KIKI NUSWATI",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SABIANI",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 37.5,
                         "anomaliPerbaikan": 62.5
             },
             {
                         "nama": "WAHDANIAR",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "ERNI ARIYANTI",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 60.0,
                         "anomaliPerbaikan": 40.0
             },
             {
                         "nama": "JUMRIANI",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NANNA SAFITRI",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "ROHANI NASARUDDIN",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "ROSMINI",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 17,
+                        "belumCount": 0,
+                        "catatanCount": 8,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 47.1,
                         "anomaliPerbaikan": 52.9
             },
             {
                         "nama": "RUSMIN NURYADIN",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SUANDI",
+                        "pml": "NURJANNAH B.S",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 55.6,
                         "anomaliPerbaikan": 44.4
             },
             {
+                        "nama": "ARMITA KURNIA DEWI",
+                        "pml": "UMRAYENI JAMAL",
+                        "anomaliTotal": 13,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 7,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 46.2,
+                        "anomaliPerbaikan": 53.8
+            },
+            {
                         "nama": "MUH. IMRAN",
+                        "pml": "UMRAYENI JAMAL",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 18.2,
                         "anomaliPerbaikan": 81.8
             },
             {
                         "nama": "MULIANA.M",
+                        "pml": "UMRAYENI JAMAL",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 25.0,
                         "anomaliPerbaikan": 75.0
             },
             {
+                        "nama": "ROSDIANA",
+                        "pml": "UMRAYENI JAMAL",
+                        "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 20.0,
+                        "anomaliPerbaikan": 80.0
+            },
+            {
+                        "nama": "SUNARTI",
+                        "pml": "MUHAMMAD TAHIR",
+                        "anomaliTotal": 24,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 24,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 100.0
+            },
+            {
                         "nama": "NUR HADIJAH",
+                        "pml": "NUR AULIA",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "RIKA SISWATI",
+                        "pml": "UMRAYENI JAMAL",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -3446,38 +4333,99 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "KADIR JAELANI",
-                        "anomaliTotal": 56,
-                        "anomaliBelum": 12.5,
-                        "anomaliCatatan": 39.3,
-                        "anomaliPerbaikan": 48.2
+                        "pplCount": 6,
+                        "pplList": [
+                                    "WAHYUNINGSIH",
+                                    "HENDRIK",
+                                    "SAHRULLAH",
+                                    "TORI",
+                                    "IRPANDI NUR SPDI",
+                                    "SAHABUDDIN AL HASAR"
+                        ],
+                        "anomaliTotal": 60,
+                        "belumCount": 1,
+                        "catatanCount": 28,
+                        "perbaikanCount": 31,
+                        "anomaliBelum": 1.7,
+                        "anomaliCatatan": 46.7,
+                        "anomaliPerbaikan": 51.7
             },
             {
                         "nama": "MUHAMMAD TAHIR",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "FARIDATULWINARNI",
+                                    "NUR ANISA",
+                                    "ANA MARDIANA",
+                                    "NURMIATI",
+                                    "HAIRIN ANNISA",
+                                    "ZARAH AZHARI",
+                                    "SUNARTI"
+                        ],
                         "anomaliTotal": 77,
-                        "anomaliBelum": 9.1,
-                        "anomaliCatatan": 22.1,
-                        "anomaliPerbaikan": 68.8
+                        "belumCount": 2,
+                        "catatanCount": 20,
+                        "perbaikanCount": 55,
+                        "anomaliBelum": 2.6,
+                        "anomaliCatatan": 26.0,
+                        "anomaliPerbaikan": 71.4
             },
             {
                         "nama": "NUR AULIA",
+                        "pplCount": 6,
+                        "pplList": [
+                                    "WAHDANIAR",
+                                    "NUR HADIJAH",
+                                    "HAERUL NUR AMIN",
+                                    "KIKI NUSWATI",
+                                    "SABIANI",
+                                    "NURLIAH S.PDI"
+                        ],
                         "anomaliTotal": 49,
+                        "belumCount": 1,
+                        "catatanCount": 12,
+                        "perbaikanCount": 36,
                         "anomaliBelum": 2.0,
                         "anomaliCatatan": 24.5,
                         "anomaliPerbaikan": 73.5
             },
             {
-                        "nama": "UMRAYENI JAMAL",
-                        "anomaliTotal": 46,
-                        "anomaliBelum": 6.5,
-                        "anomaliCatatan": 19.6,
-                        "anomaliPerbaikan": 73.9
-            },
-            {
                         "nama": "NURJANNAH B.S",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "RUSMIN NURYADIN",
+                                    "NANNA SAFITRI",
+                                    "SUANDI",
+                                    "ERNI ARIYANTI",
+                                    "ROSMINI",
+                                    "JUMRIANI",
+                                    "ROHANI NASARUDDIN"
+                        ],
                         "anomaliTotal": 55,
+                        "belumCount": 0,
+                        "catatanCount": 28,
+                        "perbaikanCount": 27,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.9,
                         "anomaliPerbaikan": 49.1
+            },
+            {
+                        "nama": "UMRAYENI JAMAL",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "RIKA SISWATI",
+                                    "MULIANA.M",
+                                    "ROSDIANA",
+                                    "MUH. IMRAN",
+                                    "ARMITA KURNIA DEWI"
+                        ],
+                        "anomaliTotal": 48,
+                        "belumCount": 0,
+                        "catatanCount": 12,
+                        "perbaikanCount": 36,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 25.0,
+                        "anomaliPerbaikan": 75.0
             }
 ],
                 "openDraft": 1.3,
@@ -3939,6 +4887,9 @@ const POSE_DATA = {
                 "muatan": 12928,
                 "progres": 98.2,
         anomaliTotal: 303,
+        belumCount: 1,
+        catatanCount: 132,
+        perbaikanCount: 170,
         anomaliUsahaTotal: 207,
         anomaliUsahaSelesai: 206,
         anomaliUsahaBelum: 1,
@@ -3955,168 +4906,264 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "NUR SAKINAH",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 1,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 100.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "APDI",
+                        "pml": "KARIMALI SOFYAN",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "M ASPAR",
+                        "pml": "KARIMALI SOFYAN",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "MUH. RIZKY TAUFIK ISMAIL",
+                        "pml": "KARIMALI SOFYAN",
                         "anomaliTotal": 17,
+                        "belumCount": 0,
+                        "catatanCount": 9,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 52.9,
                         "anomaliPerbaikan": 47.1
             },
             {
                         "nama": "NUR AL HAYYUL RAMADHANI",
+                        "pml": "KARIMALI SOFYAN",
                         "anomaliTotal": 35,
+                        "belumCount": 0,
+                        "catatanCount": 15,
+                        "perbaikanCount": 20,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "NURJANNAH S.",
+                        "pml": "KARIMALI SOFYAN",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 20.0,
                         "anomaliPerbaikan": 80.0
             },
             {
                         "nama": "CITRA AYU LESTARI",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 23,
+                        "belumCount": 0,
+                        "catatanCount": 13,
+                        "perbaikanCount": 10,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 56.5,
                         "anomaliPerbaikan": 43.5
             },
             {
                         "nama": "MIRNA YOLANDA",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 16,
+                        "belumCount": 0,
+                        "catatanCount": 7,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 43.8,
                         "anomaliPerbaikan": 56.2
             },
             {
                         "nama": "NURUL AZIZA",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 36.4,
                         "anomaliPerbaikan": 63.6
             },
             {
                         "nama": "NURUL FADILA",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "RAHMAT LALLO",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 32,
+                        "belumCount": 0,
+                        "catatanCount": 16,
+                        "perbaikanCount": 16,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SITI SYAHIDAH MUJAHIDAH",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 15,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "SUPRIADI",
+                        "pml": "KASMAWATI. HJ",
                         "anomaliTotal": 10,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "AGUNG SAHDANA SE",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "DAHLIA",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 18,
+                        "belumCount": 0,
+                        "catatanCount": 9,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "ERNAWATI",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "MUH FATHIR RESKI ILYAS A.MD.P",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 17,
+                        "belumCount": 0,
+                        "catatanCount": 10,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 58.8,
                         "anomaliPerbaikan": 41.2
             },
             {
                         "nama": "REGINA MAHARANI. R, A.MD.KEP",
+                        "pml": "PUTRI WAHDA",
                         "anomaliTotal": 15,
+                        "belumCount": 0,
+                        "catatanCount": 8,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 53.3,
                         "anomaliPerbaikan": 46.7
             },
             {
                         "nama": "AHMAD ALAMSYAH SAID",
+                        "pml": "YUNITA",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "JUSNI",
+                        "pml": "YUNITA",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 36.4,
                         "anomaliPerbaikan": 63.6
             },
             {
                         "nama": "MAULIDIANTI PUSPITA HAMSURI",
+                        "pml": "YUNITA",
                         "anomaliTotal": 9,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "RABASENG",
+                        "pml": "YUNITA",
                         "anomaliTotal": 15,
+                        "belumCount": 0,
+                        "catatanCount": 5,
+                        "perbaikanCount": 10,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SUMARTI.J",
+                        "pml": "YUNITA",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 18.2,
                         "anomaliPerbaikan": 81.8
             },
             {
                         "nama": "RAHMADANI",
+                        "pml": "YUNITA",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -4125,28 +5172,76 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "PUTRI WAHDA",
+                        "pplCount": 6,
+                        "pplList": [
+                                    "DAHLIA",
+                                    "AGUNG SAHDANA SE",
+                                    "REGINA MAHARANI. R, A.MD.KEP",
+                                    "MUH FATHIR RESKI ILYAS A.MD.P",
+                                    "ERNAWATI",
+                                    "NUR SAKINAH"
+                        ],
                         "anomaliTotal": 60,
+                        "belumCount": 1,
+                        "catatanCount": 31,
+                        "perbaikanCount": 28,
                         "anomaliBelum": 1.7,
                         "anomaliCatatan": 51.7,
                         "anomaliPerbaikan": 46.7
             },
             {
                         "nama": "KARIMALI SOFYAN",
+                        "pplCount": 5,
+                        "pplList": [
+                                    "NUR AL HAYYUL RAMADHANI",
+                                    "NURJANNAH S.",
+                                    "M ASPAR",
+                                    "MUH. RIZKY TAUFIK ISMAIL",
+                                    "APDI"
+                        ],
                         "anomaliTotal": 72,
+                        "belumCount": 0,
+                        "catatanCount": 30,
+                        "perbaikanCount": 42,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 41.7,
                         "anomaliPerbaikan": 58.3
             },
             {
                         "nama": "KASMAWATI. HJ",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "CITRA AYU LESTARI",
+                                    "NURUL AZIZA",
+                                    "RAHMAT LALLO",
+                                    "SITI SYAHIDAH MUJAHIDAH",
+                                    "SUPRIADI",
+                                    "NURUL FADILA",
+                                    "MIRNA YOLANDA"
+                        ],
                         "anomaliTotal": 117,
+                        "belumCount": 0,
+                        "catatanCount": 55,
+                        "perbaikanCount": 62,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 47.0,
                         "anomaliPerbaikan": 53.0
             },
             {
                         "nama": "YUNITA",
+                        "pplCount": 6,
+                        "pplList": [
+                                    "MAULIDIANTI PUSPITA HAMSURI",
+                                    "RAHMADANI",
+                                    "SUMARTI.J",
+                                    "JUSNI",
+                                    "AHMAD ALAMSYAH SAID",
+                                    "RABASENG"
+                        ],
                         "anomaliTotal": 54,
+                        "belumCount": 0,
+                        "catatanCount": 16,
+                        "perbaikanCount": 38,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 29.6,
                         "anomaliPerbaikan": 70.4
@@ -4496,168 +5591,264 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "NIRWAN",
-                        "anomaliTotal": 6,
-                        "anomaliBelum": 83.3,
+                        "pml": "AYU WINATA ILHAM",
+                        "anomaliTotal": 10,
+                        "belumCount": 5,
+                        "catatanCount": 0,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 16.7
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SURYA ANDINI",
-                        "anomaliTotal": 5,
-                        "anomaliBelum": 20.0,
+                        "pml": "AYU WINATA ILHAM",
+                        "anomaliTotal": 6,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 16.7,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 80.0
+                        "anomaliPerbaikan": 83.3
             },
             {
                         "nama": "INDAH B",
-                        "anomaliTotal": 3,
-                        "anomaliBelum": 33.3,
+                        "pml": "MIFTAHUDDIN",
+                        "anomaliTotal": 4,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 25.0,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 66.7
+                        "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "NADILA KURNIATI",
+                        "pml": "MIFTAHUDDIN",
                         "anomaliTotal": 4,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 25.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "NURLINDAH",
-                        "anomaliTotal": 3,
-                        "anomaliBelum": 66.7,
+                        "pml": "MIFTAHUDDIN",
+                        "anomaliTotal": 4,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 33.3
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "ROSPINAWATI",
+                        "pml": "MIFTAHUDDIN",
                         "anomaliTotal": 4,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 25.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "SALMA",
+                        "pml": "MIFTAHUDDIN",
                         "anomaliTotal": 3,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 33.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "SUKRI. B",
+                        "pml": "MIFTAHUDDIN",
                         "anomaliTotal": 5,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 40.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "IRMAWATI SAID",
+                        "pml": "RESKINA",
                         "anomaliTotal": 2,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NUR AMNAH FHADILLAH",
+                        "pml": "RESKINA",
                         "anomaliTotal": 4,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
-            },
-            {
-                        "nama": "NUR CAHYANI",
-                        "anomaliTotal": 7,
-                        "anomaliBelum": 42.9,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "RAYHANA SYAM",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
-            },
-            {
-                        "nama": "SRI IRA ANITA PUTRI",
+                        "pml": "RUSWITA",
                         "anomaliTotal": 2,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
-                        "nama": "ST. NURPADILA DL",
+                        "nama": "SRI IRA ANITA PUTRI",
+                        "pml": "RUSWITA",
                         "anomaliTotal": 3,
-                        "anomaliBelum": 66.7,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 33.3,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 33.3
+                        "anomaliPerbaikan": 66.7
+            },
+            {
+                        "nama": "ST. NURPADILA DL",
+                        "pml": "RUSWITA",
+                        "anomaliTotal": 4,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
+                        "anomaliBelum": 50.0,
+                        "anomaliCatatan": 0.0,
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "WAHYUNI",
-                        "anomaliTotal": 22,
-                        "anomaliBelum": 9.1,
-                        "anomaliCatatan": 45.5,
-                        "anomaliPerbaikan": 45.5
+                        "pml": "RUSWITA",
+                        "anomaliTotal": 23,
+                        "belumCount": 2,
+                        "catatanCount": 10,
+                        "perbaikanCount": 11,
+                        "anomaliBelum": 8.7,
+                        "anomaliCatatan": 43.5,
+                        "anomaliPerbaikan": 47.8
             },
             {
                         "nama": "AYUNENGSIH",
+                        "pml": "AYU WINATA ILHAM",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURFITRA QAULI",
+                        "pml": "AYU WINATA ILHAM",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 14.3,
                         "anomaliPerbaikan": 85.7
             },
             {
                         "nama": "SYARIFUDDIN",
+                        "pml": "MIFTAHUDDIN",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 20.0,
                         "anomaliPerbaikan": 80.0
             },
             {
-                        "nama": "INDAH",
+                        "nama": "NUR CAHYANI",
+                        "pml": "RESKINA",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 16.7,
+                        "anomaliPerbaikan": 83.3
+            },
+            {
+                        "nama": "INDAH",
+                        "pml": "RUSWITA",
+                        "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURUL NOVITASARI",
+                        "pml": "AYU WINATA ILHAM",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "RAHMI YUL HIDAYANTI",
+                        "pml": "AYU WINATA ILHAM",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "Winda.L",
+                        "pml": "AYU WINATA ILHAM",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "SRI WAHYUNI",
+                        "pml": "RESKINA",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "HARDIANTI",
+                        "pml": "RUSWITA",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -4666,31 +5857,79 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "AYU WINATA ILHAM",
-                        "anomaliTotal": 32,
-                        "anomaliBelum": 18.8,
-                        "anomaliCatatan": 6.2,
-                        "anomaliPerbaikan": 75.0
+                        "pplCount": 7,
+                        "pplList": [
+                                    "SURYA ANDINI",
+                                    "Winda.L",
+                                    "NURUL NOVITASARI",
+                                    "AYUNENGSIH",
+                                    "NIRWAN",
+                                    "RAHMI YUL HIDAYANTI",
+                                    "NURFITRA QAULI"
+                        ],
+                        "anomaliTotal": 37,
+                        "belumCount": 6,
+                        "catatanCount": 2,
+                        "perbaikanCount": 29,
+                        "anomaliBelum": 16.2,
+                        "anomaliCatatan": 5.4,
+                        "anomaliPerbaikan": 78.4
             },
             {
                         "nama": "MIFTAHUDDIN",
-                        "anomaliTotal": 27,
-                        "anomaliBelum": 29.6,
-                        "anomaliCatatan": 3.7,
-                        "anomaliPerbaikan": 66.7
+                        "pplCount": 7,
+                        "pplList": [
+                                    "ROSPINAWATI",
+                                    "NADILA KURNIATI",
+                                    "INDAH B",
+                                    "SUKRI. B",
+                                    "SYARIFUDDIN",
+                                    "SALMA",
+                                    "NURLINDAH"
+                        ],
+                        "anomaliTotal": 29,
+                        "belumCount": 8,
+                        "catatanCount": 1,
+                        "perbaikanCount": 20,
+                        "anomaliBelum": 27.6,
+                        "anomaliCatatan": 3.4,
+                        "anomaliPerbaikan": 69.0
             },
             {
                         "nama": "RESKINA",
-                        "anomaliTotal": 14,
-                        "anomaliBelum": 42.9,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 57.1
+                        "pplCount": 4,
+                        "pplList": [
+                                    "NUR AMNAH FHADILLAH",
+                                    "SRI WAHYUNI",
+                                    "IRMAWATI SAID",
+                                    "NUR CAHYANI"
+                        ],
+                        "anomaliTotal": 13,
+                        "belumCount": 3,
+                        "catatanCount": 1,
+                        "perbaikanCount": 9,
+                        "anomaliBelum": 23.1,
+                        "anomaliCatatan": 7.7,
+                        "anomaliPerbaikan": 69.2
             },
             {
                         "nama": "RUSWITA",
-                        "anomaliTotal": 35,
-                        "anomaliBelum": 17.1,
-                        "anomaliCatatan": 37.1,
-                        "anomaliPerbaikan": 45.7
+                        "pplCount": 6,
+                        "pplList": [
+                                    "INDAH",
+                                    "RAYHANA SYAM",
+                                    "HARDIANTI",
+                                    "WAHYUNI",
+                                    "SRI IRA ANITA PUTRI",
+                                    "ST. NURPADILA DL"
+                        ],
+                        "anomaliTotal": 39,
+                        "belumCount": 6,
+                        "catatanCount": 13,
+                        "perbaikanCount": 20,
+                        "anomaliBelum": 15.4,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 51.3
             }
 ],
                 "openDraft": 0.1,
@@ -5059,203 +6298,319 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "AN NAHL NUR SA'AD",
+                        "pml": "A. ALFIRA YUNINGSIH. M",
                         "anomaliTotal": 21,
+                        "belumCount": 2,
+                        "catatanCount": 8,
+                        "perbaikanCount": 11,
                         "anomaliBelum": 9.5,
                         "anomaliCatatan": 38.1,
                         "anomaliPerbaikan": 52.4
             },
             {
                         "nama": "ASDA ZULQAIDAH",
+                        "pml": "A. ALFIRA YUNINGSIH. M",
                         "anomaliTotal": 11,
-                        "anomaliBelum": 27.3,
+                        "belumCount": 2,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 18.2,
                         "anomaliCatatan": 36.4,
-                        "anomaliPerbaikan": 36.4
+                        "anomaliPerbaikan": 45.5
             },
             {
                         "nama": "EKA PUTRI AMELIA",
+                        "pml": "A. ALFIRA YUNINGSIH. M",
                         "anomaliTotal": 14,
+                        "belumCount": 2,
+                        "catatanCount": 3,
+                        "perbaikanCount": 9,
                         "anomaliBelum": 14.3,
                         "anomaliCatatan": 21.4,
                         "anomaliPerbaikan": 64.3
             },
             {
                         "nama": "EMMI AGUSTINA",
-                        "anomaliTotal": 5,
-                        "anomaliBelum": 20.0,
-                        "anomaliCatatan": 40.0,
-                        "anomaliPerbaikan": 40.0
+                        "pml": "A. ALFIRA YUNINGSIH. M",
+                        "anomaliTotal": 6,
+                        "belumCount": 1,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
+                        "anomaliBelum": 16.7,
+                        "anomaliCatatan": 33.3,
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "INDAH ANGGRAENI",
-                        "anomaliTotal": 6,
-                        "anomaliBelum": 16.7,
-                        "anomaliCatatan": 16.7,
-                        "anomaliPerbaikan": 66.7
-            },
-            {
-                        "nama": "ST. HARDIANI JUFRI",
-                        "anomaliTotal": 1,
-                        "anomaliBelum": 100.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 0.0
+                        "pml": "A. ALFIRA YUNINGSIH. M",
+                        "anomaliTotal": 7,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 14.3,
+                        "anomaliCatatan": 14.3,
+                        "anomaliPerbaikan": 71.4
             },
             {
                         "nama": "MUH. IKBAL",
+                        "pml": "AFDALUDDIN RAUF",
                         "anomaliTotal": 7,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 14.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 85.7
             },
             {
                         "nama": "NETTI IRAWATI",
-                        "anomaliTotal": 10,
-                        "anomaliBelum": 30.0,
+                        "pml": "AFDALUDDIN RAUF",
+                        "anomaliTotal": 11,
+                        "belumCount": 3,
+                        "catatanCount": 0,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 27.3,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 70.0
+                        "anomaliPerbaikan": 72.7
             },
             {
                         "nama": "SRI DEWY",
+                        "pml": "AFDALUDDIN RAUF",
                         "anomaliTotal": 4,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 25.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "SUKMAWATI",
+                        "pml": "AFDALUDDIN RAUF",
                         "anomaliTotal": 6,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 16.7,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 83.3
             },
             {
-                        "nama": "DEVI ARIASTRIYANTI IDRUS",
-                        "anomaliTotal": 11,
-                        "anomaliBelum": 18.2,
-                        "anomaliCatatan": 36.4,
-                        "anomaliPerbaikan": 45.5
-            },
-            {
                         "nama": "PITRI HANDAYANI",
-                        "anomaliTotal": 17,
-                        "anomaliBelum": 11.8,
-                        "anomaliCatatan": 47.1,
-                        "anomaliPerbaikan": 41.2
-            },
-            {
-                        "nama": "SELVI",
-                        "anomaliTotal": 5,
-                        "anomaliBelum": 20.0,
-                        "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 80.0
+                        "pml": "LESTARI",
+                        "anomaliTotal": 18,
+                        "belumCount": 1,
+                        "catatanCount": 9,
+                        "perbaikanCount": 8,
+                        "anomaliBelum": 5.6,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 44.4
             },
             {
                         "nama": "SRI WAHYUNI",
+                        "pml": "LESTARI",
                         "anomaliTotal": 25,
-                        "anomaliBelum": 24.0,
-                        "anomaliCatatan": 32.0,
+                        "belumCount": 4,
+                        "catatanCount": 10,
+                        "perbaikanCount": 11,
+                        "anomaliBelum": 16.0,
+                        "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 44.0
             },
             {
                         "nama": "ARIADI",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 13,
+                        "belumCount": 1,
+                        "catatanCount": 4,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 7.7,
                         "anomaliCatatan": 30.8,
                         "anomaliPerbaikan": 61.5
             },
             {
                         "nama": "RESKI AMELIA PUTRI",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 11,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 9.1,
                         "anomaliCatatan": 45.5,
                         "anomaliPerbaikan": 45.5
             },
             {
                         "nama": "SAIFUL ANWAR",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 10,
+                        "belumCount": 1,
+                        "catatanCount": 4,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 10.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SUCI RAHMADANI.A",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 12,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 6,
                         "anomaliBelum": 8.3,
                         "anomaliCatatan": 41.7,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "IRFAN",
+                        "pml": "WA ODE NUR WAFIQ AZIZAH",
                         "anomaliTotal": 5,
+                        "belumCount": 3,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 60.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 40.0
             },
             {
                         "nama": "MASNI",
+                        "pml": "WA ODE NUR WAFIQ AZIZAH",
                         "anomaliTotal": 2,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURFADHILAH",
+                        "pml": "WA ODE NUR WAFIQ AZIZAH",
                         "anomaliTotal": 3,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 33.3,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 33.3
             },
             {
                         "nama": "ST SAHARA",
+                        "pml": "A. ALFIRA YUNINGSIH. M",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 54.5,
                         "anomaliPerbaikan": 45.5
             },
             {
-                        "nama": "SINTA WULAN SARI",
+                        "nama": "ST. HARDIANI JUFRI",
+                        "pml": "A. ALFIRA YUNINGSIH. M",
+                        "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 50.0,
+                        "anomaliPerbaikan": 50.0
+            },
+            {
+                        "nama": "DEVI ARIASTRIYANTI IDRUS",
+                        "pml": "LESTARI",
+                        "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 54.5,
+                        "anomaliPerbaikan": 45.5
+            },
+            {
+                        "nama": "SELVI",
+                        "pml": "LESTARI",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
+                        "anomaliBelum": 0.0,
+                        "anomaliCatatan": 16.7,
+                        "anomaliPerbaikan": 83.3
+            },
+            {
+                        "nama": "SINTA WULAN SARI",
+                        "pml": "LESTARI",
+                        "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "TAHIRUDDIN",
+                        "pml": "LESTARI",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 6,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 54.5,
                         "anomaliPerbaikan": 45.5
             },
             {
                         "nama": "WIWID WINDASARI",
+                        "pml": "LESTARI",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MURNI SYAM",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "Naldi Saputra",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 3,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "RAHMI DAMAYANTI",
+                        "pml": "MEGAWATI, S.E",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 4,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SYAMSINAR",
+                        "pml": "AFDALUDDIN RAUF",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -5264,35 +6619,94 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "A. ALFIRA YUNINGSIH. M",
-                        "anomaliTotal": 69,
-                        "anomaliBelum": 14.5,
-                        "anomaliCatatan": 34.8,
-                        "anomaliPerbaikan": 50.7
+                        "pplCount": 7,
+                        "pplList": [
+                                    "ASDA ZULQAIDAH",
+                                    "ST. HARDIANI JUFRI",
+                                    "ST SAHARA",
+                                    "EKA PUTRI AMELIA",
+                                    "INDAH ANGGRAENI",
+                                    "EMMI AGUSTINA",
+                                    "AN NAHL NUR SA'AD"
+                        ],
+                        "anomaliTotal": 72,
+                        "belumCount": 8,
+                        "catatanCount": 25,
+                        "perbaikanCount": 39,
+                        "anomaliBelum": 11.1,
+                        "anomaliCatatan": 34.7,
+                        "anomaliPerbaikan": 54.2
             },
             {
                         "nama": "AFDALUDDIN RAUF",
-                        "anomaliTotal": 28,
-                        "anomaliBelum": 21.4,
+                        "pplCount": 5,
+                        "pplList": [
+                                    "NETTI IRAWATI",
+                                    "SRI DEWY",
+                                    "SYAMSINAR",
+                                    "MUH. IKBAL",
+                                    "SUKMAWATI"
+                        ],
+                        "anomaliTotal": 29,
+                        "belumCount": 6,
+                        "catatanCount": 0,
+                        "perbaikanCount": 23,
+                        "anomaliBelum": 20.7,
                         "anomaliCatatan": 0.0,
-                        "anomaliPerbaikan": 78.6
+                        "anomaliPerbaikan": 79.3
             },
             {
                         "nama": "LESTARI",
-                        "anomaliTotal": 77,
-                        "anomaliBelum": 14.3,
-                        "anomaliCatatan": 37.7,
-                        "anomaliPerbaikan": 48.1
+                        "pplCount": 7,
+                        "pplList": [
+                                    "TAHIRUDDIN",
+                                    "SELVI",
+                                    "DEVI ARIASTRIYANTI IDRUS",
+                                    "PITRI HANDAYANI",
+                                    "SINTA WULAN SARI",
+                                    "WIWID WINDASARI",
+                                    "SRI WAHYUNI"
+                        ],
+                        "anomaliTotal": 79,
+                        "belumCount": 5,
+                        "catatanCount": 35,
+                        "perbaikanCount": 39,
+                        "anomaliBelum": 6.3,
+                        "anomaliCatatan": 44.3,
+                        "anomaliPerbaikan": 49.4
             },
             {
                         "nama": "MEGAWATI, S.E",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "ARIADI",
+                                    "SAIFUL ANWAR",
+                                    "Naldi Saputra",
+                                    "RAHMI DAMAYANTI",
+                                    "MURNI SYAM",
+                                    "SUCI RAHMADANI.A",
+                                    "RESKI AMELIA PUTRI"
+                        ],
                         "anomaliTotal": 64,
+                        "belumCount": 4,
+                        "catatanCount": 26,
+                        "perbaikanCount": 34,
                         "anomaliBelum": 6.2,
                         "anomaliCatatan": 40.6,
                         "anomaliPerbaikan": 53.1
             },
             {
                         "nama": "WA ODE NUR WAFIQ AZIZAH",
+                        "pplCount": 3,
+                        "pplList": [
+                                    "IRFAN",
+                                    "NURFADHILAH",
+                                    "MASNI"
+                        ],
                         "anomaliTotal": 10,
+                        "belumCount": 5,
+                        "catatanCount": 1,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 10.0,
                         "anomaliPerbaikan": 40.0
@@ -5773,140 +7187,220 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "AINA ALFIRA",
+                        "pml": "DARMA",
                         "anomaliTotal": 22,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 16,
                         "anomaliBelum": 4.5,
                         "anomaliCatatan": 22.7,
                         "anomaliPerbaikan": 72.7
             },
             {
                         "nama": "ERNA SRI RATNA NUR",
+                        "pml": "DARMA",
                         "anomaliTotal": 26,
+                        "belumCount": 1,
+                        "catatanCount": 13,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 3.8,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 46.2
             },
             {
                         "nama": "NOPIANA",
+                        "pml": "DARMA",
                         "anomaliTotal": 11,
+                        "belumCount": 3,
+                        "catatanCount": 1,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 27.3,
                         "anomaliCatatan": 9.1,
                         "anomaliPerbaikan": 63.6
             },
             {
                         "nama": "RAHMAN",
+                        "pml": "DARMA",
                         "anomaliTotal": 8,
+                        "belumCount": 4,
+                        "catatanCount": 0,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MUSDALIFAH",
+                        "pml": "DISMA",
                         "anomaliTotal": 5,
+                        "belumCount": 1,
+                        "catatanCount": 1,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 20.0,
                         "anomaliCatatan": 20.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "ROSMINI BAJI MUSTAFA",
+                        "pml": "DISMA",
                         "anomaliTotal": 9,
+                        "belumCount": 3,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 33.3,
                         "anomaliCatatan": 11.1,
                         "anomaliPerbaikan": 55.6
             },
             {
                         "nama": "FIRA DIAN UTARI",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 4,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "KASMA",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 16,
+                        "belumCount": 3,
+                        "catatanCount": 1,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 18.8,
                         "anomaliCatatan": 6.2,
                         "anomaliPerbaikan": 75.0
             },
             {
                         "nama": "MASITA",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 11,
+                        "belumCount": 1,
+                        "catatanCount": 3,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 9.1,
                         "anomaliCatatan": 27.3,
                         "anomaliPerbaikan": 63.6
             },
             {
                         "nama": "NITA",
-                        "anomaliTotal": 14,
-                        "anomaliBelum": 7.1,
-                        "anomaliCatatan": 35.7,
-                        "anomaliPerbaikan": 57.1
+                        "pml": "HARNIATI",
+                        "anomaliTotal": 13,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 7,
+                        "anomaliBelum": 7.7,
+                        "anomaliCatatan": 38.5,
+                        "anomaliPerbaikan": 53.8
             },
             {
                         "nama": "RISDA PERMATASARI",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 1,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 100.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "ST. KHADIJAH",
+                        "pml": "DARMA",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "ANDI TENRI APRIANTI",
+                        "pml": "DISMA",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 12.5,
                         "anomaliPerbaikan": 87.5
             },
             {
                         "nama": "AYU ANDIRA",
+                        "pml": "DISMA",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 20.0,
                         "anomaliPerbaikan": 80.0
             },
             {
                         "nama": "RESKI AMALIA",
+                        "pml": "DISMA",
                         "anomaliTotal": 14,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 14.3,
                         "anomaliPerbaikan": 85.7
             },
             {
                         "nama": "RUSDI",
+                        "pml": "DISMA",
                         "anomaliTotal": 14,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 12,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 14.3,
                         "anomaliPerbaikan": 85.7
             },
             {
                         "nama": "ENDAH DWI NINGRUM SASMITO, S.PT",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "HENDRIANSYAH",
+                        "pml": "HARNIATI",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 16.7,
                         "anomaliPerbaikan": 83.3
             },
             {
                         "nama": "NUR HARINI",
+                        "pml": "DARMA",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "ROSDAYANTI",
-                        "anomaliTotal": 6,
+                        "pml": "DISMA",
+                        "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 5,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -5915,24 +7409,62 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "DARMA",
+                        "pplCount": 6,
+                        "pplList": [
+                                    "NOPIANA",
+                                    "NUR HARINI",
+                                    "AINA ALFIRA",
+                                    "ERNA SRI RATNA NUR",
+                                    "RAHMAN",
+                                    "ST. KHADIJAH"
+                        ],
                         "anomaliTotal": 74,
+                        "belumCount": 9,
+                        "catatanCount": 21,
+                        "perbaikanCount": 44,
                         "anomaliBelum": 12.2,
                         "anomaliCatatan": 28.4,
                         "anomaliPerbaikan": 59.5
             },
             {
                         "nama": "DISMA",
-                        "anomaliTotal": 61,
-                        "anomaliBelum": 6.6,
-                        "anomaliCatatan": 13.1,
-                        "anomaliPerbaikan": 80.3
+                        "pplCount": 7,
+                        "pplList": [
+                                    "AYU ANDIRA",
+                                    "MUSDALIFAH",
+                                    "RUSDI",
+                                    "ANDI TENRI APRIANTI",
+                                    "RESKI AMALIA",
+                                    "ROSMINI BAJI MUSTAFA",
+                                    "ROSDAYANTI"
+                        ],
+                        "anomaliTotal": 60,
+                        "belumCount": 4,
+                        "catatanCount": 8,
+                        "perbaikanCount": 48,
+                        "anomaliBelum": 6.7,
+                        "anomaliCatatan": 13.3,
+                        "anomaliPerbaikan": 80.0
             },
             {
                         "nama": "HARNIATI",
-                        "anomaliTotal": 56,
-                        "anomaliBelum": 14.3,
-                        "anomaliCatatan": 21.4,
-                        "anomaliPerbaikan": 64.3
+                        "pplCount": 7,
+                        "pplList": [
+                                    "RISDA PERMATASARI",
+                                    "HENDRIANSYAH",
+                                    "FIRA DIAN UTARI",
+                                    "NITA",
+                                    "KASMA",
+                                    "ENDAH DWI NINGRUM SASMITO, S.PT",
+                                    "MASITA"
+                        ],
+                        "anomaliTotal": 55,
+                        "belumCount": 8,
+                        "catatanCount": 12,
+                        "perbaikanCount": 35,
+                        "anomaliBelum": 14.5,
+                        "anomaliCatatan": 21.8,
+                        "anomaliPerbaikan": 63.6
             }
 ],
                 "openDraft": 0.6,
@@ -6214,161 +7746,253 @@ const POSE_DATA = {
         anomaliPplList: [
             {
                         "nama": "JUSRIADI LIWANG",
+                        "pml": "MUHAMMAD KAHFI MS",
                         "anomaliTotal": 3,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 33.3,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "NUR IKA PUTRI",
-                        "anomaliTotal": 13,
-                        "anomaliBelum": 7.7,
-                        "anomaliCatatan": 38.5,
-                        "anomaliPerbaikan": 53.8
+                        "pml": "MUHAMMAD KAHFI MS",
+                        "anomaliTotal": 12,
+                        "belumCount": 1,
+                        "catatanCount": 5,
+                        "perbaikanCount": 6,
+                        "anomaliBelum": 8.3,
+                        "anomaliCatatan": 41.7,
+                        "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NURWAHYUNI",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 3,
+                        "belumCount": 2,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 66.7,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 33.3
             },
             {
                         "nama": "INDAH WAHYUNI",
+                        "pml": "SUDIRMAN M",
                         "anomaliTotal": 14,
+                        "belumCount": 9,
+                        "catatanCount": 1,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 64.3,
                         "anomaliCatatan": 7.1,
                         "anomaliPerbaikan": 28.6
             },
             {
                         "nama": "M. NUR FAJAR BAKRI",
+                        "pml": "SUDIRMAN M",
                         "anomaliTotal": 2,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 50.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MUHAMMAD YUSUF",
+                        "pml": "SUDIRMAN M",
                         "anomaliTotal": 7,
+                        "belumCount": 2,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 28.6,
                         "anomaliCatatan": 28.6,
                         "anomaliPerbaikan": 42.9
             },
             {
                         "nama": "SRI HANDAYANI",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 7,
+                        "belumCount": 6,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 85.7,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 14.3
             },
             {
                         "nama": "SYAMSINAR. S",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 1,
+                        "belumCount": 1,
+                        "catatanCount": 0,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 100.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "ASFHIRA",
+                        "pml": "MUHAMMAD KAHFI MS",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "LISMAWATI",
+                        "pml": "MUHAMMAD KAHFI MS",
                         "anomaliTotal": 8,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 12.5,
                         "anomaliPerbaikan": 87.5
             },
             {
                         "nama": "SYEH AWAL ALHAM",
+                        "pml": "MUHAMMAD KAHFI MS",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "AL MAIDA MAULANA",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 6,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 66.7
             },
             {
                         "nama": "MASDAR SILA",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "MITA",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 5,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 3,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 40.0,
                         "anomaliPerbaikan": 60.0
             },
             {
                         "nama": "RINI WINARSIH",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 11,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 8,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 27.3,
                         "anomaliPerbaikan": 72.7
             },
             {
                         "nama": "SULFADILA",
+                        "pml": "RAHMAWATI",
                         "anomaliTotal": 7,
+                        "belumCount": 0,
+                        "catatanCount": 3,
+                        "perbaikanCount": 4,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 42.9,
                         "anomaliPerbaikan": 57.1
             },
             {
                         "nama": "ALI SYAMZU ZAIN",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "MARTINI",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "NASARUDDIN",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 4,
+                        "belumCount": 0,
+                        "catatanCount": 2,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 50.0,
                         "anomaliPerbaikan": 50.0
             },
             {
                         "nama": "SURYADI",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 1,
+                        "perbaikanCount": 0,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 100.0,
                         "anomaliPerbaikan": 0.0
             },
             {
                         "nama": "LISDAWATI",
+                        "pml": "MUHAMMAD KAHFI MS",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "ANUGRAH PUTRI PRATIWI",
+                        "pml": "SUDIRMAN M",
                         "anomaliTotal": 2,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 2,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
             },
             {
                         "nama": "JUNITA",
+                        "pml": "WAHYU ADRIANI",
                         "anomaliTotal": 1,
+                        "belumCount": 0,
+                        "catatanCount": 0,
+                        "perbaikanCount": 1,
                         "anomaliBelum": 0.0,
                         "anomaliCatatan": 0.0,
                         "anomaliPerbaikan": 100.0
@@ -6377,28 +8001,75 @@ const POSE_DATA = {
         anomaliPmlList: [
             {
                         "nama": "MUHAMMAD KAHFI MS",
-                        "anomaliTotal": 29,
-                        "anomaliBelum": 6.9,
-                        "anomaliCatatan": 27.6,
-                        "anomaliPerbaikan": 65.5
+                        "pplCount": 6,
+                        "pplList": [
+                                    "LISMAWATI",
+                                    "NUR IKA PUTRI",
+                                    "SYEH AWAL ALHAM",
+                                    "JUSRIADI LIWANG",
+                                    "ASFHIRA",
+                                    "LISDAWATI"
+                        ],
+                        "anomaliTotal": 28,
+                        "belumCount": 2,
+                        "catatanCount": 8,
+                        "perbaikanCount": 18,
+                        "anomaliBelum": 7.1,
+                        "anomaliCatatan": 28.6,
+                        "anomaliPerbaikan": 64.3
             },
             {
                         "nama": "RAHMAWATI",
+                        "pplCount": 6,
+                        "pplList": [
+                                    "MITA",
+                                    "MASDAR SILA",
+                                    "SULFADILA",
+                                    "NURWAHYUNI",
+                                    "RINI WINARSIH",
+                                    "AL MAIDA MAULANA"
+                        ],
                         "anomaliTotal": 39,
+                        "belumCount": 2,
+                        "catatanCount": 13,
+                        "perbaikanCount": 24,
                         "anomaliBelum": 5.1,
                         "anomaliCatatan": 33.3,
                         "anomaliPerbaikan": 61.5
             },
             {
                         "nama": "SUDIRMAN M",
+                        "pplCount": 4,
+                        "pplList": [
+                                    "ANUGRAH PUTRI PRATIWI",
+                                    "INDAH WAHYUNI",
+                                    "M. NUR FAJAR BAKRI",
+                                    "MUHAMMAD YUSUF"
+                        ],
                         "anomaliTotal": 25,
+                        "belumCount": 12,
+                        "catatanCount": 3,
+                        "perbaikanCount": 10,
                         "anomaliBelum": 48.0,
                         "anomaliCatatan": 12.0,
                         "anomaliPerbaikan": 40.0
             },
             {
                         "nama": "WAHYU ADRIANI",
+                        "pplCount": 7,
+                        "pplList": [
+                                    "SURYADI",
+                                    "SYAMSINAR. S",
+                                    "ALI SYAMZU ZAIN",
+                                    "MARTINI",
+                                    "JUNITA",
+                                    "SRI HANDAYANI",
+                                    "NASARUDDIN"
+                        ],
                         "anomaliTotal": 20,
+                        "belumCount": 7,
+                        "catatanCount": 6,
+                        "perbaikanCount": 7,
                         "anomaliBelum": 35.0,
                         "anomaliCatatan": 30.0,
                         "anomaliPerbaikan": 35.0

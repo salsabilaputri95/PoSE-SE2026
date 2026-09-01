@@ -138,7 +138,16 @@ function buildResponsiveChartOptions(labels, isStacked = false, isMonitoring = f
             const idx = items[0].dataIndex;
             return labels[idx] || items[0].label;
           },
-          label: context => ` ${context.dataset.label}: ${context.raw}%`
+          label: function(context) {
+            const dsLabel = context.dataset.label || '';
+            const val = context.raw;
+            const counts = context.dataset.counts;
+            const count = (counts && counts[context.dataIndex] !== undefined) ? counts[context.dataIndex] : null;
+            if (count !== null && count !== undefined) {
+              return ` ${dsLabel}: ${val}% (${count})`;
+            }
+            return ` ${dsLabel}: ${val}%`;
+          }
         }
       }
     }
@@ -601,6 +610,42 @@ function toggleAnomaliExpanded() {
 }
 
 /**
+ * Helper to find supervisor PML for a PPL across dataset
+ */
+function getPmlForPpl(pplName, kecName) {
+  if (!pplName) return '';
+  const cleanPpl = pplName.trim().toLowerCase();
+
+  // 1. Cek di kecamatan yang diberikan
+  if (kecName && POSE_DATA.petugasKecamatan[kecName]) {
+    const kObj = POSE_DATA.petugasKecamatan[kecName];
+    if (kObj.ppl) {
+      const found = kObj.ppl.find(p => p.nama && p.nama.trim().toLowerCase() === cleanPpl);
+      if (found && found.pml) return found.pml;
+    }
+    if (kObj.anomaliPplList) {
+      const found = kObj.anomaliPplList.find(p => p.nama && p.nama.trim().toLowerCase() === cleanPpl);
+      if (found && found.pml) return found.pml;
+    }
+  }
+
+  // 2. Cek di seluruh kecamatan
+  for (const k of Object.keys(POSE_DATA.petugasKecamatan)) {
+    const kObj = POSE_DATA.petugasKecamatan[k];
+    if (kObj.ppl) {
+      const found = kObj.ppl.find(p => p.nama && p.nama.trim().toLowerCase() === cleanPpl);
+      if (found && found.pml) return found.pml;
+    }
+    if (kObj.anomaliPplList) {
+      const found = kObj.anomaliPplList.find(p => p.nama && p.nama.trim().toLowerCase() === cleanPpl);
+      if (found && found.pml) return found.pml;
+    }
+  }
+
+  return '';
+}
+
+/**
  * Render or Update Anomali Charts (Grafik 1: Pendataan Anomali, Grafik 2: Pemeriksaan Anomali)
  * @param {string} selectedOption - "Kabupaten Jeneponto" or specific Kecamatan
  */
@@ -613,9 +658,9 @@ function renderAnomaliCharts(selectedOption) {
 
   const isKabupaten = selectedOption === "Kabupaten Jeneponto";
   let allLabels1 = [];
-  let allDataGrafik1 = { belum: [], catatan: [], perbaikan: [], raw: [] };
+  let allDataGrafik1 = { belum: [], catatan: [], perbaikan: [], belumCount: [], catatanCount: [], perbaikanCount: [], raw: [] };
   let allLabels2 = [];
-  let allDataGrafik2 = { belum: [], catatan: [], perbaikan: [], raw: [] };
+  let allDataGrafik2 = { belum: [], catatan: [], perbaikan: [], belumCount: [], catatanCount: [], perbaikanCount: [], raw: [] };
   let titleGrafik1 = "";
   let titleGrafik2 = "";
 
@@ -630,27 +675,34 @@ function renderAnomaliCharts(selectedOption) {
         const dataKec = POSE_DATA.petugasKecamatan[kec];
         const pplList = dataKec.anomaliPplList || dataKec.ppl || [];
         pplList.forEach(p => {
+          const pmlName = p.pml || getPmlForPpl(p.nama, kec);
           if (
             p.nama.toLowerCase().includes(query) ||
-            (p.pml && p.pml.toLowerCase().includes(query)) ||
+            pmlName.toLowerCase().includes(query) ||
             kec.toLowerCase().includes(query)
           ) {
-            matchedPPLs.push(Object.assign({}, p, { kecamatan: kec }));
+            matchedPPLs.push(Object.assign({}, p, { kecamatan: kec, pml: pmlName }));
           }
         });
       });
 
       if (matchedPPLs.length > 0) {
-        allLabels1 = matchedPPLs.map(p => `${p.nama} [Kec. ${p.kecamatan}]`);
-        allDataGrafik1.belum = matchedPPLs.map(p => p.anomaliBelum || 0);
-        allDataGrafik1.catatan = matchedPPLs.map(p => p.anomaliCatatan || 0);
-        allDataGrafik1.perbaikan = matchedPPLs.map(p => p.anomaliPerbaikan || 0);
+        allLabels1 = matchedPPLs.map(p => `${p.nama} [${p.pml ? p.pml + ' - ' : ''}Kec. ${p.kecamatan}]`);
+        allDataGrafik1.belum = matchedPPLs.map(p => +(p.anomaliBelum || 0).toFixed(1));
+        allDataGrafik1.catatan = matchedPPLs.map(p => +(p.anomaliCatatan || 0).toFixed(1));
+        allDataGrafik1.perbaikan = matchedPPLs.map(p => +(p.anomaliPerbaikan || 0).toFixed(1));
+        allDataGrafik1.belumCount = matchedPPLs.map(p => p.belumCount !== undefined ? p.belumCount : Math.round((p.anomaliTotal || 0) * (p.anomaliBelum || 0) / 100));
+        allDataGrafik1.catatanCount = matchedPPLs.map(p => p.catatanCount !== undefined ? p.catatanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliCatatan || 0) / 100));
+        allDataGrafik1.perbaikanCount = matchedPPLs.map(p => p.perbaikanCount !== undefined ? p.perbaikanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliPerbaikan || 0) / 100));
         allDataGrafik1.raw = matchedPPLs;
       } else {
         allLabels1 = ['Tidak ada PPL cocok'];
         allDataGrafik1.belum = [0];
         allDataGrafik1.catatan = [0];
         allDataGrafik1.perbaikan = [0];
+        allDataGrafik1.belumCount = [0];
+        allDataGrafik1.catatanCount = [0];
+        allDataGrafik1.perbaikanCount = [0];
       }
 
       // Cari Petugas PML Anomali se-Kabupaten
@@ -659,8 +711,10 @@ function renderAnomaliCharts(selectedOption) {
         const dataKec = POSE_DATA.petugasKecamatan[kec];
         const pmlList = dataKec.anomaliPmlList || dataKec.pml || [];
         pmlList.forEach(m => {
+          const hasMatchingPpl = m.pplList && m.pplList.some(pplName => pplName.toLowerCase().includes(query));
           if (
             m.nama.toLowerCase().includes(query) ||
+            hasMatchingPpl ||
             kec.toLowerCase().includes(query)
           ) {
             matchedPMLs.push(Object.assign({}, m, { kecamatan: kec }));
@@ -670,15 +724,21 @@ function renderAnomaliCharts(selectedOption) {
 
       if (matchedPMLs.length > 0) {
         allLabels2 = matchedPMLs.map(m => `${m.nama} [Kec. ${m.kecamatan}]`);
-        allDataGrafik2.belum = matchedPMLs.map(m => m.anomaliBelum || 0);
-        allDataGrafik2.catatan = matchedPMLs.map(m => m.anomaliCatatan || 0);
-        allDataGrafik2.perbaikan = matchedPMLs.map(m => m.anomaliPerbaikan || 0);
+        allDataGrafik2.belum = matchedPMLs.map(m => +(m.anomaliBelum || 0).toFixed(1));
+        allDataGrafik2.catatan = matchedPMLs.map(m => +(m.anomaliCatatan || 0).toFixed(1));
+        allDataGrafik2.perbaikan = matchedPMLs.map(m => +(m.anomaliPerbaikan || 0).toFixed(1));
+        allDataGrafik2.belumCount = matchedPMLs.map(m => m.belumCount !== undefined ? m.belumCount : Math.round((m.anomaliTotal || 0) * (m.anomaliBelum || 0) / 100));
+        allDataGrafik2.catatanCount = matchedPMLs.map(m => m.catatanCount !== undefined ? m.catatanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliCatatan || 0) / 100));
+        allDataGrafik2.perbaikanCount = matchedPMLs.map(m => m.perbaikanCount !== undefined ? m.perbaikanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliPerbaikan || 0) / 100));
         allDataGrafik2.raw = matchedPMLs;
       } else {
         allLabels2 = ['Tidak ada PML cocok'];
         allDataGrafik2.belum = [0];
         allDataGrafik2.catatan = [0];
         allDataGrafik2.perbaikan = [0];
+        allDataGrafik2.belumCount = [0];
+        allDataGrafik2.catatanCount = [0];
+        allDataGrafik2.perbaikanCount = [0];
       }
 
       titleGrafik1 = `Hasil Pencarian Anomali PPL: "${anomaliSearchQuery}" (se-Kabupaten)`;
@@ -686,39 +746,58 @@ function renderAnomaliCharts(selectedOption) {
     } else {
       // Cari Petugas PPL & PML Anomali di Kecamatan terpilih
       const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || {};
-      const pplList = dataKec.anomaliPplList || dataKec.ppl || [];
+      const pplList = (dataKec.anomaliPplList || dataKec.ppl || []).map(p => {
+        const pmlName = p.pml || getPmlForPpl(p.nama, selectedOption);
+        return Object.assign({}, p, { pml: pmlName });
+      });
+
       const matchedPPLs = pplList.filter(p => 
         p.nama.toLowerCase().includes(query) ||
         (p.pml && p.pml.toLowerCase().includes(query))
       );
 
       if (matchedPPLs.length > 0) {
-        allLabels1 = matchedPPLs.map(p => p.nama);
-        allDataGrafik1.belum = matchedPPLs.map(p => p.anomaliBelum || 0);
-        allDataGrafik1.catatan = matchedPPLs.map(p => p.anomaliCatatan || 0);
-        allDataGrafik1.perbaikan = matchedPPLs.map(p => p.anomaliPerbaikan || 0);
+        allLabels1 = matchedPPLs.map(p => `${p.nama}${p.pml ? ` [${p.pml}]` : ''}`);
+        allDataGrafik1.belum = matchedPPLs.map(p => +(p.anomaliBelum || 0).toFixed(1));
+        allDataGrafik1.catatan = matchedPPLs.map(p => +(p.anomaliCatatan || 0).toFixed(1));
+        allDataGrafik1.perbaikan = matchedPPLs.map(p => +(p.anomaliPerbaikan || 0).toFixed(1));
+        allDataGrafik1.belumCount = matchedPPLs.map(p => p.belumCount !== undefined ? p.belumCount : Math.round((p.anomaliTotal || 0) * (p.anomaliBelum || 0) / 100));
+        allDataGrafik1.catatanCount = matchedPPLs.map(p => p.catatanCount !== undefined ? p.catatanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliCatatan || 0) / 100));
+        allDataGrafik1.perbaikanCount = matchedPPLs.map(p => p.perbaikanCount !== undefined ? p.perbaikanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliPerbaikan || 0) / 100));
         allDataGrafik1.raw = matchedPPLs;
       } else {
         allLabels1 = ['Tidak ada PPL cocok'];
         allDataGrafik1.belum = [0];
         allDataGrafik1.catatan = [0];
         allDataGrafik1.perbaikan = [0];
+        allDataGrafik1.belumCount = [0];
+        allDataGrafik1.catatanCount = [0];
+        allDataGrafik1.perbaikanCount = [0];
       }
 
       const pmlList = dataKec.anomaliPmlList || dataKec.pml || [];
-      const matchedPMLs = pmlList.filter(m => m.nama.toLowerCase().includes(query));
+      const matchedPMLs = pmlList.filter(m => 
+        m.nama.toLowerCase().includes(query) ||
+        (m.pplList && m.pplList.some(pplName => pplName.toLowerCase().includes(query)))
+      );
 
       if (matchedPMLs.length > 0) {
-        allLabels2 = matchedPMLs.map(m => m.nama);
-        allDataGrafik2.belum = matchedPMLs.map(m => m.anomaliBelum || 0);
-        allDataGrafik2.catatan = matchedPMLs.map(m => m.anomaliCatatan || 0);
-        allDataGrafik2.perbaikan = matchedPMLs.map(m => m.anomaliPerbaikan || 0);
+        allLabels2 = matchedPMLs.map(m => `${m.nama}${m.pplCount ? ` (${m.pplCount} PPL)` : ''}`);
+        allDataGrafik2.belum = matchedPMLs.map(m => +(m.anomaliBelum || 0).toFixed(1));
+        allDataGrafik2.catatan = matchedPMLs.map(m => +(m.anomaliCatatan || 0).toFixed(1));
+        allDataGrafik2.perbaikan = matchedPMLs.map(m => +(m.anomaliPerbaikan || 0).toFixed(1));
+        allDataGrafik2.belumCount = matchedPMLs.map(m => m.belumCount !== undefined ? m.belumCount : Math.round((m.anomaliTotal || 0) * (m.anomaliBelum || 0) / 100));
+        allDataGrafik2.catatanCount = matchedPMLs.map(m => m.catatanCount !== undefined ? m.catatanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliCatatan || 0) / 100));
+        allDataGrafik2.perbaikanCount = matchedPMLs.map(m => m.perbaikanCount !== undefined ? m.perbaikanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliPerbaikan || 0) / 100));
         allDataGrafik2.raw = matchedPMLs;
       } else {
         allLabels2 = ['Tidak ada PML cocok'];
         allDataGrafik2.belum = [0];
         allDataGrafik2.catatan = [0];
         allDataGrafik2.perbaikan = [0];
+        allDataGrafik2.belumCount = [0];
+        allDataGrafik2.catatanCount = [0];
+        allDataGrafik2.perbaikanCount = [0];
       }
 
       titleGrafik1 = `Hasil Pencarian Anomali PPL: "${anomaliSearchQuery}" (Kec. ${selectedOption})`;
@@ -727,31 +806,58 @@ function renderAnomaliCharts(selectedOption) {
   } else {
     if (isKabupaten) {
       allLabels1 = POSE_DATA.progresKecamatan.map(k => k.nama);
-      allDataGrafik1.belum = POSE_DATA.progresKecamatan.map(k => k.anomaliBelum);
-      allDataGrafik1.catatan = POSE_DATA.progresKecamatan.map(k => k.anomaliCatatan);
-      allDataGrafik1.perbaikan = POSE_DATA.progresKecamatan.map(k => k.anomaliPerbaikan);
-      
+      allDataGrafik1.belum = POSE_DATA.progresKecamatan.map(k => +(k.anomaliBelum || 0).toFixed(1));
+      allDataGrafik1.catatan = POSE_DATA.progresKecamatan.map(k => +(k.anomaliCatatan || 0).toFixed(1));
+      allDataGrafik1.perbaikan = POSE_DATA.progresKecamatan.map(k => +(k.anomaliPerbaikan || 0).toFixed(1));
+      allDataGrafik1.belumCount = POSE_DATA.progresKecamatan.map(k => {
+        const kObj = POSE_DATA.petugasKecamatan[k.nama] || {};
+        return k.belumCount !== undefined ? k.belumCount : (kObj.belumCount !== undefined ? kObj.belumCount : 0);
+      });
+      allDataGrafik1.catatanCount = POSE_DATA.progresKecamatan.map(k => {
+        const kObj = POSE_DATA.petugasKecamatan[k.nama] || {};
+        return k.catatanCount !== undefined ? k.catatanCount : (kObj.catatanCount !== undefined ? kObj.catatanCount : 0);
+      });
+      allDataGrafik1.perbaikanCount = POSE_DATA.progresKecamatan.map(k => {
+        const kObj = POSE_DATA.petugasKecamatan[k.nama] || {};
+        return k.perbaikanCount !== undefined ? k.perbaikanCount : (kObj.perbaikanCount !== undefined ? kObj.perbaikanCount : 0);
+      });
+
       allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
-      allDataGrafik2.belum = POSE_DATA.progresKecamatan.map(k => k.anomaliBelum);
-      allDataGrafik2.catatan = POSE_DATA.progresKecamatan.map(k => k.anomaliCatatan);
-      allDataGrafik2.perbaikan = POSE_DATA.progresKecamatan.map(k => k.anomaliPerbaikan);
+      allDataGrafik2 = {
+        belum: [...allDataGrafik1.belum],
+        catatan: [...allDataGrafik1.catatan],
+        perbaikan: [...allDataGrafik1.perbaikan],
+        belumCount: [...allDataGrafik1.belumCount],
+        catatanCount: [...allDataGrafik1.catatanCount],
+        perbaikanCount: [...allDataGrafik1.perbaikanCount]
+      };
 
       titleGrafik1 = "Progres Penyelesaian Anomali SE2026 Kabupaten Jeneponto (per Kecamatan)";
       titleGrafik2 = "Progres Pemeriksaan Penyelesaian Anomali SE2026 Kab. Jeneponto (per Kecamatan)";
     } else {
       const dataKec = POSE_DATA.petugasKecamatan[selectedOption] || POSE_DATA.petugasKecamatan["Binamu"] || {};
-      
-      const pplList = dataKec.anomaliPplList || dataKec.ppl || [];
-      allLabels1 = pplList.map(p => p.nama);
-      allDataGrafik1.belum = pplList.map(p => p.anomaliBelum);
-      allDataGrafik1.catatan = pplList.map(p => p.anomaliCatatan);
-      allDataGrafik1.perbaikan = pplList.map(p => p.anomaliPerbaikan);
+
+      const pplList = (dataKec.anomaliPplList || dataKec.ppl || []).map(p => {
+        const pmlName = p.pml || getPmlForPpl(p.nama, selectedOption);
+        return Object.assign({}, p, { pml: pmlName });
+      });
+
+      allLabels1 = pplList.map(p => `${p.nama}${p.pml ? ` [${p.pml}]` : ''}`);
+      allDataGrafik1.belum = pplList.map(p => +(p.anomaliBelum || 0).toFixed(1));
+      allDataGrafik1.catatan = pplList.map(p => +(p.anomaliCatatan || 0).toFixed(1));
+      allDataGrafik1.perbaikan = pplList.map(p => +(p.anomaliPerbaikan || 0).toFixed(1));
+      allDataGrafik1.belumCount = pplList.map(p => p.belumCount !== undefined ? p.belumCount : Math.round((p.anomaliTotal || 0) * (p.anomaliBelum || 0) / 100));
+      allDataGrafik1.catatanCount = pplList.map(p => p.catatanCount !== undefined ? p.catatanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliCatatan || 0) / 100));
+      allDataGrafik1.perbaikanCount = pplList.map(p => p.perbaikanCount !== undefined ? p.perbaikanCount : Math.round((p.anomaliTotal || 0) * (p.anomaliPerbaikan || 0) / 100));
 
       const pmlList = dataKec.anomaliPmlList || dataKec.pml || [];
-      allLabels2 = pmlList.map(p => p.nama);
-      allDataGrafik2.belum = pmlList.map(p => p.anomaliBelum);
-      allDataGrafik2.catatan = pmlList.map(p => p.anomaliCatatan);
-      allDataGrafik2.perbaikan = pmlList.map(p => p.anomaliPerbaikan);
+      allLabels2 = pmlList.map(m => `${m.nama}${m.pplCount ? ` (${m.pplCount} PPL)` : ''}`);
+      allDataGrafik2.belum = pmlList.map(m => +(m.anomaliBelum || 0).toFixed(1));
+      allDataGrafik2.catatan = pmlList.map(m => +(m.anomaliCatatan || 0).toFixed(1));
+      allDataGrafik2.perbaikan = pmlList.map(m => +(m.anomaliPerbaikan || 0).toFixed(1));
+      allDataGrafik2.belumCount = pmlList.map(m => m.belumCount !== undefined ? m.belumCount : Math.round((m.anomaliTotal || 0) * (m.anomaliBelum || 0) / 100));
+      allDataGrafik2.catatanCount = pmlList.map(m => m.catatanCount !== undefined ? m.catatanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliCatatan || 0) / 100));
+      allDataGrafik2.perbaikanCount = pmlList.map(m => m.perbaikanCount !== undefined ? m.perbaikanCount : Math.round((m.anomaliTotal || 0) * (m.anomaliPerbaikan || 0) / 100));
 
       titleGrafik1 = `Progres Penyelesaian Anomali SE2026 Kec. ${selectedOption} (per PPL)`;
       titleGrafik2 = `Progres Pemeriksaan Anomali SE2026 Kec. ${selectedOption} (per PML)`;
@@ -792,10 +898,18 @@ function renderAnomaliCharts(selectedOption) {
   const data1Catatan = (isSearching || isAnomaliExpanded) ? allDataGrafik1.catatan : allDataGrafik1.catatan.slice(0, defaultAnomaliCount);
   const data1Perbaikan = (isSearching || isAnomaliExpanded) ? allDataGrafik1.perbaikan : allDataGrafik1.perbaikan.slice(0, defaultAnomaliCount);
 
+  const counts1Belum = (isSearching || isAnomaliExpanded) ? allDataGrafik1.belumCount : allDataGrafik1.belumCount.slice(0, defaultAnomaliCount);
+  const counts1Catatan = (isSearching || isAnomaliExpanded) ? allDataGrafik1.catatanCount : allDataGrafik1.catatanCount.slice(0, defaultAnomaliCount);
+  const counts1Perbaikan = (isSearching || isAnomaliExpanded) ? allDataGrafik1.perbaikanCount : allDataGrafik1.perbaikanCount.slice(0, defaultAnomaliCount);
+
   const labels2 = (isSearching || isAnomaliExpanded) ? allLabels2 : allLabels2.slice(0, defaultAnomaliCount);
   const data2Belum = (isSearching || isAnomaliExpanded) ? allDataGrafik2.belum : allDataGrafik2.belum.slice(0, defaultAnomaliCount);
   const data2Catatan = (isSearching || isAnomaliExpanded) ? allDataGrafik2.catatan : allDataGrafik2.catatan.slice(0, defaultAnomaliCount);
   const data2Perbaikan = (isSearching || isAnomaliExpanded) ? allDataGrafik2.perbaikan : allDataGrafik2.perbaikan.slice(0, defaultAnomaliCount);
+
+  const counts2Belum = (isSearching || isAnomaliExpanded) ? allDataGrafik2.belumCount : allDataGrafik2.belumCount.slice(0, defaultAnomaliCount);
+  const counts2Catatan = (isSearching || isAnomaliExpanded) ? allDataGrafik2.catatanCount : allDataGrafik2.catatanCount.slice(0, defaultAnomaliCount);
+  const counts2Perbaikan = (isSearching || isAnomaliExpanded) ? allDataGrafik2.perbaikanCount : allDataGrafik2.perbaikanCount.slice(0, defaultAnomaliCount);
 
   // Dynamically adjust container heights
   const container1 = document.getElementById('container-chart-anomali-1');
@@ -840,6 +954,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Belum Ditindaklanjuti',
           data: data1Belum,
+          counts: counts1Belum,
           backgroundColor: CHART_COLORS.anomaliBelum,
           borderColor: CHART_COLORS.anomaliBelumBorder,
           borderWidth: 1.5,
@@ -850,6 +965,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Ditindaklanjuti dg Catatan',
           data: data1Catatan,
+          counts: counts1Catatan,
           backgroundColor: CHART_COLORS.anomaliCatatan,
           borderColor: CHART_COLORS.anomaliCatatanBorder,
           borderWidth: 1.5,
@@ -860,6 +976,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Ditindaklanjuti dg Perbaikan',
           data: data1Perbaikan,
+          counts: counts1Perbaikan,
           backgroundColor: CHART_COLORS.anomaliPerbaikan,
           borderColor: CHART_COLORS.anomaliPerbaikanBorder,
           borderWidth: 1.5,
@@ -886,6 +1003,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Belum Ditindaklanjuti',
           data: data2Belum,
+          counts: counts2Belum,
           backgroundColor: CHART_COLORS.anomaliBelum,
           borderColor: CHART_COLORS.anomaliBelumBorder,
           borderWidth: 1.5,
@@ -896,6 +1014,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Ditindaklanjuti dg Catatan',
           data: data2Catatan,
+          counts: counts2Catatan,
           backgroundColor: CHART_COLORS.anomaliCatatan,
           borderColor: CHART_COLORS.anomaliCatatanBorder,
           borderWidth: 1.5,
@@ -906,6 +1025,7 @@ function renderAnomaliCharts(selectedOption) {
         {
           label: '% Ditindaklanjuti dg Perbaikan',
           data: data2Perbaikan,
+          counts: counts2Perbaikan,
           backgroundColor: CHART_COLORS.anomaliPerbaikan,
           borderColor: CHART_COLORS.anomaliPerbaikanBorder,
           borderWidth: 1.5,

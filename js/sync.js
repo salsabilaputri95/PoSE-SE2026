@@ -645,7 +645,10 @@ function processAnomaliCSV(rows) {
 
     if (ppl) {
       if (!kecObj.pplMap[ppl]) {
-        kecObj.pplMap[ppl] = { nama: ppl, total: 0, belum: 0, catatan: 0, perbaikan: 0 };
+        kecObj.pplMap[ppl] = { nama: ppl, pml: pml || '', total: 0, belum: 0, catatan: 0, perbaikan: 0 };
+      }
+      if (pml && !kecObj.pplMap[ppl].pml) {
+        kecObj.pplMap[ppl].pml = pml;
       }
       kecObj.pplMap[ppl].total++;
       if (isPerbaikan) kecObj.pplMap[ppl].perbaikan++;
@@ -655,7 +658,10 @@ function processAnomaliCSV(rows) {
 
     if (pml) {
       if (!kecObj.pmlMap[pml]) {
-        kecObj.pmlMap[pml] = { nama: pml, total: 0, belum: 0, catatan: 0, perbaikan: 0 };
+        kecObj.pmlMap[pml] = { nama: pml, total: 0, belum: 0, catatan: 0, perbaikan: 0, pplList: [] };
+      }
+      if (ppl && !kecObj.pmlMap[pml].pplList.includes(ppl)) {
+        kecObj.pmlMap[pml].pplList.push(ppl);
       }
       kecObj.pmlMap[pml].total++;
       if (isPerbaikan) kecObj.pmlMap[pml].perbaikan++;
@@ -683,6 +689,9 @@ function processAnomaliCSV(rows) {
       POSE_DATA.progresKecamatan[idx].anomaliCatatan = pCatatan;
       POSE_DATA.progresKecamatan[idx].anomaliPerbaikan = pPerbaikan;
       POSE_DATA.progresKecamatan[idx].anomaliTotal = item.total;
+      POSE_DATA.progresKecamatan[idx].belumCount = item.belum;
+      POSE_DATA.progresKecamatan[idx].catatanCount = item.catatan;
+      POSE_DATA.progresKecamatan[idx].perbaikanCount = item.perbaikan;
     }
 
     // Update petugasKecamatan
@@ -694,6 +703,9 @@ function processAnomaliCSV(rows) {
     kecPetugas.anomaliBelum = pBelum;
     kecPetugas.anomaliCatatan = pCatatan;
     kecPetugas.anomaliPerbaikan = pPerbaikan;
+    kecPetugas.belumCount = item.belum;
+    kecPetugas.catatanCount = item.catatan;
+    kecPetugas.perbaikanCount = item.perbaikan;
 
     kecPetugas.anomaliUsahaTotal = item.usahaTotal;
     kecPetugas.anomaliUsahaSelesai = item.usahaSelesai;
@@ -710,10 +722,14 @@ function processAnomaliCSV(rows) {
     // Map PPLs from sheet
     const sheetPpls = Object.values(item.pplMap).map(p => ({
       nama: p.nama,
+      pml: p.pml || '',
       submit: 95,
       approved: 85,
       rejected: 2,
       anomaliTotal: p.total,
+      belumCount: p.belum,
+      catatanCount: p.catatan,
+      perbaikanCount: p.perbaikan,
       anomaliBelum: Math.round((p.belum / (p.total || 1)) * 1000) / 10,
       anomaliCatatan: Math.round((p.catatan / (p.total || 1)) * 1000) / 10,
       anomaliPerbaikan: Math.round((p.perbaikan / (p.total || 1)) * 1000) / 10
@@ -726,10 +742,15 @@ function processAnomaliCSV(rows) {
     // Map PMLs from sheet
     const sheetPmls = Object.values(item.pmlMap).map(p => ({
       nama: p.nama,
+      pplCount: p.pplList.length,
+      pplList: p.pplList,
       submit: 95,
       approved: 85,
       rejected: 2,
       anomaliTotal: p.total,
+      belumCount: p.belum,
+      catatanCount: p.catatan,
+      perbaikanCount: p.perbaikan,
       anomaliBelum: Math.round((p.belum / (p.total || 1)) * 1000) / 10,
       anomaliCatatan: Math.round((p.catatan / (p.total || 1)) * 1000) / 10,
       anomaliPerbaikan: Math.round((p.perbaikan / (p.total || 1)) * 1000) / 10
