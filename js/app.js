@@ -824,9 +824,9 @@ function updateMonitoringKPI(selectedOption) {
     if (barSubmit) barSubmit.style.width = `${kpi.persentaseProgres || kpi.persentaseSubmit}%`;
     if (barDraft) barDraft.style.width = `${kpi.persentaseOpenDraft || kpi.persentaseDraft}%`;
     if (barApproved) barApproved.style.width = `${kpi.persentaseApproved}%`;
-    if (descSubmit) descSubmit.textContent = "Kolom P: Progres se-Kabupaten";
-    if (descDraft) descDraft.textContent = "Kolom Q: Open+Draft se-Kabupaten";
-    if (descApproved) descApproved.textContent = "Kolom R: Approved se-Kabupaten";
+    if (descSubmit) descSubmit.textContent = "Kolom P: Assignment status selain Open, Draft, dan Rejected by PML";
+    if (descDraft) descDraft.textContent = "Kolom Q: Assignment status Open, Draft, dan Rejected by PML";
+    if (descApproved) descApproved.textContent = "Kolom R: Assignment status Approved by PML, Edited by Admin, dan Completed by Admin";
 
     if (elWilTitle) elWilTitle.textContent = "Wilayah Cakupan";
     if (elWilVal) elWilVal.textContent = "11";
@@ -844,9 +844,9 @@ function updateMonitoringKPI(selectedOption) {
     if (barSubmit) barSubmit.style.width = `${valProg}%`;
     if (barDraft) barDraft.style.width = `${valOpDr}%`;
     if (barApproved) barApproved.style.width = `${valApp}%`;
-    if (descSubmit) descSubmit.textContent = `Kolom P: Progres Kec. ${selectedOption}`;
-    if (descDraft) descDraft.textContent = `Kolom Q: Open+Draft Kec. ${selectedOption}`;
-    if (descApproved) descApproved.textContent = `Kolom R: Approved Kec. ${selectedOption}`;
+    if (descSubmit) descSubmit.textContent = `Kolom P: Status selain Open, Draft, & Rejected by PML (Kec. ${selectedOption})`;
+    if (descDraft) descDraft.textContent = `Kolom Q: Status Open, Draft, & Rejected by PML (Kec. ${selectedOption})`;
+    if (descApproved) descApproved.textContent = `Kolom R: Approved by PML, Edited & Completed by Admin (Kec. ${selectedOption})`;
 
     if (elWilTitle) elWilTitle.textContent = `Kec. ${selectedOption}`;
     if (elWilVal) elWilVal.textContent = dataKec.totalPPL || (dataKec.ppl ? dataKec.ppl.length : 0);

@@ -331,6 +331,13 @@ function processMonitoringCSV(rows) {
   if (openDraftIdx === -1) openDraftIdx = 16;
   if (appIdx === -1) appIdx = 17;
 
+  const parseNum = (val) => {
+    if (!val) return 0;
+    const clean = String(val).replace(/\./g, '').replace(/,/g, '').trim();
+    const num = parseInt(clean, 10);
+    return isNaN(num) ? 0 : num;
+  };
+
   const parsePercent = (val) => {
     if (!val) return 0;
     const clean = String(val).replace('%', '').replace(',', '.').trim();
@@ -343,18 +350,18 @@ function processMonitoringCSV(rows) {
     kecMap[k.toUpperCase()] = {
       nama: k,
       muatan: 0,
-      weightedProgres: 0,
-      weightedOpenDraft: 0,
-      weightedApproved: 0,
+      progresCount: 0,
+      openDraftCount: 0,
+      approvedCount: 0,
       pplMap: {},
       pmlMap: {}
     };
   });
 
   let totalMuatanKab = 0;
-  let totalWeightedProgres = 0;
-  let totalWeightedOpenDraft = 0;
-  let totalWeightedApproved = 0;
+  let totalProgresKab = 0;
+  let totalOpenDraftKab = 0;
+  let totalApprovedKab = 0;
 
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
@@ -375,33 +382,60 @@ function processMonitoringCSV(rows) {
     }
     if (!matchedKey) continue;
 
-    const muatan = muatanIdx !== -1 ? parseInt(String(r[muatanIdx]).replace(/\./g, '').replace(/,/g, ''), 10) || 0 : 0;
-    const progres = progIdx !== -1 ? parsePercent(r[progIdx]) : 0;
-    const openDraft = openDraftIdx !== -1 ? parsePercent(r[openDraftIdx]) : 0;
-    const approved = appIdx !== -1 ? parsePercent(r[appIdx]) : 0;
+    const muatan = muatanIdx !== -1 ? parseNum(r[muatanIdx]) : 0;
+    
+    // Status per baris dari kolom spesifik:
+    // E=OPEN (4), F=DRAFT (5), G=SUBMITTED (6), H=REJECTED PENG (7), I=APPROVED PENG (8), J=REVOKED PENG (9)
+    // K=SUBMITTED RESP (10), L=REJECTED ADM (11), M=EDITED ADM (12), N=COMPLETED ADM (13)
+    const e = parseNum(r[4]);
+    const f = parseNum(r[5]);
+    const g = parseNum(r[6]);
+    const h = parseNum(r[7]);
+    const iCol = parseNum(r[8]);
+    const j = parseNum(r[9]);
+    const kCol = parseNum(r[10]);
+    const lCol = parseNum(r[11]);
+    const mCol = parseNum(r[12]);
+    const nCol = parseNum(r[13]);
+
+    // Rumus definisi user:
+    // 1. Progres: G, I, J, K, L, M, N (selain Open, Draft, Rejected by PML)
+    const progCount = g + iCol + j + kCol + lCol + mCol + nCol;
+    // 2. Open+Draft+Rejected by PML: E, F, H
+    const openDraftCount = e + f + h;
+    // 3. Approve: I, M, N (Approved by PML, Edited by Admin, Completed by Admin)
+    const appCount = iCol + mCol + nCol;
+
+    const mTot = muatan > 0 ? muatan : 1;
+    const pProgres = Math.round((progCount / mTot) * 1000) / 10;
+    const pOpenDraft = Math.round((openDraftCount / mTot) * 1000) / 10;
+    const pApproved = Math.round((appCount / mTot) * 1000) / 10;
 
     const kecObj = kecMap[matchedKey];
     kecObj.muatan += muatan;
-    kecObj.weightedProgres += (progres * muatan);
-    kecObj.weightedOpenDraft += (openDraft * muatan);
-    kecObj.weightedApproved += (approved * muatan);
+    kecObj.progresCount += progCount;
+    kecObj.openDraftCount += openDraftCount;
+    kecObj.approvedCount += appCount;
 
     totalMuatanKab += muatan;
-    totalWeightedProgres += (progres * muatan);
-    totalWeightedOpenDraft += (openDraft * muatan);
-    totalWeightedApproved += (approved * muatan);
+    totalProgresKab += progCount;
+    totalOpenDraftKab += openDraftCount;
+    totalApprovedKab += appCount;
 
     // PPL
     if (!kecObj.pplMap[pcl]) {
       kecObj.pplMap[pcl] = { 
         nama: pcl, 
         pml, 
-        muatan, 
-        progres: Math.round(progres * 10) / 10, 
-        openDraft: Math.round(openDraft * 10) / 10, 
-        approved: Math.round(approved * 10) / 10,
-        submit: Math.round(progres * 10) / 10,
-        draft: Math.round(openDraft * 10) / 10
+        muatan,
+        progresCount: progCount,
+        openDraftCount: openDraftCount,
+        approvedCount: appCount,
+        progres: pProgres, 
+        openDraft: pOpenDraft, 
+        approved: pApproved,
+        submit: pProgres, 
+        draft: pOpenDraft 
       };
     }
 
@@ -411,18 +445,20 @@ function processMonitoringCSV(rows) {
         kecObj.pmlMap[pml] = { 
           nama: pml, 
           muatan: 0, 
-          weightedProgres: 0, 
-          weightedOpenDraft: 0, 
-          weightedApproved: 0, 
-          pplCount: 0 
+          progresCount: 0, 
+          openDraftCount: 0, 
+          approvedCount: 0, 
+          pplCount: 0,
+          pplList: []
         };
       }
       const pmlObj = kecObj.pmlMap[pml];
       pmlObj.muatan += muatan;
-      pmlObj.weightedProgres += (progres * muatan);
-      pmlObj.weightedOpenDraft += (openDraft * muatan);
-      pmlObj.weightedApproved += (approved * muatan);
+      pmlObj.progresCount += progCount;
+      pmlObj.openDraftCount += openDraftCount;
+      pmlObj.approvedCount += appCount;
       pmlObj.pplCount++;
+      pmlObj.pplList.push(pcl);
     }
   }
 
@@ -433,11 +469,11 @@ function processMonitoringCSV(rows) {
   Object.keys(kecMap).forEach(key => {
     const d = kecMap[key];
     const namaKec = d.nama;
-    const m = d.muatan > 0 ? d.muatan : 1;
+    const km = d.muatan > 0 ? d.muatan : 1;
 
-    const pProgres = Math.round((d.weightedProgres / m) * 10) / 10;
-    const pOpenDraft = Math.round((d.weightedOpenDraft / m) * 10) / 10;
-    const pApproved = Math.round((d.weightedApproved / m) * 10) / 10;
+    const pProgres = Math.round((d.progresCount / km) * 1000) / 10;
+    const pOpenDraft = Math.round((d.openDraftCount / km) * 1000) / 10;
+    const pApproved = Math.round((d.approvedCount / km) * 1000) / 10;
 
     if (!POSE_DATA.petugasKecamatan[namaKec]) {
       POSE_DATA.petugasKecamatan[namaKec] = {};
@@ -447,32 +483,34 @@ function processMonitoringCSV(rows) {
       nama: p.nama,
       pml: p.pml,
       muatan: p.muatan,
+      progresCount: p.progresCount,
+      openDraftCount: p.openDraftCount,
+      approvedCount: p.approvedCount,
       progres: p.progres,
       openDraft: p.openDraft,
       approved: p.approved,
       submit: p.progres,
-      draft: p.openDraft,
-      anomaliBelum: 35,
-      anomaliCatatan: 20,
-      anomaliPerbaikan: 45
+      draft: p.openDraft
     }));
 
     const pmlList = Object.values(d.pmlMap).map(pml => {
       const pm = pml.muatan > 0 ? pml.muatan : 1;
-      const prog = Math.round((pml.weightedProgres / pm) * 10) / 10;
-      const opDr = Math.round((pml.weightedOpenDraft / pm) * 10) / 10;
-      const app = Math.round((pml.weightedApproved / pm) * 10) / 10;
+      const prog = Math.round((pml.progresCount / pm) * 1000) / 10;
+      const opDr = Math.round((pml.openDraftCount / pm) * 1000) / 10;
+      const app = Math.round((pml.approvedCount / pm) * 1000) / 10;
       return {
         nama: pml.nama,
         muatan: pml.muatan,
+        progresCount: pml.progresCount,
+        openDraftCount: pml.openDraftCount,
+        approvedCount: pml.approvedCount,
         progres: prog,
         openDraft: opDr,
         approved: app,
         submit: prog,
         draft: opDr,
-        anomaliBelum: 35,
-        anomaliCatatan: 20,
-        anomaliPerbaikan: 45
+        pplCount: pml.pplCount,
+        pplList: pml.pplList
       };
     });
 
@@ -488,6 +526,9 @@ function processMonitoringCSV(rows) {
     }
 
     POSE_DATA.petugasKecamatan[namaKec].muatan = d.muatan;
+    POSE_DATA.petugasKecamatan[namaKec].progresCount = d.progresCount;
+    POSE_DATA.petugasKecamatan[namaKec].openDraftCount = d.openDraftCount;
+    POSE_DATA.petugasKecamatan[namaKec].approvedCount = d.approvedCount;
     POSE_DATA.petugasKecamatan[namaKec].progres = pProgres;
     POSE_DATA.petugasKecamatan[namaKec].openDraft = pOpenDraft;
     POSE_DATA.petugasKecamatan[namaKec].approved = pApproved;
@@ -499,16 +540,23 @@ function processMonitoringCSV(rows) {
 
     newProgresKec.push({
       nama: namaKec,
+      muatan: d.muatan,
+      progresCount: d.progresCount,
+      openDraftCount: d.openDraftCount,
+      approvedCount: d.approvedCount,
       progres: pProgres,
       openDraft: pOpenDraft,
       approved: pApproved,
       submit: pProgres,
       draft: pOpenDraft,
       rejected: pOpenDraft,
-      muatan: d.muatan,
       anomaliBelum: existingKec ? existingKec.anomaliBelum : 34.2,
       anomaliCatatan: existingKec ? existingKec.anomaliCatatan : 22.3,
-      anomaliPerbaikan: existingKec ? existingKec.anomaliPerbaikan : 43.5
+      anomaliPerbaikan: existingKec ? existingKec.anomaliPerbaikan : 43.5,
+      anomaliTotal: existingKec ? existingKec.anomaliTotal : 0,
+      belumCount: existingKec ? existingKec.belumCount : 0,
+      catatanCount: existingKec ? existingKec.catatanCount : 0,
+      perbaikanCount: existingKec ? existingKec.perbaikanCount : 0
     });
   });
 
@@ -518,12 +566,15 @@ function processMonitoringCSV(rows) {
 
   if (totalMuatanKab > 0) {
     const kabM = totalMuatanKab > 0 ? totalMuatanKab : 1;
-    const pProgresKab = Math.round((totalWeightedProgres / kabM) * 10) / 10;
-    const pOpenDraftKab = Math.round((totalWeightedOpenDraft / kabM) * 10) / 10;
-    const pApprovedKab = Math.round((totalWeightedApproved / kabM) * 10) / 10;
+    const pProgresKab = Math.round((totalProgresKab / kabM) * 1000) / 10;
+    const pOpenDraftKab = Math.round((totalOpenDraftKab / kabM) * 1000) / 10;
+    const pApprovedKab = Math.round((totalApprovedKab / kabM) * 1000) / 10;
 
     POSE_DATA.kpiKabupaten.totalMuatan = totalMuatanKab;
     POSE_DATA.kpiKabupaten.targetKeluargaUsaha = totalMuatanKab.toLocaleString('id-ID');
+    POSE_DATA.kpiKabupaten.progresCount = totalProgresKab;
+    POSE_DATA.kpiKabupaten.openDraftCount = totalOpenDraftKab;
+    POSE_DATA.kpiKabupaten.approvedCount = totalApprovedKab;
     POSE_DATA.kpiKabupaten.persentaseProgres = pProgresKab;
     POSE_DATA.kpiKabupaten.persentaseOpenDraft = pOpenDraftKab;
     POSE_DATA.kpiKabupaten.persentaseSubmit = pProgresKab;

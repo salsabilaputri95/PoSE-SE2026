@@ -234,13 +234,17 @@ function renderMonitoringCharts(selectedOption) {
           nama: p.nama,
           pml: p.pml,
           kecamatan: p.kecamatan,
+          muatan: p.muatan || 0,
           progres: +(p.progres || p.submit || 0).toFixed(1),
           openDraft: +(p.openDraft || p.draft || 0).toFixed(1),
-          approved: +(p.approved || 0).toFixed(1)
+          approved: +(p.approved || 0).toFixed(1),
+          progresCount: p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100),
+          openDraftCount: p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100),
+          approvedCount: p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100)
         }));
       } else {
         allLabels1 = ['Tidak ada PPL cocok'];
-        allDataGrafik1 = [{ progres: 0, openDraft: 0, approved: 0 }];
+        allDataGrafik1 = [{ progres: 0, openDraft: 0, approved: 0, progresCount: 0, openDraftCount: 0, approvedCount: 0 }];
       }
 
       // Cari PML se-Kabupaten
@@ -252,12 +256,28 @@ function renderMonitoringCharts(selectedOption) {
             const pmlName = p.pml || 'Tidak Diketahui';
             const key = pmlName + ' - ' + kec;
             if (!pmlMap[key]) {
-              pmlMap[key] = { nama: pmlName, kecamatan: kec, pplList: [], progresSum: 0, openDraftSum: 0, approvedSum: 0, count: 0 };
+              pmlMap[key] = { 
+                nama: pmlName, 
+                kecamatan: kec, 
+                pplList: [], 
+                muatanSum: 0,
+                progresSum: 0, 
+                openDraftSum: 0, 
+                approvedSum: 0, 
+                progresCountSum: 0,
+                openDraftCountSum: 0,
+                approvedCountSum: 0,
+                count: 0 
+              };
             }
             pmlMap[key].pplList.push(p.nama);
+            pmlMap[key].muatanSum += (p.muatan || 0);
             pmlMap[key].progresSum += +(p.progres || p.submit || 0);
             pmlMap[key].openDraftSum += +(p.openDraft || p.draft || 0);
             pmlMap[key].approvedSum += +(p.approved || 0);
+            pmlMap[key].progresCountSum += (p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100));
+            pmlMap[key].openDraftCountSum += (p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100));
+            pmlMap[key].approvedCountSum += (p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100));
             pmlMap[key].count++;
           });
         }
@@ -272,17 +292,27 @@ function renderMonitoringCharts(selectedOption) {
 
       if (matchedPMLs.length > 0) {
         allLabels2 = matchedPMLs.map(m => `${m.nama} (${m.count} PPL - Kec. ${m.kecamatan})`);
-        allDataGrafik2 = matchedPMLs.map(m => ({
-          nama: m.nama,
-          jumlahPPL: m.count,
-          pplNames: m.pplList,
-          progres: m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0,
-          openDraft: m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0,
-          approved: m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0
-        }));
+        allDataGrafik2 = matchedPMLs.map(m => {
+          const muatan = m.muatanSum || 1;
+          const prog = muatan > 0 ? +(m.progresCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0);
+          const opDr = muatan > 0 ? +(m.openDraftCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0);
+          const app = muatan > 0 ? +(m.approvedCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0);
+          return {
+            nama: m.nama,
+            jumlahPPL: m.count,
+            pplNames: m.pplList,
+            muatan: m.muatanSum,
+            progres: prog,
+            openDraft: opDr,
+            approved: app,
+            progresCount: m.progresCountSum,
+            openDraftCount: m.openDraftCountSum,
+            approvedCount: m.approvedCountSum
+          };
+        });
       } else {
         allLabels2 = ['Tidak ada PML cocok'];
-        allDataGrafik2 = [{ progres: 0, openDraft: 0, approved: 0 }];
+        allDataGrafik2 = [{ progres: 0, openDraft: 0, approved: 0, progresCount: 0, openDraftCount: 0, approvedCount: 0 }];
       }
 
       titleGrafik1 = `Hasil Pencarian PPL: "${monitoringSearchQuery}" (se-Kabupaten)`;
@@ -301,13 +331,17 @@ function renderMonitoringCharts(selectedOption) {
         allDataGrafik1 = matchedPPLs.map(p => ({
           nama: p.nama,
           pml: p.pml,
+          muatan: p.muatan || 0,
           progres: +(p.progres || p.submit || 0).toFixed(1),
           openDraft: +(p.openDraft || p.draft || 0).toFixed(1),
-          approved: +(p.approved || 0).toFixed(1)
+          approved: +(p.approved || 0).toFixed(1),
+          progresCount: p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100),
+          openDraftCount: p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100),
+          approvedCount: p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100)
         }));
       } else {
         allLabels1 = ['Tidak ada PPL cocok'];
-        allDataGrafik1 = [{ progres: 0, openDraft: 0, approved: 0 }];
+        allDataGrafik1 = [{ progres: 0, openDraft: 0, approved: 0, progresCount: 0, openDraftCount: 0, approvedCount: 0 }];
       }
 
       // PML dalam kecamatan
@@ -315,12 +349,27 @@ function renderMonitoringCharts(selectedOption) {
       pplList.forEach(p => {
         const pmlName = p.pml || 'Tidak Diketahui';
         if (!pmlMap[pmlName]) {
-          pmlMap[pmlName] = { nama: pmlName, pplList: [], progresSum: 0, openDraftSum: 0, approvedSum: 0, count: 0 };
+          pmlMap[pmlName] = { 
+            nama: pmlName, 
+            pplList: [], 
+            muatanSum: 0,
+            progresSum: 0, 
+            openDraftSum: 0, 
+            approvedSum: 0, 
+            progresCountSum: 0,
+            openDraftCountSum: 0,
+            approvedCountSum: 0,
+            count: 0 
+          };
         }
         pmlMap[pmlName].pplList.push(p.nama);
+        pmlMap[pmlName].muatanSum += (p.muatan || 0);
         pmlMap[pmlName].progresSum += +(p.progres || p.submit || 0);
         pmlMap[pmlName].openDraftSum += +(p.openDraft || p.draft || 0);
         pmlMap[pmlName].approvedSum += +(p.approved || 0);
+        pmlMap[pmlName].progresCountSum += (p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100));
+        pmlMap[pmlName].openDraftCountSum += (p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100));
+        pmlMap[pmlName].approvedCountSum += (p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100));
         pmlMap[pmlName].count++;
       });
       const pmlList = Object.values(pmlMap);
@@ -331,17 +380,27 @@ function renderMonitoringCharts(selectedOption) {
 
       if (matchedPMLs.length > 0) {
         allLabels2 = matchedPMLs.map(m => `${m.nama} (${m.count} PPL)`);
-        allDataGrafik2 = matchedPMLs.map(m => ({
-          nama: m.nama,
-          jumlahPPL: m.count,
-          pplNames: m.pplList,
-          progres: m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0,
-          openDraft: m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0,
-          approved: m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0
-        }));
+        allDataGrafik2 = matchedPMLs.map(m => {
+          const muatan = m.muatanSum || 1;
+          const prog = muatan > 0 ? +(m.progresCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0);
+          const opDr = muatan > 0 ? +(m.openDraftCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0);
+          const app = muatan > 0 ? +(m.approvedCountSum / muatan * 100).toFixed(1) : (m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0);
+          return {
+            nama: m.nama,
+            jumlahPPL: m.count,
+            pplNames: m.pplList,
+            muatan: m.muatanSum,
+            progres: prog,
+            openDraft: opDr,
+            approved: app,
+            progresCount: m.progresCountSum,
+            openDraftCount: m.openDraftCountSum,
+            approvedCount: m.approvedCountSum
+          };
+        });
       } else {
         allLabels2 = ['Tidak ada PML cocok'];
-        allDataGrafik2 = [{ progres: 0, openDraft: 0, approved: 0 }];
+        allDataGrafik2 = [{ progres: 0, openDraft: 0, approved: 0, progresCount: 0, openDraftCount: 0, approvedCount: 0 }];
       }
 
       titleGrafik1 = `Hasil Pencarian PPL: "${monitoringSearchQuery}" (Kec. ${selectedOption})`;
@@ -350,11 +409,22 @@ function renderMonitoringCharts(selectedOption) {
   } else {
     if (isKabupaten) {
       allLabels1 = POSE_DATA.progresKecamatan.map(k => k.nama);
-      allDataGrafik1 = POSE_DATA.progresKecamatan.map(k => ({
-        progres: +(k.progres || k.submit || 0).toFixed(1),
-        openDraft: +(k.openDraft || k.draft || 0).toFixed(1),
-        approved: +(k.approved || 0).toFixed(1)
-      }));
+      allDataGrafik1 = POSE_DATA.progresKecamatan.map(k => {
+        const kObj = POSE_DATA.petugasKecamatan[k.nama] || {};
+        const pCnt = k.progresCount !== undefined ? k.progresCount : (kObj.progresCount !== undefined ? kObj.progresCount : Math.round((k.muatan || 0) * (k.progres || 0) / 100));
+        const odCnt = k.openDraftCount !== undefined ? k.openDraftCount : (kObj.openDraftCount !== undefined ? kObj.openDraftCount : Math.round((k.muatan || 0) * (k.openDraft || 0) / 100));
+        const apCnt = k.approvedCount !== undefined ? k.approvedCount : (kObj.approvedCount !== undefined ? kObj.approvedCount : Math.round((k.muatan || 0) * (k.approved || 0) / 100));
+        return {
+          nama: k.nama,
+          muatan: k.muatan || kObj.muatan || 0,
+          progres: +(k.progres || k.submit || 0).toFixed(1),
+          openDraft: +(k.openDraft || k.draft || 0).toFixed(1),
+          approved: +(k.approved || 0).toFixed(1),
+          progresCount: pCnt,
+          openDraftCount: odCnt,
+          approvedCount: apCnt
+        };
+      });
 
       allLabels2 = POSE_DATA.progresKecamatan.map(k => k.nama);
       allDataGrafik2 = allDataGrafik1.map(d => ({...d}));
@@ -370,9 +440,13 @@ function renderMonitoringCharts(selectedOption) {
       allDataGrafik1 = pplList.map(p => ({
         nama: p.nama,
         pml: p.pml || '-',
+        muatan: p.muatan || 0,
         progres: +(p.progres || p.submit || 0).toFixed(1),
         openDraft: +(p.openDraft || p.draft || 0).toFixed(1),
-        approved: +(p.approved || 0).toFixed(1)
+        approved: +(p.approved || 0).toFixed(1),
+        progresCount: p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100),
+        openDraftCount: p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100),
+        approvedCount: p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100)
       }));
       
       // Grafik 2: Per PML - kelompokkan PPL di bawah PML masing-masing
@@ -380,24 +454,49 @@ function renderMonitoringCharts(selectedOption) {
       pplList.forEach(p => {
         const pmlName = p.pml || 'Tidak Diketahui';
         if (!pmlMap[pmlName]) {
-          pmlMap[pmlName] = { nama: pmlName, pplList: [], progresSum: 0, openDraftSum: 0, approvedSum: 0, count: 0 };
+          pmlMap[pmlName] = { 
+            nama: pmlName, 
+            pplList: [], 
+            muatan: 0,
+            progresSum: 0, 
+            openDraftSum: 0, 
+            approvedSum: 0,
+            progresCountSum: 0,
+            openDraftCountSum: 0,
+            approvedCountSum: 0,
+            count: 0 
+          };
         }
         pmlMap[pmlName].pplList.push(p.nama);
+        pmlMap[pmlName].muatan += (p.muatan || 0);
         pmlMap[pmlName].progresSum += +(p.progres || p.submit || 0);
         pmlMap[pmlName].openDraftSum += +(p.openDraft || p.draft || 0);
         pmlMap[pmlName].approvedSum += +(p.approved || 0);
+        pmlMap[pmlName].progresCountSum += (p.progresCount !== undefined ? p.progresCount : Math.round((p.muatan || 0) * (p.progres || 0) / 100));
+        pmlMap[pmlName].openDraftCountSum += (p.openDraftCount !== undefined ? p.openDraftCount : Math.round((p.muatan || 0) * (p.openDraft || 0) / 100));
+        pmlMap[pmlName].approvedCountSum += (p.approvedCount !== undefined ? p.approvedCount : Math.round((p.muatan || 0) * (p.approved || 0) / 100));
         pmlMap[pmlName].count++;
       });
       const pmlList = Object.values(pmlMap);
       allLabels2 = pmlList.map(m => `${m.nama} (${m.count} PPL)`);
-      allDataGrafik2 = pmlList.map(m => ({
-        nama: m.nama,
-        jumlahPPL: m.count,
-        pplNames: m.pplList,
-        progres: m.count > 0 ? +(m.progresSum / m.count).toFixed(1) : 0,
-        openDraft: m.count > 0 ? +(m.openDraftSum / m.count).toFixed(1) : 0,
-        approved: m.count > 0 ? +(m.approvedSum / m.count).toFixed(1) : 0
-      }));
+      allDataGrafik2 = pmlList.map(m => {
+        const muatan = m.muatan || 1;
+        const prog = Math.round((m.progresCountSum / muatan) * 1000) / 10;
+        const opDr = Math.round((m.openDraftCountSum / muatan) * 1000) / 10;
+        const app = Math.round((m.approvedCountSum / muatan) * 1000) / 10;
+        return {
+          nama: m.nama,
+          jumlahPPL: m.count,
+          pplNames: m.pplList,
+          muatan: m.muatan,
+          progres: prog,
+          openDraft: opDr,
+          approved: app,
+          progresCount: m.progresCountSum,
+          openDraftCount: m.openDraftCountSum,
+          approvedCount: m.approvedCountSum
+        };
+      });
 
       titleGrafik1 = `Progres Pendataan SE2026 Kec. ${selectedOption} (per PPL)`;
       titleGrafik2 = `Progres Pemeriksaan SE2026 Kec. ${selectedOption} (per PML)`;
@@ -423,19 +522,25 @@ function renderMonitoringCharts(selectedOption) {
     if (elSub2) elSub2.textContent = `Menampilkan ${isMonitoringExpanded ? allLabels2.length : Math.min(3, allLabels2.length)} dari ${allLabels2.length} data (${isKabupaten ? 'Kecamatan' : 'PML'})`;
   }
 
-  // Tampilkan 3 data by default (saat tidak search), semua jika expanded atau sedang mencari
+  // Slicing data
   const defaultCount = 3;
   const labels1 = (isSearching || isMonitoringExpanded) ? allLabels1 : allLabels1.slice(0, defaultCount);
   const rawList1 = (isSearching || isMonitoringExpanded) ? allDataGrafik1 : allDataGrafik1.slice(0, defaultCount);
   const seg1App   = rawList1.map(d => d.approved);
   const seg1Draft = rawList1.map(d => d.openDraft);
   const seg1Prog  = rawList1.map(d => d.progres);
+  const seg1AppCount   = rawList1.map(d => d.approvedCount !== undefined ? d.approvedCount : 0);
+  const seg1DraftCount = rawList1.map(d => d.openDraftCount !== undefined ? d.openDraftCount : 0);
+  const seg1ProgCount  = rawList1.map(d => d.progresCount !== undefined ? d.progresCount : 0);
 
   const labels2 = (isSearching || isMonitoringExpanded) ? allLabels2 : allLabels2.slice(0, defaultCount);
   const rawList2 = (isSearching || isMonitoringExpanded) ? allDataGrafik2 : allDataGrafik2.slice(0, defaultCount);
   const seg2App   = rawList2.map(d => d.approved);
   const seg2Draft = rawList2.map(d => d.openDraft);
   const seg2Prog  = rawList2.map(d => d.progres);
+  const seg2AppCount   = rawList2.map(d => d.approvedCount !== undefined ? d.approvedCount : 0);
+  const seg2DraftCount = rawList2.map(d => d.openDraftCount !== undefined ? d.openDraftCount : 0);
+  const seg2ProgCount  = rawList2.map(d => d.progresCount !== undefined ? d.progresCount : 0);
 
   // Sembunyikan atau tampilkan tombol toggle selengkapnya saat pencarian aktif
   const toggleWrapper = document.getElementById('btn-toggle-monitoring-view')?.parentElement;
@@ -472,14 +577,25 @@ function renderMonitoringCharts(selectedOption) {
     container2.style.minHeight = `${calcHeight2}px`;
   }
 
-  // Options grouped (bukan stacked), sumbu X tampil 0-100%, tooltip nilai asli
+  const fmt = n => (n !== undefined && n !== null) ? Number(n).toLocaleString('id-ID') : '0';
+
+  // Options grouped (bukan stacked), sumbu X tampil 0-100%, tooltip nilai asli + jumlah data
   const opts1 = buildResponsiveChartOptions(labels1, false, true);
   opts1.plugins.tooltip.callbacks.label = function(context) {
     const d = rawList1[context.dataIndex];
     if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
-    if (context.datasetIndex === 0) return ` % Progres (Kolom P): ${d.progres}%`;
-    if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
-    if (context.datasetIndex === 2) return ` % Approve (Kolom R): ${d.approved}%`;
+    if (context.datasetIndex === 0) {
+      const c = d.progresCount !== undefined ? d.progresCount : 0;
+      return ` Progres: ${d.progres}% (${fmt(c)})`;
+    }
+    if (context.datasetIndex === 1) {
+      const c = d.openDraftCount !== undefined ? d.openDraftCount : 0;
+      return ` Open + Draft + Rejected: ${d.openDraft}% (${fmt(c)})`;
+    }
+    if (context.datasetIndex === 2) {
+      const c = d.approvedCount !== undefined ? d.approvedCount : 0;
+      return ` Approve: ${d.approved}% (${fmt(c)})`;
+    }
     return ` ${context.dataset.label}: ${context.raw}%`;
   };
 
@@ -487,12 +603,27 @@ function renderMonitoringCharts(selectedOption) {
   opts2.plugins.tooltip.callbacks.label = function(context) {
     const d = rawList2[context.dataIndex];
     if (!d) return ` ${context.dataset.label}: ${context.raw}%`;
-    if (context.datasetIndex === 0) return ` % Progres (Kolom P): ${d.progres}%`;
-    if (context.datasetIndex === 1) return ` % Open+Draft (Kolom Q): ${d.openDraft}%`;
-    if (context.datasetIndex === 2) return ` % Approve (Kolom R): ${d.approved}%`;
-    // Untuk PML: tampilkan nama PPL di bawahnya
-    if (d.pplNames && d.pplNames.length > 0) return ` PPL: ${d.pplNames.join(', ')}`;
+    if (context.datasetIndex === 0) {
+      const c = d.progresCount !== undefined ? d.progresCount : 0;
+      return ` Progres: ${d.progres}% (${fmt(c)})`;
+    }
+    if (context.datasetIndex === 1) {
+      const c = d.openDraftCount !== undefined ? d.openDraftCount : 0;
+      return ` Open + Draft + Rejected: ${d.openDraft}% (${fmt(c)})`;
+    }
+    if (context.datasetIndex === 2) {
+      const c = d.approvedCount !== undefined ? d.approvedCount : 0;
+      return ` Approve: ${d.approved}% (${fmt(c)})`;
+    }
     return ` ${context.dataset.label}: ${context.raw}%`;
+  };
+  opts2.plugins.tooltip.callbacks.afterBody = function(contexts) {
+    if (!contexts.length) return '';
+    const d = rawList2[contexts[0].dataIndex];
+    if (d && d.pplNames && d.pplNames.length > 0) {
+      return `PPL (${d.pplNames.length}): ${d.pplNames.join(', ')}`;
+    }
+    return '';
   };
 
   // Grafik 1: Progres Pendataan (PPL) - Grouped
@@ -506,8 +637,9 @@ function renderMonitoringCharts(selectedOption) {
       labels: labels1,
       datasets: [
         {
-          label: '% Progres (Kolom P)',
+          label: '% Progres',
           data: seg1Prog,
+          counts: seg1ProgCount,
           backgroundColor: CHART_COLORS.submitBlue,
           borderColor: CHART_COLORS.submitBlueBorder,
           borderWidth: 1.5,
@@ -516,8 +648,9 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Open+Draft (Kolom Q)',
+          label: '% Open+Draft+Rejected',
           data: seg1Draft,
+          counts: seg1DraftCount,
           backgroundColor: 'rgba(245, 158, 11, 0.88)',
           borderColor: '#D97706',
           borderWidth: 1.5,
@@ -526,8 +659,9 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Approve (Kolom R)',
+          label: '% Approve',
           data: seg1App,
+          counts: seg1AppCount,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
           borderWidth: 1.5,
@@ -552,8 +686,9 @@ function renderMonitoringCharts(selectedOption) {
       labels: labels2,
       datasets: [
         {
-          label: '% Progres (Kolom P)',
+          label: '% Progres',
           data: seg2Prog,
+          counts: seg2ProgCount,
           backgroundColor: CHART_COLORS.submitBlue,
           borderColor: CHART_COLORS.submitBlueBorder,
           borderWidth: 1.5,
@@ -562,8 +697,9 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Open+Draft (Kolom Q)',
+          label: '% Open+Draft+Rejected',
           data: seg2Draft,
+          counts: seg2DraftCount,
           backgroundColor: 'rgba(245, 158, 11, 0.88)',
           borderColor: '#D97706',
           borderWidth: 1.5,
@@ -572,8 +708,9 @@ function renderMonitoringCharts(selectedOption) {
           categoryPercentage: 0.85
         },
         {
-          label: '% Approve (Kolom R)',
+          label: '% Approve',
           data: seg2App,
+          counts: seg2AppCount,
           backgroundColor: CHART_COLORS.approvedGreen,
           borderColor: CHART_COLORS.approvedGreenBorder,
           borderWidth: 1.5,
